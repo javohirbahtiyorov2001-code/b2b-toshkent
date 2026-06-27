@@ -206,7 +206,8 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;min-he
   <div class="main">
     <div class="tab-bar">
       <div class="tab active" onclick="switchTab('issues')">⚠ Проблемы (<span id="issueCount">0</span>)</div>
-      <div class="tab" onclick="switchTab('design')">🎨 Дизайн сайтов</div>
+      <div class="tab" onclick="switchTab('sites-check')">🌐 Сайты (<span id="sitesTabCount">50</span>)</div>
+      <div class="tab" onclick="switchTab('design')">🎨 Дизайн</div>
       <div class="tab" onclick="switchTab('modules')">📦 Модули</div>
       <div class="tab" onclick="switchTab('log')">📋 Лог</div>
     </div>
@@ -225,6 +226,18 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;min-he
     </div>
 
     <!-- DESIGN MANAGER PANE -->
+    <div class="pane" id="pane-sites-check">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px">
+        <div class="section-title" style="margin-bottom:0;flex:1">Проверка сгенерированных сайтов</div>
+        <button class="btn btn-primary" id="checkSitesBtn" onclick="runSiteCheck()">▶ Проверить все</button>
+      </div>
+      <div id="siteCheckStats" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin-bottom:16px"></div>
+      <div style="background:var(--bg1);border:1px solid var(--border);border-radius:10px;padding:12px;font-family:'Fira Code',monospace;font-size:11px;max-height:160px;overflow-y:auto;margin-bottom:14px" id="siteCheckLog">
+        <div style="color:var(--muted)">Нажмите "Проверить все" чтобы начать проверку...</div>
+      </div>
+      <div id="siteCheckResults" style="display:flex;flex-direction:column;gap:6px"></div>
+    </div>
+
     <div class="pane" id="pane-design">
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-bottom:24px" id="designGrid"></div>
       <div style="background:var(--bg1);border:1px solid var(--border);border-radius:12px;padding:18px">
@@ -282,12 +295,156 @@ function addLog(type, msg){
 
 function switchTab(id){
   document.querySelectorAll('.tab').forEach((t,i)=>{
-    const ids=['issues','design','modules','log'];
+    const ids=['issues','sites-check','design','modules','log'];
     t.classList.toggle('active', ids[i]===id);
   });
   document.querySelectorAll('.pane').forEach(p=>p.classList.remove('active'));
   document.getElementById('pane-'+id).classList.add('active');
   if(id==='design') renderDesignGrid();
+}
+
+// ── SITE HEALTH CHECKER ──────────────────────────────────────────────────
+let siteCheckRunning = false;
+
+async function runSiteCheck(){
+  if(siteCheckRunning) return;
+  siteCheckRunning = true;
+
+  const btn = document.getElementById('checkSitesBtn');
+  btn.textContent = '⏳ Проверка...';
+  btn.disabled = true;
+
+  const logEl = document.getElementById('siteCheckLog');
+  const resultsEl = document.getElementById('siteCheckResults');
+  const statsEl = document.getElementById('siteCheckStats');
+  logEl.innerHTML = '';
+  resultsEl.innerHTML = '';
+  statsEl.innerHTML = '';
+
+  function slog(msg, color='var(--muted)'){
+    const t = new Date().toTimeString().slice(0,8);
+    logEl.innerHTML += `<div style="color:${color};padding:1px 0">[${t}] ${msg}</div>`;
+    logEl.scrollTop = logEl.scrollHeight;
+  }
+
+  // Load results.json to get the list of expected sites
+  slog('Загрузка списка сайтов из results.json...', 'var(--blue)');
+  let siteList = [];
+
+  const res = await fetchJSON('../pipeline/results.json');
+  if(Array.isArray(res) && res.length){
+    siteList = res.map(r=>({name:r.name, slug:r.slug, niche:r.niche, id:r.id}));
+    slog(`✓ Найдено ${siteList.length} сайтов в results.json`, 'var(--green)');
+  } else {
+    // fallback: load leads and use slugs
+    slog('results.json не найден — загружаем slug из leads...', 'var(--yellow)');
+    const leadFiles = ['../pipeline/seed_leads.json','../pipeline/dental_clinic_leads.json','../pipeline/new_leads_100.json'];
+    const lr = await Promise.allSettled(leadFiles.map(f=>fetchJSON(f)));
+    const all = lr.flatMap(r=>r.status==='fulfilled'&&Array.isArray(r.value)?r.value:[]);
+    siteList = all.filter(l=>l.slug).map(l=>({name:l.name, slug:l.slug, niche:l.niche, id:l.id}));
+    slog(`Fallback: ${siteList.length} slug из leads`, 'var(--yellow)');
+  }
+
+  document.getElementById('sitesTabCount').textContent = siteList.length;
+
+  slog(`Начинаю проверку ${siteList.length} сайтов...`, 'var(--blue)');
+
+  const ok = [], broken = [], missing = [];
+  const NICHE_EMOJI={Restaurant:'🍽',Fitness:'💪',Beauty:'💅',Auto:'🚗',Hotel:'🏨',Construction:'🏗',Dentistry:'🦷',Clinic:'🏥'};
+
+  // Check in batches of 5 for speed
+  const BATCH = 5;
+  for(let i=0; i<siteList.length; i+=BATCH){
+    const batch = siteList.slice(i, i+BATCH);
+    await Promise.all(batch.map(async site=>{
+      const url = `/generated_sites/${site.slug}.html`;
+      try{
+        const r = await fetch(url, {method:'HEAD'});
+        if(r.ok){
+          ok.push(site);
+          if(ok.length<=3 || ok.length%10===0) slog(`  ✓ ${site.name}`, 'var(--green)');
+        } else if(r.status===404){
+          missing.push({...site, status:404, url});
+          slog(`  ✗ 404 — ${site.name} (${site.slug}.html)`, 'var(--red)');
+        } else {
+          broken.push({...site, status:r.status, url});
+          slog(`  ⚠ ${r.status} — ${site.name}`, 'var(--yellow)');
+        }
+      } catch(e){
+        broken.push({...site, status:'ERR', url});
+        slog(`  ✗ Ошибка — ${site.name}: ${e.message}`, 'var(--red)');
+      }
+    }));
+    // small progress update
+    const done = Math.min(i+BATCH, siteList.length);
+    slog(`Проверено: ${done}/${siteList.length}`, '#333');
+  }
+
+  const allBad = [...missing, ...broken];
+  slog(`═══ Готово: ✓ ${ok.length} работают · ✗ ${allBad.length} проблем ═══`,
+    allBad.length===0?'var(--green)':'var(--red)');
+
+  // Stats bar
+  statsEl.innerHTML = `
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px;text-align:center">
+      <div style="font-size:22px;font-weight:800;color:var(--green)">${ok.length}</div>
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em">Работают</div>
+    </div>
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px;text-align:center">
+      <div style="font-size:22px;font-weight:800;color:var(--red)">${missing.length}</div>
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em">Не найдены (404)</div>
+    </div>
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px;text-align:center">
+      <div style="font-size:22px;font-weight:800;color:var(--yellow)">${broken.length}</div>
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em">Ошибка загрузки</div>
+    </div>
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px;text-align:center">
+      <div style="font-size:22px;font-weight:800;color:${ok.length===siteList.length?'var(--green)':'var(--yellow)'}">
+        ${siteList.length?Math.round(ok.length/siteList.length*100):0}%
+      </div>
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em">Доступность</div>
+    </div>`;
+
+  // Results list — show broken ones first
+  if(allBad.length === 0){
+    resultsEl.innerHTML = `<div style="text-align:center;padding:32px;color:var(--green);font-size:14px">✅ Все ${ok.length} сайтов открываются нормально!</div>`;
+  } else {
+    resultsEl.innerHTML = `
+      <div class="section-title" style="margin-bottom:10px">⚠ Проблемные сайты (${allBad.length})</div>
+      ${allBad.map(s=>`
+        <div style="background:var(--bg1);border:1px solid ${s.status===404?'rgba(255,23,68,.25)':'rgba(255,214,0,.2)'};border-radius:10px;padding:12px 14px;display:grid;grid-template-columns:auto 1fr auto auto;gap:10px;align-items:center">
+          <div style="font-size:20px">${NICHE_EMOJI[s.niche]||'🏢'}</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:#fff">${s.name}</div>
+            <div style="font-size:11px;color:var(--muted);font-family:'Fira Code',monospace;margin-top:2px">${s.url}</div>
+          </div>
+          <span style="font-size:11px;padding:3px 9px;border-radius:5px;font-family:'Fira Code',monospace;background:${s.status===404?'var(--red-dim)':'var(--yellow-dim)'};color:${s.status===404?'var(--red)':'var(--yellow)'}">${s.status}</span>
+          <button onclick="regenerateSite('${s.slug}','${s.name}')" style="background:none;border:1px solid var(--border2);color:var(--muted);padding:4px 10px;border-radius:6px;font-size:11px;cursor:pointer;font-family:'Syne',sans-serif;transition:.2s" onmouseover="this.style.borderColor='var(--green)';this.style.color='var(--green)'" onmouseout="this.style.borderColor='var(--border2)';this.style.color='var(--muted)'">🔁 Регенерировать</button>
+        </div>`).join('')}
+      <div style="margin-top:16px;background:var(--bg1);border:1px solid var(--border);border-radius:10px;padding:14px">
+        <div style="font-size:11px;color:var(--muted);margin-bottom:8px;font-weight:700;text-transform:uppercase;letter-spacing:.06em">Команда для восстановления</div>
+        <code style="font-size:11px;color:var(--blue);font-family:'Fira Code',monospace">python3 builder/generate_sites.py</code>
+        <div style="font-size:10px;color:var(--muted);margin-top:6px">Перегенерирует только отсутствующие сайты (пропускает существующие)</div>
+      </div>`;
+
+    // Also flag in issues
+    addIssue('critical','W001',`${allBad.length} сайтов не открываются`,
+      `${missing.length} файлов не найдено (404), ${broken.length} с ошибкой загрузки. Запустите: python3 builder/generate_sites.py`,
+      'Сгенерированные сайты',
+      allBad.slice(0,5).map(s=>s.name).join(', ')+(allBad.length>5?'...':''),
+      null,null,'🌐');
+    renderIssues();
+  }
+
+  btn.textContent = '🔄 Перепроверить';
+  btn.disabled = false;
+  siteCheckRunning = false;
+  showToast(`Проверка завершена: ${ok.length}✓ ${allBad.length}✗`);
+}
+
+function regenerateSite(slug, name){
+  showToast(`Запустите: python3 builder/generate_sites.py`);
+  navigator.clipboard.writeText(`python3 builder/generate_sites.py`).catch(()=>{});
 }
 
 function filterIssues(type, el){
