@@ -9,3 +9,6 @@ crm/nextjs/.next/
 crm/nextjs/node_modules/
 **/.next/
 **/node_modules/
+
+# Local Netlify folder
+.netlify

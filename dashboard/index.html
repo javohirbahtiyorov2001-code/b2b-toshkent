@@ -432,7 +432,47 @@ function closeModal(id){document.getElementById('modal-'+id).classList.remove('s
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modal-overlay.show').forEach(m=>m.classList.remove('show'))});
 function copyCmd(){navigator.clipboard.writeText('export NETLIFY_TOKEN="your_token_here"\ncd /Users/macbookpro/Applications/b2b-automation\npython3 pipeline/run_pipeline.py')}
 
-// ── ALL 50 LEADS
+// ── LOAD ALL LEADS DYNAMICALLY
+async function loadAllLeads() {
+  const files = [
+    '/pipeline/seed_leads.json',
+    '/pipeline/dental_clinic_leads.json',
+    '/pipeline/new_leads_100.json'
+  ];
+  const results = await Promise.allSettled(files.map(f => fetch(f).then(r => r.json())));
+  const all = results.flatMap(r => r.status === 'fulfilled' ? r.value : []);
+
+  // Update KPI stats
+  const total = all.length;
+  document.querySelectorAll('.big').forEach((el, i) => {
+    if (i === 0) el.textContent = total;
+  });
+  document.querySelectorAll('.sub').forEach(el => {
+    if (el.textContent.includes('UZS (50')) el.textContent = `UZS (${total} × 5M)`;
+    if (el.textContent.includes('50 ×')) el.textContent = `UZS (${total} × 5M)`;
+  });
+  // Update all hardcoded "50" stat values in KPI cards
+  const kpiCards = document.querySelectorAll('.c .big');
+  if (kpiCards[0]) kpiCards[0].textContent = total;
+
+  // Update pipeline numbers
+  document.querySelectorAll('.pn').forEach(el => {
+    if (el.textContent === '50') el.textContent = total;
+  });
+
+  // Normalize leads for display
+  return all.map((l, i) => ({
+    id: l.id || i + 1,
+    name: l.name,
+    niche: l.niche,
+    slug: l.slug || l.name.toLowerCase().replace(/\s+/g, '-'),
+    phone: l.phone || '',
+    c1: l.colors?.primary || '#1a1a1a',
+    c2: l.colors?.accent || '#00e5ff'
+  }));
+}
+
+// ── ALL LEADS (legacy placeholder for immediate render, replaced async)
 const LEADS=[
   {id:1,name:"Baraka Restoran",niche:"Restaurant",slug:"baraka-restoran",phone:"+998901234501",c1:"#1a0a00",c2:"#e63946"},
   {id:2,name:"Shifo Tibbiyot Markazi",niche:"Clinic",slug:"shifo-tibbiyot",phone:"+998901234502",c1:"#0a2342",c2:"#00b4d8"},
@@ -486,40 +526,66 @@ const LEADS=[
   {id:50,name:"Ilhom Foto Studio",niche:"Photography",slug:"ilhom-foto",phone:"+998901234550",c1:"#0a0a0a",c2:"#e040fb"},
 ];
 
-// ── TABLE (first 10)
+// ── TABLE + GRID (populated after async load)
 const tbody=document.getElementById('tbody');
-LEADS.slice(0,10).forEach(l=>{
-  const sc=l.id<=3?'#ef4444':l.id<=6?'#f59e0b':'#64748b';
-  const st=l.id<=3?'Hot':l.id<=6?'Warm':'Cold';
-  tbody.innerHTML+=`<tr>
-    <td style="color:var(--mu);font-family:'Fira Code',monospace">${String(l.id).padStart(2,'0')}</td>
-    <td style="font-weight:600;color:#fff">${l.name}</td>
-    <td style="color:var(--mu);font-size:.72rem">${l.niche}</td>
-    <td><span style="color:${sc};font-size:.68rem;font-weight:700"><span class="sdot" style="background:${sc}"></span>${st}</span></td>
-    <td><a href="../generated_sites/${l.slug}.html" target="_blank" style="color:var(--bl);font-size:.68rem;font-family:'Fira Code',monospace;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='var(--bl)'">→ open</a></td>
-  </tr>`;
-});
-
-// ── SITES GRID (all 50)
 const grid=document.getElementById('grid');
-LEADS.forEach(l=>{
-  const card=document.createElement('div');
-  card.className='sc';
-  card.innerHTML=`
-    <div class="sth" style="background:linear-gradient(135deg,${l.c1},${l.c2}55)">
-      <div class="sn">${String(l.id).padStart(2,'0')}</div>
-      <span class="snb">${l.niche}</span>
-    </div>
-    <div class="si">
-      <div class="siname">${l.name}</div>
-      <div class="siph">${l.phone}</div>
-      <div class="sact">
-        <button class="sab" onclick="event.stopPropagation();window.open('../generated_sites/${l.slug}.html','_blank')">🌐 Sayt</button>
-        <button class="sab wa" onclick="event.stopPropagation();window.open('https://wa.me/${l.phone.replace(/\D/g,'')}','_blank')">💬 WA</button>
+
+function renderTable(leads) {
+  tbody.innerHTML = '';
+  leads.slice(0,10).forEach((l,i)=>{
+    const sc=i<3?'#ef4444':i<6?'#f59e0b':'#64748b';
+    const st=i<3?'Hot':i<6?'Warm':'Cold';
+    tbody.innerHTML+=`<tr>
+      <td style="color:var(--mu);font-family:'Fira Code',monospace">${String(l.id).padStart(3,'0')}</td>
+      <td style="font-weight:600;color:#fff">${l.name}</td>
+      <td style="color:var(--mu);font-size:.72rem">${l.niche}</td>
+      <td><span style="color:${sc};font-size:.68rem;font-weight:700"><span class="sdot" style="background:${sc}"></span>${st}</span></td>
+      <td><a href="../generated_sites/${l.slug}.html" target="_blank" style="color:var(--bl);font-size:.68rem;font-family:'Fira Code',monospace;text-decoration:none" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='var(--bl)'">→ open</a></td>
+    </tr>`;
+  });
+}
+
+function renderGrid(leads) {
+  grid.innerHTML = '';
+  leads.forEach(l=>{
+    const card=document.createElement('div');
+    card.className='sc';
+    card.innerHTML=`
+      <div class="sth" style="background:linear-gradient(135deg,${l.c1},${l.c2}55)">
+        <div class="sn">${String(l.id).padStart(3,'0')}</div>
+        <span class="snb">${l.niche}</span>
       </div>
-    </div>`;
-  card.addEventListener('click',()=>openSiteModal(l));
-  grid.appendChild(card);
+      <div class="si">
+        <div class="siname">${l.name}</div>
+        <div class="siph">${l.phone}</div>
+        <div class="sact">
+          <button class="sab" onclick="event.stopPropagation();window.open('../generated_sites/${l.slug}.html','_blank')">🌐 Sayt</button>
+          <button class="sab wa" onclick="event.stopPropagation();window.open('https://wa.me/${l.phone.replace(/\D/g,'')}','_blank')">💬 WA</button>
+        </div>
+      </div>`;
+    card.addEventListener('click',()=>openSiteModal(l));
+    grid.appendChild(card);
+  });
+}
+
+// Render with hardcoded leads immediately, then replace with real data
+renderTable(LEADS); renderGrid(LEADS);
+
+loadAllLeads().then(leads => {
+  renderTable(leads);
+  renderGrid(leads);
+  // Update all KPI big numbers
+  const bigs = document.querySelectorAll('.c .big');
+  const total = leads.length;
+  const noSite = leads.filter(l => !l.has_website).length;
+  if (bigs[0]) bigs[0].textContent = total;
+  if (bigs[1]) bigs[1].textContent = leads.filter(l => l.slug).length;
+  // Update pipeline numbers
+  document.querySelectorAll('.pn').forEach(el => { if(el.textContent.trim()==='50') el.textContent=total; });
+  // Update activity feed text
+  document.querySelectorAll('.ftx').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/50 ta leed|50 ta sayt|50 QR kod|50 leed|— 50 leed/g, m => m.replace('50', total));
+  });
 });
 
 // ── SITE MODAL
