@@ -740,18 +740,28 @@ def generate_site(lead):
 
 def main():
     import sys
-    files = [
-        ROOT / 'pipeline' / 'dental_clinic_leads.json',
-        ROOT / 'pipeline' / 'new_leads_100.json',
-        ROOT / 'pipeline' / 'seed_leads.json',
-    ]
+    use_real = '--real' in sys.argv
+
+    if use_real:
+        files = [ROOT / 'pipeline' / 'real_leads.json']
+        print("📂 Mode: REAL leads from 2GIS")
+    else:
+        files = [
+            ROOT / 'pipeline' / 'dental_clinic_leads.json',
+            ROOT / 'pipeline' / 'new_leads_100.json',
+            ROOT / 'pipeline' / 'seed_leads.json',
+        ]
+
     leads = []
     for f in files:
         if f.exists():
             leads.extend(json.load(open(f, encoding='utf-8')))
+        else:
+            print(f"⚠ Not found: {f}")
 
-    if len(sys.argv) > 1:
-        leads = [l for l in leads if l.get('niche','').lower() == sys.argv[1].lower()]
+    niche_filter = next((a for a in sys.argv[1:] if not a.startswith('-')), None)
+    if niche_filter:
+        leads = [l for l in leads if l.get('niche','').lower() == niche_filter.lower()]
 
     generated, skipped = 0, 0
     niches = {}
