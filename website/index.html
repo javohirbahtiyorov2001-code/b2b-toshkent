@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEXTSITE — Сайт за 3 дня. Клиенты — навсегда.</title>
+<title>SmartDev.uz — Сайт за 3 дня. Клиенты — навсегда.</title>
 <meta name="description" content="Профессиональные сайты для бизнеса Ташкента. Запуск за 3 дня. Цена: 5 000 000 сум. 50+ сайтов сделано.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -41,10 +41,11 @@ strong.c{color:var(--cyan)}
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 0;transition:.3s;border-bottom:1px solid transparent}
 nav.scrolled{background:rgba(0,0,0,.92);backdrop-filter:blur(20px);border-color:var(--border)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.logo-mark{width:36px;height:36px;border-radius:8px;background:var(--cyan);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:14px;font-weight:900;color:#000}
-.logo-text{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;color:var(--white)}
-.logo-text span{color:var(--cyan)}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-mark{width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-text-block{display:flex;flex-direction:column;gap:1px}
+.logo-text{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--white);line-height:1;letter-spacing:-0.5px}
+.logo-sub{font-size:8px;color:#444;letter-spacing:.18em;font-family:'Inter',sans-serif;text-transform:uppercase}
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
 .nav-links a{color:var(--white70);font-size:14px;font-weight:500;text-decoration:none;transition:.2s}
 .nav-links a:hover{color:var(--white)}
@@ -224,8 +225,19 @@ footer{background:var(--bg1);border-top:1px solid var(--border);padding:48px 0 3
   <div class="container">
     <div class="nav-inner">
       <a href="#" class="logo">
-        <div class="logo-mark">NS</div>
-        <span class="logo-text">NEXT<span>SITE</span></span>
+        <div class="logo-mark">
+          <svg width="40" height="40" viewBox="0 0 40 40">
+            <circle cx="20" cy="20" r="14" fill="none" stroke="#00e5ff" stroke-width="1.2"/>
+            <circle cx="20" cy="20" r="4.5" fill="#00e5ff"/>
+            <line x1="30" y1="11" x2="34" y2="7" stroke="#00e5ff" stroke-width="1" opacity="0.5"/>
+            <line x1="34" y1="20" x2="38" y2="20" stroke="#00e5ff" stroke-width="1" opacity="0.5"/>
+            <line x1="30" y1="29" x2="34" y2="33" stroke="#00e5ff" stroke-width="1" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="logo-text-block">
+          <span class="logo-text">SmartDev</span>
+          <span class="logo-sub">Digital Agency · UZ</span>
+        </div>
       </a>
       <ul class="nav-links">
         <li><a href="#services">Услуги</a></li>
@@ -245,7 +257,7 @@ footer{background:var(--bg1);border-top:1px solid var(--border);padding:48px 0 3
 <!-- ─── HERO ─── -->
 <section class="hero">
   <div class="hero-bg">
-    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_37fWuWE8Y80V9jcpZM0iw0pzTmC/hf_20260626_225430_dd668bbf-8ddf-483d-9455-43f8dba1a17e_min.webp" alt="NEXTSITE hero" loading="eager">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_37fWuWE8Y80V9jcpZM0iw0pzTmC/hf_20260626_225430_dd668bbf-8ddf-483d-9455-43f8dba1a17e_min.webp" alt="SmartDev.uz hero" loading="eager">
   </div>
   <div class="hero-grid"></div>
   <div class="container">
@@ -763,7 +775,21 @@ footer{background:var(--bg1);border-top:1px solid var(--border);padding:48px 0 3
   <div class="container">
     <div class="footer-inner">
       <div class="footer-brand">
-        <a href="#" class="logo"><div class="logo-mark">NS</div><span class="logo-text">NEXT<span>SITE</span></span></a>
+        <a href="#" class="logo">
+          <div class="logo-mark">
+            <svg width="40" height="40" viewBox="0 0 40 40">
+              <circle cx="20" cy="20" r="14" fill="none" stroke="#00e5ff" stroke-width="1.2"/>
+              <circle cx="20" cy="20" r="4.5" fill="#00e5ff"/>
+              <line x1="30" y1="11" x2="34" y2="7" stroke="#00e5ff" stroke-width="1" opacity="0.5"/>
+              <line x1="34" y1="20" x2="38" y2="20" stroke="#00e5ff" stroke-width="1" opacity="0.5"/>
+              <line x1="30" y1="29" x2="34" y2="33" stroke="#00e5ff" stroke-width="1" opacity="0.5"/>
+            </svg>
+          </div>
+          <div class="logo-text-block">
+            <span class="logo-text">SmartDev</span>
+            <span class="logo-sub">Digital Agency · UZ</span>
+          </div>
+        </a>
         <p>Делаем профессиональные сайты для бизнеса Ташкента. Быстро, красиво, с результатом. С 2024 года помогаем местному бизнесу расти онлайн.</p>
       </div>
       <div class="footer-col">
@@ -796,7 +822,7 @@ footer{background:var(--bg1);border-top:1px solid var(--border);padding:48px 0 3
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2024–2025 NEXTSITE. Все права защищены.</span>
+      <span>© 2024–2025 SmartDev.uz. Все права защищены.</span>
       <span>Сделано в <strong style="color:var(--cyan)">Ташкенте</strong> 🇺🇿</span>
     </div>
   </div>
