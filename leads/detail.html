@@ -131,6 +131,43 @@ nav{display:flex;align-items:center;gap:12px;padding:14px 28px;border-bottom:1px
 .imp-med{background:rgba(255,109,0,.1);color:var(--or)}
 .imp-low{background:rgba(100,116,139,.1);color:#94a3b8}
 
+/* CRM PANEL */
+.crm-hero{background:var(--c);border:1px solid var(--b);border-radius:14px;padding:24px;margin-bottom:16px;display:flex;align-items:flex-start;gap:20px}
+.crm-icon{font-size:40px;width:68px;height:68px;background:#0a0a0a;border:1px solid var(--b);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.crm-hero-text h2{font-size:20px;font-weight:700;color:#fff;margin-bottom:6px}
+.crm-hero-text p{font-size:13px;color:var(--mu);line-height:1.6}
+.crm-tag{display:inline-block;font-size:10px;padding:3px 9px;border-radius:10px;font-weight:600;margin-top:8px;margin-right:4px}
+.tag-cy{background:rgba(0,229,255,.1);color:var(--cy);border:1px solid rgba(0,229,255,.2)}
+.tag-gn{background:rgba(0,200,83,.1);color:var(--gn);border:1px solid rgba(0,200,83,.2)}
+.tag-vi{background:rgba(124,58,237,.1);color:#a78bfa;border:1px solid rgba(124,58,237,.2)}
+.tag-or{background:rgba(255,109,0,.1);color:var(--or);border:1px solid rgba(255,109,0,.2)}
+.crm-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+@media(max-width:700px){.crm-grid{grid-template-columns:1fr}}
+.crm-card{background:var(--c);border:1px solid var(--b);border-radius:12px;padding:18px}
+.crm-card h3{font-size:12px;color:var(--mu);text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+.crm-feature{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}
+.crm-feature:last-child{margin-bottom:0}
+.cf-icon{font-size:18px;width:32px;height:32px;background:#0a0a0a;border:1px solid var(--b);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cf-text .cf-name{font-size:13px;font-weight:600;color:#fff}
+.cf-text .cf-desc{font-size:11px;color:var(--mu);margin-top:2px;line-height:1.5}
+.crm-pricing{background:var(--c);border:1px solid var(--b);border-radius:12px;padding:18px;margin-bottom:16px}
+.price-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #0f0f0f}
+.price-row:last-child{border-bottom:none}
+.price-name{font-size:13px;color:var(--tx)}
+.price-val{font-size:13px;font-weight:700;color:var(--cy)}
+.crm-pitch-box{background:var(--c);border:1px solid var(--b);border-radius:12px;padding:18px}
+.crm-pitch-text{background:#0a0a0a;border:1px solid var(--b);border-radius:10px;padding:14px;font-size:13px;line-height:1.7;color:var(--tx);white-space:pre-wrap;margin:10px 0}
+.crm-modules{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-bottom:16px}
+.crm-module{background:var(--c);border:1px solid var(--b);border-radius:10px;padding:12px 14px;cursor:pointer;transition:.2s;user-select:none}
+.crm-module:hover{border-color:#2a2a2a}
+.crm-module.sel{border-color:var(--cy);background:rgba(0,229,255,.06)}
+.crm-module .m-icon{font-size:20px;margin-bottom:6px}
+.crm-module .m-name{font-size:12px;font-weight:600;color:#fff}
+.crm-module .m-desc{font-size:10px;color:var(--mu);margin-top:2px}
+.crm-total{background:#0a0a0a;border:1px solid var(--b);border-radius:10px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
+.crm-total .label{font-size:12px;color:var(--mu)}
+.crm-total .amount{font-size:20px;font-weight:700;color:var(--cy)}
+
 /* NOTES PANEL */
 .notes-area{width:100%;min-height:200px;background:var(--c);border:1px solid var(--b);border-radius:12px;padding:16px;color:var(--tx);font-size:14px;line-height:1.7;resize:vertical;outline:none;font-family:inherit;transition:.2s}
 .notes-area:focus{border-color:var(--cy)}
@@ -186,6 +223,7 @@ nav{display:flex;align-items:center;gap:12px;padding:14px 28px;border-bottom:1px
   <div class="tab active" onclick="switchTab('info')">📋 Ma'lumot</div>
   <div class="tab" onclick="switchTab('website')">🌐 Sayt</div>
   <div class="tab" onclick="switchTab('pitches')">💬 Pitchlar</div>
+  <div class="tab" onclick="switchTab('crm')">📊 CRM Yechim</div>
   <div class="tab" onclick="switchTab('audit')">🔍 Audit</div>
   <div class="tab" onclick="switchTab('notes')">📝 Izohlar</div>
 </div>
@@ -318,6 +356,11 @@ nav{display:flex;align-items:center;gap:12px;padding:14px 28px;border-bottom:1px
       <div style="font-size:12px;color:var(--mu);margin-bottom:8px">💡 Taklif</div>
       <div style="font-size:13px;color:var(--tx);line-height:1.6" id="auditTip">Auditni boshlash uchun chap tomondan belgilang</div>
     </div>
+  </div>
+
+  <!-- CRM -->
+  <div class="panel" id="panel-crm">
+    <div id="crmContent"></div>
   </div>
 
   <!-- NOTES -->
@@ -694,15 +737,297 @@ function renderTimeline(events){
     </div>`).join('');
 }
 
+// ── CRM
+const CRM_CONFIGS={
+  Restaurant:{
+    icon:'🍽',title:'Restoran CRM',subtitle:'Stol bron, buyurtma boshqaruvi, mijozlar bazasi',
+    tags:['Stol bron','Yetkazib berish','Sadoqat dasturi'],
+    features:[
+      {icon:'📅',name:'Stol bronlash',desc:'Online va telefon bron, avtomatik tasdiqlash SMS'},
+      {icon:'📦',name:'Buyurtma kuzatuvi',desc:'Zal, yetkazib berish va olib ketish buyurtmalari'},
+      {icon:'⭐',name:'Mijozlar sadoqati',desc:'Bonus ballar, chegirmalar, tug\'ilgan kun aloqasi'},
+      {icon:'📊',name:'Menu analitikasi',desc:'Eng ko\'p buyurilgan taomlar, daromad hisoboti'},
+      {icon:'💬',name:'WhatsApp bot',desc:'Avtomatik menyu, bron qabul, buyurtma holati'},
+      {icon:'👨‍🍳',name:'Oshpaz boshqaruvi',desc:'Smenalar, buyurtmalar taqsimoti, KPI'},
+    ],
+    modules:[
+      {icon:'📅',name:'Bron tizimi',price:1500000},
+      {icon:'📦',name:'Buyurtma CRM',price:2000000},
+      {icon:'⭐',name:'Loyallik dasturi',price:1200000},
+      {icon:'💬',name:'WhatsApp bot',price:1800000},
+      {icon:'📊',name:'Analitika',price:800000},
+      {icon:'📱',name:'Mobil app',price:3500000},
+    ],
+    pitch:`Assalomu alaykum! 👋\n\nSizning restoran biznesingiz uchun maxsus CRM tizimi taklif qilyapmiz:\n\n📅 Online stol bronlash — mijozlar 24/7 bron qilishi mumkin\n📦 Buyurtmalar boshqaruvi — zal, yetkazib berish va olib ketish\n⭐ Sadoqat dasturi — bonus ballar, doimiy mijozlar uchun chegirmalar\n💬 WhatsApp bot — avtomatik menyu va buyurtma qabul\n\nNatija: Buyurtmalar +40%, Qaytib keluvchi mijozlar +60%\n\nBepul demo uchun bog'laning! 🚀`
+  },
+  Fitness:{
+    icon:'💪',title:'Fitnes CRM',subtitle:'A\'zolik, mashg\'ulot jadvali, murabbiy boshqaruvi',
+    tags:['A\'zolik','Jadval','To\'lovlar'],
+    features:[
+      {icon:'🎫',name:'A\'zolik boshqaruvi',desc:'Oylik, choraklik, yillik paketlar, avtoto\'lov'},
+      {icon:'📅',name:'Dars jadvali',desc:'Guruh mashg\'ulotlari, shaxsiy murabbiy band qilish'},
+      {icon:'👤',name:'Murabbiy CRM',desc:'Har bir murabbiy mijozlari, daromadi, KPI'},
+      {icon:'📈',name:'Progress kuzatish',desc:'Vazn, o\'lchamlar, rasm, maqsadlar'},
+      {icon:'💬',name:'WhatsApp bot',desc:'Jadval eslatmalari, to\'lov ogohlantirishlari'},
+      {icon:'💰',name:'Moliyaviy hisobot',desc:'Daromad, xarajat, a\'zolik darajasi analitikasi'},
+    ],
+    modules:[
+      {icon:'🎫',name:'A\'zolik tizimi',price:2000000},
+      {icon:'📅',name:'Jadval boshqaruvi',price:1500000},
+      {icon:'📈',name:'Progress tracker',price:1000000},
+      {icon:'💬',name:'WhatsApp bot',price:1800000},
+      {icon:'💰',name:'To\'lov tizimi',price:1200000},
+      {icon:'📱',name:'Mobil app',price:4000000},
+    ],
+    pitch:`Assalomu alaykum! 💪\n\nFitnes markazi uchun maxsus CRM tizimi:\n\n🎫 A\'zolik boshqaruvi — yangi, faol, eskirgan a\'zolar\n📅 Dars jadvali — online band qilish, SMS eslatma\n📈 Natija kuzatish — har bir mijozning progress grafigi\n💬 WhatsApp bot — to\'lov eslatmasi, jadval bildirishnomasi\n\nNatija: A\'zo chiqib ketishi -35%, Daromad +50%\n\nBepul demo uchun bog'laning! 🚀`
+  },
+  Beauty:{
+    icon:'💅',title:'Go\'zallik Saloni CRM',subtitle:'Uchrashuv bron, xizmatlar, mijoz tarixi',
+    tags:['Online bron','Mijoz kartasi','Xodimlar'],
+    features:[
+      {icon:'📅',name:'Online bronlash',desc:'Instagram, website, WhatsApp dan avtomatik bron'},
+      {icon:'👤',name:'Mijoz kartasi',desc:'Xizmatlar tarixi, allergiyalar, sevimli ustalar'},
+      {icon:'💄',name:'Xizmat boshqaruvi',desc:'Narxlar, davomiyligi, materiallar'},
+      {icon:'👩‍💼',name:'Usta boshqaruvi',desc:'Ish jadvali, daromad, mijozlar bali'},
+      {icon:'⭐',name:'Sadoqat dasturi',desc:'Har 10-xizmatda bepul, tug\'ilgan kun chegirma'},
+      {icon:'📸',name:'Ish portfoli',desc:'Har bir mijoz uchun "oldin-keyin" foto arxiv'},
+    ],
+    modules:[
+      {icon:'📅',name:'Online bron',price:1500000},
+      {icon:'👤',name:'Mijoz CRM',price:1800000},
+      {icon:'⭐',name:'Loyallik tizimi',price:1000000},
+      {icon:'💬',name:'WhatsApp bot',price:1800000},
+      {icon:'📸',name:'Portfel tizimi',price:800000},
+      {icon:'📱',name:'Mobil app',price:3500000},
+    ],
+    pitch:`Assalomu alaykum! 💅\n\nGo\'zallik saloni uchun maxsus CRM:\n\n📅 Online bronlash — Instagram va WhatsApp dan to\'g\'ridan-to\'g\'ri\n👤 Mijoz kartasi — allergiyalar, sevimli ustalar, xizmat tarixi\n⭐ VIP sadoqat — har 5-tashrif uchun bonus\n💬 Eslatmalar — bron tasdiqlash, tug\'ilgan kun tabrik\n\nNatija: Kelmay qolish -70%, Qaytuvchi mijoz +80%\n\nBepul demo uchun bog'laning! 🚀`
+  },
+  Auto:{
+    icon:'🚗',title:'Avto Servis CRM',subtitle:'Buyurtma, texnik xizmat tarixi, avtomobil kartasi',
+    tags:['Avtomobil karta','Servis tarixi','Zaxira qismlar'],
+    features:[
+      {icon:'🚗',name:'Avtomobil kartasi',desc:'Har bir mashina uchun to\'liq ta\'mirlash tarixi'},
+      {icon:'📋',name:'Buyurtma boshqaruvi',desc:'Qabul, bajarish, topshirish, to\'lov'},
+      {icon:'🔧',name:'Texnik xizmat eslatmasi',desc:'MOT, moy almashtirish, tyre check vaqtlari'},
+      {icon:'📦',name:'Zaxira qismlar',desc:'Ombor, kam qolgan qismlar bildirishnomasi'},
+      {icon:'💬',name:'WhatsApp bot',desc:'Buyurtma holati, tayyor xabari, narx hisob-kitob'},
+      {icon:'💰',name:'Hisob-faktura',desc:'Avtomatik hisob, to\'lov kuzatish, qarz hisobi'},
+    ],
+    modules:[
+      {icon:'🚗',name:'Avtomobil CRM',price:2000000},
+      {icon:'📋',name:'Buyurtma tizimi',price:1800000},
+      {icon:'📦',name:'Ombor boshqaruvi',price:1500000},
+      {icon:'💬',name:'WhatsApp bot',price:1800000},
+      {icon:'💰',name:'Hisob tizimi',price:1000000},
+      {icon:'📱',name:'Mobil app',price:4000000},
+    ],
+    pitch:`Assalomu alaykum! 🚗\n\nAvto servis uchun maxsus CRM:\n\n🚗 Avtomobil kartasi — har bir mashina tarixi bir joyda\n📋 Buyurtma tracking — qabul → bajarilmoqda → tayyor\n🔧 Texnik eslatmalar — mijozga MOT, moy vaqtini eslatadi\n📦 Ombor nazorati — ehtiyot qismlar avtomatik hisobi\n💬 WhatsApp — buyurtma tayyor bo\'lganda avtomatik xabar\n\nNatija: Qaytuvchi mijoz +55%, Ish samaradorligi +40%\n\nBepul demo uchun bog'laning! 🚀`
+  },
+  Hotel:{
+    icon:'🏨',title:'Mehmonxona CRM',subtitle:'Bron, mehmon boshqaruvi, xona holati',
+    tags:['Xona bron','Mehmon kartasi','Kanal boshqaruvi'],
+    features:[
+      {icon:'🛏',name:'Xona boshqaruvi',desc:'Real-time xona holati, tozalash jadvali, ta\'mirlash'},
+      {icon:'📅',name:'Bron tizimi',desc:'Booking.com, Airbnb, to\'g\'ridan-to\'g\'ri bron integratsiyasi'},
+      {icon:'👤',name:'Mehmon kartasi',desc:'Talablar, allergiyalar, avvalgi tashrif tarixi, VIP'},
+      {icon:'🍽',name:'Qo\'shimcha xizmatlar',desc:'Restoran, spa, transfer buyurtmalarini bir joyda'},
+      {icon:'💰',name:'Hisob-kitob',desc:'Avtomatik hisob, kechiktirilgan to\'lov, korporativ hisob'},
+      {icon:'⭐',name:'Sharh boshqaruvi',desc:'Booking, Google sharhlarini kuzatish va javob berish'},
+    ],
+    modules:[
+      {icon:'📅',name:'Bron tizimi',price:3000000},
+      {icon:'🛏',name:'Xona boshqaruvi',price:2000000},
+      {icon:'👤',name:'Mehmon CRM',price:1500000},
+      {icon:'💰',name:'Moliyaviy modul',price:1800000},
+      {icon:'💬',name:'WhatsApp bot',price:1800000},
+      {icon:'📱',name:'Mobil app',price:5000000},
+    ],
+    pitch:`Assalomu alaykum! 🏨\n\nMehmonxona uchun maxsus CRM:\n\n📅 Bron boshqaruvi — Booking.com va to\'g\'ridan-to\'g\'ri bron bir panelda\n🛏 Xona holati — real-time band/bo\'sh, tozalash jadvali\n👤 Mehmon kartasi — VIP mehmonlar, maxsus talablar, tarix\n💰 Avtomatik hisob — check-in dan check-out gacha to\'lov\n\nNatija: Xona to\'lish darajasi +25%, Mehmon qaytishi +45%\n\nBepul demo uchun bog'laning! 🚀`
+  },
+  Construction:{
+    icon:'🏗',title:'Qurilish Kompaniyasi CRM',subtitle:'Loyiha, shartnoma, pudratchi, ish jadvali',
+    tags:['Loyiha tracking','Shartnoma','Material ombori'],
+    features:[
+      {icon:'📐',name:'Loyiha boshqaruvi',desc:'Bosqichlar, muddatlar, mas\'ullar, status'},
+      {icon:'📄',name:'Shartnoma va hujjat',desc:'Mijoz shartnomalari, smeta, akt yaratish'},
+      {icon:'👷',name:'Ishchi kuchi',desc:'Brigada, kunlik hisobot, maosh hisoblash'},
+      {icon:'🧱',name:'Material ombori',desc:'Kerakli materiallar, xaridlar, qoldiqlar'},
+      {icon:'💰',name:'Moliyaviy nazorat',desc:'Smeta vs haqiqiy xarajat, foyda hisobi'},
+      {icon:'📸',name:'Ob\'ekt foto hisobot',desc:'Kunlik foto progress, mijozga avtomatik yuborish'},
+    ],
+    modules:[
+      {icon:'📐',name:'Loyiha CRM',price:3000000},
+      {icon:'📄',name:'Hujjat tizimi',price:1500000},
+      {icon:'👷',name:'Ishchi boshqaruvi',price:2000000},
+      {icon:'🧱',name:'Ombor moduli',price:1800000},
+      {icon:'💰',name:'Moliya moduli',price:2000000},
+      {icon:'📱',name:'Mobil app',price:4500000},
+    ],
+    pitch:`Assalomu alaykum! 🏗\n\nQurilish kompaniyasi uchun maxsus CRM:\n\n📐 Loyiha tracking — har bir ob\'ekt holati real-time\n📄 Smeta va shartnoma — avtomatik yaratish va imzolash\n👷 Brigada boshqaruvi — kim, qayerda, nima qilmoqda\n🧱 Material ombori — kam qolgan materiallar avtomatik xarid\n\nNatija: Loyiha muddati burilishi -60%, Foyda +30%\n\nBepul demo uchun bog'laning! 🚀`
+  },
+  Dentistry:{
+    icon:'🦷',title:'Stomatologiya CRM',subtitle:'Bemor kartasi, qabul jadvali, davolash tarixi',
+    tags:['Bemor kartasi','Qabul jadvali','Davolash tarixi'],
+    features:[
+      {icon:'🦷',name:'Bemor kartasi',desc:'Tish xaritasi, allergiyalar, davolash tarixi, rentgen'},
+      {icon:'📅',name:'Qabul jadvali',desc:'Shifokor jadvaliga online bron, SMS eslatma'},
+      {icon:'💉',name:'Davolash rejasi',desc:'Ko\'p bosqichli davolash, to\'lov rejasi'},
+      {icon:'💰',name:'To\'lov boshqaruvi',desc:'Naqd, karta, kredit, qisman to\'lov'},
+      {icon:'📊',name:'Klinika analitikasi',desc:'Daromad, tashriflar soni, shifokorlar KPI'},
+      {icon:'💬',name:'Eslatmalar tizimi',desc:'Qabul eslatmasi, profilaktik tashrif taklifi'},
+    ],
+    modules:[
+      {icon:'🦷',name:'Bemor CRM',price:2500000},
+      {icon:'📅',name:'Qabul tizimi',price:1800000},
+      {icon:'💉',name:'Davolash rejasi',price:1500000},
+      {icon:'💰',name:'Kassa moduli',price:1200000},
+      {icon:'💬',name:'WhatsApp eslatma',price:1800000},
+      {icon:'📱',name:'Mobil app',price:4000000},
+    ],
+    pitch:`Assalomu alaykum! 🦷\n\nStomatologiya klinikasi uchun maxsus CRM:\n\n🦷 Bemor kartasi — tish xaritasi, allergiyalar, rentgen arxivi\n📅 Online bron — website va WhatsApp dan shifokor tanlash\n💉 Davolash rejasi — ko\'p bosqichli, har bir bemor uchun\n💰 To\'lov — naqd, karta, kredit va qisman to\'lov\n💬 Eslatmalar — 6 oylik profilaktik tashrif taklifi\n\nNatija: Qaytuvchi bemor +70%, Daromad +45%\n\nBepul demo uchun bog'laning! 🚀`
+  },
+  Clinic:{
+    icon:'🏥',title:'Tibbiyot Klinikasi CRM',subtitle:'Bemor boshqaruvi, shifokorlar jadvali, laboratoriya',
+    tags:['EMR','Qabul jadvali','Lab natijalar'],
+    features:[
+      {icon:'👤',name:'Elektron tibbiy karta',desc:'Kasallik tarixi, dori-darmonlar, allergiyalar'},
+      {icon:'📅',name:'Qabul jadvali',desc:'Barcha shifokorlar uchun online bron, kutish vaqti'},
+      {icon:'🔬',name:'Laboratoriya moduli',desc:'Tahlil buyurtmasi, natijalar, mijozga yuborish'},
+      {icon:'💊',name:'Retsept boshqaruvi',desc:'Elektron retsept, dori-darmon tarixi'},
+      {icon:'💰',name:'Tibbiy sug\'urta',desc:'OSAGO, korporativ shartnomalar bilan ishlash'},
+      {icon:'📊',name:'Klinika hisoboti',desc:'Tashriflar, kasalliklar statistikasi, daromad'},
+    ],
+    modules:[
+      {icon:'👤',name:'Bemor CRM (EMR)',price:4000000},
+      {icon:'📅',name:'Qabul tizimi',price:2000000},
+      {icon:'🔬',name:'Lab moduli',price:2500000},
+      {icon:'💊',name:'Retsept tizimi',price:1500000},
+      {icon:'💬',name:'WhatsApp bot',price:1800000},
+      {icon:'📱',name:'Mobil app',price:5000000},
+    ],
+    pitch:`Assalomu alaykum! 🏥\n\nTibbiyot klinikasi uchun maxsus CRM:\n\n👤 Elektron tibbiy karta — bemor tarixi bir joyda\n📅 Qabul tizimi — barcha shifokorlar uchun online bron\n🔬 Laboratoriya — tahlil natijalarini WhatsApp ga yuborish\n💊 Elektron retsept — dori tarixi va allergiya nazorati\n\nNatija: Qog\'oz hujjatlar -90%, Shifokor unumdorligi +40%\n\nBepul demo uchun bog'laning! 🚀`
+  },
+};
+
+const DEFAULT_CRM={
+  icon:'📊',title:'Biznes CRM',subtitle:'Mijozlar boshqaruvi, sotuvlar, analitika',
+  tags:['Kontaktlar','Sotuvlar','Hisobot'],
+  features:[
+    {icon:'👥',name:'Mijozlar bazasi',desc:'Kontaktlar, muloqot tarixi, eslatmalar'},
+    {icon:'💼',name:'Sotuvlar voronkasi',desc:'Lead → Taklif → Kelishuv bosqichlari'},
+    {icon:'📊',name:'Analitika',desc:'Daromad, konversiya, KPI hisoboti'},
+    {icon:'💬',name:'WhatsApp integratsiya',desc:'Mijozlarga avtomatik xabarlar'},
+    {icon:'📅',name:'Vazifalar boshqaruvi',desc:'Xodimlar uchun topshiriqlar, muddatlar'},
+    {icon:'📄',name:'Hujjatlar',desc:'Takliflar, shartnomalar, hisoblar'},
+  ],
+  modules:[
+    {icon:'👥',name:'Kontakt baza',price:1500000},
+    {icon:'💼',name:'Sotuvlar CRM',price:2000000},
+    {icon:'📊',name:'Analitika',price:1000000},
+    {icon:'💬',name:'WhatsApp bot',price:1800000},
+    {icon:'📅',name:'Task manager',price:800000},
+    {icon:'📱',name:'Mobil app',price:3500000},
+  ],
+  pitch:`Assalomu alaykum! 📊\n\nSizning biznesingiz uchun maxsus CRM tizimi:\n\n👥 Mijozlar bazasi — barcha kontaktlar va muloqot tarixi\n💼 Sotuvlar voronkasi — har bir mijozning bosqichi\n📊 Hisobotlar — daromad, konversiya, xodimlar KPI\n💬 WhatsApp bot — avtomatik xabarlar va eslatmalar\n\nNatija: Sotuvlar +40%, Mijoz yo\'qotish -50%\n\nBepul demo uchun bog'laning! 🚀`
+};
+
+let selectedModules=new Set();
+
+function renderCRM(){
+  const cfg=CRM_CONFIGS[LEAD?.niche]||DEFAULT_CRM;
+  const waNum=LEAD?.wa_number||LEAD?.phone?.replace(/\D/g,'')||'';
+  const waLink=`https://wa.me/${waNum}?text=${encodeURIComponent(cfg.pitch)}`;
+
+  document.getElementById('crmContent').innerHTML=`
+    <div class="crm-hero">
+      <div class="crm-icon">${cfg.icon}</div>
+      <div class="crm-hero-text">
+        <h2>${cfg.title}</h2>
+        <p>${cfg.subtitle}</p>
+        <div>${cfg.tags.map(t=>`<span class="crm-tag tag-cy">${t}</span>`).join('')}</div>
+      </div>
+    </div>
+
+    <div class="crm-grid">
+      <div class="crm-card">
+        <h3>Asosiy modullar va imkoniyatlar</h3>
+        ${cfg.features.map(f=>`
+          <div class="crm-feature">
+            <div class="cf-icon">${f.icon}</div>
+            <div class="cf-text">
+              <div class="cf-name">${f.name}</div>
+              <div class="cf-desc">${f.desc}</div>
+            </div>
+          </div>`).join('')}
+      </div>
+      <div class="crm-card">
+        <h3>Narxlar (bir martalik to'lov)</h3>
+        ${cfg.modules.map(m=>`
+          <div class="price-row">
+            <span class="price-name">${m.icon} ${m.name}</span>
+            <span class="price-val">${m.price.toLocaleString()} UZS</span>
+          </div>`).join('')}
+        <div style="margin-top:12px;font-size:11px;color:var(--mu)">* Oylik texnik qo'llab-quvvatlash: 500,000 UZS/oy</div>
+      </div>
+    </div>
+
+    <div style="background:var(--c);border:1px solid var(--b);border-radius:12px;padding:18px;margin-bottom:16px">
+      <h3 style="font-size:12px;color:var(--mu);text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px">Kerakli modullarni tanlang — narx hisoblash</h3>
+      <div class="crm-modules" id="crmModules">
+        ${cfg.modules.map(m=>`
+          <div class="crm-module" onclick="toggleModule('${m.name}',${m.price},this)">
+            <div class="m-icon">${m.icon}</div>
+            <div class="m-name">${m.name}</div>
+            <div class="m-desc">${m.price.toLocaleString()} UZS</div>
+          </div>`).join('')}
+      </div>
+      <div class="crm-total">
+        <div class="label">Jami narx</div>
+        <div class="amount" id="crmTotal">0 UZS</div>
+      </div>
+    </div>
+
+    <div class="crm-pitch-box">
+      <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:4px">CRM Pitch — WhatsApp xabari</div>
+      <div style="font-size:12px;color:var(--mu)">Bu kompaniyaga CRM taklif qilish uchun tayyor matn</div>
+      <div class="crm-pitch-text" id="crmPitchText">${cfg.pitch}</div>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-cy" onclick="copyCrmPitch()" style="font-size:12px;padding:8px 16px">📋 Nusxa olish</button>
+        <a class="btn btn-wa" href="${waLink}" target="_blank" style="font-size:12px;padding:8px 16px">💬 WhatsApp da yuborish</a>
+      </div>
+    </div>
+  `;
+  selectedModules=new Set();
+  updateCrmTotal(cfg);
+}
+
+function toggleModule(name,price,el){
+  if(selectedModules.has(name)){selectedModules.delete(name);el.classList.remove('sel')}
+  else{selectedModules.add(name);el.classList.add('sel')}
+  const cfg=CRM_CONFIGS[LEAD?.niche]||DEFAULT_CRM;
+  updateCrmTotal(cfg);
+}
+
+function updateCrmTotal(cfg){
+  const total=cfg.modules.filter(m=>selectedModules.has(m.name)).reduce((s,m)=>s+m.price,0);
+  document.getElementById('crmTotal').textContent=total?total.toLocaleString()+' UZS':'0 UZS (hech narsa tanlanmagan)';
+}
+
+function copyCrmPitch(){
+  navigator.clipboard.writeText(document.getElementById('crmPitchText').textContent);
+  showToast('📋 CRM pitch nusxalandi!');
+}
+
 // ── TABS
 function switchTab(name){
   document.querySelectorAll('.tab').forEach((t,i)=>{
-    const names=['info','website','pitches','audit','notes'];
+    const names=['info','website','pitches','crm','audit','notes'];
     t.classList.toggle('active',names[i]===name);
   });
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.getElementById(`panel-${name}`).classList.add('active');
   if(name==='website')renderWebsite();
+  if(name==='crm')renderCRM();
 }
 
 // ── TOAST
