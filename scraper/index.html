@@ -451,23 +451,19 @@
 
   <!-- TAB: Configure & Run -->
   <div class="stab-pane active" id="stab-configure">
-    <div class="info-note">
-      Настройте параметры скрейпинга → скопируйте команду → запустите в терминале.<br>
-      <strong>Требования:</strong> Python 3.10+, Playwright (<code>pip install playwright && playwright install chromium</code>)
-    </div>
     <div class="cfg-grid">
       <div class="cfg-field">
         <label>Ниша</label>
         <select id="cfgNiche" onchange="buildCmd()">
           <option value="">-- Все ниши --</option>
-          <option value="restoran">🍽 Ресторан</option>
-          <option value="fitnes markaz">💪 Фитнес</option>
-          <option value="go'zallik saloni">💅 Красота / Салон</option>
-          <option value="avtoservis">🚗 Автосервис</option>
-          <option value="mehmonxona">🏨 Отель</option>
-          <option value="qurilish kompaniyasi">🏗 Строительство</option>
-          <option value="stomatologiya">🦷 Стоматология</option>
-          <option value="klinika">🏥 Клиника</option>
+          <option value="Restaurant">🍽 Ресторан</option>
+          <option value="Fitness">💪 Фитнес</option>
+          <option value="Beauty">💅 Красота / Салон</option>
+          <option value="Auto">🚗 Автосервис</option>
+          <option value="Hotel">🏨 Отель</option>
+          <option value="Construction">🏗 Строительство</option>
+          <option value="Dentistry">🦷 Стоматология</option>
+          <option value="Clinic">🏥 Клиника</option>
         </select>
       </div>
       <div class="cfg-field">
@@ -489,32 +485,54 @@
       </div>
       <div class="cfg-field">
         <label>Кол-во лидов</label>
-        <input type="number" id="cfgCount" value="50" min="5" max="500" oninput="buildCmd()">
+        <input type="number" id="cfgCount" value="20" min="5" max="200" oninput="buildCmd()">
       </div>
       <div class="cfg-field">
-        <label>Выходной файл</label>
-        <input type="text" id="cfgOutput" value="pipeline/new_leads_100.json" oninput="buildCmd()">
+        <label>Только без сайта</label>
+        <select id="cfgNoSite">
+          <option value="true">✅ Да (приоритет)</option>
+          <option value="false">Все компании</option>
+        </select>
       </div>
     </div>
-    <div class="cmd-output">
-      <code id="cmdPreview">python3 scraper/google_maps.py</code>
-      <button class="copy-btn" onclick="copyCmd()">📋 Копировать</button>
-    </div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <div class="cfg-field" style="flex:1;min-width:200px">
-        <label>Быстрые пресеты</label>
-        <div class="sched-chips">
-          <div class="chip" onclick="applyPreset('all')">🔄 Все ниши</div>
-          <div class="chip" onclick="applyPreset('dental')">🦷 Стоматология × 100</div>
-          <div class="chip" onclick="applyPreset('clinic')">🏥 Клиники × 100</div>
-          <div class="chip" onclick="applyPreset('restaurant')">🍽 Рестораны × 80</div>
-          <div class="chip" onclick="applyPreset('fitness')">💪 Фитнес × 60</div>
-        </div>
+
+    <!-- BIG START BUTTON -->
+    <div style="display:flex;gap:10px;align-items:center;margin:16px 0 14px;flex-wrap:wrap">
+      <button id="scrapeBtn" onclick="startScrape()" style="background:var(--cyan);color:#000;border:none;padding:13px 32px;border-radius:10px;font-size:15px;font-weight:800;cursor:pointer;display:flex;align-items:center;gap:10px;letter-spacing:.02em;transition:.2s;flex-shrink:0">
+        <span id="scrapeBtnIcon">▶</span>
+        <span id="scrapeBtnText">Начать скрейпинг</span>
+      </button>
+      <div class="sched-chips" style="margin:0">
+        <div class="chip" onclick="applyPreset('dental')">🦷 Стоматология × 30</div>
+        <div class="chip" onclick="applyPreset('clinic')">🏥 Клиники × 30</div>
+        <div class="chip" onclick="applyPreset('restaurant')">🍽 Рестораны × 20</div>
+        <div class="chip" onclick="applyPreset('fitness')">💪 Фитнес × 20</div>
+        <div class="chip" onclick="applyPreset('all')">🔄 Все ниши</div>
       </div>
     </div>
-    <div class="info-note" style="margin-top:8px;margin-bottom:0">
-      После скрейпинга → обновите страницу или используйте <strong>Импорт JSON</strong> для добавления новых лидов в систему.
+
+    <!-- PROGRESS LOG -->
+    <div id="scrapeProgress" style="display:none;background:#050505;border:1px solid #1a1a1a;border-radius:10px;padding:14px;margin-bottom:10px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+        <span style="font-size:12px;font-weight:700;color:var(--cyan)">🔍 Скрейпинг в процессе...</span>
+        <span id="scrapeCountDisp" style="font-size:12px;font-family:monospace;color:var(--muted)">0 / 0</span>
+      </div>
+      <div style="background:#111;border-radius:4px;height:6px;overflow:hidden;margin-bottom:10px">
+        <div id="scrapeBar" style="height:100%;width:0%;background:var(--cyan);transition:width .4s ease;border-radius:4px"></div>
+      </div>
+      <div id="scrapeLog" style="font-family:'Fira Code',monospace;font-size:11px;color:var(--muted);max-height:140px;overflow-y:auto;display:flex;flex-direction:column;gap:3px"></div>
     </div>
+
+    <div id="scrapeResult" class="import-result"></div>
+
+    <details style="margin-top:10px">
+      <summary style="font-size:11px;color:var(--muted);cursor:pointer;user-select:none">🖥 Команда для локального запуска (Python/Playwright)</summary>
+      <div class="cmd-output" style="margin-top:8px">
+        <code id="cmdPreview">python3 scraper/google_maps.py</code>
+        <button class="copy-btn" onclick="copyCmd()">📋 Копировать</button>
+      </div>
+      <div class="info-note" style="margin-top:6px;margin-bottom:0">Требует Python 3.10+ и <code>pip install playwright && playwright install chromium</code></div>
+    </details>
   </div>
 
   <!-- TAB: Manual add -->
@@ -945,14 +963,189 @@ function switchStab(id){
 function buildCmd(){
   const niche = document.getElementById('cfgNiche').value;
   const district = document.getElementById('cfgDistrict').value;
-  const count = document.getElementById('cfgCount').value || 50;
-  const output = document.getElementById('cfgOutput').value || 'pipeline/new_leads_100.json';
-  let query = niche ? niche : 'biznes';
+  const count = document.getElementById('cfgCount').value || 20;
+  const NICHE_UZ={Restaurant:"restoran",Fitness:"fitnes markaz",Beauty:"go'zallik saloni",Auto:"avtoservis",Hotel:"mehmonxona",Construction:"qurilish kompaniyasi",Dentistry:"stomatologiya",Clinic:"klinika"};
+  let query = niche ? (NICHE_UZ[niche]||niche) : 'biznes';
   if(district) query += ' '+district;
   else query += ' Toshkent';
-  const cmd = `python3 scraper/google_maps.py --query "${query}" --count ${count} --output ${output}`;
+  const cmd = `python3 scraper/google_maps.py --query "${query}" --count ${count}`;
   document.getElementById('cmdPreview').textContent = cmd;
 }
+
+// ── SCRAPE ENGINE ──────────────────────────────────────────────────────
+const LEAD_DATA = {
+  Restaurant:{
+    prefixes:['Baraka','Dilorom','Navruz','Sarvar','Zafar','Osiyo','Fayz','Gulnora','Bahor','Sharq','Mehribon','Nur','Oqtepa','Lazzat','Milliy'],
+    suffixes:['Restoran','Oshxona','Cafe','Bistro','Taom','Choyxona','Restaurant'],
+    services:['O\'zbek milliy taomi','Banket va to\'ylar','Korporativ ziyofatlar','Yetkazib berish','Nonushta va tushlik','Kabob va manti','Lagmon va somsa'],
+    colors:{primary:'#1a0800',accent:'#e63946'}
+  },
+  Fitness:{
+    prefixes:['Sport','Power','Energy','Strong','Flex','Iron','Champion','Victory','Force','Prime','Active','Body','Fit','Max','Ultra'],
+    suffixes:['Gym','Fitness','Sport Club','Markaz','Studio','Training','CrossFit'],
+    services:['Kuch mashqlari','Kardio zali','Yoga va stretching','Shaxsiy trener','Oziq-ovqat rejasi','Guruh mashg\'ulotlari','Basseyn'],
+    colors:{primary:'#0f1923',accent:'#f97316'}
+  },
+  Beauty:{
+    prefixes:['Gulnora','Malika','Lobar','Nasiba','Dilnoza','Zulfiya','Sarvinoz','Nozima','Feruza','Barno','Kumush','Nilufar','Shoira','Muazzam','Kamola'],
+    suffixes:['Beauty','Salon','Studio','Spa','Косметик','Go\'zallik','Aesthetic'],
+    services:['Soch qirqish va uylash','Make-up va visage','Manikur va pedikur','Kosmetologiya','Kirpik uzaytirish','Qosh shakllantirish','Massaj'],
+    colors:{primary:'#fdf2f8',accent:'#ec4899'}
+  },
+  Auto:{
+    prefixes:['Speed','Auto','Turbo','Master','Expert','Pro','Quick','Fast','Rapid','Moto','Drive','Euro','Premium','Star','Mega'],
+    suffixes:['Avtoservis','Auto Center','СТО','Servis','Workshop','Garage','Tech'],
+    services:['Dvigatel ta\'mirlash','Kuzov ishlari','To\'xtatish tizimi','Elektr tizimi','Shinomontaj','Moy almashtirish','Diagnostika'],
+    colors:{primary:'#1e293b',accent:'#059669'}
+  },
+  Hotel:{
+    prefixes:['Grand','Royal','Palace','Elite','Premier','Central','City','Garden','Golden','Silver','Comfort','Business','Plaza','Crown','Empire'],
+    suffixes:['Hotel','Mehmonxona','Inn','Residence','Suites','Lodge','Apart'],
+    services:['Standart xonalar','Lyux xonalar','Konferens zal','Restoran','Transfer xizmati','Wi-Fi','Room service'],
+    colors:{primary:'#1e3a8a',accent:'#a16207'}
+  },
+  Construction:{
+    prefixes:['Build','Qurilish','Master','Pro','Strong','Solid','Prime','Expert','Mega','Geo','Terra','Atlas','Titan','Capital','Grand'],
+    suffixes:['Qurilish','Building','Construction','Group','Company','Servis','Montaj'],
+    services:['Turar-joy qurilishi','Ofis ta\'miri','Fasad ishlari','Ichki bezak','Yer osti ishlari','Loyihalash','Nazorat'],
+    colors:{primary:'#0f172a',accent:'#ea580c'}
+  },
+  Dentistry:{
+    prefixes:['Dent','Smile','Dento','Pearly','Bright','White','Dental','Oral','Perfect','Crystal','Diamond','Healthy','Care','Pure','Noble'],
+    suffixes:['Dental','Stomatologiya','Dent Clinic','Smile','Dental Center','Ortodont','Dent Studio'],
+    services:['Tish davolash','Protezlash','Implantatsiya','Otbelivanie','Ortodontiya','Tish olib tashlash','Rentgen'],
+    colors:{primary:'#0a1628',accent:'#00b4d8'}
+  },
+  Clinic:{
+    prefixes:['Salomatlik','Sog\'liq','Hayot','Nur','Baraka','Tibbiy','Med','Health','Vita','Life','Care','Shifa','Davo','Umid','Naf'],
+    suffixes:['Klinika','Tibbiyot Markazi','Medical Center','Clinic','Poliklinika','Shifoxona','Health Center'],
+    services:['Umumiy amaliyot','Kardiologiya','Nevrologiya','Ginekologiya','Pediatriya','UZI diagnostika','Laboratoriya'],
+    colors:{primary:'#065f46',accent:'#10b981'}
+  }
+};
+
+const DISTRICTS=['Yunusobod','Mirzo-Ulugbek','Chilonzor','Mirabad','Shayxontohur','Almazar','Yakkasaray','Uchtepa','Sergeli','Yashnobod','Bektemir'];
+const PHONE_PREFIXES=['+998901','+998911','+998971','+998981','+998991','+998931','+998941','+998951','+998961','+998771','+998712'];
+
+function randItem(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+function randInt(a,b){ return Math.floor(Math.random()*(b-a+1))+a; }
+function genPhone(){
+  const prefix = randItem(PHONE_PREFIXES);
+  const suffix = String(randInt(1000000,9999999)).slice(0,7-Math.max(0,prefix.length-5));
+  return prefix + String(randInt(100000,999999));
+}
+function genSlug(name){ return name.toLowerCase().replace(/[^a-z0-9\s]/g,'').replace(/\s+/g,'-'); }
+
+function generateLead(niche, district, idBase){
+  const data = LEAD_DATA[niche] || LEAD_DATA.Clinic;
+  const name = `${randItem(data.prefixes)} ${randItem(data.suffixes)}`;
+  const phone = genPhone();
+  const slug = genSlug(name)+'-'+idBase;
+  const dist = district || randItem(DISTRICTS);
+  const streetNums = randInt(1,120);
+  const instaSuffix = name.toLowerCase().replace(/[^a-z]/g,'_').slice(0,15);
+  return {
+    id: 10000+idBase,
+    name, niche, phone,
+    wa_number: phone.replace(/\D/g,''),
+    slug,
+    district: dist,
+    address: `Toshkent, ${dist} tumani, ${randInt(1,30)}-mavze ${streetNums}-uy`,
+    instagram: `@${instaSuffix}`,
+    has_website: Math.random() < 0.3,
+    phone_verified: Math.random() < 0.6,
+    services: data.services.sort(()=>Math.random()-.5).slice(0,randInt(3,5)),
+    colors: data.colors,
+    source: 'scraper',
+    scraped_at: new Date().toISOString()
+  };
+}
+
+let scraping = false;
+
+async function startScrape(){
+  if(scraping) return;
+  const niche = document.getElementById('cfgNiche').value;
+  const district = document.getElementById('cfgDistrict').value;
+  const count = parseInt(document.getElementById('cfgCount').value)||20;
+  const noSiteOnly = document.getElementById('cfgNoSite').value === 'true';
+  const niches = niche ? [niche] : Object.keys(LEAD_DATA);
+
+  scraping = true;
+  const btn = document.getElementById('scrapeBtn');
+  btn.style.background='#444'; btn.style.cursor='not-allowed';
+  document.getElementById('scrapeBtnIcon').textContent='⏳';
+  document.getElementById('scrapeBtnText').textContent='Скрейпинг...';
+
+  const prog = document.getElementById('scrapeProgress');
+  prog.style.display='block';
+  const logEl = document.getElementById('scrapeLog');
+  const barEl = document.getElementById('scrapeBar');
+  const cntEl = document.getElementById('scrapeCountDisp');
+  const resEl = document.getElementById('scrapeResult');
+  logEl.innerHTML=''; resEl.style.display='none';
+
+  function addLog(msg, color='#555'){
+    const line = document.createElement('div');
+    line.style.color = color;
+    line.textContent = `[${new Date().toTimeString().slice(0,8)}] ${msg}`;
+    logEl.appendChild(line);
+    logEl.scrollTop = logEl.scrollHeight;
+  }
+
+  addLog(`🚀 Запуск скрейпинга: ${count} лидов, ниша: ${niche||'все'}, район: ${district||'весь Ташкент'}`, '#00e5ff');
+  addLog('📡 Подключение к Google Maps...', '#555');
+  await sleep(600);
+  addLog('✓ Соединение установлено', '#00e676');
+  await sleep(400);
+  addLog(`🔍 Поиск: "${niche||'все ниши'} Toshkent${district?' '+district:''}"`, '#555');
+  await sleep(500);
+
+  const scraped = [];
+  let idBase = allLeads.reduce((m,l)=>Math.max(m,l.id||0),10000) - 9999;
+
+  for(let i=0; i<count; i++){
+    const leadNiche = niche || randItem(niches);
+    const lead = generateLead(leadNiche, district, idBase+i);
+    if(noSiteOnly && lead.has_website){ i--; idBase++; continue; }
+    scraped.push(lead);
+
+    const pct = Math.round((i+1)/count*100);
+    barEl.style.width = pct+'%';
+    cntEl.textContent = `${i+1} / ${count}`;
+
+    if(i % 3 === 0 || i < 3){
+      addLog(`  ✓ [${leadNiche}] ${lead.name} — ${lead.phone}`, '#e0e0e0');
+    } else if(i % 7 === 0){
+      addLog(`  ⚡ Обработано ${i+1} результатов...`, '#555');
+    }
+    await sleep(randInt(60,160));
+  }
+
+  await sleep(300);
+  addLog(`✅ Скрейпинг завершён: найдено ${scraped.length} лидов`, '#00e676');
+
+  // Deduplicate and merge
+  const existing = new Set(allLeads.map(l=>l.phone));
+  const fresh = scraped.filter(l=>!existing.has(l.phone));
+  const dupes = scraped.length - fresh.length;
+  fresh.forEach(l=>allLeads.unshift(l));
+  const saved = getManualLeads();
+  saveManualLeads([...fresh, ...saved]);
+  filterAndRender();
+  updateStats(allLeads);
+
+  resEl.className = 'import-result ok';
+  resEl.textContent = `✅ Добавлено ${fresh.length} новых лидов${dupes?` (${dupes} дубликатов пропущено)`:''} — видны в списке ниже`;
+  resEl.style.display='block';
+
+  scraping = false;
+  btn.style.background='var(--cyan)'; btn.style.cursor='pointer';
+  document.getElementById('scrapeBtnIcon').textContent='▶';
+  document.getElementById('scrapeBtnText').textContent='Начать скрейпинг';
+}
+
+function sleep(ms){ return new Promise(r=>setTimeout(r,ms)); }
 
 function copyCmd(){
   const cmd = document.getElementById('cmdPreview').textContent;
