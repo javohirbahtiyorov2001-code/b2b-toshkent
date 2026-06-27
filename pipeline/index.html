@@ -111,9 +111,9 @@ tr:hover td{background:rgba(255,255,255,.02)}
 
   <div class="stats" id="statsRow">
     <div class="stat c"><div class="val" id="sTotal">—</div><div class="lbl">Всего лидов</div></div>
-    <div class="stat g"><div class="val" id="sSites">50</div><div class="lbl">Сайтов создано</div></div>
+    <div class="stat g"><div class="val" id="sSites">—</div><div class="lbl">Сайтов создано</div></div>
     <div class="stat y"><div class="val" id="sPitches">—</div><div class="lbl">Питчей готово</div></div>
-    <div class="stat o"><div class="val" id="sDeployed">50</div><div class="lbl">Задеплоено</div></div>
+    <div class="stat o"><div class="val" id="sDeployed">—</div><div class="lbl">Задеплоено</div></div>
   </div>
 
   <div class="stages">
@@ -124,18 +124,18 @@ tr:hover td{background:rgba(255,255,255,.02)}
     </div>
     <div class="stage">
       <div class="stage-n">2. Питчи</div>
-      <div class="stage-v" id="p2">50</div>
-      <div class="stage-bar" id="p2bar" style="width:20%"></div>
+      <div class="stage-v" id="p2">—</div>
+      <div class="stage-bar" id="p2bar" style="width:0%"></div>
     </div>
     <div class="stage">
       <div class="stage-n">3. Сайты</div>
-      <div class="stage-v" id="p3">50</div>
-      <div class="stage-bar" id="p3bar" style="width:20%"></div>
+      <div class="stage-v" id="p3">—</div>
+      <div class="stage-bar" id="p3bar" style="width:0%"></div>
     </div>
     <div class="stage">
       <div class="stage-n">4. Деплой</div>
-      <div class="stage-v" id="p4">50</div>
-      <div class="stage-bar" style="width:20%;background:var(--green)"></div>
+      <div class="stage-v" id="p4">—</div>
+      <div class="stage-bar" id="p4bar" style="width:0%;background:var(--green)"></div>
     </div>
     <div class="stage">
       <div class="stage-n">5. Выиграно</div>
@@ -185,7 +185,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
     </div>
   </div>
 
-  <div class="section-title">Результаты Pipeline (50 сайтов)</div>
+  <div class="section-title">Результаты Pipeline (<span id="sitesCountLabel">—</span> сайтов)</div>
   <div class="tbl-wrap">
     <table>
       <thead>
@@ -246,8 +246,6 @@ async function init(){
   }
 
   const total = leads.length;
-  document.getElementById('p2bar').style.width = Math.round(50/total*100)+'%';
-  document.getElementById('p3bar').style.width = Math.round(50/total*100)+'%';
 
   // Won count from localStorage
   try{
@@ -260,10 +258,22 @@ async function init(){
   log('linfo','[3/3] Загрузка results.json...');
   const results = await fetchJ('/pipeline/results.json');
   if(Array.isArray(results)){
-    log('lok',`✓ results.json: ${results.length} записей`);
+    const siteCount = results.length;
+    log('lok',`✓ results.json: ${siteCount} сайтов`);
+    document.getElementById('sSites').textContent = siteCount;
+    document.getElementById('sDeployed').textContent = siteCount;
+    document.getElementById('p2').textContent = siteCount;
+    document.getElementById('p3').textContent = siteCount;
+    document.getElementById('p4').textContent = siteCount;
+    document.getElementById('p2bar').style.width = Math.round(siteCount/total*100)+'%';
+    document.getElementById('p3bar').style.width = Math.round(siteCount/total*100)+'%';
+    document.getElementById('p4bar').style.width = Math.round(siteCount/total*100)+'%';
+    document.getElementById('sitesCountLabel').textContent = siteCount;
     renderTable(results);
   } else {
     log('lwarn','⚠ results.json не найден — pipeline не запускался');
+    document.getElementById('sSites').textContent = '0';
+    document.getElementById('sDeployed').textContent = '0';
     renderTable([]);
   }
 

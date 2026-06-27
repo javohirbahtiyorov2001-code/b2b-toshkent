@@ -1,1252 +1,1970 @@
 [
   {
-    "id": 1,
+    "name": "Dream Dental",
+    "niche": "Dentistry",
+    "phone": "+998909851441",
+    "slug": "dream-dental",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Korean Dental Clinic",
+    "niche": "Dentistry",
+    "phone": "+998974225775",
+    "slug": "korean-dental-clinic",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Denta-Service",
+    "niche": "Dentistry",
+    "phone": "+998712455477",
+    "slug": "denta-service",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "EstiMed Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998785555775",
+    "slug": "estimed-stomatologiya",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Pearl Dental 24/7",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "pearl-dental",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Dream Smile Dental",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "dream-smile-dental",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Denta Stomatologiya Lights",
+    "niche": "Dentistry",
+    "phone": "+998712503539",
+    "slug": "denta-lights",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "VitaMed Medical Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "vitamed-stomatologiya",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Smalto Dente",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "smalto-dente",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "32 Profilaktik Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "32-profilaktik",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Megapolis Denta Service",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "megapolis-denta-service",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Begizoda Dental Clinic",
+    "niche": "Dentistry",
+    "phone": "+998712553220",
+    "slug": "begizoda-dental",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Dental Optima",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "dental-optima",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "The White Dental Clinic",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "white-dental-clinic",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Dr. Ergashov Dental Clinic",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "dr-ergashov-dental",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Dental Kingdom (Семейная Стоматология)",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "dental-kingdom",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "YouDent Dental Clinic",
+    "niche": "Dentistry",
+    "phone": "+998712623838",
+    "slug": "youdent-dental",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "DentCare Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "dentcare-uz",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Korean Implant Center",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "korean-implant-center",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Dilyara Dental",
+    "niche": "Dentistry",
+    "phone": "+998712344467",
+    "slug": "dilyara-dental",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Denta Klass",
+    "niche": "Dentistry",
+    "phone": "+998712914455",
+    "slug": "denta-klass",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Dent Master",
+    "niche": "Dentistry",
+    "phone": "+998712680540",
+    "slug": "dent-master",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Apolloniya Medical Dental",
+    "niche": "Dentistry",
+    "phone": "+998712556105",
+    "slug": "apolloniya-medical",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Sadaf Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "sadaf-stomatologiya",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Kristal Dental",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "kristal-dental",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Premium Estetic Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "premium-estetic-stomatologiya",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Denta Stomatologiya (Yunusobod)",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "denta-yunusobod",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Uchtepa Bolalar Stomatologiyasi",
+    "niche": "Dentistry",
+    "phone": "+998712723525",
+    "slug": "uchtepa-bolalar-stomatologiya",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Respublika Stomatologiya Poliklinikasi",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "respublika-stoma",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Toshkent Davlat Stomatologiya Instituti",
+    "niche": "Dentistry",
+    "phone": "+998712302065",
+    "slug": "tdsi-dental-institute",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "AKFA Medline",
+    "niche": "Clinic",
+    "phone": "+998972643003",
+    "slug": "akfa-medline",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Shifo Nur Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712211313",
+    "slug": "shifo-nur-klinikasi",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "MDS-Servis Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "mds-servis",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Shox International Hospital",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "shox-international-hospital",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "MediMax Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "medimax-klinikasi",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "ProfMedService Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "profmedservice",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Allergo Logic Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "allergo-logic",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Cardio Star Plus",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "cardio-star-plus",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "EstiMed Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998785555775",
+    "slug": "estimed-klinikasi",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Shifo Nur Ko'z Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712212626",
+    "slug": "shifo-nur-koz",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Tezkor Tibbiy Yordam Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "tezkor-tibbiy-klinikasi",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Yunusobod Tibbiyot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "yunusobod-tibbiyot",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Almazar Tibbiyot Markazi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "almazar-tibbiyot",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Mirzo Ulug'bek Tibbiyot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "mirzo-ulugbek-tibbiyot",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Chilonzor Tibbiyot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "chilonzor-tibbiyot",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Yunusobod Medical Center",
+    "niche": "Clinic",
+    "phone": "+998993210303",
+    "slug": "yunusobod-medical-center",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Vatan Tibbiyot Markazi",
+    "niche": "Clinic",
+    "phone": "+998785551566",
+    "slug": "vatan-tibbiyot-markazi",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Doktor-Servis Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712770000",
+    "slug": "doktor-servis-klinikasi",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Central Kardio Servis",
+    "niche": "Clinic",
+    "phone": "+998712504687",
+    "slug": "central-kardio-servis",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Magic Dental Implant Center",
+    "niche": "Dentistry",
+    "phone": "+998980071144",
+    "slug": "magic-dental-implant",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Denta Stomatologiya (Kiyot)",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "denta-stomatologiya-kiyot",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Dental Art Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "dental-art-uz",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Denta Lights Klinikasi",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "denta-lights-klinikasi",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Smaltokids Bolalar Stomatologiyasi",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "smaltokids-bolalar",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Dentera Clinics",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "dentera-clinics",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Osiyo Tibbiyot Markazi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "osiyo-tibbiyot-markazi",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Medlink Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "medlink-klinikasi",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Smalto Dente Bolalar",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "smalto-bolalar",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Klinika Yunusobod (Ko'p Tarmoqli)",
+    "niche": "Clinic",
+    "phone": "+998712201095",
+    "slug": "klinika-yunusobod",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Apteka.uz Hamkor Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "apteka-hamkor-klinikasi",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Medgid Stomatologiya №1",
+    "niche": "Dentistry",
+    "phone": "+998712536513",
+    "slug": "medgid-stomatologiya-1",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Afisha Dental (Top Stomatologiya)",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "afisha-dental",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Kliniki.uz Ko'p Tarmoqli Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "kliniki-uz",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Denta-Service (Uchtepa filiali)",
+    "niche": "Dentistry",
+    "phone": "+998712452528",
+    "slug": "denta-service-uchtepa",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Denta Stomatologiya (Olmazor)",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "denta-olmazor",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "GoldenPages Stomatologiya Top",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "goldenpages-stomatologiya",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Sergeli Tibbiyot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "sergeli-tibbiyot",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Yangi Hayot Tibbiyot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "yangihayot-tibbiyot",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Bektemir Tibbiyot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "bektemir-tibbiyot",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Zangiota Tibbiyot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "zangiota-tibbiyot",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Medlink Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "medlink-stomatologiya",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Klinika.uz Dental Top",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "klinika-uz-dental",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Asiyo Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "asiyo-stomatologiya",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Yangi Hayot Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "yangi-hayot-stoma",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Endo Systems Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "endo-systems",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "AKFAMedline Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998972643003",
+    "slug": "akfamedline-stomatologiya",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Shayxontohur Tibbiyot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "shayxontohur-tibbiyot",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Yakkasaroy Tibbiyot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "yakkasaroy-tibbiyot",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Uchtepa Tibbiyot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "uchtepa-tibbiyot",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Mirabad Tibbiyot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "mirabad-tibbiyot",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Diagnostika Markazi Toshkent",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "diagnostika-markazi",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Stasionar Klinikasi Toshkent",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "stasionar-klinikasi",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Toshkent City Tibbiyot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "toshkent-city-tibbiyot",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Asr Farm Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712254834",
+    "slug": "asr-farm-stomatologiya",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Samarqand Darvoza Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "samarqand-darvoza-stoma",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Olmosovoy Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "olmosovoy-stomatologiya",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Labzak Ko'chasi Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "labzak-stomatologiya",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Istiqlol Ko'chasi Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "istiqlol-stomatologiya",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Buyuk Ipak Yo'li Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "buyuk-ipak-stomatologiya",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Biruniy Ko'chasi Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "biruniy-stomatologiya",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Hamza Ko'chasi Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "hamza-stomatologiya",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Amir Temur Ko'chasi Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "amir-temur-stomatologiya",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Fidokor Ko'chasi Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "fidokor-stomatologiya",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Navoiy Ko'chasi Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "navoiy-stomatologiya",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Shota Rustaveli Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "rustaveli-stomatologiya",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Mustakillik Ko'chasi Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "mustakillik-stomatologiya",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Bobur Ko'chasi Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "slug": "bobur-stomatologiya",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Klinika Toshkent (Xususiy)",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "xususiy-klinikasi",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Optima Med Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "optima-med-klinikasi",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Mega Med 24/7 Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "slug": "mega-med-24",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "RESTO Restaurant",
+    "niche": "Restaurant",
+    "phone": "+998555141111",
+    "slug": "resto-restaurant",
+    "district": "Yunusobod",
+    "has_website": false
+  },
+  {
+    "name": "ASSORTI Restaurant",
+    "niche": "Restaurant",
+    "phone": "+998712000001",
+    "slug": "assorti-restaurant",
+    "district": "Mirzo-Ulugbek",
+    "has_website": false
+  },
+  {
     "name": "Baraka Restoran",
     "niche": "Restaurant",
-    "phone": "+998901234501",
-    "address": "Toshkent, Yunusobod tumani, 14-mavze 12-uy",
-    "instagram": "baraka_restoran",
-    "services": [
-      "O'zbek milliy taomi",
-      "Banket va to'ylar",
-      "Korporativ ziyofatlar",
-      "Yetkazib berish",
-      "Nonushta va tushlik"
-    ],
-    "colors": {
-      "primary": "#1a0a00",
-      "accent": "#e63946"
-    },
+    "phone": "+998993456789",
     "slug": "baraka-restoran",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/baraka-restoran.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/baraka-restoran.png",
-    "has_url": false,
-    "edit_password": "4501"
+    "district": "Chilonzor",
+    "has_website": false
   },
   {
-    "id": 2,
-    "name": "Shifo Tibbiyot Markazi",
-    "niche": "Clinic",
-    "phone": "+998901234502",
-    "address": "Toshkent, Mirzo Ulug'bek tumani, Bunyodkor ko'ch 5",
-    "instagram": "shifo_tibbiyot",
-    "services": [
-      "Terapevt",
-      "Stomatologiya",
-      "Ko'z shifokori",
-      "UZI diagnostika",
-      "Laboratoriya tahlillari"
-    ],
-    "colors": {
-      "primary": "#0a2342",
-      "accent": "#00b4d8"
-    },
-    "slug": "shifo-tibbiyot",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/shifo-tibbiyot.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/shifo-tibbiyot.png",
-    "has_url": false,
-    "edit_password": "4502"
+    "name": "Samarqand Taomlari",
+    "niche": "Restaurant",
+    "phone": "+998712001234",
+    "slug": "samarqand-taomlari",
+    "district": "Shayxontohur",
+    "has_website": false
   },
   {
-    "id": 3,
+    "name": "Lagman House",
+    "niche": "Restaurant",
+    "phone": "+998951234567",
+    "slug": "lagman-house",
+    "district": "Yunusobod",
+    "has_website": false
+  },
+  {
+    "name": "Oqtepa Lavash",
+    "niche": "Restaurant",
+    "phone": "+998711234567",
+    "slug": "oqtepa-lavash",
+    "district": "Mirabad",
+    "has_website": false
+  },
+  {
+    "name": "Ziyofat Restaurant",
+    "niche": "Restaurant",
+    "phone": "+998781234567",
+    "slug": "ziyofat-restaurant",
+    "district": "Uchtepa",
+    "has_website": false
+  },
+  {
+    "name": "Besh Qadam Cafe",
+    "niche": "Restaurant",
+    "phone": "+998971234567",
+    "slug": "besh-qadam-cafe",
+    "district": "Sergeli",
+    "has_website": false
+  },
+  {
+    "name": "Tanovar Osh Restaurant",
+    "niche": "Restaurant",
+    "phone": "+998881234567",
+    "slug": "tanovar-osh-restaurant",
+    "district": "Almazar",
+    "has_website": false
+  },
+  {
+    "name": "Guliston Restoran",
+    "niche": "Restaurant",
+    "phone": "+998901111222",
+    "slug": "guliston-restoran",
+    "district": "Yakkasaray",
+    "has_website": false
+  },
+  {
+    "name": "Choyxona Navro'z",
+    "niche": "Restaurant",
+    "phone": "+998931111222",
+    "slug": "choyxona-navruz",
+    "district": "Bektemir",
+    "has_website": false
+  },
+  {
+    "name": "Plov Center Toshkent",
+    "niche": "Restaurant",
+    "phone": "+998951111333",
+    "slug": "plov-center-toshkent",
+    "district": "Chilonzor",
+    "has_website": false
+  },
+  {
+    "name": "Tokyo Sushi Tashkent",
+    "niche": "Restaurant",
+    "phone": "+998971111333",
+    "slug": "tokyo-sushi-tashkent",
+    "district": "Mirzo-Ulugbek",
+    "has_website": false
+  },
+  {
+    "name": "Shawarma King",
+    "niche": "Restaurant",
+    "phone": "+998781111333",
+    "slug": "shawarma-king",
+    "district": "Yunusobod",
+    "has_website": false
+  },
+  {
+    "name": "Nargis Wedding Hall",
+    "niche": "Restaurant",
+    "phone": "+998711111333",
+    "slug": "nargis-wedding-hall",
+    "district": "Shayxontohur",
+    "has_website": false
+  },
+  {
+    "name": "Pizza Prime",
+    "niche": "Restaurant",
+    "phone": "+998901111444",
+    "slug": "pizza-prime",
+    "district": "Uchtepa",
+    "has_website": false
+  },
+  {
+    "name": "Mangal BBQ House",
+    "niche": "Restaurant",
+    "phone": "+998951111444",
+    "slug": "mangal-bbq-house",
+    "district": "Mirabad",
+    "has_website": false
+  },
+  {
+    "name": "Koreys Oshxona",
+    "niche": "Restaurant",
+    "phone": "+998931111444",
+    "slug": "koreys-oshxona",
+    "district": "Yashnobod",
+    "has_website": false
+  },
+  {
+    "name": "Bread & Butter Cafe",
+    "niche": "Restaurant",
+    "phone": "+998971111444",
+    "slug": "bread-butter-cafe",
+    "district": "Yunusobod",
+    "has_website": false
+  },
+  {
+    "name": "Halol Bozor Kebab",
+    "niche": "Restaurant",
+    "phone": "+998881111444",
+    "slug": "halol-bozor-kebab",
+    "district": "Sergeli",
+    "has_website": false
+  },
+  {
+    "name": "Legenda Fitness",
+    "niche": "Fitness",
+    "phone": "+998785557555",
+    "slug": "legenda-fitness",
+    "district": "Chilonzor",
+    "has_website": true
+  },
+  {
+    "name": "BeFit Pro",
+    "niche": "Fitness",
+    "phone": "+998950000001",
+    "slug": "befit-pro",
+    "district": "Chilonzor",
+    "has_website": false
+  },
+  {
+    "name": "Life Fitness Club",
+    "niche": "Fitness",
+    "phone": "+998712222333",
+    "slug": "life-fitness-club",
+    "district": "Mirabad",
+    "has_website": false
+  },
+  {
+    "name": "Proform Fitness",
+    "niche": "Fitness",
+    "phone": "+998712222444",
+    "slug": "proform-fitness",
+    "district": "Yunusobod",
+    "has_website": false
+  },
+  {
+    "name": "Orange Woman Club",
+    "niche": "Fitness",
+    "phone": "+998712222555",
+    "slug": "orange-woman-club",
+    "district": "Shayxontohur",
+    "has_website": false
+  },
+  {
+    "name": "Volna Sport Center",
+    "niche": "Fitness",
+    "phone": "+998903550525",
+    "slug": "volna-sport-center",
+    "district": "Mirzo-Ulugbek",
+    "has_website": false
+  },
+  {
+    "name": "Platinum Fitness Club",
+    "niche": "Fitness",
+    "phone": "+998712222666",
+    "slug": "platinum-fitness-club",
+    "district": "Yunusobod",
+    "has_website": false
+  },
+  {
+    "name": "FitZone Tashkent",
+    "niche": "Fitness",
+    "phone": "+998952222666",
+    "slug": "fitzone-tashkent",
+    "district": "Chilonzor",
+    "has_website": false
+  },
+  {
+    "name": "MusclePro Gym",
+    "niche": "Fitness",
+    "phone": "+998972222666",
+    "slug": "musclepro-gym",
+    "district": "Sergeli",
+    "has_website": false
+  },
+  {
+    "name": "Yoga & Wellness Studio",
+    "niche": "Fitness",
+    "phone": "+998922222666",
+    "slug": "yoga-wellness-studio",
+    "district": "Mirabad",
+    "has_website": false
+  },
+  {
+    "name": "Champion Boxing Club",
+    "niche": "Fitness",
+    "phone": "+998912222666",
+    "slug": "champion-boxing-club",
+    "district": "Almazar",
+    "has_website": false
+  },
+  {
+    "name": "SwimPro Basseyn",
+    "niche": "Fitness",
+    "phone": "+998782222666",
+    "slug": "swimpro-basseyn",
+    "district": "Yunusobod",
+    "has_website": false
+  },
+  {
+    "name": "Power Sport Complex",
+    "niche": "Fitness",
+    "phone": "+998882222666",
+    "slug": "power-sport-complex",
+    "district": "Uchtepa",
+    "has_website": false
+  },
+  {
+    "name": "ActiveLife Gym",
+    "niche": "Fitness",
+    "phone": "+998902222777",
+    "slug": "activelife-gym",
+    "district": "Shayxontohur",
+    "has_website": false
+  },
+  {
+    "name": "Energiya Sport Club",
+    "niche": "Fitness",
+    "phone": "+998932222777",
+    "slug": "energiya-sport-club",
+    "district": "Mirzo-Ulugbek",
+    "has_website": false
+  },
+  {
+    "name": "Soho Beauty Salon",
+    "niche": "Beauty",
+    "phone": "+998333054040",
+    "slug": "soho-beauty-salon",
+    "district": "Mirabad",
+    "has_website": false
+  },
+  {
+    "name": "Moderna Beauty Studio",
+    "niche": "Beauty",
+    "phone": "+998880087178",
+    "slug": "moderna-beauty-studio",
+    "district": "Mirabad",
+    "has_website": false
+  },
+  {
+    "name": "Rocks Beauty Bar",
+    "niche": "Beauty",
+    "phone": "+998910030055",
+    "slug": "rocks-beauty-bar",
+    "district": "Yunusobod",
+    "has_website": false
+  },
+  {
+    "name": "Chocolate Beauty Salon",
+    "niche": "Beauty",
+    "phone": "+998931990008",
+    "slug": "chocolate-beauty-salon",
+    "district": "Mirabad",
+    "has_website": false
+  },
+  {
+    "name": "Miss Lola Beauty",
+    "niche": "Beauty",
+    "phone": "+998909705077",
+    "slug": "miss-lola-beauty",
+    "district": "Shayxontohur",
+    "has_website": false
+  },
+  {
+    "name": "Yasmina Beauty Salon",
+    "niche": "Beauty",
+    "phone": "+998712333444",
+    "slug": "yasmina-beauty-salon",
+    "district": "Mirzo-Ulugbek",
+    "has_website": false
+  },
+  {
+    "name": "Nari Beauty Studio",
+    "niche": "Beauty",
+    "phone": "+998712333555",
+    "slug": "nari-beauty-studio",
+    "district": "Yakkasaray",
+    "has_website": false
+  },
+  {
+    "name": "Glamour Nail Studio",
+    "niche": "Beauty",
+    "phone": "+998902333555",
+    "slug": "glamour-nail-studio",
+    "district": "Yunusobod",
+    "has_website": false
+  },
+  {
+    "name": "Luxe Hair Salon",
+    "niche": "Beauty",
+    "phone": "+998942333555",
+    "slug": "luxe-hair-salon",
+    "district": "Chilonzor",
+    "has_website": false
+  },
+  {
+    "name": "Beauty Queen Studio",
+    "niche": "Beauty",
+    "phone": "+998982333555",
+    "slug": "beauty-queen-studio",
+    "district": "Almazar",
+    "has_website": false
+  },
+  {
+    "name": "Spa&Style Center",
+    "niche": "Beauty",
+    "phone": "+998712333666",
+    "slug": "spa-style-center",
+    "district": "Mirabad",
+    "has_website": false
+  },
+  {
+    "name": "Brow & Lash Studio",
+    "niche": "Beauty",
+    "phone": "+998952333666",
+    "slug": "brow-lash-studio",
+    "district": "Yunusobod",
+    "has_website": false
+  },
+  {
+    "name": "Venera Beauty Salon",
+    "niche": "Beauty",
+    "phone": "+998712333777",
+    "slug": "venera-beauty-salon",
+    "district": "Shayxontohur",
+    "has_website": false
+  },
+  {
+    "name": "Expert Elite Beauty",
+    "niche": "Beauty",
+    "phone": "+998712333888",
+    "slug": "expert-elite-beauty",
+    "district": "Mirzo-Ulugbek",
+    "has_website": false
+  },
+  {
+    "name": "Alfa Style Studio",
+    "niche": "Beauty",
+    "phone": "+998712333999",
+    "slug": "alfa-style-studio",
+    "district": "Mirabad",
+    "has_website": false
+  },
+  {
+    "name": "Hair Boss Salon",
+    "niche": "Beauty",
+    "phone": "+998932333999",
+    "slug": "hair-boss-salon",
+    "district": "Yunusobod",
+    "has_website": false
+  },
+  {
+    "name": "Klub Krasivykh Mam",
+    "niche": "Beauty",
+    "phone": "+998909009555",
+    "slug": "klub-krasivykh-mam",
+    "district": "Mirabad",
+    "has_website": false
+  },
+  {
+    "name": "Glow Skin Studio",
+    "niche": "Beauty",
+    "phone": "+998712444555",
+    "slug": "glow-skin-studio",
+    "district": "Chilonzor",
+    "has_website": false
+  },
+  {
+    "name": "Pink Nail Bar",
+    "niche": "Beauty",
+    "phone": "+998902444555",
+    "slug": "pink-nail-bar",
+    "district": "Sergeli",
+    "has_website": false
+  },
+  {
+    "name": "Visage Cosmetology",
+    "niche": "Beauty",
+    "phone": "+998952444555",
+    "slug": "visage-cosmetology",
+    "district": "Yakkasaray",
+    "has_website": false
+  },
+  {
+    "name": "Mannel-Ziyo Auto Service",
+    "niche": "Auto",
+    "phone": "+998712777635",
+    "slug": "mannel-ziyo-auto",
+    "district": "Chilonzor",
+    "has_website": false
+  },
+  {
+    "name": "AutoMaster Tashkent",
+    "niche": "Auto",
+    "phone": "+998712444666",
+    "slug": "automaster-tashkent",
+    "district": "Mirzo-Ulugbek",
+    "has_website": false
+  },
+  {
+    "name": "Shina Planet",
+    "niche": "Auto",
+    "phone": "+998712444777",
+    "slug": "shina-planet",
+    "district": "Sergeli",
+    "has_website": false
+  },
+  {
+    "name": "SpeedWash Avtoyuvish",
+    "niche": "Auto",
+    "phone": "+998902444777",
+    "slug": "speedwash-avtoyuvish",
+    "district": "Yunusobod",
+    "has_website": false
+  },
+  {
+    "name": "TuningPro Tashkent",
+    "niche": "Auto",
+    "phone": "+998952444777",
+    "slug": "tuningpro-tashkent",
+    "district": "Chilonzor",
+    "has_website": false
+  },
+  {
+    "name": "Global Auto Parts",
+    "niche": "Auto",
+    "phone": "+998712444888",
+    "slug": "global-auto-parts",
+    "district": "Almazar",
+    "has_website": false
+  },
+  {
+    "name": "ElektroAvto Service",
+    "niche": "Auto",
+    "phone": "+998942444888",
+    "slug": "elektroavto-service",
+    "district": "Mirzo-Ulugbek",
+    "has_website": false
+  },
+  {
+    "name": "GlassMax Avto",
+    "niche": "Auto",
+    "phone": "+998712444999",
+    "slug": "glassmax-avto",
+    "district": "Uchtepa",
+    "has_website": false
+  },
+  {
+    "name": "Avto Diagnostika Pro",
+    "niche": "Auto",
+    "phone": "+998712555111",
+    "slug": "avto-diagnostika-pro",
+    "district": "Shayxontohur",
+    "has_website": false
+  },
+  {
+    "name": "Royal Car Wash",
+    "niche": "Auto",
+    "phone": "+998902555111",
+    "slug": "royal-car-wash",
+    "district": "Yunusobod",
+    "has_website": false
+  },
+  {
+    "name": "MotoFix Service",
+    "niche": "Auto",
+    "phone": "+998952555111",
+    "slug": "motofix-service",
+    "district": "Mirabad",
+    "has_website": false
+  },
+  {
+    "name": "CreditAuto Tashkent",
+    "niche": "Auto",
+    "phone": "+998712555222",
+    "slug": "creditauto-tashkent",
+    "district": "Chilonzor",
+    "has_website": false
+  },
+  {
+    "name": "ParkZone Avtostoyanka",
+    "niche": "Auto",
+    "phone": "+998712555333",
+    "slug": "parkzone-avtostoyanka",
+    "district": "Mirzo-Ulugbek",
+    "has_website": false
+  },
+  {
+    "name": "Gazovoe Oborudovanie UZ",
+    "niche": "Auto",
+    "phone": "+998712555444",
+    "slug": "gazovoe-oborudovanie-uz",
+    "district": "Sergeli",
+    "has_website": false
+  },
+  {
+    "name": "UzAuto Aksessuarlar",
+    "niche": "Auto",
+    "phone": "+998712555555",
+    "slug": "uzauto-aksessuarlar",
+    "district": "Almazar",
+    "has_website": false
+  },
+  {
+    "name": "Dilnavoz Auto Servis",
+    "niche": "Auto",
+    "phone": "+998712555666",
+    "slug": "dilnavoz-auto-servis",
+    "district": "Uchtepa",
+    "has_website": false
+  },
+  {
+    "name": "Grand Silk Hotel",
+    "niche": "Hotel",
+    "phone": "+998712666111",
+    "slug": "grand-silk-hotel",
+    "district": "Yunusobod",
+    "has_website": false
+  },
+  {
+    "name": "Samarkand Plaza Hotel",
+    "niche": "Hotel",
+    "phone": "+998712666222",
+    "slug": "samarkand-plaza-hotel",
+    "district": "Mirzo-Ulugbek",
+    "has_website": false
+  },
+  {
+    "name": "Prestige Inn Tashkent",
+    "niche": "Hotel",
+    "phone": "+998712666333",
+    "slug": "prestige-inn-tashkent",
+    "district": "Chilonzor",
+    "has_website": false
+  },
+  {
+    "name": "Business Hotel Central",
+    "niche": "Hotel",
+    "phone": "+998712666444",
+    "slug": "business-hotel-central",
+    "district": "Mirabad",
+    "has_website": false
+  },
+  {
+    "name": "Green Garden Hotel",
+    "niche": "Hotel",
+    "phone": "+998712666555",
+    "slug": "green-garden-hotel",
+    "district": "Yunusobod",
+    "has_website": false
+  },
+  {
+    "name": "Tashkent Boutique Hotel",
+    "niche": "Hotel",
+    "phone": "+998712666666",
+    "slug": "tashkent-boutique-hotel",
+    "district": "Shayxontohur",
+    "has_website": false
+  },
+  {
+    "name": "AirPort Hotel Tashkent",
+    "niche": "Hotel",
+    "phone": "+998712666777",
+    "slug": "airport-hotel-tashkent",
+    "district": "Yunusobod",
+    "has_website": false
+  },
+  {
+    "name": "Navoi Guest House",
+    "niche": "Hotel",
+    "phone": "+998712666888",
+    "slug": "navoi-guest-house",
+    "district": "Mirzo-Ulugbek",
+    "has_website": false
+  },
+  {
+    "name": "Family Resort Hotel",
+    "niche": "Hotel",
+    "phone": "+998712666999",
+    "slug": "family-resort-hotel",
+    "district": "Bektemir",
+    "has_website": false
+  },
+  {
+    "name": "City Center Hostel",
+    "niche": "Hotel",
+    "phone": "+998712777001",
+    "slug": "city-center-hostel",
+    "district": "Mirabad",
+    "has_website": false
+  },
+  {
     "name": "BuildPro Qurilish",
     "niche": "Construction",
-    "phone": "+998901234503",
-    "address": "Toshkent, Chilonzor tumani, 9-mavze",
-    "instagram": "buildpro_uz",
-    "services": [
-      "Turar-joy qurilishi",
-      "Ofis va savdo obyektlari",
-      "Remont va ta'mirlash",
-      "Loyihalash",
-      "Kalit topshiriq"
-    ],
-    "colors": {
-      "primary": "#1c1c1e",
-      "accent": "#f4a261"
-    },
+    "phone": "+998712777111",
     "slug": "buildpro-qurilish",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/buildpro-qurilish.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/buildpro-qurilish.png",
-    "has_url": false,
-    "edit_password": "4503"
+    "district": "Chilonzor",
+    "has_website": false
   },
   {
-    "id": 4,
+    "name": "MegaStroy Tashkent",
+    "niche": "Construction",
+    "phone": "+998712777222",
+    "slug": "megastroy-tashkent",
+    "district": "Mirzo-Ulugbek",
+    "has_website": false
+  },
+  {
+    "name": "EcoHome Qurilish",
+    "niche": "Construction",
+    "phone": "+998712777333",
+    "slug": "ecohome-qurilish",
+    "district": "Yunusobod",
+    "has_website": false
+  },
+  {
+    "name": "Premium Remont Service",
+    "niche": "Construction",
+    "phone": "+998712777444",
+    "slug": "premium-remont-service",
+    "district": "Mirabad",
+    "has_website": false
+  },
+  {
+    "name": "Stroytex Kompaniyasi",
+    "niche": "Construction",
+    "phone": "+998712777555",
+    "slug": "stroytex-kompaniyasi",
+    "district": "Sergeli",
+    "has_website": false
+  },
+  {
+    "name": "AluminPro Konstruktsiya",
+    "niche": "Construction",
+    "phone": "+998712777666",
+    "slug": "aluminpro-konstruktsiya",
+    "district": "Uchtepa",
+    "has_website": false
+  },
+  {
+    "name": "Master Plitka",
+    "niche": "Construction",
+    "phone": "+998712777777",
+    "slug": "master-plitka",
+    "district": "Almazar",
+    "has_website": false
+  },
+  {
+    "name": "Parquet&Floor Pro",
+    "niche": "Construction",
+    "phone": "+998712777888",
+    "slug": "parquet-floor-pro",
+    "district": "Mirzo-Ulugbek",
+    "has_website": false
+  },
+  {
+    "name": "Gips&Dekor",
+    "niche": "Construction",
+    "phone": "+998712777999",
+    "slug": "gips-dekor",
+    "district": "Shayxontohur",
+    "has_website": false
+  },
+  {
+    "name": "ElektroPro Montaj",
+    "niche": "Construction",
+    "phone": "+998712888111",
+    "slug": "elektropro-montaj",
+    "district": "Chilonzor",
+    "has_website": false
+  },
+  {
+    "name": "SantexMaster UZ",
+    "niche": "Construction",
+    "phone": "+998712888222",
+    "slug": "santexmaster-uz",
+    "district": "Mirabad",
+    "has_website": false
+  },
+  {
+    "name": "ConditionerPro",
+    "niche": "Construction",
+    "phone": "+998712888333",
+    "slug": "conditionerpro",
+    "district": "Yunusobod",
+    "has_website": false
+  },
+  {
+    "name": "Interyer Dizayn Pro",
+    "niche": "Construction",
+    "phone": "+998712888444",
+    "slug": "interyer-dizayn-pro",
+    "district": "Mirzo-Ulugbek",
+    "has_website": false
+  },
+  {
+    "name": "QurTech Qurilish",
+    "niche": "Construction",
+    "phone": "+998712888555",
+    "slug": "qurtech-qurilish",
+    "district": "Bektemir",
+    "has_website": false
+  },
+  {
+    "name": "MetallKonstruktsiya UZ",
+    "niche": "Construction",
+    "phone": "+998712888666",
+    "slug": "metallkonstruktsiya-uz",
+    "district": "Almazar",
+    "has_website": false
+  },
+  {
+    "name": "Baraka Restoran",
+    "niche": "Restaurant",
+    "phone": "+998712509903",
+    "slug": "baraka-restoran",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "Shifo Tibbiyot Markazi",
+    "niche": "Clinic",
+    "phone": "+998787770303",
+    "slug": "shifo-tibbiyot",
+    "district": "",
+    "has_website": false
+  },
+  {
+    "name": "BuildPro Qurilish",
+    "niche": "Construction",
+    "phone": "+998955110011",
+    "slug": "buildpro-qurilish",
+    "district": "",
+    "has_website": false
+  },
+  {
     "name": "AutoServis Premium",
     "niche": "Auto Service",
-    "phone": "+998901234504",
-    "address": "Toshkent, Sergeli tumani, Yangi yo'l ko'ch 44",
-    "instagram": "autoservis_premium",
-    "services": [
-      "Dvigatel ta'miri",
-      "Kuzov ishlari",
-      "Bo'yash",
-      "Shina almashtirish",
-      "Diagnostika"
-    ],
-    "colors": {
-      "primary": "#0d1b2a",
-      "accent": "#e94560"
-    },
+    "phone": "+998770397707",
     "slug": "autoservis-premium",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/autoservis-premium.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/autoservis-premium.png",
-    "has_url": false,
-    "edit_password": "4504"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 5,
     "name": "Zafar Stomatologiya",
     "niche": "Dentistry",
-    "phone": "+998901234505",
-    "address": "Toshkent, Shayxontohur tumani, Navoiy ko'ch 18",
-    "instagram": "zafar_dental",
-    "services": [
-      "Davolash",
-      "Protezlash",
-      "Oqartirish",
-      "Implantatsiya",
-      "Bolalar stomatologiyasi"
-    ],
-    "colors": {
-      "primary": "#003049",
-      "accent": "#2dc653"
-    },
+    "phone": "+998712333747",
     "slug": "zafar-dental",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/zafar-dental.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/zafar-dental.png",
-    "has_url": false,
-    "edit_password": "4505"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 6,
     "name": "Nur Logistika",
     "niche": "Logistics",
-    "phone": "+998901234506",
-    "address": "Toshkent, Bektemir tumani, Sanoat ko'ch 7",
-    "instagram": "nur_logistika",
-    "services": [
-      "Shahar ichida yetkazish",
-      "Mintaqalararo yuk tashish",
-      "Omborlash",
-      "Bojxona rasmiylashtiruvi",
-      "Sovuq zanjir"
-    ],
-    "colors": {
-      "primary": "#1b2838",
-      "accent": "#66c0f4"
-    },
+    "phone": "+998900920077",
     "slug": "nur-logistika",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/nur-logistika.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/nur-logistika.png",
-    "has_url": false,
-    "edit_password": "4506"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 7,
     "name": "Saodat Ta'lim Markazi",
     "niche": "Education",
-    "phone": "+998901234507",
-    "address": "Toshkent, Yakkasaroy tumani, Amir Temur shoh ko'ch 33",
-    "instagram": "saodat_talim",
-    "services": [
-      "Ingliz tili",
-      "Matematika",
-      "IT kurslari",
-      "IELTS tayyorlov",
-      "Rus tili"
-    ],
-    "colors": {
-      "primary": "#2d1b69",
-      "accent": "#9b5de5"
-    },
+    "phone": "+998909827258",
     "slug": "saodat-talim",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/saodat-talim.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/saodat-talim.png",
-    "has_url": false,
-    "edit_password": "4507"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 8,
     "name": "Mehribon Mehmonxona",
     "niche": "Hotel",
-    "phone": "+998901234508",
-    "address": "Toshkent, Mirobod tumani, Mustaqillik ko'ch 22",
-    "instagram": "mehribon_hotel",
-    "services": [
-      "Standart xonalar",
-      "Lyuks xonalar",
-      "Konferens zal",
-      "Restoran",
-      "Tranzfer xizmati"
-    ],
-    "colors": {
-      "primary": "#1a1a2e",
-      "accent": "#e94560"
-    },
+    "phone": "+998781131111",
     "slug": "mehribon-mehmonxona",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/mehribon-mehmonxona.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/mehribon-mehmonxona.png",
-    "has_url": false,
-    "edit_password": "4508"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 9,
     "name": "FitLife Sport Markazi",
     "niche": "Fitness",
-    "phone": "+998901234509",
-    "address": "Toshkent, Olmazor tumani, Qo'yliq ko'ch 11",
-    "instagram": "fitlife_uz",
-    "services": [
-      "Trenajyor zali",
-      "Guruh mashg'ulotlari",
-      "Yoga",
-      "Box",
-      "Shaxsiy trener"
-    ],
-    "colors": {
-      "primary": "#0f0f0f",
-      "accent": "#39ff14"
-    },
+    "phone": "+998910063333",
     "slug": "fitlife-sport",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/fitlife-sport.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/fitlife-sport.png",
-    "has_url": false,
-    "edit_password": "4509"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 10,
     "name": "Bahor Supermarket",
     "niche": "Retail",
-    "phone": "+998901234510",
-    "address": "Toshkent, Uchtepa tumani, Buyuk Turon ko'ch 8",
-    "instagram": "bahor_market",
-    "services": [
-      "Oziq-ovqat mahsulotlari",
-      "Maishiy texnika",
-      "Kiyim-kechak",
-      "Go'sht bo'limi",
-      "Non mahsulotlari"
-    ],
-    "colors": {
-      "primary": "#1a472a",
-      "accent": "#40c057"
-    },
+    "phone": "+998555006555",
     "slug": "bahor-supermarket",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/bahor-supermarket.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/bahor-supermarket.png",
-    "has_url": false,
-    "edit_password": "4510"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 11,
     "name": "Sher Kebab Oshxonasi",
     "niche": "Restaurant",
-    "phone": "+998901234511",
-    "address": "Toshkent, Yunusobod tumani, 7-mavze 3-uy",
-    "instagram": "sher_kebab",
-    "services": [
-      "Milliy taomlar",
-      "Kebab turlari",
-      "Somsa va non",
-      "Choy va ichimliklar",
-      "Buyurtma ovqat"
-    ],
-    "colors": {
-      "primary": "#3d0000",
-      "accent": "#ff6b35"
-    },
+    "phone": "+998712954349",
     "slug": "sher-kebab",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/sher-kebab.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/sher-kebab.png",
-    "has_url": false,
-    "edit_password": "4511"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 12,
     "name": "Oltin Kalit Ko'chmas Mulk",
     "niche": "Real Estate",
-    "phone": "+998901234512",
-    "address": "Toshkent, Yashnobod tumani, Yangi hayot ko'ch 19",
-    "instagram": "oltin_kalit_uz",
-    "services": [
-      "Kvartira sotish",
-      "Ijara",
-      "Tijorat mulki",
-      "Yangi binolar",
-      "Ipoteka maslahat"
-    ],
-    "colors": {
-      "primary": "#1a1200",
-      "accent": "#ffd700"
-    },
+    "phone": "+998781137712",
     "slug": "oltin-kalit-realestate",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/oltin-kalit-realestate.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/oltin-kalit-realestate.png",
-    "has_url": false,
-    "edit_password": "4512"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 13,
     "name": "Texno Servis",
     "niche": "Electronics Repair",
-    "phone": "+998901234513",
-    "address": "Toshkent, Mirzo Ulug'bek tumani, Olmachi bozor yoni",
-    "instagram": "texno_servis_uz",
-    "services": [
-      "Telefon ta'miri",
-      "Noutbuk ta'miri",
-      "Planshet ta'miri",
-      "Ekran almashtirish",
-      "Akkumulyator almashtirish"
-    ],
-    "colors": {
-      "primary": "#0a0a0f",
-      "accent": "#00d2ff"
-    },
+    "phone": "+998712832255",
     "slug": "texno-servis",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/texno-servis.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/texno-servis.png",
-    "has_url": false,
-    "edit_password": "4513"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 14,
     "name": "Arzon Do'kon",
     "niche": "Retail",
-    "phone": "+998901234514",
-    "address": "Toshkent, Qibray tumani, markaziy bozor yonida",
-    "instagram": "arzon_dokon_uz",
-    "services": [
-      "Uy jihozlari",
-      "Idish-tovoq",
-      "Yorug'lik jihozlari",
-      "Hammom anjomlari",
-      "Mebel"
-    ],
-    "colors": {
-      "primary": "#003566",
-      "accent": "#ffd166"
-    },
+    "phone": "+998994395050",
     "slug": "arzon-dokon",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/arzon-dokon.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/arzon-dokon.png",
-    "has_url": false,
-    "edit_password": "4514"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 15,
     "name": "Yangi Hayot Klinikasi",
     "niche": "Clinic",
-    "phone": "+998901234515",
-    "address": "Toshkent, Shayxontohur tumani, Ko'kcha darvoza ko'ch 4",
-    "instagram": "yangi_hayot_klinika",
-    "services": [
-      "Ginekologiya",
-      "Kardiologiya",
-      "Nevrologiya",
-      "Endokrinologiya",
-      "Ultratovush diagnostika"
-    ],
-    "colors": {
-      "primary": "#0a2342",
-      "accent": "#e63946"
-    },
+    "phone": "+998781132785",
     "slug": "yangi-hayot-klinika",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/yangi-hayot-klinika.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/yangi-hayot-klinika.png",
-    "has_url": false,
-    "edit_password": "4515"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 16,
     "name": "Oq Oltin Mebel",
     "niche": "Furniture",
-    "phone": "+998901234516",
-    "address": "Toshkent, Bektemir tumani, Mustakillik ko'ch 55",
-    "instagram": "oqoltin_mebel",
-    "services": [
-      "Yotoq xona mebeli",
-      "Mehmonxona mebeli",
-      "Oshxona mebeli",
-      "Idora mebeli",
-      "Buyurtma mebel"
-    ],
-    "colors": {
-      "primary": "#2d1b0e",
-      "accent": "#c9a96e"
-    },
+    "phone": "+998901357500",
     "slug": "oq-oltin-mebel",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/oq-oltin-mebel.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/oq-oltin-mebel.png",
-    "has_url": false,
-    "edit_password": "4516"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 17,
     "name": "Toshkent Nashriyot",
     "niche": "Printing",
-    "phone": "+998901234517",
-    "address": "Toshkent, Mirzo Ulug'bek tumani, Universitet ko'ch 12",
-    "instagram": "toshkent_print",
-    "services": [
-      "Vizit kartalar",
-      "Bannerlar",
-      "Bukletlar",
-      "Kitoblar nashr",
-      "Muhr va shtamplar"
-    ],
-    "colors": {
-      "primary": "#1a0028",
-      "accent": "#bf5af2"
-    },
+    "phone": "+998712561176",
     "slug": "toshkent-nashriyot",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/toshkent-nashriyot.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/toshkent-nashriyot.png",
-    "has_url": false,
-    "edit_password": "4517"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 18,
     "name": "Xurmo Qandolat",
     "niche": "Bakery",
-    "phone": "+998901234518",
-    "address": "Toshkent, Olmazor tumani, Sog'lom avlod ko'ch 6",
-    "instagram": "xurmo_qandolat",
-    "services": [
-      "To'y tortichalari",
-      "Pechenye turlari",
-      "Makaron",
-      "Puf bo'laklar",
-      "Buyurtma tortlar"
-    ],
-    "colors": {
-      "primary": "#3d0e00",
-      "accent": "#ff9f1c"
-    },
+    "phone": "+998977296555",
     "slug": "xurmo-qandolat",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/xurmo-qandolat.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/xurmo-qandolat.png",
-    "has_url": false,
-    "edit_password": "4518"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 19,
     "name": "Green Way Bog'dorchilik",
     "niche": "Landscaping",
-    "phone": "+998901234519",
-    "address": "Toshkent, Yunusobod tumani, bog'dorchilik markazi",
-    "instagram": "greenway_uz",
-    "services": [
-      "Bog' loyihalash",
-      "O'simliklar parvarishi",
-      "Maysazor yaratish",
-      "Hovuz qurilish",
-      "Daraxt kesish"
-    ],
-    "colors": {
-      "primary": "#0d3b00",
-      "accent": "#76c442"
-    },
+    "phone": "+998712051945",
     "slug": "greenway-bogdorchilik",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/greenway-bogdorchilik.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/greenway-bogdorchilik.png",
-    "has_url": false,
-    "edit_password": "4519"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 20,
     "name": "Shams O'quv Markazi",
     "niche": "Education",
-    "phone": "+998901234520",
-    "address": "Toshkent, Uchtepa tumani, Yangi uchtepa ko'ch 21",
-    "instagram": "shams_oquv",
-    "services": [
-      "Xorijiy tillar",
-      "Dasturlash kurslari",
-      "Grafik dizayn",
-      "SMM kursi",
-      "Muhasib kursi"
-    ],
-    "colors": {
-      "primary": "#0f2044",
-      "accent": "#4cc9f0"
-    },
+    "phone": "+998977716030",
     "slug": "shams-oquv-markazi",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/shams-oquv-markazi.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/shams-oquv-markazi.png",
-    "has_url": false,
-    "edit_password": "4520"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 21,
     "name": "Aziz Savdo Markazi",
     "niche": "Wholesale",
-    "phone": "+998901234521",
-    "address": "Toshkent, Bektemir tumani, Sanoat ko'ch 88",
-    "instagram": "aziz_savdo",
-    "services": [
-      "Oziq-ovqat ulgurji",
-      "Ichimlik ulgurji",
-      "Sanoat mahsulotlari",
-      "Qurilish materiallari",
-      "Import mahsulotlar"
-    ],
-    "colors": {
-      "primary": "#1a1a1a",
-      "accent": "#f72585"
-    },
+    "phone": "+998977216772",
     "slug": "aziz-savdo",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/aziz-savdo.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/aziz-savdo.png",
-    "has_url": false,
-    "edit_password": "4521"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 22,
     "name": "Meros Kafedrasi",
     "niche": "Restaurant",
-    "phone": "+998901234522",
-    "address": "Toshkent, Mirobod tumani, Usmon Nosir ko'ch 30",
-    "instagram": "meros_kafe",
-    "services": [
-      "Milliy taomlar",
-      "Non turlari",
-      "Kabob",
-      "Shashlik",
-      "Oilaviy dasturxon"
-    ],
-    "colors": {
-      "primary": "#1a0a00",
-      "accent": "#d62828"
-    },
+    "phone": "+998712121856",
     "slug": "meros-kafe",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/meros-kafe.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/meros-kafe.png",
-    "has_url": false,
-    "edit_password": "4522"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 23,
     "name": "Clever Kids Bog'cha",
     "niche": "Kindergarten",
-    "phone": "+998901234523",
-    "address": "Toshkent, Chilonzor tumani, 16-mavze 5-uy",
-    "instagram": "cleverkids_uz",
-    "services": [
-      "Maktabgacha ta'lim",
-      "Ingliz tili bolalar uchun",
-      "San'at va ijodkorlik",
-      "Jismoniy tarbiya",
-      "Musiqiy ta'lim"
-    ],
-    "colors": {
-      "primary": "#001233",
-      "accent": "#ff6b6b"
-    },
+    "phone": "+998935796363",
     "slug": "clever-kids",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/clever-kids.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/clever-kids.png",
-    "has_url": false,
-    "edit_password": "4523"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 24,
     "name": "Toza Kir Yuvish",
     "niche": "Laundry",
-    "phone": "+998901234524",
-    "address": "Toshkent, Sergeli tumani, Yangi Sergeli ko'ch 14",
-    "instagram": "toza_kir_uz",
-    "services": [
-      "Kir yuvish",
-      "Quruq tozalash",
-      "Dazmollash",
-      "To'shak va gilamlar",
-      "Kiyim ta'miri"
-    ],
-    "colors": {
-      "primary": "#003049",
-      "accent": "#0096c7"
-    },
+    "phone": "+998712002202",
     "slug": "toza-kir",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/toza-kir.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/toza-kir.png",
-    "has_url": false,
-    "edit_password": "4524"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 25,
     "name": "Baxt To'y Saroyi",
     "niche": "Event Hall",
-    "phone": "+998901234525",
-    "address": "Toshkent, Yakkasaroy tumani, Koratosh ko'ch 15",
-    "instagram": "baxt_toy_saroyi",
-    "services": [
-      "To'y marosimlari",
-      "Tug'ilgan kun",
-      "Korporativ tadbirlar",
-      "Xonalar bezash",
-      "Ovqat xizmati"
-    ],
-    "colors": {
-      "primary": "#1a001a",
-      "accent": "#e040fb"
-    },
+    "phone": "+998712509903",
     "slug": "baxt-toy-saroyi",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/baxt-toy-saroyi.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/baxt-toy-saroyi.png",
-    "has_url": false,
-    "edit_password": "4525"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 26,
     "name": "Pro Electro Montaj",
     "niche": "Electrical",
-    "phone": "+998901234526",
-    "address": "Toshkent, Olmazor tumani, Yo'ldoshev ko'ch 8",
-    "instagram": "proelectro_uz",
-    "services": [
-      "Elektr montaj",
-      "Elektr ta'miri",
-      "Solar panellar",
-      "Generator o'rnatish",
-      "Sanoat elektr"
-    ],
-    "colors": {
-      "primary": "#001a33",
-      "accent": "#fbbf24"
-    },
+    "phone": "+998903717099",
     "slug": "pro-electro",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/pro-electro.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/pro-electro.png",
-    "has_url": false,
-    "edit_password": "4526"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 27,
     "name": "Sog'lom Ovqat Kafeteri",
     "niche": "Restaurant",
-    "phone": "+998901234527",
-    "address": "Toshkent, Mirzo Ulug'bek tumani, Fan va texnika ko'ch 3",
-    "instagram": "soglom_ovqat",
-    "services": [
-      "Dietik taomlar",
-      "Veganlar uchun menyu",
-      "Smoothie va sharbatlar",
-      "Ish joyi uchun tushlik",
-      "Buyurtma katering"
-    ],
-    "colors": {
-      "primary": "#0a1f0a",
-      "accent": "#4caf50"
-    },
+    "phone": "+998903240502",
     "slug": "soglom-ovqat",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/soglom-ovqat.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/soglom-ovqat.png",
-    "has_url": false,
-    "edit_password": "4527"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 28,
     "name": "Granit Tosh Qurilish",
     "niche": "Construction",
-    "phone": "+998901234528",
-    "address": "Toshkent, Bektemir tumani, Qurilish materiallari bozori",
-    "instagram": "granit_tosh_uz",
-    "services": [
-      "Granit va marmar",
-      "Fasad ishlari",
-      "Pol qoplash",
-      "Devor koplash",
-      "Oshxona pardozlash"
-    ],
-    "colors": {
-      "primary": "#1a1a1a",
-      "accent": "#c0c0c0"
-    },
+    "phone": "+998781137525",
     "slug": "granit-tosh",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/granit-tosh.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/granit-tosh.png",
-    "has_url": false,
-    "edit_password": "4528"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 29,
     "name": "Najot Dorixonasi",
     "niche": "Pharmacy",
-    "phone": "+998901234529",
-    "address": "Toshkent, Shayxontohur tumani, Chorsu yonida",
-    "instagram": "najot_dorixona",
-    "services": [
-      "Dori vositalari",
-      "Tibbiy jihozlar",
-      "Vitamin va qo'shimchalar",
-      "Kosmetika",
-      "Yetkazib berish"
-    ],
-    "colors": {
-      "primary": "#003049",
-      "accent": "#06d6a0"
-    },
+    "phone": "+998781203800",
     "slug": "najot-dorixona",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/najot-dorixona.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/najot-dorixona.png",
-    "has_url": false,
-    "edit_password": "4529"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 30,
     "name": "Swift Kuryer Xizmati",
     "niche": "Courier",
-    "phone": "+998901234530",
-    "address": "Toshkent, barcha tumanlarga xizmat ko'rsatadi",
-    "instagram": "swift_courier_uz",
-    "services": [
-      "Shahar ichida yetkazish",
-      "Express yetkazish",
-      "Sovuq zanjir",
-      "Katta hajmli yuk",
-      "24/7 xizmat"
-    ],
-    "colors": {
-      "primary": "#0a0a2e",
-      "accent": "#f72585"
-    },
+    "phone": "+998917878787",
     "slug": "swift-kuryer",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/swift-kuryer.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/swift-kuryer.png",
-    "has_url": false,
-    "edit_password": "4530"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 31,
     "name": "Yulduz Kosmetologiya",
     "niche": "Beauty",
-    "phone": "+998901234531",
-    "address": "Toshkent, Yunusobod tumani, 19-mavze 7-uy",
-    "instagram": "yulduz_kosmetolog",
-    "services": [
-      "Yuz parvarishi",
-      "Manikur va pedikur",
-      "Qosh va kipriklar",
-      "Massaj",
-      "Apparatli kosmetologiya"
-    ],
-    "colors": {
-      "primary": "#1a0021",
-      "accent": "#ff69b4"
-    },
+    "phone": "+998712653174",
     "slug": "yulduz-kosmetologiya",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/yulduz-kosmetologiya.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/yulduz-kosmetologiya.png",
-    "has_url": false,
-    "edit_password": "4531"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 32,
     "name": "Jahon Turism Agentligi",
     "niche": "Travel",
-    "phone": "+998901234532",
-    "address": "Toshkent, Mirobod tumani, Mustaqillik ko'ch 10",
-    "instagram": "jahon_turism",
-    "services": [
-      "Xorijga sayohatlar",
-      "Viza rasmiylashtiruvi",
-      "Mehmonxona bron qilish",
-      "Tur paketlar",
-      "Aviabilet"
-    ],
-    "colors": {
-      "primary": "#003566",
-      "accent": "#00b4d8"
-    },
+    "phone": "+998712000019",
     "slug": "jahon-turism",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/jahon-turism.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/jahon-turism.png",
-    "has_url": false,
-    "edit_password": "4532"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 33,
     "name": "Saidov Plombirchi",
     "niche": "Auto Glass",
-    "phone": "+998901234533",
-    "address": "Toshkent, Sergeli tumani, Yangi yo'l ko'ch 33",
-    "instagram": "saidov_auto_glass",
-    "services": [
-      "Shisha almashtirish",
-      "Shisha tiklash",
-      "Yoriqlarni yopish",
-      "Tinting",
-      "Windshield"
-    ],
-    "colors": {
-      "primary": "#0d1b2a",
-      "accent": "#48cae4"
-    },
+    "phone": "+998959605054",
     "slug": "saidov-plombirchi",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/saidov-plombirchi.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/saidov-plombirchi.png",
-    "has_url": false,
-    "edit_password": "4533"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 34,
     "name": "Orzuim Kelin Saloni",
     "niche": "Bridal",
-    "phone": "+998901234534",
-    "address": "Toshkent, Yakkasaroy tumani, Ferganskaya ko'ch 21",
-    "instagram": "orzuim_kelin",
-    "services": [
-      "Kelin ko'ylagi ijarasi",
-      "Vizaj xizmati",
-      "Soch bezash",
-      "Aksessuarlar",
-      "Fotosessiya paket"
-    ],
-    "colors": {
-      "primary": "#1a001a",
-      "accent": "#ff9ece"
-    },
+    "phone": "+998903191333",
     "slug": "orzuim-kelin",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/orzuim-kelin.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/orzuim-kelin.png",
-    "has_url": false,
-    "edit_password": "4534"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 35,
     "name": "Profi Temirchilik",
     "niche": "Metalwork",
-    "phone": "+998901234535",
-    "address": "Toshkent, Bektemir tumani, Temirchilar ko'ch 4",
-    "instagram": "profi_metalwork",
-    "services": [
-      "Metall eshik va derazalar",
-      "To'siq va panjaralar",
-      "Ombor qurilmalar",
-      "Fabrika jihozlari",
-      "Buyurtma metall ishlari"
-    ],
-    "colors": {
-      "primary": "#0a0a0a",
-      "accent": "#ff6600"
-    },
+    "phone": "+998991695555",
     "slug": "profi-temirchilik",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/profi-temirchilik.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/profi-temirchilik.png",
-    "has_url": false,
-    "edit_password": "4535"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 36,
     "name": "Arzon Yoqilg'i",
     "niche": "Gas Station",
-    "phone": "+998901234536",
-    "address": "Toshkent, Chilonzor tumani, Bog'ishamol ko'ch 60",
-    "instagram": "arzon_yoqilgi",
-    "services": [
-      "Benzin A-80",
-      "Benzin A-92",
-      "Diesel",
-      "Gaz (metan)",
-      "Moy almashtirish"
-    ],
-    "colors": {
-      "primary": "#1a1a00",
-      "accent": "#ffd700"
-    },
+    "phone": "+998712501010",
     "slug": "arzon-yoqilgi",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/arzon-yoqilgi.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/arzon-yoqilgi.png",
-    "has_url": false,
-    "edit_password": "4536"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 37,
     "name": "Hamkor Buxgalteriya",
     "niche": "Accounting",
-    "phone": "+998901234537",
-    "address": "Toshkent, Mirzo Ulug'bek tumani, Ulmas Umarbekov ko'ch 9",
-    "instagram": "hamkor_buxgalter",
-    "services": [
-      "Soliq hisoboti",
-      "Ish haqi hisoblash",
-      "Moliyaviy tahlil",
-      "1C xizmatlari",
-      "Audit"
-    ],
-    "colors": {
-      "primary": "#002244",
-      "accent": "#4361ee"
-    },
+    "phone": "+998951984888",
     "slug": "hamkor-buxgalteriya",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/hamkor-buxgalteriya.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/hamkor-buxgalteriya.png",
-    "has_url": false,
-    "edit_password": "4537"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 38,
     "name": "Shifobaxsh Apteka",
     "niche": "Pharmacy",
-    "phone": "+998901234538",
-    "address": "Toshkent, Olmazor tumani, Yunusabad shoh ko'ch 45",
-    "instagram": "shifobaxsh_apteka",
-    "services": [
-      "Retsept dorisi",
-      "Homiladorlik mahsulotlar",
-      "Bolalar dorisi",
-      "Tibbiy uskunalar",
-      "Fitopreparatlar"
-    ],
-    "colors": {
-      "primary": "#003d00",
-      "accent": "#39d353"
-    },
+    "phone": "+998712448368",
     "slug": "shifobaxsh-apteka",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/shifobaxsh-apteka.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/shifobaxsh-apteka.png",
-    "has_url": false,
-    "edit_password": "4538"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 39,
     "name": "Euro Motors Avto",
     "niche": "Auto Sales",
-    "phone": "+998901234539",
-    "address": "Toshkent, Yashnobod tumani, Yangi hayot avtobozori",
-    "instagram": "euro_motors_uz",
-    "services": [
-      "Avto sotish",
-      "Avto kredit",
-      "Avto sug'urta",
-      "Texnik ko'rik",
-      "Avto qadrlash"
-    ],
-    "colors": {
-      "primary": "#0a0a0f",
-      "accent": "#3a86ff"
-    },
+    "phone": "+998777772255",
     "slug": "euro-motors",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/euro-motors.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/euro-motors.png",
-    "has_url": false,
-    "edit_password": "4539"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 40,
     "name": "Yangi Avlod IT Markazi",
     "niche": "IT Services",
-    "phone": "+998901234540",
-    "address": "Toshkent, Mirzo Ulug'bek tumani, Qoratosh ko'ch 7",
-    "instagram": "yangi_avlod_it",
-    "services": [
-      "Kompyuter ta'miri",
-      "Tarmoq o'rnatish",
-      "Video kuzatuv",
-      "1C amalga oshirish",
-      "IT qo'llab-quvvatlash"
-    ],
-    "colors": {
-      "primary": "#001d3d",
-      "accent": "#00f5d4"
-    },
+    "phone": "+998712441185",
     "slug": "yangi-avlod-it",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/yangi-avlod-it.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/yangi-avlod-it.png",
-    "has_url": false,
-    "edit_password": "4540"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 41,
     "name": "Milliy Taomlar Oshxonasi",
     "niche": "Restaurant",
-    "phone": "+998901234541",
-    "address": "Toshkent, Uchtepa tumani, Buyuk ipak yo'li ko'ch 101",
-    "instagram": "milliy_taomlar_uz",
-    "services": [
-      "Osh",
-      "Manti",
-      "Lag'mon",
-      "Shashlik",
-      "Mastava"
-    ],
-    "colors": {
-      "primary": "#2d0a00",
-      "accent": "#ff4500"
-    },
+    "phone": "+998712002020",
     "slug": "milliy-taomlar",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/milliy-taomlar.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/milliy-taomlar.png",
-    "has_url": false,
-    "edit_password": "4541"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 42,
     "name": "Ziyod Qurilish Materiallari",
     "niche": "Building Materials",
-    "phone": "+998901234542",
-    "address": "Toshkent, Qibray tumani, Qurilish materiallari bozori",
-    "instagram": "ziyod_qurilish",
-    "services": [
-      "Tsement va qum",
-      "G'isht va blok",
-      "Metall konstruksiyalar",
-      "Boshpana va tom",
-      "Santexnika"
-    ],
-    "colors": {
-      "primary": "#1c1c1e",
-      "accent": "#ff6b35"
-    },
+    "phone": "+998555006555",
     "slug": "ziyod-qurilish",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/ziyod-qurilish.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/ziyod-qurilish.png",
-    "has_url": false,
-    "edit_password": "4542"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 43,
     "name": "Alvido Dafn Xizmatlari",
     "niche": "Funeral",
-    "phone": "+998901234543",
-    "address": "Toshkent, Shayxontohur tumani",
-    "instagram": null,
-    "services": [
-      "Dafn marosimi",
-      "Tobut",
-      "Transport xizmati",
-      "Gullar bezash",
-      "Hujjat rasmiylashtiruvi"
-    ],
-    "colors": {
-      "primary": "#1a1a1a",
-      "accent": "#6c757d"
-    },
+    "phone": "+998903529097",
     "slug": "alvido-dafn",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/alvido-dafn.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/alvido-dafn.png",
-    "has_url": false,
-    "edit_password": "4543"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 44,
     "name": "Sifatli Uy Tozalash",
     "niche": "Cleaning",
-    "phone": "+998901234544",
-    "address": "Toshkent, barcha tumanlar",
-    "instagram": "sifatli_tozalash",
-    "services": [
-      "Kvartira tozalash",
-      "Ofis tozalash",
-      "Pentrhouse tozalash",
-      "Remont keyingi tozalash",
-      "Deraza tozalash"
-    ],
-    "colors": {
-      "primary": "#003049",
-      "accent": "#06d6a0"
-    },
+    "phone": "+998970307010",
     "slug": "sifatli-tozalash",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/sifatli-tozalash.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/sifatli-tozalash.png",
-    "has_url": false,
-    "edit_password": "4544"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 45,
     "name": "Comfort Lift Liftlar",
     "niche": "Elevators",
-    "phone": "+998901234545",
-    "address": "Toshkent, Yashnobod tumani, Sanoat ko'ch 22",
-    "instagram": "comfort_lift_uz",
-    "services": [
-      "Lift o'rnatish",
-      "Lift ta'miri",
-      "Texnik xizmat",
-      "Zaxira qismlar",
-      "Attestatsiya"
-    ],
-    "colors": {
-      "primary": "#001233",
-      "accent": "#4361ee"
-    },
+    "phone": "+998781137525",
     "slug": "comfort-lift",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/comfort-lift.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/comfort-lift.png",
-    "has_url": false,
-    "edit_password": "4545"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 46,
     "name": "Nargiz Gullar Do'koni",
     "niche": "Flowers",
-    "phone": "+998901234546",
-    "address": "Toshkent, Yunusobod tumani, Navruz madaniyat markazi yonida",
-    "instagram": "nargiz_gullar",
-    "services": [
-      "To'y gullari",
-      "Bokeylar",
-      "Yetkazib berish",
-      "Yasama gullar",
-      "Bayram bezagi"
-    ],
-    "colors": {
-      "primary": "#1a0011",
-      "accent": "#ff69b4"
-    },
+    "phone": "+998977267737",
     "slug": "nargiz-gullar",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/nargiz-gullar.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/nargiz-gullar.png",
-    "has_url": false,
-    "edit_password": "4546"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 47,
     "name": "Tez Pasta Restoran",
     "niche": "Restaurant",
-    "phone": "+998901234547",
-    "address": "Toshkent, Mirzo Ulug'bek tumani, texnopark yonida",
-    "instagram": "tez_pasta_uz",
-    "services": [
-      "Italyan pasta",
-      "Pizza",
-      "Burger",
-      "Salat turlari",
-      "Ichimliklar"
-    ],
-    "colors": {
-      "primary": "#0a0a00",
-      "accent": "#e63946"
-    },
+    "phone": "+998781293000",
     "slug": "tez-pasta",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/tez-pasta.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/tez-pasta.png",
-    "has_url": false,
-    "edit_password": "4547"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 48,
     "name": "Uста Mebelchilar",
     "niche": "Furniture",
-    "phone": "+998901234548",
-    "address": "Toshkent, Chilonzor tumani, 19-mavze",
-    "instagram": "usta_mebel_uz",
-    "services": [
-      "Buyurtma shkaflar",
-      "Oshxona mebeli",
-      "Idora stollari",
-      "Bolalar mebeli",
-      "Ta'mirlash"
-    ],
-    "colors": {
-      "primary": "#1a0a00",
-      "accent": "#c9a96e"
-    },
+    "phone": "+998955150909",
     "slug": "usta-mebelchilar",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/usta-mebelchilar.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/usta-mebelchilar.png",
-    "has_url": false,
-    "edit_password": "4548"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 49,
     "name": "Mega Konditsioner",
     "niche": "HVAC",
-    "phone": "+998901234549",
-    "address": "Toshkent, Sergeli tumani, Yangi Sergeli 2",
-    "instagram": "mega_konditsioner",
-    "services": [
-      "Konditsioner sotish",
-      "O'rnatish",
-      "Ta'mirlash",
-      "Kafolat xizmati",
-      "Havo tozalagich"
-    ],
-    "colors": {
-      "primary": "#001d3d",
-      "accent": "#00b4d8"
-    },
+    "phone": "+998335666768",
     "slug": "mega-konditsioner",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/mega-konditsioner.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/mega-konditsioner.png",
-    "has_url": false,
-    "edit_password": "4549"
+    "district": "",
+    "has_website": false
   },
   {
-    "id": 50,
     "name": "Ilhom Foto Studio",
     "niche": "Photography",
-    "phone": "+998901234550",
-    "address": "Toshkent, Yunusobod tumani, 26-mavze 1-uy",
-    "instagram": "ilhom_foto_uz",
-    "services": [
-      "To'y fotosuratlari",
-      "Hujjat fotosi",
-      "Reklama foto",
-      "Video montaj",
-      "Studio ijara"
-    ],
-    "colors": {
-      "primary": "#0a0a0a",
-      "accent": "#e040fb"
-    },
+    "phone": "+998903709223",
     "slug": "ilhom-foto",
-    "html_path": "/Users/macbookpro/Applications/b2b-automation/generated_sites/ilhom-foto.html",
-    "url": null,
-    "qr_path": "/Users/macbookpro/Applications/b2b-automation/qr_codes/ilhom-foto.png",
-    "has_url": false,
-    "edit_password": "4550"
+    "district": "",
+    "has_website": false
   }
 ]
