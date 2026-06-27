@@ -298,16 +298,16 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#07070d;color:#e2e8f0
 <div class="modal-overlay" id="modal-deploy" onclick="if(event.target===this)closeModal('deploy')">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('deploy')">✕</button>
-    <h2>🚀 Деплой всех 50 сайтов</h2>
-    <p>Для деплоя всех 50 сайтов на Netlify выполните следующие шаги:</p>
+    <h2>🚀 Деплой системы</h2>
+    <p style="margin-bottom:.8rem">Система уже задеплоена и работает. Для обновления — просто пушьте в git:</p>
     <code>
-# 1. Netlify token olish: app.netlify.com → User Settings → OAuth<br>
-export NETLIFY_TOKEN="your_token_here"<br><br>
-# 2. Запустить пайплайн<br>
-cd /Users/macbookpro/Applications/b2b-automation<br>
-python3 pipeline/run_pipeline.py
+# Обновить и задеплоить (авто-деплой через git hook)<br>
+git add . && git commit -m "update" && git push<br><br>
+# Или задеплоить напрямую через Netlify CLI<br>
+netlify deploy --prod --dir=.
     </code>
-    <p style="font-size:.76rem;color:var(--mu)">Пайплайн архивирует каждый сайт и деплоит через Netlify API, возвращая live URL.</p>
+    <p style="font-size:.76rem;color:var(--mu);margin-top:.8rem">Сайт живой: <a href="https://b2b-toshkent.netlify.app" target="_blank" style="color:#00e5ff">b2b-toshkent.netlify.app</a></p>
+    <p style="font-size:.76rem;color:var(--mu);margin-top:.4rem">Для деплоя клиентских сайтов на отдельные Netlify-домены нужен токен API: <code style="font-size:.7rem">app.netlify.com → User Settings → OAuth</code></p>
     <div class="modal-btns">
       <button class="btn btn-green" onclick="copyCmd();this.textContent='✓ Copied!'">📋 Скопировать</button>
       <button class="btn" onclick="closeModal('deploy')">Закрыть</button>
@@ -440,11 +440,11 @@ outreach/   → Telegram qualifier bot
         <div class="lbl">Статус деплоя</div>
         <div style="margin-top:.7rem;text-align:center;padding:1.1rem;background:rgba(255,255,255,.02);border-radius:11px;border:1px dashed rgba(255,255,255,.08)">
           <div style="font-size:1.4rem;margin-bottom:.35rem">🚀</div>
-          <div style="font-size:.78rem;font-weight:700;color:#fff;margin-bottom:.2rem">Netlify готов</div>
-          <div style="font-size:.7rem;color:var(--mu);line-height:1.5">Добавьте NETLIFY_TOKEN<br>и запустите run_pipeline.py</div>
+          <div style="font-size:.78rem;font-weight:700;color:var(--gn);margin-bottom:.2rem">✅ Деплой активен</div>
+          <div style="font-size:.7rem;color:var(--mu);line-height:1.5"><a href="https://b2b-toshkent.netlify.app" target="_blank" style="color:#00e5ff;text-decoration:none">b2b-toshkent.netlify.app</a><br>git push → авто-деплой</div>
           <div style="margin-top:.65rem;display:flex;gap:5px;justify-content:center">
-            <span class="tag tb2" style="margin-top:0;cursor:pointer" onclick="openModal('deploy')">50 готово</span>
-            <span class="tag ta" style="margin-top:0">0 задеплоено</span>
+            <span class="tag tb2" style="margin-top:0;cursor:pointer" onclick="openModal('deploy')">50 сайтов</span>
+            <span class="tag" style="margin-top:0;background:rgba(0,230,118,.1);color:var(--gn);border-radius:6px;padding:.18rem .55rem;font-size:.62rem;font-weight:700">Live ✓</span>
           </div>
         </div>
       </div>
@@ -491,8 +491,8 @@ outreach/   → Telegram qualifier bot
         <div class="steps">
           <div class="step" style="background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.16)"><div class="stepn" style="background:var(--gn);color:#000">✓</div><div class="steptx" style="color:var(--gn)">50 сайтов создано</div></div>
           <div class="step" style="background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.16)"><div class="stepn" style="background:var(--gn);color:#000">✓</div><div class="steptx" style="color:var(--gn)">50 QR-кодов готово</div></div>
-          <div class="step" style="background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);cursor:pointer" onclick="openModal('deploy')"><div class="stepn" style="background:rgba(245,158,11,.2);color:var(--am)">2</div><div class="steptx">Добавить токен Netlify →</div></div>
-          <div class="step" style="background:rgba(255,255,255,.02);border:1px solid var(--bd)"><div class="stepn" style="background:rgba(99,102,241,.2);color:var(--in)">3</div><div class="steptx" style="color:var(--mu)">Деплой → 50 live URL</div></div>
+          <div class="step" style="background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.16)"><div class="stepn" style="background:var(--gn);color:#000">✓</div><div class="steptx" style="color:var(--gn)">Деплой на Netlify активен</div></div>
+          <div class="step" style="background:rgba(99,102,241,.06);border:1px solid rgba(99,102,241,.2);cursor:pointer" onclick="location.href='../scraper/index.html'"><div class="stepn" style="background:rgba(99,102,241,.2);color:var(--in)">3</div><div class="steptx">Скрейп новых лидов →</div></div>
           <div class="step" style="background:rgba(255,255,255,.02);border:1px solid var(--bd)"><div class="stepn" style="background:rgba(99,102,241,.2);color:var(--in)">4</div><div class="steptx" style="color:var(--mu)">Отправить QR компаниям</div></div>
         </div>
       </div>
