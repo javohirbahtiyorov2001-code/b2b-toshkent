@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Leads — B2B Toshkent</title>
+<style>
+:root{--bg:#000;--s:#0a0a0a;--c:#111;--b:#1e1e1e;--cy:#00e5ff;--vi:#7c3aed;--tx:#e0e0e0;--mu:#555;--gn:#00c853;--or:#ff6d00;--rd:#ff1744}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);font-family:'Inter',system-ui,sans-serif;font-size:14px}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{display:flex;align-items:center;gap:16px;padding:14px 28px;border-bottom:1px solid var(--b);background:var(--s);position:sticky;top:0;z-index:100}
+.logo{font-size:15px;font-weight:700;color:#fff}.logo span{color:var(--cy)}
+.nav-links{display:flex;gap:4px;margin-left:auto}
+.nav-links a{color:var(--mu);font-size:13px;padding:6px 14px;border-radius:8px;transition:.2s}
+.nav-links a:hover{background:#1a1a1a;color:#fff}
+.nav-links a.active{background:rgba(0,229,255,.08);color:var(--cy)}
+
+/* HEADER */
+.header{padding:28px 28px 0;display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
+.header h1{font-size:24px;font-weight:700;color:#fff}
+.header p{font-size:13px;color:var(--mu);margin-top:4px}
+.btn-new{background:rgba(0,229,255,.1);border:1px solid var(--cy);color:var(--cy);border-radius:10px;padding:9px 18px;font-size:13px;font-weight:600;cursor:pointer;transition:.2s}
+.btn-new:hover{background:rgba(0,229,255,.2)}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;padding:20px 28px 0}
+.stat{background:var(--c);border:1px solid var(--b);border-radius:12px;padding:14px 16px}
+.stat .lbl{font-size:10px;color:var(--mu);text-transform:uppercase;letter-spacing:.5px}
+.stat .val{font-size:26px;font-weight:700;color:#fff;margin-top:2px}
+.stat.cy{border-color:rgba(0,229,255,.2)}.stat.cy .val{color:var(--cy)}
+.stat.gn{border-color:rgba(0,200,83,.15)}.stat.gn .val{color:var(--gn)}
+.stat.or{border-color:rgba(255,109,0,.15)}.stat.or .val{color:var(--or)}
+.stat.vi{border-color:rgba(124,58,237,.2)}.stat.vi .val{color:#a78bfa}
+
+/* FILTERS */
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:16px 28px}
+select,input[type=text]{background:var(--c);border:1px solid var(--b);color:var(--tx);border-radius:8px;padding:7px 12px;font-size:13px;outline:none;cursor:pointer;transition:.2s}
+select:focus,input[type=text]:focus{border-color:var(--cy)}
+input[type=text]{width:240px}
+input::placeholder{color:var(--mu)}
+.tbtn{background:var(--c);border:1px solid var(--b);color:var(--mu);border-radius:8px;padding:7px 12px;font-size:12px;cursor:pointer;transition:.2s;white-space:nowrap}
+.tbtn:hover,.tbtn.on{background:rgba(0,229,255,.1);border-color:var(--cy);color:var(--cy)}
+.tbtn.vi-on{background:rgba(124,58,237,.1);border-color:#7c3aed;color:#a78bfa}
+.breset{background:transparent;border:1px solid var(--b);color:var(--mu);border-radius:8px;padding:7px 14px;font-size:12px;cursor:pointer;margin-left:auto;transition:.2s}
+.breset:hover{border-color:var(--rd);color:var(--rd)}
+
+/* TABLE */
+.table-wrap{padding:0 28px 40px;overflow-x:auto}
+.results-bar{display:flex;align-items:center;justify-content:space-between;padding:0 0 12px}
+.results-bar span{font-size:13px;color:var(--mu)}.results-bar strong{color:#fff}
+table{width:100%;border-collapse:collapse}
+thead tr{border-bottom:1px solid var(--b)}
+th{font-size:11px;font-weight:600;color:var(--mu);text-transform:uppercase;letter-spacing:.5px;padding:10px 14px;text-align:left;white-space:nowrap}
+tbody tr{border-bottom:1px solid #0f0f0f;transition:.15s;cursor:pointer}
+tbody tr:hover{background:#0f0f0f}
+td{padding:12px 14px;font-size:13px;vertical-align:middle}
+.td-id{color:var(--mu);font-size:11px;font-family:'Fira Code',monospace;white-space:nowrap}
+.td-name{font-weight:600;color:#fff;display:flex;align-items:center;gap:8px}
+.td-name .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.td-niche{color:var(--mu);font-size:12px}
+.td-phone{font-family:'Fira Code',monospace;font-size:12px;color:var(--tx)}
+.td-phone a{color:var(--cy);transition:.15s}.td-phone a:hover{color:#fff}
+.td-district{color:var(--mu);font-size:12px}
+.badge{display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:3px 8px;border-radius:20px;font-weight:500;white-space:nowrap}
+.b-new{background:rgba(0,200,83,.08);color:var(--gn);border:1px solid rgba(0,200,83,.2)}
+.b-site{background:rgba(255,109,0,.1);color:var(--or);border:1px solid rgba(255,109,0,.25)}
+.b-hot{background:rgba(255,23,68,.1);color:var(--rd);border:1px solid rgba(255,23,68,.25)}
+.b-warm{background:rgba(255,109,0,.1);color:var(--or);border:1px solid rgba(255,109,0,.2)}
+.b-cold{background:rgba(100,116,139,.1);color:#94a3b8;border:1px solid #1e2a3a}
+.b-won{background:rgba(0,200,83,.12);color:var(--gn);border:1px solid rgba(0,200,83,.3)}
+.b-lost{background:rgba(255,23,68,.08);color:#ff5252;border:1px solid rgba(255,23,68,.2)}
+.b-cont{background:rgba(0,229,255,.08);color:var(--cy);border:1px solid rgba(0,229,255,.2)}
+.b-verif{background:rgba(0,200,83,.06);color:var(--gn);border:1px solid rgba(0,200,83,.15)}
+.b-est{background:#111;color:#444;border:1px solid #1a1a1a}
+.td-action{text-align:right}
+.btn-open{background:transparent;border:1px solid var(--b);color:var(--mu);border-radius:7px;padding:5px 12px;font-size:12px;cursor:pointer;transition:.2s;white-space:nowrap}
+.btn-open:hover{border-color:var(--cy);color:var(--cy)}
+
+/* NICHE COLORS */
+.dot-Restaurant{background:#DC2626}
+.dot-Fitness{background:#F97316}
+.dot-Beauty{background:#EC4899}
+.dot-Auto{background:#059669}
+.dot-Hotel{background:#3B82F6}
+.dot-Construction{background:#EA580C}
+.dot-Dentistry{background:#00b4d8}
+.dot-Clinic{background:#7c3aed}
+
+/* PAGINATION */
+.pagination{display:flex;justify-content:center;gap:6px;padding:0 28px 40px}
+.pg{background:var(--c);border:1px solid var(--b);color:var(--mu);border-radius:7px;padding:6px 12px;font-size:13px;cursor:pointer;transition:.2s}
+.pg:hover{border-color:#333;color:#fff}
+.pg.on{background:rgba(0,229,255,.1);border-color:var(--cy);color:var(--cy)}
+.pg:disabled{opacity:.3;cursor:not-allowed}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">⚡ <span>B2B</span> Toshkent</div>
+  <div class="nav-links">
+    <a href="/dashboard/index.html">Dashboard</a>
+    <a href="/leads/index.html" class="active">Leads</a>
+    <a href="/scraper/index.html">Scraper</a>
+    <a href="/pitches/index.html">Pitches</a>
+    <a href="/website/index.html">Agency</a>
+  </div>
+</nav>
+
+<div class="header">
+  <div>
+    <h1>Leads bazasi</h1>
+    <p id="headerSub">Yuklanmoqda...</p>
+  </div>
+  <button class="btn-new" onclick="location.href='/scraper/index.html'">+ Yangi lead qo'shish</button>
+</div>
+
+<div class="stats">
+  <div class="stat cy"><div class="lbl">Jami</div><div class="val" id="sTotal">—</div></div>
+  <div class="stat gn"><div class="lbl">Saytisiz</div><div class="val" id="sNoSite">—</div></div>
+  <div class="stat or"><div class="lbl">Sayt bor</div><div class="val" id="sHasSite">—</div></div>
+  <div class="stat"><div class="lbl">Bog'lanildi</div><div class="val" id="sContacted">—</div></div>
+  <div class="stat gn"><div class="lbl">Won</div><div class="val" id="sWon">—</div></div>
+  <div class="stat vi"><div class="lbl">Nishalar</div><div class="val" id="sNiches">—</div></div>
+</div>
+
+<div class="filters">
+  <input type="text" id="fSearch" placeholder="🔍  Qidirish (nom, tel, manzil)..." oninput="applyFilters()">
+  <select id="fNiche" onchange="applyFilters()">
+    <option value="">Barcha nishalar</option>
+    <option value="Restaurant">🍽 Restoran</option>
+    <option value="Fitness">💪 Fitnes</option>
+    <option value="Beauty">💅 Go'zallik</option>
+    <option value="Auto">🚗 Avto</option>
+    <option value="Hotel">🏨 Mehmonxona</option>
+    <option value="Construction">🏗 Qurilish</option>
+    <option value="Dentistry">🦷 Stomatologiya</option>
+    <option value="Clinic">🏥 Klinika</option>
+  </select>
+  <select id="fDistrict" onchange="applyFilters()">
+    <option value="">Barcha tumanlar</option>
+    <option>Yunusobod</option><option>Mirzo-Ulugbek</option><option>Chilonzor</option>
+    <option>Mirabad</option><option>Shayxontohur</option><option>Almazar</option>
+    <option>Yakkasaray</option><option>Uchtepa</option><option>Sergeli</option>
+    <option>Yashnobod</option><option>Bektemir</option>
+  </select>
+  <select id="fStatus" onchange="applyFilters()">
+    <option value="">Barcha statuslar</option>
+    <option value="new">🆕 Yangi</option>
+    <option value="contacted">📞 Bog'lanildi</option>
+    <option value="won">✅ Won</option>
+    <option value="lost">❌ Lost</option>
+  </select>
+  <button class="tbtn" id="btnNoSite" onclick="toggleF('noSite')">🟢 Saytisiz</button>
+  <button class="tbtn" id="btnVerified" onclick="toggleF('verified')">✅ Tasdiqlangan tel</button>
+  <button class="breset" onclick="resetFilters()">✕ Tozalash</button>
+</div>
+
+<div class="table-wrap">
+  <div class="results-bar">
+    <span><strong id="rCount">0</strong> ta lead</span>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Kompaniya</th>
+        <th>Nisha</th>
+        <th>Telefon</th>
+        <th>Tuman</th>
+        <th>Sayt</th>
+        <th>Telefon</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+<div class="pagination" id="pagination"></div>
+
+<script>
+let ALL=[], filtered=[], page=1;
+const PER=30;
+const F={noSite:false,verified:false};
+const STATUS_KEY='b2b_lead_status';
+
+function getStatuses(){try{return JSON.parse(localStorage.getItem(STATUS_KEY)||'{}')}catch{return{}}}
+function setStatus(id,s){const m=getStatuses();m[id]=s;localStorage.setItem(STATUS_KEY,JSON.stringify(m))}
+function getStatus(id){return getStatuses()[id]||'new'}
+
+async function init(){
+  const files=['/pipeline/seed_leads.json','/pipeline/dental_clinic_leads.json','/pipeline/new_leads_100.json'];
+  const res=await Promise.allSettled(files.map(f=>fetch(f).then(r=>r.json())));
+  ALL=res.flatMap(r=>r.status==='fulfilled'?r.value:[]);
+
+  const st=getStatuses();
+  const won=Object.values(st).filter(v=>v==='won').length;
+  const cont=Object.values(st).filter(v=>v==='contacted'||v==='won').length;
+  const niches=new Set(ALL.map(l=>l.niche)).size;
+  document.getElementById('sTotal').textContent=ALL.length;
+  document.getElementById('sNoSite').textContent=ALL.filter(l=>!l.has_website).length;
+  document.getElementById('sHasSite').textContent=ALL.filter(l=>l.has_website).length;
+  document.getElementById('sContacted').textContent=cont;
+  document.getElementById('sWon').textContent=won;
+  document.getElementById('sNiches').textContent=niches;
+  document.getElementById('headerSub').textContent=`${ALL.length} ta lead · ${niches} ta nisha`;
+
+  applyFilters();
+}
+
+function toggleF(k){F[k]=!F[k];document.getElementById(k==='noSite'?'btnNoSite':'btnVerified').classList.toggle('on',F[k]);applyFilters()}
+
+function applyFilters(){
+  const q=document.getElementById('fSearch').value.toLowerCase();
+  const ni=document.getElementById('fNiche').value;
+  const di=document.getElementById('fDistrict').value;
+  const st=document.getElementById('fStatus').value;
+  filtered=ALL.filter(l=>{
+    if(ni&&l.niche!==ni)return false;
+    if(di&&l.district!==di)return false;
+    if(F.noSite&&l.has_website)return false;
+    if(F.verified&&!l.phone_verified)return false;
+    if(st&&getStatus(l.id)!==st)return false;
+    if(q){const h=`${l.name} ${l.phone} ${l.address||''} ${l.niche}`.toLowerCase();if(!h.includes(q))return false}
+    return true;
+  });
+  page=1;
+  document.getElementById('rCount').textContent=filtered.length;
+  render();renderPag();
+}
+
+function resetFilters(){
+  document.getElementById('fSearch').value='';
+  document.getElementById('fNiche').value='';
+  document.getElementById('fDistrict').value='';
+  document.getElementById('fStatus').value='';
+  F.noSite=false;F.verified=false;
+  document.getElementById('btnNoSite').classList.remove('on');
+  document.getElementById('btnVerified').classList.remove('on');
+  applyFilters();
+}
+
+const NICHE_EMOJI={Restaurant:'🍽',Fitness:'💪',Beauty:'💅',Auto:'🚗',Hotel:'🏨',Construction:'🏗',Dentistry:'🦷',Clinic:'🏥'};
+
+function render(){
+  const tbody=document.getElementById('tbody');
+  const slice=filtered.slice((page-1)*PER,page*PER);
+  if(!slice.length){tbody.innerHTML=`<tr><td colspan="9" style="text-align:center;padding:60px;color:var(--mu)">Lead topilmadi</td></tr>`;return}
+  const statuses=getStatuses();
+  tbody.innerHTML=slice.map(l=>{
+    const status=statuses[l.id]||'new';
+    const statusBadge={
+      new:'<span class="badge b-new">🆕 Yangi</span>',
+      contacted:'<span class="badge b-cont">📞 Bog\'lanildi</span>',
+      won:'<span class="badge b-won">✅ Won</span>',
+      lost:'<span class="badge b-lost">❌ Lost</span>'
+    }[status]||'';
+    const siteBadge=l.has_website
+      ?'<span class="badge b-site">🌐 Bor</span>'
+      :'<span class="badge b-new">🆕 Yo\'q</span>';
+    const phoneBadge=l.phone_verified
+      ?'<span class="badge b-verif">✓ Real</span>'
+      :'<span class="badge b-est">~ Taxm.</span>';
+    const emoji=NICHE_EMOJI[l.niche]||'🏢';
+    return `<tr onclick="openLead(${l.id})">
+      <td class="td-id">#${String(l.id).padStart(3,'0')}</td>
+      <td class="td-name"><span class="dot dot-${l.niche}"></span>${emoji} ${l.name}</td>
+      <td class="td-niche">${l.niche}</td>
+      <td class="td-phone"><a href="tel:${l.phone}" onclick="event.stopPropagation()">${l.phone}</a></td>
+      <td class="td-district">${l.district||'—'}</td>
+      <td>${siteBadge}</td>
+      <td>${phoneBadge}</td>
+      <td>${statusBadge}</td>
+      <td class="td-action"><button class="btn-open">Ochish →</button></td>
+    </tr>`;
+  }).join('');
+}
+
+function renderPag(){
+  const total=Math.ceil(filtered.length/PER);
+  const wrap=document.getElementById('pagination');
+  if(total<=1){wrap.innerHTML='';return}
+  let h=`<button class="pg" onclick="goP(${page-1})" ${page===1?'disabled':''}>←</button>`;
+  for(let i=1;i<=total;i++){
+    if(i===1||i===total||Math.abs(i-page)<=2)h+=`<button class="pg ${i===page?'on':''}" onclick="goP(${i})">${i}</button>`;
+    else if(Math.abs(i-page)===3)h+=`<span style="color:#333;padding:0 4px">…</span>`;
+  }
+  h+=`<button class="pg" onclick="goP(${page+1})" ${page===total?'disabled':''}>→</button>`;
+  wrap.innerHTML=h;
+}
+
+function goP(n){const t=Math.ceil(filtered.length/PER);if(n<1||n>t)return;page=n;render();renderPag();window.scrollTo({top:200,behavior:'smooth'})}
+
+function openLead(id){
+  window.location.href=`/leads/detail.html?id=${id}`;
+}
+
+init();
+</script>
+</body>
+</html>

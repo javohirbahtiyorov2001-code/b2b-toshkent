@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lead — B2B Toshkent</title>
+<style>
+:root{--bg:#000;--s:#0a0a0a;--c:#111;--b:#1e1e1e;--cy:#00e5ff;--vi:#7c3aed;--tx:#e0e0e0;--mu:#555;--gn:#00c853;--or:#ff6d00;--rd:#ff1744;--ye:#ffd740}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);font-family:'Inter',system-ui,sans-serif;font-size:14px;min-height:100vh}
+
+/* NAV */
+nav{display:flex;align-items:center;gap:12px;padding:14px 28px;border-bottom:1px solid var(--b);background:var(--s);position:sticky;top:0;z-index:200}
+.logo{font-size:15px;font-weight:700;color:#fff}.logo span{color:var(--cy)}
+.back{color:var(--mu);font-size:13px;padding:6px 12px;border-radius:8px;border:1px solid var(--b);cursor:pointer;transition:.2s;display:flex;align-items:center;gap:6px}
+.back:hover{border-color:#333;color:#fff}
+.nav-links{display:flex;gap:4px;margin-left:auto}
+.nav-links a{color:var(--mu);font-size:13px;padding:6px 14px;border-radius:8px;transition:.2s;text-decoration:none}
+.nav-links a:hover{background:#1a1a1a;color:#fff}
+.nav-links a.active{background:rgba(0,229,255,.08);color:var(--cy)}
+
+/* HERO */
+.hero{display:flex;align-items:flex-start;gap:24px;padding:28px 28px 0}
+.hero-avatar{width:72px;height:72px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:32px;flex-shrink:0;border:1px solid var(--b)}
+.hero-info{flex:1;min-width:0}
+.hero-name{font-size:26px;font-weight:800;color:#fff;line-height:1.2}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;padding:4px 10px;border-radius:20px;font-weight:500;white-space:nowrap}
+.b-niche{background:rgba(124,58,237,.15);color:#a78bfa;border:1px solid rgba(124,58,237,.3)}
+.b-district{background:rgba(0,229,255,.08);color:var(--cy);border:1px solid rgba(0,229,255,.2)}
+.b-site{background:rgba(255,109,0,.1);color:var(--or);border:1px solid rgba(255,109,0,.25)}
+.b-nosite{background:rgba(0,200,83,.08);color:var(--gn);border:1px solid rgba(0,200,83,.2)}
+.b-verif{background:rgba(0,200,83,.08);color:var(--gn);border:1px solid rgba(0,200,83,.2)}
+.b-est{background:#111;color:#444;border:1px solid #1a1a1a}
+.b-src{background:#0a0a0a;color:var(--mu);border:1px solid #1a1a1a;font-size:10px}
+
+.hero-actions{display:flex;gap:8px;flex-shrink:0;flex-wrap:wrap}
+.btn{padding:9px 18px;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;border:none;transition:.2s;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.btn-cy{background:rgba(0,229,255,.1);border:1px solid var(--cy);color:var(--cy)}.btn-cy:hover{background:rgba(0,229,255,.2)}
+.btn-wa{background:rgba(37,211,102,.1);border:1px solid rgba(37,211,102,.3);color:#25d366}.btn-wa:hover{background:rgba(37,211,102,.2)}
+.btn-ph{background:rgba(0,200,83,.1);border:1px solid rgba(0,200,83,.3);color:var(--gn)}.btn-ph:hover{background:rgba(0,200,83,.2)}
+.btn-ghost{background:transparent;border:1px solid var(--b);color:var(--mu)}.btn-ghost:hover{border-color:#333;color:#fff}
+
+/* STATUS SELECT */
+.status-row{display:flex;align-items:center;gap:12px;padding:16px 28px 0}
+.status-label{font-size:12px;color:var(--mu);text-transform:uppercase;letter-spacing:.5px}
+.status-select{background:var(--c);border:1px solid var(--b);color:var(--tx);border-radius:8px;padding:7px 14px;font-size:13px;outline:none;cursor:pointer}
+.status-select:focus{border-color:var(--cy)}
+.status-new{border-color:#333!important;color:var(--tx)!important}
+.status-contacted{border-color:var(--cy)!important;color:var(--cy)!important}
+.status-proposal{border-color:var(--ye)!important;color:var(--ye)!important}
+.status-won{border-color:var(--gn)!important;color:var(--gn)!important}
+.status-lost{border-color:var(--rd)!important;color:#ff5252!important}
+.saved-toast{font-size:12px;color:var(--gn);opacity:0;transition:.3s}
+.saved-toast.show{opacity:1}
+
+/* TABS */
+.tabs{display:flex;gap:0;padding:20px 28px 0;border-bottom:1px solid var(--b);overflow-x:auto}
+.tab{padding:10px 20px;font-size:13px;color:var(--mu);cursor:pointer;border-bottom:2px solid transparent;transition:.2s;white-space:nowrap}
+.tab:hover{color:var(--tx)}
+.tab.active{color:var(--cy);border-bottom-color:var(--cy)}
+
+/* TAB PANELS */
+.panels{padding:24px 28px 60px}
+.panel{display:none}
+.panel.active{display:block}
+
+/* INFO PANEL */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:768px){.info-grid{grid-template-columns:1fr}}
+.info-card{background:var(--c);border:1px solid var(--b);border-radius:14px;padding:20px}
+.info-card h3{font-size:12px;color:var(--mu);text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
+.info-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.info-row:last-child{margin-bottom:0}
+.info-icon{font-size:16px;width:24px;flex-shrink:0;margin-top:1px}
+.info-content .key{font-size:11px;color:var(--mu);margin-bottom:2px}
+.info-content .val{color:#fff;font-size:14px}
+.info-content .val a{color:var(--cy);text-decoration:none}.info-content .val a:hover{text-decoration:underline}
+.colors-row{display:flex;gap:8px;margin-top:4px}
+.color-chip{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--mu)}
+.color-dot{width:20px;height:20px;border-radius:6px;border:1px solid rgba(255,255,255,.1);flex-shrink:0}
+.services-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.svc-tag{font-size:11px;background:#161616;border:1px solid #1e1e1e;color:var(--mu);padding:3px 10px;border-radius:6px}
+
+/* WEBSITE PANEL */
+.site-wrap{background:var(--c);border:1px solid var(--b);border-radius:14px;overflow:hidden}
+.site-toolbar{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--b);background:#0a0a0a}
+.site-url{flex:1;background:#000;border:1px solid var(--b);border-radius:6px;padding:6px 12px;font-size:12px;color:var(--mu);font-family:monospace}
+.site-toolbar .btn{padding:6px 14px;font-size:12px}
+.site-frame-wrap{position:relative;background:#000}
+.site-frame{width:100%;height:600px;border:none;display:block}
+.no-site-msg{padding:80px;text-align:center;color:var(--mu)}
+.no-site-msg .icon{font-size:48px;margin-bottom:16px}
+.no-site-msg p{font-size:15px;margin-bottom:20px}
+.device-toggle{display:flex;gap:6px;margin-left:auto}
+.dev-btn{background:var(--c);border:1px solid var(--b);color:var(--mu);border-radius:6px;padding:5px 10px;cursor:pointer;font-size:12px;transition:.2s}
+.dev-btn.on{border-color:var(--cy);color:var(--cy)}
+
+/* PITCHES PANEL */
+.pitch-tabs{display:flex;gap:8px;margin-bottom:16px}
+.ptab{background:var(--c);border:1px solid var(--b);color:var(--mu);border-radius:8px;padding:7px 16px;font-size:12px;cursor:pointer;transition:.2s}
+.ptab.on{background:rgba(0,229,255,.1);border-color:var(--cy);color:var(--cy)}
+.pitch-card{background:var(--c);border:1px solid var(--b);border-radius:14px;padding:20px;display:none}
+.pitch-card.on{display:block}
+.pitch-card h3{font-size:13px;font-weight:600;color:#fff;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.pitch-card .desc{font-size:12px;color:var(--mu);margin-bottom:14px}
+.pitch-text{background:#0a0a0a;border:1px solid var(--b);border-radius:10px;padding:16px;font-size:13px;line-height:1.7;color:var(--tx);white-space:pre-wrap;font-family:'Inter',sans-serif;min-height:120px}
+.pitch-actions{display:flex;gap:8px;margin-top:12px}
+.pitch-actions .btn{font-size:12px;padding:7px 14px}
+
+/* AUDIT PANEL */
+.audit-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.audit-score{display:flex;align-items:center;gap:12px}
+.score-circle{width:64px;height:64px;border-radius:50%;background:conic-gradient(var(--cy) 0%, #1e1e1e 0%);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;flex-shrink:0;position:relative}
+.score-circle-inner{position:absolute;width:48px;height:48px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff}
+.score-label{font-size:13px;color:var(--mu)}
+.score-label strong{color:#fff;font-size:16px;display:block}
+.audit-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:768px){.audit-grid{grid-template-columns:1fr}}
+.audit-item{background:var(--c);border:1px solid var(--b);border-radius:12px;padding:14px 16px;display:flex;align-items:flex-start;gap:12px;cursor:pointer;transition:.2s;user-select:none}
+.audit-item:hover{border-color:#2a2a2a}
+.audit-item.checked{border-color:rgba(0,200,83,.25);background:rgba(0,200,83,.04)}
+.audit-item.fail{border-color:rgba(255,23,68,.2);background:rgba(255,23,68,.03)}
+.audit-check{width:20px;height:20px;border-radius:6px;border:1px solid #333;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;margin-top:1px;transition:.2s}
+.audit-item.checked .audit-check{background:rgba(0,200,83,.15);border-color:var(--gn);color:var(--gn)}
+.audit-item.fail .audit-check{background:rgba(255,23,68,.1);border-color:var(--rd);color:var(--rd)}
+.audit-item-text .title{font-size:13px;color:#fff;font-weight:500}
+.audit-item-text .sub{font-size:11px;color:var(--mu);margin-top:2px}
+.audit-item-text .impact{font-size:10px;margin-top:4px;display:inline-block;padding:2px 7px;border-radius:10px}
+.imp-high{background:rgba(255,23,68,.1);color:var(--rd)}
+.imp-med{background:rgba(255,109,0,.1);color:var(--or)}
+.imp-low{background:rgba(100,116,139,.1);color:#94a3b8}
+
+/* NOTES PANEL */
+.notes-area{width:100%;min-height:200px;background:var(--c);border:1px solid var(--b);border-radius:12px;padding:16px;color:var(--tx);font-size:14px;line-height:1.7;resize:vertical;outline:none;font-family:inherit;transition:.2s}
+.notes-area:focus{border-color:var(--cy)}
+.notes-footer{display:flex;align-items:center;gap:10px;margin-top:10px}
+.notes-saved{font-size:12px;color:var(--mu)}
+
+/* TIMELINE */
+.timeline{margin-top:20px}
+.timeline h3{font-size:12px;color:var(--mu);text-transform:uppercase;letter-spacing:.5px;margin-bottom:14px}
+.tl-item{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start}
+.tl-dot{width:8px;height:8px;border-radius:50%;background:var(--cy);flex-shrink:0;margin-top:5px}
+.tl-text{font-size:13px;color:var(--tx)}
+.tl-time{font-size:11px;color:var(--mu);margin-top:2px}
+</style>
+</head>
+<body>
+
+<nav>
+  <button class="back" onclick="history.back()">← Orqaga</button>
+  <div class="logo">⚡ <span>B2B</span> Toshkent</div>
+  <div class="nav-links">
+    <a href="/leads/index.html" class="active">Leads</a>
+    <a href="/scraper/index.html">Scraper</a>
+    <a href="/dashboard/index.html">Dashboard</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="hero">
+  <div class="hero-avatar" id="heroAvatar">⏳</div>
+  <div class="hero-info">
+    <div class="hero-name" id="heroName">Yuklanmoqda...</div>
+    <div class="hero-meta" id="heroMeta"></div>
+  </div>
+  <div class="hero-actions" id="heroActions"></div>
+</div>
+
+<!-- STATUS -->
+<div class="status-row">
+  <span class="status-label">Status</span>
+  <select class="status-select" id="statusSelect" onchange="saveStatus()">
+    <option value="new">🆕 Yangi</option>
+    <option value="contacted">📞 Bog'lanildi</option>
+    <option value="proposal">📋 Taklif yuborildi</option>
+    <option value="won">✅ Won — Kelishildi!</option>
+    <option value="lost">❌ Lost</option>
+  </select>
+  <span class="saved-toast" id="savedToast">✓ Saqlandi</span>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('info')">📋 Ma'lumot</div>
+  <div class="tab" onclick="switchTab('website')">🌐 Sayt</div>
+  <div class="tab" onclick="switchTab('pitches')">💬 Pitchlar</div>
+  <div class="tab" onclick="switchTab('audit')">🔍 Audit</div>
+  <div class="tab" onclick="switchTab('notes')">📝 Izohlar</div>
+</div>
+
+<!-- PANELS -->
+<div class="panels">
+
+  <!-- INFO -->
+  <div class="panel active" id="panel-info">
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Aloqa ma'lumotlari</h3>
+        <div class="info-row"><div class="info-icon">📞</div><div class="info-content"><div class="key">Telefon</div><div class="val" id="iPhone">—</div></div></div>
+        <div class="info-row"><div class="info-icon">💬</div><div class="info-content"><div class="key">WhatsApp</div><div class="val" id="iWa">—</div></div></div>
+        <div class="info-row"><div class="info-icon">📍</div><div class="info-content"><div class="key">Manzil</div><div class="val" id="iAddress">—</div></div></div>
+        <div class="info-row"><div class="info-icon">🏙️</div><div class="info-content"><div class="key">Tuman</div><div class="val" id="iDistrict">—</div></div></div>
+        <div class="info-row"><div class="info-icon">📸</div><div class="info-content"><div class="key">Instagram</div><div class="val" id="iInsta">—</div></div></div>
+        <div class="info-row"><div class="info-icon">🌐</div><div class="info-content"><div class="key">Mavjud sayt</div><div class="val" id="iExistingSite">—</div></div></div>
+      </div>
+      <div class="info-card">
+        <h3>Biznes ma'lumotlari</h3>
+        <div class="info-row"><div class="info-icon">🏢</div><div class="info-content"><div class="key">Nisha</div><div class="val" id="iNiche">—</div></div></div>
+        <div class="info-row"><div class="info-icon">🔢</div><div class="info-content"><div class="key">Lead ID</div><div class="val" id="iId">—</div></div></div>
+        <div class="info-row"><div class="info-icon">🔗</div><div class="info-content"><div class="key">Manba</div><div class="val" id="iSource">—</div></div></div>
+        <div class="info-row"><div class="info-icon">🎨</div><div class="info-content"><div class="key">Dizayn uslubi</div><div class="val" id="iDesign">—</div></div></div>
+        <div class="info-row"><div class="info-icon">🎨</div><div class="info-content"><div class="key">Ranglar</div><div class="val" id="iColors">—</div></div></div>
+        <div class="info-row"><div class="info-icon">✅</div><div class="info-content"><div class="key">Telefon holati</div><div class="val" id="iPhoneStatus">—</div></div></div>
+      </div>
+      <div class="info-card" style="grid-column:1/-1">
+        <h3>Xizmatlar</h3>
+        <div id="iServices"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEBSITE -->
+  <div class="panel" id="panel-website">
+    <div class="site-wrap">
+      <div class="site-toolbar">
+        <div class="site-url" id="siteUrl">—</div>
+        <div class="device-toggle">
+          <button class="dev-btn on" onclick="setDevice('desktop',this)">🖥 Desktop</button>
+          <button class="dev-btn" onclick="setDevice('mobile',this)">📱 Mobile</button>
+        </div>
+        <a class="btn btn-cy" id="siteOpenBtn" target="_blank">↗ Ochish</a>
+        <a class="btn btn-ghost" id="siteDownloadBtn" download>⬇ Yuklab olish</a>
+      </div>
+      <div class="site-frame-wrap" id="siteFrameWrap">
+        <div class="no-site-msg" id="noSiteMsg" style="display:none">
+          <div class="icon">🏗</div>
+          <p>Bu lead uchun sayt hali yaratilmagan</p>
+          <button class="btn btn-cy" onclick="generateSite()">🤖 AI bilan yaratish</button>
+        </div>
+        <iframe class="site-frame" id="siteFrame" src="about:blank" sandbox="allow-scripts allow-same-origin"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- PITCHES -->
+  <div class="panel" id="panel-pitches">
+    <div class="pitch-tabs">
+      <button class="ptab on" onclick="switchPitch('wa',this)">💬 WhatsApp</button>
+      <button class="ptab" onclick="switchPitch('call',this)">📞 Qo'ng'iroq skripti</button>
+      <button class="ptab" onclick="switchPitch('email',this)">📧 Email</button>
+      <button class="ptab" onclick="switchPitch('existing',this)">🌐 Sayt bor (boshqa xizmat)</button>
+    </div>
+
+    <div class="pitch-card on" id="pitch-wa">
+      <h3>💬 WhatsApp pitch</h3>
+      <div class="desc">Birinchi murojaat uchun qisqa va aniq xabar</div>
+      <div class="pitch-text" id="pwText"></div>
+      <div class="pitch-actions">
+        <button class="btn btn-cy" onclick="copyPitch('pwText')">📋 Nusxa olish</button>
+        <a class="btn btn-wa" id="pwSend">💬 WhatsApp da yuborish</a>
+      </div>
+    </div>
+
+    <div class="pitch-card" id="pitch-call">
+      <h3>📞 Qo'ng'iroq skripti</h3>
+      <div class="desc">Telefon qo'ng'irog'i uchun bosqichma-bosqich skript</div>
+      <div class="pitch-text" id="pcText"></div>
+      <div class="pitch-actions">
+        <button class="btn btn-cy" onclick="copyPitch('pcText')">📋 Nusxa olish</button>
+        <a class="btn btn-ph" id="pcCall">📞 Qo'ng'iroq qilish</a>
+      </div>
+    </div>
+
+    <div class="pitch-card" id="pitch-email">
+      <h3>📧 Email pitch</h3>
+      <div class="desc">Rasmiy email uchun professional xabar</div>
+      <div class="pitch-text" id="peText"></div>
+      <div class="pitch-actions">
+        <button class="btn btn-cy" onclick="copyPitch('peText')">📋 Nusxa olish</button>
+      </div>
+    </div>
+
+    <div class="pitch-card" id="pitch-existing">
+      <h3>🌐 Sayt bor — boshqa xizmatlar taklifi</h3>
+      <div class="desc">Allaqachon saytga ega kompaniyalar uchun pitch</div>
+      <div class="pitch-text" id="pexText"></div>
+      <div class="pitch-actions">
+        <button class="btn btn-cy" onclick="copyPitch('pexText')">📋 Nusxa olish</button>
+        <a class="btn btn-wa" id="pexSend">💬 WhatsApp da yuborish</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUDIT -->
+  <div class="panel" id="panel-audit">
+    <div class="audit-header">
+      <div>
+        <div style="font-size:18px;font-weight:700;color:#fff">Digital Audit</div>
+        <div style="font-size:13px;color:var(--mu);margin-top:4px">Kompaniyaning raqamli holatini baholang</div>
+      </div>
+      <div class="audit-score">
+        <div style="position:relative;width:64px;height:64px">
+          <svg width="64" height="64" viewBox="0 0 64 64" style="transform:rotate(-90deg)">
+            <circle cx="32" cy="32" r="26" fill="none" stroke="#1e1e1e" stroke-width="8"/>
+            <circle cx="32" cy="32" r="26" fill="none" stroke="var(--cy)" stroke-width="8" stroke-dasharray="163.4" id="scoreArc" stroke-dashoffset="163.4" stroke-linecap="round"/>
+          </svg>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff" id="scoreNum">0%</div>
+        </div>
+        <div><div style="font-size:12px;color:var(--mu)">Umumiy ball</div><div style="font-size:13px;color:#fff;margin-top:2px" id="scoreLabel">—</div></div>
+      </div>
+    </div>
+
+    <div class="audit-grid" id="auditGrid"></div>
+
+    <div style="margin-top:16px;padding:14px;background:var(--c);border:1px solid var(--b);border-radius:12px">
+      <div style="font-size:12px;color:var(--mu);margin-bottom:8px">💡 Taklif</div>
+      <div style="font-size:13px;color:var(--tx);line-height:1.6" id="auditTip">Auditni boshlash uchun chap tomondan belgilang</div>
+    </div>
+  </div>
+
+  <!-- NOTES -->
+  <div class="panel" id="panel-notes">
+    <div style="margin-bottom:12px">
+      <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:4px">Shaxsiy izohlar</div>
+      <div style="font-size:12px;color:var(--mu)">Bu yerda yozganlaringiz faqat sizning qurilmangizda saqlanadi</div>
+    </div>
+    <textarea class="notes-area" id="notesArea" placeholder="Bu lead haqida izohlar, eslatmalar, kelishuvlar...&#10;&#10;Misol: 2024-01-15 — Javob bermadi&#10;2024-01-18 — Qayta urinish&#10;2024-01-20 — Qiziqish bildirishdi, narx so'radi"></textarea>
+    <div class="notes-footer">
+      <button class="btn btn-cy" onclick="saveNotes()" style="font-size:12px;padding:7px 16px">💾 Saqlash</button>
+      <span class="notes-saved" id="notesSaved"></span>
+    </div>
+
+    <div class="timeline" id="timeline">
+      <h3>Faoliyat tarixi</h3>
+      <div id="timelineList"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const STATUS_KEY='b2b_lead_status';
+const NOTES_KEY='b2b_lead_notes';
+const AUDIT_KEY='b2b_lead_audit';
+const TL_KEY='b2b_lead_timeline';
+
+const NICHE_EMOJI={Restaurant:'🍽',Fitness:'💪',Beauty:'💅',Auto:'🚗',Hotel:'🏨',Construction:'🏗',Dentistry:'🦷',Clinic:'🏥'};
+const NICHE_COLOR={Restaurant:'#DC2626',Fitness:'#F97316',Beauty:'#EC4899',Auto:'#059669',Hotel:'#3B82F6',Construction:'#EA580C',Dentistry:'#00b4d8',Clinic:'#7c3aed'};
+
+let LEAD=null;
+const id=parseInt(new URLSearchParams(location.search).get('id')||'0');
+
+// ── STORAGE HELPERS
+function getMap(key){try{return JSON.parse(localStorage.getItem(key)||'{}')}catch{return{}}}
+function setMap(key,map){localStorage.setItem(key,JSON.stringify(map))}
+
+// ── LOAD LEAD
+async function loadLead(){
+  const files=['/pipeline/seed_leads.json','/pipeline/dental_clinic_leads.json','/pipeline/new_leads_100.json'];
+  const res=await Promise.allSettled(files.map(f=>fetch(f).then(r=>r.json())));
+  const all=res.flatMap(r=>r.status==='fulfilled'?r.value:[]);
+  LEAD=all.find(l=>l.id===id);
+  if(!LEAD){document.getElementById('heroName').textContent='Lead topilmadi';return}
+  document.title=`${LEAD.name} — B2B Toshkent`;
+  renderHero();renderInfo();renderWebsite();renderPitches();renderAudit();loadNotes();loadTimeline();
+}
+
+// ── HERO
+function renderHero(){
+  const color=NICHE_COLOR[LEAD.niche]||'#7c3aed';
+  const emoji=NICHE_EMOJI[LEAD.niche]||'🏢';
+  document.getElementById('heroAvatar').style.background=`${color}22`;
+  document.getElementById('heroAvatar').style.borderColor=`${color}44`;
+  document.getElementById('heroAvatar').textContent=emoji;
+  document.getElementById('heroName').textContent=LEAD.name;
+
+  const meta=document.getElementById('heroMeta');
+  meta.innerHTML=`
+    <span class="badge b-niche">${LEAD.niche}</span>
+    ${LEAD.district?`<span class="badge b-district">📍 ${LEAD.district}</span>`:''}
+    ${LEAD.has_website?'<span class="badge b-site">🌐 Sayt bor</span>':'<span class="badge b-nosite">🆕 Sayt yo\'q</span>'}
+    ${LEAD.phone_verified?'<span class="badge b-verif">✅ Tel. tasdiqlangan</span>':'<span class="badge b-est">~ Taxminiy tel.</span>'}
+    ${LEAD.source?`<span class="badge b-src">📌 ${LEAD.source}</span>`:''}
+    <span class="badge b-src">#${LEAD.id}</span>
+  `;
+
+  const wa=`https://wa.me/${LEAD.wa_number||LEAD.phone?.replace(/\D/g,'')}?text=Assalomu%20alaykum!%20${encodeURIComponent(LEAD.name)}%20kompaniyasi%20bilan%20bog'lanmoqchiman`;
+  document.getElementById('heroActions').innerHTML=`
+    <a class="btn btn-wa" href="${wa}" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-ph" href="tel:${LEAD.phone}">📞 Qo'ng'iroq</a>
+    ${LEAD.instagram?`<a class="btn btn-ghost" href="https://instagram.com/${LEAD.instagram.replace('@','')}" target="_blank">📸 Instagram</a>`:''}
+  `;
+
+  const st=getMap(STATUS_KEY)[id]||'new';
+  const sel=document.getElementById('statusSelect');
+  sel.value=st;
+  updateStatusStyle(st);
+}
+
+// ── INFO
+function renderInfo(){
+  const l=LEAD;
+  const wa=`https://wa.me/${l.wa_number||l.phone?.replace(/\D/g,'')}`;
+  document.getElementById('iPhone').innerHTML=`<a href="tel:${l.phone}">${l.phone}</a>`;
+  document.getElementById('iWa').innerHTML=`<a href="${wa}" target="_blank">${l.wa_number||l.phone?.replace(/\D/g,'')||'—'}</a>`;
+  document.getElementById('iAddress').textContent=l.address||'—';
+  document.getElementById('iDistrict').textContent=l.district||'—';
+  document.getElementById('iInsta').innerHTML=l.instagram?`<a href="https://instagram.com/${l.instagram.replace('@','')}" target="_blank">${l.instagram}</a>`:'—';
+  document.getElementById('iExistingSite').innerHTML=l.existing_website?`<a href="https://${l.existing_website}" target="_blank">${l.existing_website}</a>`:l.has_website?'Bor (URL nomaʼlum)':'Yo\'q — yangi sayt taklifi';
+  document.getElementById('iNiche').textContent=`${NICHE_EMOJI[l.niche]||''} ${l.niche}`;
+  document.getElementById('iId').textContent=`#${l.id}`;
+  document.getElementById('iSource').textContent=l.source||'—';
+  document.getElementById('iDesign').textContent=l.design_style?l.design_style.replace(/_/g,' '):'—';
+  document.getElementById('iPhoneStatus').innerHTML=l.phone_verified?'<span style="color:var(--gn)">✅ Tasdiqlangan</span>':'<span style="color:var(--mu)">~ Taxminiy</span>';
+
+  const colors=l.colors||{};
+  document.getElementById('iColors').innerHTML=`
+    <div class="colors-row">
+      ${colors.primary?`<div class="color-chip"><div class="color-dot" style="background:${colors.primary}"></div>${colors.primary}</div>`:''}
+      ${colors.accent?`<div class="color-chip"><div class="color-dot" style="background:${colors.accent}"></div>${colors.accent}</div>`:''}
+    </div>`;
+
+  const services=l.services||[];
+  document.getElementById('iServices').innerHTML=services.length
+    ?`<div class="services-list">${services.map(s=>`<span class="svc-tag">${s}</span>`).join('')}</div>`
+    :'<span style="color:var(--mu)">Xizmatlar ko\'rsatilmagan</span>';
+}
+
+// ── WEBSITE
+function renderWebsite(){
+  const slug=LEAD.slug||(LEAD.name?.toLowerCase().replace(/\s+/g,'-'));
+  const url=`/generated_sites/${slug}.html`;
+  document.getElementById('siteUrl').textContent=url;
+  document.getElementById('siteOpenBtn').href=url;
+  document.getElementById('siteDownloadBtn').href=url;
+  document.getElementById('siteDownloadBtn').download=`${slug}.html`;
+
+  const frame=document.getElementById('siteFrame');
+  const noMsg=document.getElementById('noSiteMsg');
+
+  // Try to load — if 404, show no-site message
+  fetch(url).then(r=>{
+    if(r.ok){frame.src=url;noMsg.style.display='none';frame.style.display='block'}
+    else{frame.style.display='none';noMsg.style.display='block'}
+  }).catch(()=>{frame.style.display='none';noMsg.style.display='block'});
+}
+
+function setDevice(mode,btn){
+  const frame=document.getElementById('siteFrame');
+  document.querySelectorAll('.dev-btn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  frame.style.width=mode==='mobile'?'390px':'100%';
+  frame.style.margin=mode==='mobile'?'0 auto':'';
+  document.getElementById('siteFrameWrap').style.display='flex';
+  document.getElementById('siteFrameWrap').style.justifyContent=mode==='mobile'?'center':'initial';
+}
+
+function generateSite(){
+  alert('Sayt generatsiya qilish uchun:\n\nANTHROPIC_API_KEY=sk-ant-... python3 /builder/generate_dental_clinic_sites.py\n\nYoki Claude API kalitingizni kiriting.');
+}
+
+// ── PITCHES
+function renderPitches(){
+  const l=LEAD;
+  const name=l.name;
+  const phone=l.phone;
+  const wa=`https://wa.me/${l.wa_number||phone?.replace(/\D/g,'')}`;
+  const services=(l.services||[]).slice(0,3).join(', ');
+  const niche=l.niche;
+
+  const pitchWa=`Assalomu alaykum! 👋
+
+Biz Professional Web Studio — Toshkent bizneslariga zamonaviy saytlar yaratamiz.
+
+✅ "${name}" kompaniyasi uchun maxsus landing page tayyorlaymiz:
+• Mobile-first dizayn
+• WhatsApp va telefon tugmalari
+• 3 kun ichida tayyor
+• Mijozlar soni +30-50% o'sishi kafolatlangan
+
+Bepul namuna ko'rish uchun javob bering! 🚀`;
+
+  const pitchCall=`📞 QONG'IROQ SKRIPTI — ${name}
+
+[SALOM]
+— Assalomu alaykum, ${name} kompaniyasimi?
+— Ha, siz bilan gaplashish mumkinmi?
+
+[TAQDIMOT — 15 soniya]
+— Men Professional Web Studio'dan murojaat qilyapman.
+— Toshkent ${niche} sohasidagi kompaniyalarga sayt yaratib beramiz.
+
+[MUAMMO]
+— Hozir ko'pchilik mijozlar Google va Instagram orqali qidiradi...
+— Sayt yo'q bo'lsa, ko'p mijoz yo'qolmoqda.
+
+[TAKLIF]
+— Sizga bepul namuna sayt ko'rsatishimiz mumkin.
+— Faqat 15 daqiqalik onlayn uchrashuv.
+
+[YOPISH]
+— Qachon qulay bo'ladi — ertaga yoki indin?`;
+
+  const pitchEmail=`Mavzu: ${name} uchun professional veb-sayt taklifi
+
+Hurmatli ${name} jamoasi,
+
+Biz Professional Web Studio — Toshkent ${niche} bizneslariga zamonaviy saytlar yaratamiz.
+
+Sizning kompaniyangiz uchun quyidagilarni taklif qilamiz:
+
+🌐 LANDING PAGE PAKETI:
+• Zamonaviy mobile-first dizayn
+• ${services}
+• WhatsApp va telefon integratsiyasi
+• Google orqali topilish (SEO)
+• 3 ish kuni ichida tayyor
+
+💰 NARX: 2,500,000 — 5,000,000 UZS (bir martalik)
+
+Bepul namuna ko'rish uchun javob bering yoki ${phone} raqamiga qo'ng'iroq qiling.
+
+Hurmat bilan,
+Professional Web Studio
+📞 Telefon: +998 XX XXX XX XX`;
+
+  const pitchExisting=`Assalomu alaykum! 👋
+
+"${name}" kompaniyasining saytini ko'rdik — ajoyib!
+
+Biz sizga mavjud biznesingizni yanada kuchaytirishga yordam berishimiz mumkin:
+
+🤖 AI Chatbot — 24/7 mijozlarga javob beradi
+📊 CRM tizimi — barcha mijozlarni bir joyda kuzatib boring
+🎯 Targeting reklama — Instagram/Telegram da aniq auditoriyaga
+📈 Sayt analitikasi — qancha kishi, qayerdan kelgani
+
+Bu xizmatlar biznesingiz daromadini 2-3 barobarga oshirishi mumkin.
+
+Bepul konsultatsiya uchun javob bering! 🚀`;
+
+  document.getElementById('pwText').textContent=pitchWa;
+  document.getElementById('pcText').textContent=pitchCall;
+  document.getElementById('peText').textContent=pitchEmail;
+  document.getElementById('pexText').textContent=pitchExisting;
+
+  const waLink=`${wa}?text=${encodeURIComponent(pitchWa)}`;
+  const waLinkEx=`${wa}?text=${encodeURIComponent(pitchExisting)}`;
+  document.getElementById('pwSend').href=waLink;
+  document.getElementById('pexSend').href=waLinkEx;
+  document.getElementById('pcCall').href=`tel:${phone}`;
+}
+
+function switchPitch(name,btn){
+  document.querySelectorAll('.pitch-card').forEach(c=>c.classList.remove('on'));
+  document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('on'));
+  document.getElementById(`pitch-${name}`).classList.add('on');
+  btn.classList.add('on');
+}
+
+function copyPitch(elId){
+  navigator.clipboard.writeText(document.getElementById(elId).textContent);
+  showToast('📋 Nusxa olindi!');
+}
+
+// ── AUDIT
+const AUDIT_ITEMS=[
+  {id:'website',title:'Rasmiy sayt bor',sub:'Kompaniyaning veb-sayti mavjud',impact:'high',icon:'🌐'},
+  {id:'mobile',title:'Sayt mobil optimallashgan',sub:'Telefonda to\'g\'ri ishlaydi',impact:'high',icon:'📱'},
+  {id:'instagram',title:'Instagram sahifasi bor',sub:'Faol Instagram biznes profili',impact:'high',icon:'📸'},
+  {id:'telegram',title:'Telegram kanal/guruh',sub:'Mijozlar bilan Telegram orqali aloqa',impact:'med',icon:'✈️'},
+  {id:'whatsapp',title:'WhatsApp biznes',sub:'WhatsApp Business raqami',impact:'high',icon:'💬'},
+  {id:'maps',title:'Google Maps da ro\'yxatda',sub:'Google Maps da biznes profili',impact:'high',icon:'📍'},
+  {id:'2gis',title:'2GIS da ro\'yxatda',sub:'2GIS xaritasida topiladi',impact:'med',icon:'🗺️'},
+  {id:'online_booking',title:'Onlayn buyurtma/bron',sub:'Sayt yoki app orqali bron qilish',impact:'high',icon:'📅'},
+  {id:'reviews',title:'Onlayn sharhlar bor',sub:'Google, Yandex yoki boshqa sharhlar',impact:'med',icon:'⭐'},
+  {id:'price_list',title:'Narxlar ro\'yxati ochiq',sub:'Xizmat narxlari onlayn ko\'rinadi',impact:'med',icon:'💰'},
+  {id:'crm',title:'CRM tizimi ishlatadi',sub:'Mijozlarni boshqarish tizimi',impact:'low',icon:'📊'},
+  {id:'email',title:'Korporativ email',sub:'info@kompaniya.uz kabi email',impact:'low',icon:'📧'},
+];
+
+function renderAudit(){
+  const saved=getMap(AUDIT_KEY)[id]||{};
+  const grid=document.getElementById('auditGrid');
+  grid.innerHTML=AUDIT_ITEMS.map(item=>{
+    const state=saved[item.id]||'unchecked';
+    const impClass={high:'imp-high',med:'imp-med',low:'imp-low'}[item.impact];
+    const impLabel={high:'Muhim',med:'O\'rta',low:'Qo\'shimcha'}[item.impact];
+    const cls=state==='yes'?'checked':state==='no'?'fail':'';
+    const checkSymbol=state==='yes'?'✓':state==='no'?'✕':'';
+    return `<div class="audit-item ${cls}" id="audit-${item.id}" onclick="cycleAudit('${item.id}')">
+      <div class="audit-check">${checkSymbol}</div>
+      <div class="audit-item-text">
+        <div class="title">${item.icon} ${item.title}</div>
+        <div class="sub">${item.sub}</div>
+        <span class="impact ${impClass}">${impLabel}</span>
+      </div>
+    </div>`;
+  }).join('');
+  updateAuditScore();
+}
+
+function cycleAudit(itemId){
+  const maps=getMap(AUDIT_KEY);
+  const cur=(maps[id]||{})[itemId]||'unchecked';
+  const next={unchecked:'yes',yes:'no',no:'unchecked'}[cur];
+  if(!maps[id])maps[id]={};
+  maps[id][itemId]=next;
+  setMap(AUDIT_KEY,maps);
+
+  const el=document.getElementById(`audit-${itemId}`);
+  el.className=`audit-item ${next==='yes'?'checked':next==='no'?'fail':''}`;
+  el.querySelector('.audit-check').textContent=next==='yes'?'✓':next==='no'?'✕':'';
+  updateAuditScore();
+}
+
+function updateAuditScore(){
+  const saved=(getMap(AUDIT_KEY)[id]||{});
+  const checked=AUDIT_ITEMS.filter(i=>saved[i.id]==='yes').length;
+  const total=AUDIT_ITEMS.length;
+  const pct=Math.round(checked/total*100);
+
+  document.getElementById('scoreNum').textContent=`${pct}%`;
+  const circumference=163.4;
+  document.getElementById('scoreArc').style.strokeDashoffset=circumference*(1-pct/100);
+
+  const label=pct>=80?'Yaxshi raqamli holat':pct>=50?'O\'rta holat':pct>=25?'Kuchli zaif tomonlar bor':'Raqamli ishtirok yo\'q';
+  document.getElementById('scoreLabel').textContent=label;
+
+  const missing=AUDIT_ITEMS.filter(i=>saved[i.id]==='no'&&i.impact==='high').map(i=>i.title);
+  const tip=missing.length
+    ?`Eng muhim zaif tomonlar: ${missing.slice(0,3).join(', ')}. Bu sohalar bo'yicha xizmatlaringizni taklif qiling.`
+    :`${checked}/${total} ta mezon bajarilgan. ${pct<100?'Qolgan mezonlarni ham tekshiring.':'Ajoyib raqamli holat!'}`;
+  document.getElementById('auditTip').textContent=tip;
+}
+
+// ── STATUS
+function saveStatus(){
+  const val=document.getElementById('statusSelect').value;
+  const maps=getMap(STATUS_KEY);
+  maps[id]=val;
+  setMap(STATUS_KEY,maps);
+  updateStatusStyle(val);
+  addTimeline(`Status o'zgartirildi: ${statusLabel(val)}`);
+  const t=document.getElementById('savedToast');
+  t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);
+}
+
+function statusLabel(v){return{new:'🆕 Yangi',contacted:'📞 Bog\'lanildi',proposal:'📋 Taklif yuborildi',won:'✅ Won',lost:'❌ Lost'}[v]||v}
+
+function updateStatusStyle(val){
+  const sel=document.getElementById('statusSelect');
+  sel.className='status-select status-'+val;
+}
+
+// ── NOTES
+function loadNotes(){
+  const notes=(getMap(NOTES_KEY)[id]||'');
+  document.getElementById('notesArea').value=notes;
+}
+function saveNotes(){
+  const maps=getMap(NOTES_KEY);
+  maps[id]=document.getElementById('notesArea').value;
+  setMap(NOTES_KEY,maps);
+  const el=document.getElementById('notesSaved');
+  el.textContent='✓ Saqlandi';el.style.color='var(--gn)';
+  setTimeout(()=>el.textContent='',2000);
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  document.getElementById('notesArea')?.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='s'){e.preventDefault();saveNotes()}});
+});
+
+// ── TIMELINE
+function loadTimeline(){
+  const events=(getMap(TL_KEY)[id]||[]);
+  renderTimeline(events);
+}
+function addTimeline(text){
+  const maps=getMap(TL_KEY);
+  if(!maps[id])maps[id]=[];
+  maps[id].unshift({text,time:new Date().toLocaleString('uz-UZ')});
+  maps[id]=maps[id].slice(0,20);
+  setMap(TL_KEY,maps);
+  renderTimeline(maps[id]);
+}
+function renderTimeline(events){
+  if(!events.length){document.getElementById('timelineList').innerHTML='<div style="color:var(--mu);font-size:13px">Hali hech qanday faoliyat yo\'q</div>';return}
+  document.getElementById('timelineList').innerHTML=events.map(e=>`
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div><div class="tl-text">${e.text}</div><div class="tl-time">${e.time}</div></div>
+    </div>`).join('');
+}
+
+// ── TABS
+function switchTab(name){
+  document.querySelectorAll('.tab').forEach((t,i)=>{
+    const names=['info','website','pitches','audit','notes'];
+    t.classList.toggle('active',names[i]===name);
+  });
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById(`panel-${name}`).classList.add('active');
+  if(name==='website')renderWebsite();
+}
+
+// ── TOAST
+function showToast(msg){
+  const t=document.createElement('div');
+  t.style.cssText='position:fixed;bottom:24px;right:24px;background:#1a1a1a;border:1px solid #333;color:#fff;padding:12px 20px;border-radius:10px;font-size:13px;z-index:9999';
+  t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),2500);
+}
+
+loadLead();
+</script>
+</body>
+</html>
