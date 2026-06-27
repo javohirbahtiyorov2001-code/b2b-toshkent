@@ -74,6 +74,13 @@ tr:hover td{background:rgba(255,255,255,.02)}
 .lt{color:#333;min-width:70px}
 .lok{color:var(--green)} .lwarn{color:var(--yellow)} .lerr{color:var(--red)} .linfo{color:var(--cyan)}
 
+/* FILTER BUTTONS */
+.filter-btn{background:var(--card);border:1px solid var(--bd2);color:var(--mu);padding:5px 12px;border-radius:7px;font-size:11px;font-weight:600;cursor:pointer;transition:.2s;white-space:nowrap}
+.filter-btn:hover{border-color:var(--cyan);color:var(--cyan)}
+.filter-btn.active{background:rgba(0,229,255,.1);border-color:var(--cyan);color:var(--cyan)}
+.badge-gen{background:rgba(124,58,237,.15);color:#a78bfa;border-radius:4px;padding:2px 7px;font-size:10px;font-weight:700}
+.badge-real{background:rgba(0,230,118,.15);color:var(--green);border-radius:4px;padding:2px 7px;font-size:10px;font-weight:700}
+
 /* MOBILE */
 .mob-bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:#0a0a0a;border-top:1px solid var(--bd);padding:0 0 env(safe-area-inset-bottom,0);height:56px}
 .mob-bottom-nav .mbn-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none;color:#555;font-size:9px;font-weight:600;padding:6px 0;transition:.2s}
@@ -185,12 +192,19 @@ tr:hover td{background:rgba(255,255,255,.02)}
     </div>
   </div>
 
-  <div class="section-title">Результаты Pipeline (<span id="sitesCountLabel">—</span> сайтов)</div>
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1rem">
+    <div class="section-title" style="margin-bottom:0">Результаты Pipeline (<span id="sitesCountLabel">—</span> сайтов)</div>
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap" id="filterBtns">
+      <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">Все <span id="fAll">—</span></button>
+      <button class="filter-btn" data-filter="generated" onclick="setFilter('generated')">🎨 Наши (сгенерированные) <span id="fGen">—</span></button>
+      <button class="filter-btn" data-filter="real" onclick="setFilter('real')">🌐 Реальные <span id="fReal">—</span></button>
+    </div>
+  </div>
   <div class="tbl-wrap">
     <table>
       <thead>
         <tr>
-          <th>#</th><th>Компания</th><th>Ниша</th><th>Телефон</th><th>Slug</th><th>Сайт</th><th>QR</th><th>Статус</th>
+          <th>#</th><th>Компания</th><th>Ниша</th><th>Тип сайта</th><th>Телефон</th><th>Slug</th><th>Сайт</th><th>QR</th>
         </tr>
       </thead>
       <tbody id="tbody"></tbody>
@@ -259,17 +273,24 @@ async function init(){
   const results = await fetchJ('/pipeline/results.json');
   if(Array.isArray(results)){
     const siteCount = results.length;
-    log('lok',`✓ results.json: ${siteCount} сайтов`);
+    ALL_RESULTS = results;
+    const siteCount = results.length;
+    const realCount = results.filter(r=>r.site_type==='real').length;
+    const genCount  = results.filter(r=>r.site_type==='generated').length;
+    log('lok',`✓ results.json: ${siteCount} сайтов (${genCount} наших, ${realCount} реальных)`);
     document.getElementById('sSites').textContent = siteCount;
-    document.getElementById('sDeployed').textContent = siteCount;
+    document.getElementById('sDeployed').textContent = genCount;
     document.getElementById('p2').textContent = siteCount;
     document.getElementById('p3').textContent = siteCount;
-    document.getElementById('p4').textContent = siteCount;
+    document.getElementById('p4').textContent = genCount;
     document.getElementById('p2bar').style.width = Math.round(siteCount/total*100)+'%';
     document.getElementById('p3bar').style.width = Math.round(siteCount/total*100)+'%';
-    document.getElementById('p4bar').style.width = Math.round(siteCount/total*100)+'%';
+    document.getElementById('p4bar').style.width = Math.round(genCount/total*100)+'%';
     document.getElementById('sitesCountLabel').textContent = siteCount;
-    renderTable(results);
+    document.getElementById('fAll').textContent = siteCount;
+    document.getElementById('fGen').textContent = genCount;
+    document.getElementById('fReal').textContent = realCount;
+    renderTable(results, 'all');
   } else {
     log('lwarn','⚠ results.json не найден — pipeline не запускался');
     document.getElementById('sSites').textContent = '0';
@@ -280,25 +301,40 @@ async function init(){
   log('lok','=== Pipeline дашборд загружен ===');
 }
 
-function renderTable(results){
+let ALL_RESULTS = [];
+
+function renderTable(results, filter='all'){
   const NICHE_EMOJI={Restaurant:'🍽',Fitness:'💪',Beauty:'💅',Auto:'🚗',Hotel:'🏨',Construction:'🏗',Dentistry:'🦷',Clinic:'🏥'};
   const tbody = document.getElementById('tbody');
-  if(!results.length){
-    tbody.innerHTML='<tr><td colspan="8" style="text-align:center;padding:32px;color:var(--mu)">Нет данных. Запустите: <code style="color:var(--cyan)">python3 pipeline/run_pipeline.py</code></td></tr>';
+  const filtered = filter==='all' ? results : results.filter(r=>r.site_type===filter);
+  if(!filtered.length){
+    tbody.innerHTML=`<tr><td colspan="8" style="text-align:center;padding:32px;color:var(--mu)">${filter==='real'?'Нет лидов с реальными сайтами':'Нет данных'}</td></tr>`;
     return;
   }
-  tbody.innerHTML = results.map((r,i)=>`
-    <tr>
+  tbody.innerHTML = filtered.map((r,i)=>{
+    const isReal = r.site_type==='real';
+    const typeBadge = isReal
+      ? `<span class="badge-real">🌐 Реальный</span>`
+      : `<span class="badge-gen">🎨 Наш сайт</span>`;
+    const siteLink = isReal && r.website_url
+      ? `<a href="${r.website_url}" target="_blank" class="view-btn">🌐 Открыть</a>`
+      : `<a href="/generated_sites/${r.slug}.html" target="_blank" class="view-btn">🎨 Открыть</a>`;
+    return `<tr data-type="${r.site_type||'generated'}">
       <td style="color:var(--mu)">${i+1}</td>
       <td style="font-weight:600;color:#fff">${r.name}</td>
       <td>${NICHE_EMOJI[r.niche]||'🏢'} ${r.niche}</td>
+      <td>${typeBadge}</td>
       <td style="font-family:monospace;color:var(--cyan)">${r.phone}</td>
       <td style="font-family:monospace;font-size:11px;color:var(--mu)">${r.slug||'—'}</td>
-      <td><a href="/generated_sites/${r.slug}.html" target="_blank" class="view-btn">🌐 Сайт</a></td>
+      <td>${siteLink}</td>
       <td><a href="/qr_codes/${r.slug}.png" target="_blank" class="view-btn">📱 QR</a></td>
-      <td><span class="badge ok">✓ Готово</span></td>
-    </tr>
-  `).join('');
+    </tr>`;
+  }).join('');
+}
+
+function setFilter(f){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.toggle('active', b.dataset.filter===f));
+  renderTable(ALL_RESULTS, f);
 }
 
 init();
