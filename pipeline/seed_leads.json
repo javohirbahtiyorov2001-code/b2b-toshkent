@@ -1,0 +1,1052 @@
+[
+  {
+    "id": 1,
+    "name": "Baraka Restoran",
+    "niche": "Restaurant",
+    "phone": "+998712509903",
+    "address": "Toshkent, Yunusobod tumani, 14-mavze 12-uy",
+    "instagram": "baraka_restoran",
+    "services": [
+      "O'zbek milliy taomi",
+      "Banket va to'ylar",
+      "Korporativ ziyofatlar",
+      "Yetkazib berish",
+      "Nonushta va tushlik"
+    ],
+    "colors": {
+      "primary": "#1a0a00",
+      "accent": "#e63946"
+    },
+    "slug": "baraka-restoran",
+    "wa_number": "998712509903"
+  },
+  {
+    "id": 2,
+    "name": "Shifo Tibbiyot Markazi",
+    "niche": "Clinic",
+    "phone": "+998787770303",
+    "address": "Toshkent, Mirzo Ulug'bek tumani, Bunyodkor ko'ch 5",
+    "instagram": "shifo_tibbiyot",
+    "services": [
+      "Terapevt",
+      "Stomatologiya",
+      "Ko'z shifokori",
+      "UZI diagnostika",
+      "Laboratoriya tahlillari"
+    ],
+    "colors": {
+      "primary": "#0a2342",
+      "accent": "#00b4d8"
+    },
+    "slug": "shifo-tibbiyot",
+    "wa_number": "998787770303"
+  },
+  {
+    "id": 3,
+    "name": "BuildPro Qurilish",
+    "niche": "Construction",
+    "phone": "+998955110011",
+    "address": "Toshkent, Chilonzor tumani, 9-mavze",
+    "instagram": "buildpro_uz",
+    "services": [
+      "Turar-joy qurilishi",
+      "Ofis va savdo obyektlari",
+      "Remont va ta'mirlash",
+      "Loyihalash",
+      "Kalit topshiriq"
+    ],
+    "colors": {
+      "primary": "#1c1c1e",
+      "accent": "#f4a261"
+    },
+    "slug": "buildpro-qurilish",
+    "wa_number": "998955110011"
+  },
+  {
+    "id": 4,
+    "name": "AutoServis Premium",
+    "niche": "Auto Service",
+    "phone": "+998770397707",
+    "address": "Toshkent, Sergeli tumani, Yangi yo'l ko'ch 44",
+    "instagram": "autoservis_premium",
+    "services": [
+      "Dvigatel ta'miri",
+      "Kuzov ishlari",
+      "Bo'yash",
+      "Shina almashtirish",
+      "Diagnostika"
+    ],
+    "colors": {
+      "primary": "#0d1b2a",
+      "accent": "#e94560"
+    },
+    "slug": "autoservis-premium",
+    "wa_number": "998770397707"
+  },
+  {
+    "id": 5,
+    "name": "Zafar Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "address": "Toshkent, Shayxontohur tumani, Navoiy ko'ch 18",
+    "instagram": "zafar_dental",
+    "services": [
+      "Davolash",
+      "Protezlash",
+      "Oqartirish",
+      "Implantatsiya",
+      "Bolalar stomatologiyasi"
+    ],
+    "colors": {
+      "primary": "#003049",
+      "accent": "#2dc653"
+    },
+    "slug": "zafar-dental",
+    "wa_number": "998712333747"
+  },
+  {
+    "id": 6,
+    "name": "Nur Logistika",
+    "niche": "Logistics",
+    "phone": "+998900920077",
+    "address": "Toshkent, Bektemir tumani, Sanoat ko'ch 7",
+    "instagram": "nur_logistika",
+    "services": [
+      "Shahar ichida yetkazish",
+      "Mintaqalararo yuk tashish",
+      "Omborlash",
+      "Bojxona rasmiylashtiruvi",
+      "Sovuq zanjir"
+    ],
+    "colors": {
+      "primary": "#1b2838",
+      "accent": "#66c0f4"
+    },
+    "slug": "nur-logistika",
+    "wa_number": "998900920077"
+  },
+  {
+    "id": 7,
+    "name": "Saodat Ta'lim Markazi",
+    "niche": "Education",
+    "phone": "+998909827258",
+    "address": "Toshkent, Yakkasaroy tumani, Amir Temur shoh ko'ch 33",
+    "instagram": "saodat_talim",
+    "services": [
+      "Ingliz tili",
+      "Matematika",
+      "IT kurslari",
+      "IELTS tayyorlov",
+      "Rus tili"
+    ],
+    "colors": {
+      "primary": "#2d1b69",
+      "accent": "#9b5de5"
+    },
+    "slug": "saodat-talim",
+    "wa_number": "998909827258"
+  },
+  {
+    "id": 8,
+    "name": "Mehribon Mehmonxona",
+    "niche": "Hotel",
+    "phone": "+998781131111",
+    "address": "Toshkent, Mirobod tumani, Mustaqillik ko'ch 22",
+    "instagram": "mehribon_hotel",
+    "services": [
+      "Standart xonalar",
+      "Lyuks xonalar",
+      "Konferens zal",
+      "Restoran",
+      "Tranzfer xizmati"
+    ],
+    "colors": {
+      "primary": "#1a1a2e",
+      "accent": "#e94560"
+    },
+    "slug": "mehribon-mehmonxona",
+    "wa_number": "998781131111"
+  },
+  {
+    "id": 9,
+    "name": "FitLife Sport Markazi",
+    "niche": "Fitness",
+    "phone": "+998910063333",
+    "address": "Toshkent, Olmazor tumani, Qo'yliq ko'ch 11",
+    "instagram": "fitlife_uz",
+    "services": [
+      "Trenajyor zali",
+      "Guruh mashg'ulotlari",
+      "Yoga",
+      "Box",
+      "Shaxsiy trener"
+    ],
+    "colors": {
+      "primary": "#0f0f0f",
+      "accent": "#39ff14"
+    },
+    "slug": "fitlife-sport",
+    "wa_number": "998910063333"
+  },
+  {
+    "id": 10,
+    "name": "Bahor Supermarket",
+    "niche": "Retail",
+    "phone": "+998555006555",
+    "address": "Toshkent, Uchtepa tumani, Buyuk Turon ko'ch 8",
+    "instagram": "bahor_market",
+    "services": [
+      "Oziq-ovqat mahsulotlari",
+      "Maishiy texnika",
+      "Kiyim-kechak",
+      "Go'sht bo'limi",
+      "Non mahsulotlari"
+    ],
+    "colors": {
+      "primary": "#1a472a",
+      "accent": "#40c057"
+    },
+    "slug": "bahor-supermarket",
+    "wa_number": "998555006555"
+  },
+  {
+    "id": 11,
+    "name": "Sher Kebab Oshxonasi",
+    "niche": "Restaurant",
+    "phone": "+998712954349",
+    "address": "Toshkent, Yunusobod tumani, 7-mavze 3-uy",
+    "instagram": "sher_kebab",
+    "services": [
+      "Milliy taomlar",
+      "Kebab turlari",
+      "Somsa va non",
+      "Choy va ichimliklar",
+      "Buyurtma ovqat"
+    ],
+    "colors": {
+      "primary": "#3d0000",
+      "accent": "#ff6b35"
+    },
+    "slug": "sher-kebab",
+    "wa_number": "998712954349"
+  },
+  {
+    "id": 12,
+    "name": "Oltin Kalit Ko'chmas Mulk",
+    "niche": "Real Estate",
+    "phone": "+998781137712",
+    "address": "Toshkent, Yashnobod tumani, Yangi hayot ko'ch 19",
+    "instagram": "oltin_kalit_uz",
+    "services": [
+      "Kvartira sotish",
+      "Ijara",
+      "Tijorat mulki",
+      "Yangi binolar",
+      "Ipoteka maslahat"
+    ],
+    "colors": {
+      "primary": "#1a1200",
+      "accent": "#ffd700"
+    },
+    "slug": "oltin-kalit-realestate",
+    "wa_number": "998781137712"
+  },
+  {
+    "id": 13,
+    "name": "Texno Servis",
+    "niche": "Electronics Repair",
+    "phone": "+998712832255",
+    "address": "Toshkent, Mirzo Ulug'bek tumani, Olmachi bozor yoni",
+    "instagram": "texno_servis_uz",
+    "services": [
+      "Telefon ta'miri",
+      "Noutbuk ta'miri",
+      "Planshet ta'miri",
+      "Ekran almashtirish",
+      "Akkumulyator almashtirish"
+    ],
+    "colors": {
+      "primary": "#0a0a0f",
+      "accent": "#00d2ff"
+    },
+    "slug": "texno-servis",
+    "wa_number": "998712832255"
+  },
+  {
+    "id": 14,
+    "name": "Arzon Do'kon",
+    "niche": "Retail",
+    "phone": "+998994395050",
+    "address": "Toshkent, Qibray tumani, markaziy bozor yonida",
+    "instagram": "arzon_dokon_uz",
+    "services": [
+      "Uy jihozlari",
+      "Idish-tovoq",
+      "Yorug'lik jihozlari",
+      "Hammom anjomlari",
+      "Mebel"
+    ],
+    "colors": {
+      "primary": "#003566",
+      "accent": "#ffd166"
+    },
+    "slug": "arzon-dokon",
+    "wa_number": "998994395050"
+  },
+  {
+    "id": 15,
+    "name": "Yangi Hayot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998781132785",
+    "address": "Toshkent, Shayxontohur tumani, Ko'kcha darvoza ko'ch 4",
+    "instagram": "yangi_hayot_klinika",
+    "services": [
+      "Ginekologiya",
+      "Kardiologiya",
+      "Nevrologiya",
+      "Endokrinologiya",
+      "Ultratovush diagnostika"
+    ],
+    "colors": {
+      "primary": "#0a2342",
+      "accent": "#e63946"
+    },
+    "slug": "yangi-hayot-klinika",
+    "wa_number": "998781132785"
+  },
+  {
+    "id": 16,
+    "name": "Oq Oltin Mebel",
+    "niche": "Furniture",
+    "phone": "+998901357500",
+    "address": "Toshkent, Bektemir tumani, Mustakillik ko'ch 55",
+    "instagram": "oqoltin_mebel",
+    "services": [
+      "Yotoq xona mebeli",
+      "Mehmonxona mebeli",
+      "Oshxona mebeli",
+      "Idora mebeli",
+      "Buyurtma mebel"
+    ],
+    "colors": {
+      "primary": "#2d1b0e",
+      "accent": "#c9a96e"
+    },
+    "slug": "oq-oltin-mebel",
+    "wa_number": "998901357500"
+  },
+  {
+    "id": 17,
+    "name": "Toshkent Nashriyot",
+    "niche": "Printing",
+    "phone": "+998712561176",
+    "address": "Toshkent, Mirzo Ulug'bek tumani, Universitet ko'ch 12",
+    "instagram": "toshkent_print",
+    "services": [
+      "Vizit kartalar",
+      "Bannerlar",
+      "Bukletlar",
+      "Kitoblar nashr",
+      "Muhr va shtamplar"
+    ],
+    "colors": {
+      "primary": "#1a0028",
+      "accent": "#bf5af2"
+    },
+    "slug": "toshkent-nashriyot",
+    "wa_number": "998712561176"
+  },
+  {
+    "id": 18,
+    "name": "Xurmo Qandolat",
+    "niche": "Bakery",
+    "phone": "+998977296555",
+    "address": "Toshkent, Olmazor tumani, Sog'lom avlod ko'ch 6",
+    "instagram": "xurmo_qandolat",
+    "services": [
+      "To'y tortichalari",
+      "Pechenye turlari",
+      "Makaron",
+      "Puf bo'laklar",
+      "Buyurtma tortlar"
+    ],
+    "colors": {
+      "primary": "#3d0e00",
+      "accent": "#ff9f1c"
+    },
+    "slug": "xurmo-qandolat",
+    "wa_number": "998977296555"
+  },
+  {
+    "id": 19,
+    "name": "Green Way Bog'dorchilik",
+    "niche": "Landscaping",
+    "phone": "+998712051945",
+    "address": "Toshkent, Yunusobod tumani, bog'dorchilik markazi",
+    "instagram": "greenway_uz",
+    "services": [
+      "Bog' loyihalash",
+      "O'simliklar parvarishi",
+      "Maysazor yaratish",
+      "Hovuz qurilish",
+      "Daraxt kesish"
+    ],
+    "colors": {
+      "primary": "#0d3b00",
+      "accent": "#76c442"
+    },
+    "slug": "greenway-bogdorchilik",
+    "wa_number": "998712051945"
+  },
+  {
+    "id": 20,
+    "name": "Shams O'quv Markazi",
+    "niche": "Education",
+    "phone": "+998977716030",
+    "address": "Toshkent, Uchtepa tumani, Yangi uchtepa ko'ch 21",
+    "instagram": "shams_oquv",
+    "services": [
+      "Xorijiy tillar",
+      "Dasturlash kurslari",
+      "Grafik dizayn",
+      "SMM kursi",
+      "Muhasib kursi"
+    ],
+    "colors": {
+      "primary": "#0f2044",
+      "accent": "#4cc9f0"
+    },
+    "slug": "shams-oquv-markazi",
+    "wa_number": "998977716030"
+  },
+  {
+    "id": 21,
+    "name": "Aziz Savdo Markazi",
+    "niche": "Wholesale",
+    "phone": "+998977216772",
+    "address": "Toshkent, Bektemir tumani, Sanoat ko'ch 88",
+    "instagram": "aziz_savdo",
+    "services": [
+      "Oziq-ovqat ulgurji",
+      "Ichimlik ulgurji",
+      "Sanoat mahsulotlari",
+      "Qurilish materiallari",
+      "Import mahsulotlar"
+    ],
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#f72585"
+    },
+    "slug": "aziz-savdo",
+    "wa_number": "998977216772"
+  },
+  {
+    "id": 22,
+    "name": "Meros Kafedrasi",
+    "niche": "Restaurant",
+    "phone": "+998712121856",
+    "address": "Toshkent, Mirobod tumani, Usmon Nosir ko'ch 30",
+    "instagram": "meros_kafe",
+    "services": [
+      "Milliy taomlar",
+      "Non turlari",
+      "Kabob",
+      "Shashlik",
+      "Oilaviy dasturxon"
+    ],
+    "colors": {
+      "primary": "#1a0a00",
+      "accent": "#d62828"
+    },
+    "slug": "meros-kafe",
+    "wa_number": "998712121856"
+  },
+  {
+    "id": 23,
+    "name": "Clever Kids Bog'cha",
+    "niche": "Kindergarten",
+    "phone": "+998935796363",
+    "address": "Toshkent, Chilonzor tumani, 16-mavze 5-uy",
+    "instagram": "cleverkids_uz",
+    "services": [
+      "Maktabgacha ta'lim",
+      "Ingliz tili bolalar uchun",
+      "San'at va ijodkorlik",
+      "Jismoniy tarbiya",
+      "Musiqiy ta'lim"
+    ],
+    "colors": {
+      "primary": "#001233",
+      "accent": "#ff6b6b"
+    },
+    "slug": "clever-kids",
+    "wa_number": "998935796363"
+  },
+  {
+    "id": 24,
+    "name": "Toza Kir Yuvish",
+    "niche": "Laundry",
+    "phone": "+998712002202",
+    "address": "Toshkent, Sergeli tumani, Yangi Sergeli ko'ch 14",
+    "instagram": "toza_kir_uz",
+    "services": [
+      "Kir yuvish",
+      "Quruq tozalash",
+      "Dazmollash",
+      "To'shak va gilamlar",
+      "Kiyim ta'miri"
+    ],
+    "colors": {
+      "primary": "#003049",
+      "accent": "#0096c7"
+    },
+    "slug": "toza-kir",
+    "wa_number": "998712002202"
+  },
+  {
+    "id": 25,
+    "name": "Baxt To'y Saroyi",
+    "niche": "Event Hall",
+    "phone": "+998712509903",
+    "address": "Toshkent, Yakkasaroy tumani, Koratosh ko'ch 15",
+    "instagram": "baxt_toy_saroyi",
+    "services": [
+      "To'y marosimlari",
+      "Tug'ilgan kun",
+      "Korporativ tadbirlar",
+      "Xonalar bezash",
+      "Ovqat xizmati"
+    ],
+    "colors": {
+      "primary": "#1a001a",
+      "accent": "#e040fb"
+    },
+    "slug": "baxt-toy-saroyi",
+    "wa_number": "998712509903"
+  },
+  {
+    "id": 26,
+    "name": "Pro Electro Montaj",
+    "niche": "Electrical",
+    "phone": "+998903717099",
+    "address": "Toshkent, Olmazor tumani, Yo'ldoshev ko'ch 8",
+    "instagram": "proelectro_uz",
+    "services": [
+      "Elektr montaj",
+      "Elektr ta'miri",
+      "Solar panellar",
+      "Generator o'rnatish",
+      "Sanoat elektr"
+    ],
+    "colors": {
+      "primary": "#001a33",
+      "accent": "#fbbf24"
+    },
+    "slug": "pro-electro",
+    "wa_number": "998903717099"
+  },
+  {
+    "id": 27,
+    "name": "Sog'lom Ovqat Kafeteri",
+    "niche": "Restaurant",
+    "phone": "+998903240502",
+    "address": "Toshkent, Mirzo Ulug'bek tumani, Fan va texnika ko'ch 3",
+    "instagram": "soglom_ovqat",
+    "services": [
+      "Dietik taomlar",
+      "Veganlar uchun menyu",
+      "Smoothie va sharbatlar",
+      "Ish joyi uchun tushlik",
+      "Buyurtma katering"
+    ],
+    "colors": {
+      "primary": "#0a1f0a",
+      "accent": "#4caf50"
+    },
+    "slug": "soglom-ovqat",
+    "wa_number": "998903240502"
+  },
+  {
+    "id": 28,
+    "name": "Granit Tosh Qurilish",
+    "niche": "Construction",
+    "phone": "+998781137525",
+    "address": "Toshkent, Bektemir tumani, Qurilish materiallari bozori",
+    "instagram": "granit_tosh_uz",
+    "services": [
+      "Granit va marmar",
+      "Fasad ishlari",
+      "Pol qoplash",
+      "Devor koplash",
+      "Oshxona pardozlash"
+    ],
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#c0c0c0"
+    },
+    "slug": "granit-tosh",
+    "wa_number": "998781137525"
+  },
+  {
+    "id": 29,
+    "name": "Najot Dorixonasi",
+    "niche": "Pharmacy",
+    "phone": "+998781203800",
+    "address": "Toshkent, Shayxontohur tumani, Chorsu yonida",
+    "instagram": "najot_dorixona",
+    "services": [
+      "Dori vositalari",
+      "Tibbiy jihozlar",
+      "Vitamin va qo'shimchalar",
+      "Kosmetika",
+      "Yetkazib berish"
+    ],
+    "colors": {
+      "primary": "#003049",
+      "accent": "#06d6a0"
+    },
+    "slug": "najot-dorixona",
+    "wa_number": "998781203800"
+  },
+  {
+    "id": 30,
+    "name": "Swift Kuryer Xizmati",
+    "niche": "Courier",
+    "phone": "+998917878787",
+    "address": "Toshkent, barcha tumanlarga xizmat ko'rsatadi",
+    "instagram": "swift_courier_uz",
+    "services": [
+      "Shahar ichida yetkazish",
+      "Express yetkazish",
+      "Sovuq zanjir",
+      "Katta hajmli yuk",
+      "24/7 xizmat"
+    ],
+    "colors": {
+      "primary": "#0a0a2e",
+      "accent": "#f72585"
+    },
+    "slug": "swift-kuryer",
+    "wa_number": "998917878787"
+  },
+  {
+    "id": 31,
+    "name": "Yulduz Kosmetologiya",
+    "niche": "Beauty",
+    "phone": "+998712653174",
+    "address": "Toshkent, Yunusobod tumani, 19-mavze 7-uy",
+    "instagram": "yulduz_kosmetolog",
+    "services": [
+      "Yuz parvarishi",
+      "Manikur va pedikur",
+      "Qosh va kipriklar",
+      "Massaj",
+      "Apparatli kosmetologiya"
+    ],
+    "colors": {
+      "primary": "#1a0021",
+      "accent": "#ff69b4"
+    },
+    "slug": "yulduz-kosmetologiya",
+    "wa_number": "998712653174"
+  },
+  {
+    "id": 32,
+    "name": "Jahon Turism Agentligi",
+    "niche": "Travel",
+    "phone": "+998712000019",
+    "address": "Toshkent, Mirobod tumani, Mustaqillik ko'ch 10",
+    "instagram": "jahon_turism",
+    "services": [
+      "Xorijga sayohatlar",
+      "Viza rasmiylashtiruvi",
+      "Mehmonxona bron qilish",
+      "Tur paketlar",
+      "Aviabilet"
+    ],
+    "colors": {
+      "primary": "#003566",
+      "accent": "#00b4d8"
+    },
+    "slug": "jahon-turism",
+    "wa_number": "998712000019"
+  },
+  {
+    "id": 33,
+    "name": "Saidov Plombirchi",
+    "niche": "Auto Glass",
+    "phone": "+998959605054",
+    "address": "Toshkent, Sergeli tumani, Yangi yo'l ko'ch 33",
+    "instagram": "saidov_auto_glass",
+    "services": [
+      "Shisha almashtirish",
+      "Shisha tiklash",
+      "Yoriqlarni yopish",
+      "Tinting",
+      "Windshield"
+    ],
+    "colors": {
+      "primary": "#0d1b2a",
+      "accent": "#48cae4"
+    },
+    "slug": "saidov-plombirchi",
+    "wa_number": "998959605054"
+  },
+  {
+    "id": 34,
+    "name": "Orzuim Kelin Saloni",
+    "niche": "Bridal",
+    "phone": "+998903191333",
+    "address": "Toshkent, Yakkasaroy tumani, Ferganskaya ko'ch 21",
+    "instagram": "orzuim_kelin",
+    "services": [
+      "Kelin ko'ylagi ijarasi",
+      "Vizaj xizmati",
+      "Soch bezash",
+      "Aksessuarlar",
+      "Fotosessiya paket"
+    ],
+    "colors": {
+      "primary": "#1a001a",
+      "accent": "#ff9ece"
+    },
+    "slug": "orzuim-kelin",
+    "wa_number": "998903191333"
+  },
+  {
+    "id": 35,
+    "name": "Profi Temirchilik",
+    "niche": "Metalwork",
+    "phone": "+998991695555",
+    "address": "Toshkent, Bektemir tumani, Temirchilar ko'ch 4",
+    "instagram": "profi_metalwork",
+    "services": [
+      "Metall eshik va derazalar",
+      "To'siq va panjaralar",
+      "Ombor qurilmalar",
+      "Fabrika jihozlari",
+      "Buyurtma metall ishlari"
+    ],
+    "colors": {
+      "primary": "#0a0a0a",
+      "accent": "#ff6600"
+    },
+    "slug": "profi-temirchilik",
+    "wa_number": "998991695555"
+  },
+  {
+    "id": 36,
+    "name": "Arzon Yoqilg'i",
+    "niche": "Gas Station",
+    "phone": "+998712501010",
+    "address": "Toshkent, Chilonzor tumani, Bog'ishamol ko'ch 60",
+    "instagram": "arzon_yoqilgi",
+    "services": [
+      "Benzin A-80",
+      "Benzin A-92",
+      "Diesel",
+      "Gaz (metan)",
+      "Moy almashtirish"
+    ],
+    "colors": {
+      "primary": "#1a1a00",
+      "accent": "#ffd700"
+    },
+    "slug": "arzon-yoqilgi",
+    "wa_number": "998712501010"
+  },
+  {
+    "id": 37,
+    "name": "Hamkor Buxgalteriya",
+    "niche": "Accounting",
+    "phone": "+998951984888",
+    "address": "Toshkent, Mirzo Ulug'bek tumani, Ulmas Umarbekov ko'ch 9",
+    "instagram": "hamkor_buxgalter",
+    "services": [
+      "Soliq hisoboti",
+      "Ish haqi hisoblash",
+      "Moliyaviy tahlil",
+      "1C xizmatlari",
+      "Audit"
+    ],
+    "colors": {
+      "primary": "#002244",
+      "accent": "#4361ee"
+    },
+    "slug": "hamkor-buxgalteriya",
+    "wa_number": "998951984888"
+  },
+  {
+    "id": 38,
+    "name": "Shifobaxsh Apteka",
+    "niche": "Pharmacy",
+    "phone": "+998712448368",
+    "address": "Toshkent, Olmazor tumani, Yunusabad shoh ko'ch 45",
+    "instagram": "shifobaxsh_apteka",
+    "services": [
+      "Retsept dorisi",
+      "Homiladorlik mahsulotlar",
+      "Bolalar dorisi",
+      "Tibbiy uskunalar",
+      "Fitopreparatlar"
+    ],
+    "colors": {
+      "primary": "#003d00",
+      "accent": "#39d353"
+    },
+    "slug": "shifobaxsh-apteka",
+    "wa_number": "998712448368"
+  },
+  {
+    "id": 39,
+    "name": "Euro Motors Avto",
+    "niche": "Auto Sales",
+    "phone": "+998777772255",
+    "address": "Toshkent, Yashnobod tumani, Yangi hayot avtobozori",
+    "instagram": "euro_motors_uz",
+    "services": [
+      "Avto sotish",
+      "Avto kredit",
+      "Avto sug'urta",
+      "Texnik ko'rik",
+      "Avto qadrlash"
+    ],
+    "colors": {
+      "primary": "#0a0a0f",
+      "accent": "#3a86ff"
+    },
+    "slug": "euro-motors",
+    "wa_number": "998777772255"
+  },
+  {
+    "id": 40,
+    "name": "Yangi Avlod IT Markazi",
+    "niche": "IT Services",
+    "phone": "+998712441185",
+    "address": "Toshkent, Mirzo Ulug'bek tumani, Qoratosh ko'ch 7",
+    "instagram": "yangi_avlod_it",
+    "services": [
+      "Kompyuter ta'miri",
+      "Tarmoq o'rnatish",
+      "Video kuzatuv",
+      "1C amalga oshirish",
+      "IT qo'llab-quvvatlash"
+    ],
+    "colors": {
+      "primary": "#001d3d",
+      "accent": "#00f5d4"
+    },
+    "slug": "yangi-avlod-it",
+    "wa_number": "998712441185"
+  },
+  {
+    "id": 41,
+    "name": "Milliy Taomlar Oshxonasi",
+    "niche": "Restaurant",
+    "phone": "+998712002020",
+    "address": "Toshkent, Uchtepa tumani, Buyuk ipak yo'li ko'ch 101",
+    "instagram": "milliy_taomlar_uz",
+    "services": [
+      "Osh",
+      "Manti",
+      "Lag'mon",
+      "Shashlik",
+      "Mastava"
+    ],
+    "colors": {
+      "primary": "#2d0a00",
+      "accent": "#ff4500"
+    },
+    "slug": "milliy-taomlar",
+    "wa_number": "998712002020"
+  },
+  {
+    "id": 42,
+    "name": "Ziyod Qurilish Materiallari",
+    "niche": "Building Materials",
+    "phone": "+998555006555",
+    "address": "Toshkent, Qibray tumani, Qurilish materiallari bozori",
+    "instagram": "ziyod_qurilish",
+    "services": [
+      "Tsement va qum",
+      "G'isht va blok",
+      "Metall konstruksiyalar",
+      "Boshpana va tom",
+      "Santexnika"
+    ],
+    "colors": {
+      "primary": "#1c1c1e",
+      "accent": "#ff6b35"
+    },
+    "slug": "ziyod-qurilish",
+    "wa_number": "998555006555"
+  },
+  {
+    "id": 43,
+    "name": "Alvido Dafn Xizmatlari",
+    "niche": "Funeral",
+    "phone": "+998903529097",
+    "address": "Toshkent, Shayxontohur tumani",
+    "instagram": null,
+    "services": [
+      "Dafn marosimi",
+      "Tobut",
+      "Transport xizmati",
+      "Gullar bezash",
+      "Hujjat rasmiylashtiruvi"
+    ],
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#6c757d"
+    },
+    "slug": "alvido-dafn",
+    "wa_number": "998903529097"
+  },
+  {
+    "id": 44,
+    "name": "Sifatli Uy Tozalash",
+    "niche": "Cleaning",
+    "phone": "+998970307010",
+    "address": "Toshkent, barcha tumanlar",
+    "instagram": "sifatli_tozalash",
+    "services": [
+      "Kvartira tozalash",
+      "Ofis tozalash",
+      "Pentrhouse tozalash",
+      "Remont keyingi tozalash",
+      "Deraza tozalash"
+    ],
+    "colors": {
+      "primary": "#003049",
+      "accent": "#06d6a0"
+    },
+    "slug": "sifatli-tozalash",
+    "wa_number": "998970307010"
+  },
+  {
+    "id": 45,
+    "name": "Comfort Lift Liftlar",
+    "niche": "Elevators",
+    "phone": "+998781137525",
+    "address": "Toshkent, Yashnobod tumani, Sanoat ko'ch 22",
+    "instagram": "comfort_lift_uz",
+    "services": [
+      "Lift o'rnatish",
+      "Lift ta'miri",
+      "Texnik xizmat",
+      "Zaxira qismlar",
+      "Attestatsiya"
+    ],
+    "colors": {
+      "primary": "#001233",
+      "accent": "#4361ee"
+    },
+    "slug": "comfort-lift",
+    "wa_number": "998781137525"
+  },
+  {
+    "id": 46,
+    "name": "Nargiz Gullar Do'koni",
+    "niche": "Flowers",
+    "phone": "+998977267737",
+    "address": "Toshkent, Yunusobod tumani, Navruz madaniyat markazi yonida",
+    "instagram": "nargiz_gullar",
+    "services": [
+      "To'y gullari",
+      "Bokeylar",
+      "Yetkazib berish",
+      "Yasama gullar",
+      "Bayram bezagi"
+    ],
+    "colors": {
+      "primary": "#1a0011",
+      "accent": "#ff69b4"
+    },
+    "slug": "nargiz-gullar",
+    "wa_number": "998977267737"
+  },
+  {
+    "id": 47,
+    "name": "Tez Pasta Restoran",
+    "niche": "Restaurant",
+    "phone": "+998781293000",
+    "address": "Toshkent, Mirzo Ulug'bek tumani, texnopark yonida",
+    "instagram": "tez_pasta_uz",
+    "services": [
+      "Italyan pasta",
+      "Pizza",
+      "Burger",
+      "Salat turlari",
+      "Ichimliklar"
+    ],
+    "colors": {
+      "primary": "#0a0a00",
+      "accent": "#e63946"
+    },
+    "slug": "tez-pasta",
+    "wa_number": "998781293000"
+  },
+  {
+    "id": 48,
+    "name": "Uста Mebelchilar",
+    "niche": "Furniture",
+    "phone": "+998955150909",
+    "address": "Toshkent, Chilonzor tumani, 19-mavze",
+    "instagram": "usta_mebel_uz",
+    "services": [
+      "Buyurtma shkaflar",
+      "Oshxona mebeli",
+      "Idora stollari",
+      "Bolalar mebeli",
+      "Ta'mirlash"
+    ],
+    "colors": {
+      "primary": "#1a0a00",
+      "accent": "#c9a96e"
+    },
+    "slug": "usta-mebelchilar",
+    "wa_number": "998955150909"
+  },
+  {
+    "id": 49,
+    "name": "Mega Konditsioner",
+    "niche": "HVAC",
+    "phone": "+998335666768",
+    "address": "Toshkent, Sergeli tumani, Yangi Sergeli 2",
+    "instagram": "mega_konditsioner",
+    "services": [
+      "Konditsioner sotish",
+      "O'rnatish",
+      "Ta'mirlash",
+      "Kafolat xizmati",
+      "Havo tozalagich"
+    ],
+    "colors": {
+      "primary": "#001d3d",
+      "accent": "#00b4d8"
+    },
+    "slug": "mega-konditsioner",
+    "wa_number": "998335666768"
+  },
+  {
+    "id": 50,
+    "name": "Ilhom Foto Studio",
+    "niche": "Photography",
+    "phone": "+998903709223",
+    "address": "Toshkent, Yunusobod tumani, 26-mavze 1-uy",
+    "instagram": "ilhom_foto_uz",
+    "services": [
+      "To'y fotosuratlari",
+      "Hujjat fotosi",
+      "Reklama foto",
+      "Video montaj",
+      "Studio ijara"
+    ],
+    "colors": {
+      "primary": "#0a0a0a",
+      "accent": "#e040fb"
+    },
+    "slug": "ilhom-foto",
+    "wa_number": "998903709223"
+  }
+]

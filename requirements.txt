@@ -1,0 +1,5 @@
+playwright==1.45.0
+phonenumbers==8.13.39
+anthropic==0.31.2
+python-telegram-bot==21.3
+requests==2.32.3

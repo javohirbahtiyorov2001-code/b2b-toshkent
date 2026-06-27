@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sales Pitches — B2B System</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased;scrollbar-width:thin;scrollbar-color:#333 #07070d}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#07070d;color:#e2e8f0;min-height:100vh}
+
+:root{
+  --bg:#07070d;--sf:#0f0f1a;--sf2:#13131f;
+  --bd:rgba(255,255,255,.06);--bd2:rgba(255,255,255,.11);
+  --tx:#e2e8f0;--mu:#64748b;
+  --bl:#3b82f6;--in:#6366f1;--pu:#a855f7;
+  --gn:#22c55e;--am:#f59e0b;--rd:#ef4444;--cy:#06b6d4;
+}
+
+/* ── LAYOUT */
+.layout{display:flex;min-height:100vh}
+.sidebar{width:300px;flex-shrink:0;background:var(--sf);border-right:1px solid var(--bd);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow:hidden}
+.content{flex:1;overflow-y:auto;padding:28px 32px 60px}
+
+/* ── SIDEBAR HEADER */
+.sb-head{padding:20px 18px 14px;border-bottom:1px solid var(--bd)}
+.sb-head a{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--mu);font-size:.75rem;margin-bottom:12px;transition:color .2s}
+.sb-head a:hover{color:var(--tx)}
+.sb-head a svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+.sb-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:900;color:#fff}
+.sb-sub{font-size:.72rem;color:var(--mu);margin-top:2px;font-family:'Fira Code',monospace}
+
+/* ── SEARCH */
+.sb-search{padding:12px 18px;border-bottom:1px solid var(--bd)}
+.search-wrap{position:relative}
+.search-wrap svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:14px;height:14px;stroke:var(--mu);fill:none;stroke-width:2;pointer-events:none}
+#search{width:100%;background:var(--sf2);border:1px solid var(--bd2);border-radius:9px;padding:.5rem .75rem .5rem 2rem;color:var(--tx);font-size:.78rem;font-family:inherit;outline:none;transition:border-color .2s}
+#search:focus{border-color:rgba(99,102,241,.5)}
+#search::placeholder{color:var(--mu)}
+
+/* ── FILTERS */
+.sb-filters{padding:10px 18px 8px;border-bottom:1px solid var(--bd);display:flex;flex-wrap:wrap;gap:5px}
+.f-btn{padding:.25rem .65rem;border-radius:6px;font-size:.65rem;font-weight:700;background:rgba(255,255,255,.04);border:1px solid var(--bd);color:var(--mu);cursor:pointer;transition:all .2s;font-family:inherit}
+.f-btn:hover,.f-btn.on{background:rgba(99,102,241,.14);border-color:rgba(99,102,241,.4);color:var(--in)}
+.f-btn.all.on{background:rgba(99,102,241,.14);border-color:rgba(99,102,241,.4);color:var(--in)}
+
+/* ── LEAD LIST */
+.sb-list{flex:1;overflow-y:auto;padding:8px 10px}
+.lead-item{display:flex;align-items:center;gap:10px;padding:.55rem .7rem;border-radius:10px;cursor:pointer;transition:background .18s;border:1px solid transparent;margin-bottom:2px}
+.lead-item:hover{background:rgba(255,255,255,.04)}
+.lead-item.active{background:rgba(99,102,241,.1);border-color:rgba(99,102,241,.25)}
+.li-num{font-family:'Fira Code',monospace;font-size:.65rem;color:var(--mu);width:22px;flex-shrink:0;text-align:right}
+.li-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.li-info{flex:1;min-width:0}
+.li-name{font-size:.78rem;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.li-niche{font-size:.63rem;color:var(--mu)}
+.li-arrow{font-size:.7rem;color:var(--mu)}
+
+/* ── CONTENT TOPBAR */
+.ct-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.ct-info h2{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:900;color:#fff;letter-spacing:-.03em}
+.ct-info p{font-size:.8rem;color:var(--mu);margin-top:3px}
+.ct-btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn{display:flex;align-items:center;gap:6px;padding:.45rem 1rem;border-radius:9px;background:var(--sf2);border:1px solid var(--bd2);color:var(--tx);font-size:.78rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit;text-decoration:none}
+.btn:hover{background:rgba(99,102,241,.16);border-color:rgba(99,102,241,.45);color:var(--in)}
+.btn.gn{background:rgba(34,197,94,.1);border-color:rgba(34,197,94,.3);color:var(--gn)}
+.btn.gn:hover{background:rgba(34,197,94,.18);border-color:var(--gn)}
+.btn.am{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.3);color:var(--am)}
+.btn.am:hover{background:rgba(245,158,11,.18)}
+.btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+
+/* ── LANGUAGE TOGGLE */
+.lang-toggle{display:flex;gap:0;background:var(--sf2);border:1px solid var(--bd2);border-radius:9px;overflow:hidden;margin-bottom:20px}
+.lt-btn{flex:1;padding:.5rem 1rem;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s;border:none;background:transparent;color:var(--mu);font-family:inherit}
+.lt-btn.on{background:rgba(99,102,241,.2);color:#fff}
+
+/* ── PITCH SECTIONS */
+.sections{display:flex;flex-direction:column;gap:16px}
+.section{background:var(--sf);border:1px solid var(--bd);border-radius:18px;overflow:hidden}
+.sec-head{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;border-bottom:1px solid var(--bd);cursor:pointer;user-select:none}
+.sec-icon-wrap{display:flex;align-items:center;gap:.75rem}
+.sec-icon{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.sec-title{font-size:.88rem;font-weight:800;color:#fff}
+.sec-desc{font-size:.7rem;color:var(--mu);margin-top:1px}
+.sec-toggle{color:var(--mu);font-size:.8rem;transition:transform .2s}
+.sec-toggle.open{transform:rotate(180deg)}
+.sec-body{padding:1.25rem;display:none}
+.sec-body.open{display:block}
+
+/* ── PITCH TEXT BOX */
+.pitch-box{background:var(--sf2);border:1px solid var(--bd);border-radius:12px;padding:1.1rem 1.25rem;position:relative;margin-top:.75rem}
+.pitch-box pre{font-family:'Plus Jakarta Sans',sans-serif;font-size:.83rem;line-height:1.75;color:var(--tx);white-space:pre-wrap;word-break:break-word}
+.pitch-box .copy-btn{position:absolute;top:.75rem;right:.75rem;background:rgba(255,255,255,.06);border:1px solid var(--bd2);color:var(--mu);padding:.25rem .65rem;border-radius:7px;font-size:.67rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit}
+.pitch-box .copy-btn:hover{background:rgba(99,102,241,.15);color:var(--in);border-color:rgba(99,102,241,.4)}
+
+/* ── STATS PILLS */
+.lead-stats{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.stat-pill{display:flex;align-items:center;gap:5px;padding:.3rem .75rem;border-radius:8px;font-size:.72rem;font-weight:700}
+
+/* ── HIGHLIGHT BLOCK */
+.highlight{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.hl-card{background:var(--sf);border:1px solid var(--bd);border-radius:14px;padding:1rem}
+.hl-lbl{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);margin-bottom:.4rem}
+.hl-txt{font-size:.8rem;color:var(--tx);line-height:1.5}
+
+/* ── EMPTY */
+.empty{text-align:center;padding:4rem 2rem;color:var(--mu)}
+.empty-icon{font-size:2.5rem;margin-bottom:.75rem}
+.empty h3{color:#fff;font-size:1rem;margin-bottom:.3rem}
+
+/* ── SCROLLBAR */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:4px}
+
+@media(max-width:900px){
+  .sidebar{display:none}
+  .content{padding:16px 14px 40px}
+  .highlight{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="layout">
+<!-- ── SIDEBAR ─────────────────────────────── -->
+<aside class="sidebar">
+  <div class="sb-head">
+    <a href="../dashboard/index.html">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Dashboard
+    </a>
+    <div class="sb-title">💬 Sales Pitches</div>
+    <div class="sb-sub">50 kompaniya · RU + UZ</div>
+  </div>
+
+  <div class="sb-search">
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="search" placeholder="Kompaniya qidiring..." oninput="filterLeads()">
+    </div>
+  </div>
+
+  <div class="sb-filters" id="filters"></div>
+  <div class="sb-list" id="lead-list"></div>
+</aside>
+
+<!-- ── MAIN CONTENT ─────────────────────────────── -->
+<main class="content" id="main-content">
+  <div style="text-align:center;padding:5rem 2rem;color:var(--mu)">
+    <div style="font-size:2.5rem;margin-bottom:1rem">👈</div>
+    <div style="font-size:1rem;font-weight:700;color:#fff;margin-bottom:.35rem">Chap tarafdan kompaniya tanlang</div>
+    <div style="font-size:.8rem">Har bir kompaniya uchun 3 xil pitch: WhatsApp, Qo'ng'iroq, Rasmiy xat</div>
+  </div>
+</main>
+</div>
+
+<script>
+let ALL = [];
+let CURRENT_LANG = 'ru';
+let CURRENT_NICHE = 'all';
+
+async function init() {
+  const res = await fetch('pitches.json');
+  ALL = await res.json();
+  buildFilters();
+  buildList();
+  // Auto-select first
+  selectLead(ALL[0]);
+}
+
+function buildFilters() {
+  const niches = [...new Set(ALL.map(l => l.niche))].sort();
+  const wrap = document.getElementById('filters');
+  wrap.innerHTML = `<button class="f-btn all on" onclick="setNiche('all',this)">Barchasi (50)</button>` +
+    niches.map(n => `<button class="f-btn" onclick="setNiche('${n}',this)">${n}</button>`).join('');
+}
+
+function setNiche(niche, btn) {
+  CURRENT_NICHE = niche;
+  document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  filterLeads();
+}
+
+function filterLeads() {
+  const q = document.getElementById('search').value.toLowerCase();
+  const list = ALL.filter(l =>
+    (CURRENT_NICHE === 'all' || l.niche === CURRENT_NICHE) &&
+    (l.name.toLowerCase().includes(q) || l.niche.toLowerCase().includes(q))
+  );
+  renderList(list);
+}
+
+function buildList() {
+  renderList(ALL);
+}
+
+function renderList(leads) {
+  const wrap = document.getElementById('lead-list');
+  if (!leads.length) {
+    wrap.innerHTML = '<div style="padding:1rem;text-align:center;color:var(--mu);font-size:.78rem">Topilmadi</div>';
+    return;
+  }
+  wrap.innerHTML = leads.map(l => `
+    <div class="lead-item" id="li-${l.id}" onclick="selectLead(ALL.find(x=>x.id===${l.id}))">
+      <span class="li-num">${String(l.id).padStart(2,'0')}</span>
+      <span class="li-dot" style="background:${l.colors.accent}"></span>
+      <div class="li-info">
+        <div class="li-name">${l.name}</div>
+        <div class="li-niche">${l.niche}</div>
+      </div>
+      <span class="li-arrow">›</span>
+    </div>`).join('');
+}
+
+let currentId = null;
+function selectLead(lead) {
+  if (!lead) return;
+  currentId = lead.id;
+  // Highlight in list
+  document.querySelectorAll('.lead-item').forEach(el => el.classList.remove('active'));
+  const el = document.getElementById(`li-${lead.id}`);
+  if (el) { el.classList.add('active'); el.scrollIntoView({block:'nearest'}); }
+  renderContent(lead);
+}
+
+function setLang(lang) {
+  CURRENT_LANG = lang;
+  document.querySelectorAll('.lt-btn').forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
+  const lead = ALL.find(l => l.id === currentId);
+  if (lead) renderContent(lead);
+}
+
+function renderContent(lead) {
+  const d = lead[CURRENT_LANG];
+  const isRu = CURRENT_LANG === 'ru';
+  const mc = document.getElementById('main-content');
+
+  // Pre-compute all language strings to avoid apostrophe issues inside template literals
+  const lblOn    = isRu ? '🇷🇺 Ruscha' : '🇺🇿 O\'zbekcha';
+  const waDesc   = isRu ? 'Первое сообщение в WhatsApp — персонализированное' : 'WhatsApp-ga birinchi xabar — personallashtirilgan';
+  const callDesc = isRu ? 'Сценарий холодного звонка' : 'Sovuq qo\'ng\'iroq ssenariysi';
+  const fmDesc   = isRu ? 'Формальное письмо для email или Telegram' : 'Email yoki Telegram uchun rasmiy xat';
+  const ruOn     = CURRENT_LANG === 'ru' ? 'on' : '';
+  const uzOn     = CURRENT_LANG === 'uz' ? 'on' : '';
+  const waLink   = `https://wa.me/${lead.wa_number}?text=${encodeURIComponent(d.whatsapp)}`;
+
+  mc.innerHTML = `
+    <!-- HEAD -->
+    <div class="ct-head">
+      <div class="ct-info">
+        <h2>${lead.name}</h2>
+        <p>${lead.niche} &nbsp;·&nbsp; <span style="font-family:'Fira Code',monospace">${lead.phone}</span></p>
+      </div>
+      <div class="ct-btns">
+        <a href="../generated_sites/${lead.slug}.html" target="_blank" class="btn">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Demo Sayt
+        </a>
+        <a href="https://wa.me/${lead.wa_number}" target="_blank" class="btn gn">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          WhatsApp
+        </a>
+        <button class="btn am" onclick="copyAll()">
+          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Barchasini Copy
+        </button>
+      </div>
+    </div>
+
+    <!-- LANG TOGGLE -->
+    <div class="lang-toggle">
+      <button class="lt-btn ${ruOn}" data-lang="ru" onclick="setLang('ru')">🇷🇺 Ruscha</button>
+      <button class="lt-btn ${uzOn}" data-lang="uz" onclick="setLang('uz')">🇺🇿 O'zbekcha</button>
+    </div>
+
+    <!-- HIGHLIGHT CARDS -->
+    <div class="highlight">
+      <div class="hl-card">
+        <div class="hl-lbl">😤 Muammo / Боль</div>
+        <div class="hl-txt">${d.pain}</div>
+      </div>
+      <div class="hl-card">
+        <div class="hl-lbl">💡 Yechim / Решение</div>
+        <div class="hl-txt">${d.benefit}</div>
+      </div>
+      <div class="hl-card">
+        <div class="hl-lbl">📊 Fakt / Факт</div>
+        <div class="hl-txt">${d.proof}</div>
+      </div>
+      <div class="hl-card">
+        <div class="hl-lbl">✅ USP / Что включает</div>
+        <div class="hl-txt">${d.usp}</div>
+      </div>
+    </div>
+
+    <!-- SECTIONS -->
+    <div class="sections">
+
+      <!-- WHATSAPP -->
+      <div class="section">
+        <div class="sec-head" onclick="toggleSec(this)">
+          <div class="sec-icon-wrap">
+            <div class="sec-icon" style="background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.2)">💬</div>
+            <div>
+              <div class="sec-title">WhatsApp Xabari</div>
+              <div class="sec-desc">${waDesc}</div>
+            </div>
+          </div>
+          <span class="sec-toggle open">▼</span>
+        </div>
+        <div class="sec-body open">
+          <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap">
+            <a href="${waLink}" target="_blank" class="btn gn" style="font-size:.73rem">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.83-.83a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.6 16.92z"/></svg>
+              WhatsApp Yuborish
+            </a>
+            <button class="btn" onclick="copyText('wa-${lead.id}')" style="font-size:.73rem">📋 Nusxa olish</button>
+          </div>
+          <div class="pitch-box">
+            <pre id="wa-${lead.id}">${escHtml(d.whatsapp)}</pre>
+            <button class="copy-btn" onclick="copyText('wa-${lead.id}')">Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CALL SCRIPT -->
+      <div class="section">
+        <div class="sec-head" onclick="toggleSec(this)">
+          <div class="sec-icon-wrap">
+            <div class="sec-icon" style="background:rgba(59,130,246,.12);border:1px solid rgba(59,130,246,.2)">📞</div>
+            <div>
+              <div class="sec-title">Qo'ng'iroq Skripti</div>
+              <div class="sec-desc">${callDesc}</div>
+            </div>
+          </div>
+          <span class="sec-toggle">▼</span>
+        </div>
+        <div class="sec-body">
+          <div style="display:flex;gap:8px;margin-bottom:10px">
+            <a href="tel:${lead.phone}" class="btn" style="font-size:.73rem">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.83-.83a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.6 16.92z"/></svg>
+              Qo'ng'iroq
+            </a>
+            <button class="btn" onclick="copyText('call-${lead.id}')" style="font-size:.73rem">📋 Nusxa olish</button>
+          </div>
+          <div class="pitch-box">
+            <pre id="call-${lead.id}">${escHtml(d.call_script)}</pre>
+            <button class="copy-btn" onclick="copyText('call-${lead.id}')">Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORMAL LETTER -->
+      <div class="section">
+        <div class="sec-head" onclick="toggleSec(this)">
+          <div class="sec-icon-wrap">
+            <div class="sec-icon" style="background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.2)">📄</div>
+            <div>
+              <div class="sec-title">Rasmiy Xat / Коммерческое предложение</div>
+              <div class="sec-desc">${fmDesc}</div>
+            </div>
+          </div>
+          <span class="sec-toggle">▼</span>
+        </div>
+        <div class="sec-body">
+          <button class="btn" onclick="copyText('formal-${lead.id}')" style="font-size:.73rem;margin-bottom:10px">📋 Nusxa olish</button>
+          <div class="pitch-box">
+            <pre id="formal-${lead.id}">${escHtml(d.formal_letter)}</pre>
+            <button class="copy-btn" onclick="copyText('formal-${lead.id}')">Copy</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  `;
+}
+
+function toggleSec(head) {
+  const body = head.nextElementSibling;
+  const arrow = head.querySelector('.sec-toggle');
+  const isOpen = body.classList.toggle('open');
+  arrow.classList.toggle('open', isOpen);
+}
+
+function copyText(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  navigator.clipboard.writeText(el.textContent).then(() => {
+    const btn = el.parentElement.querySelector('.copy-btn');
+    if (btn) { const orig=btn.textContent; btn.textContent='✓ Copied!'; setTimeout(()=>btn.textContent=orig,2000); }
+  });
+}
+
+function copyAll() {
+  const lead = ALL.find(l => l.id === currentId);
+  if (!lead) return;
+  const d = lead[CURRENT_LANG];
+  const all = `=== WHATSAPP ===\n${d.whatsapp}\n\n=== CALL SCRIPT ===\n${d.call_script}\n\n=== FORMAL LETTER ===\n${d.formal_letter}`;
+  navigator.clipboard.writeText(all).then(() => {
+    const b = document.querySelector('.btn.am');
+    if (b) { const o=b.textContent; b.textContent='✓ Copied All!'; setTimeout(()=>b.textContent=o,2000); }
+  });
+}
+
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+init();
+</script>
+</body>
+</html>

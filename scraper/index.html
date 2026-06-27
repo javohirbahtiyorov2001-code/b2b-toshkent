@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lead Scraper — B2B Toshkent</title>
+<style>
+  :root {
+    --bg: #000;
+    --surface: #0a0a0a;
+    --card: #111;
+    --border: #1e1e1e;
+    --cyan: #00e5ff;
+    --violet: #7c3aed;
+    --text: #e0e0e0;
+    --muted: #666;
+    --green: #00c853;
+    --orange: #ff6d00;
+    --red: #ff1744;
+    --yellow: #ffd740;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', 'SF Pro', system-ui, sans-serif;
+    font-size: 14px;
+    min-height: 100vh;
+  }
+
+  /* TOP NAV */
+  .topbar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 14px 28px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .topbar-logo {
+    font-size: 15px; font-weight: 700; letter-spacing: -.4px;
+    color: #fff;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .topbar-logo span { color: var(--cyan); }
+  .topbar-nav { display: flex; gap: 4px; margin-left: auto; }
+  .topbar-nav a {
+    color: var(--muted); text-decoration: none; font-size: 13px;
+    padding: 6px 14px; border-radius: 8px;
+    transition: all .2s;
+  }
+  .topbar-nav a:hover { background: #1a1a1a; color: #fff; }
+  .topbar-nav a.active { background: rgba(0,229,255,.08); color: var(--cyan); }
+
+  /* STATS ROW */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    padding: 20px 28px 0;
+  }
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .stat-card .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+  .stat-card .value { font-size: 28px; font-weight: 700; color: #fff; margin-top: 4px; }
+  .stat-card .sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .stat-card.cyan { border-color: rgba(0,229,255,.25); }
+  .stat-card.cyan .value { color: var(--cyan); }
+  .stat-card.violet { border-color: rgba(124,58,237,.25); }
+  .stat-card.violet .value { color: #a78bfa; }
+  .stat-card.green { border-color: rgba(0,200,83,.2); }
+  .stat-card.green .value { color: var(--green); }
+
+  /* FILTERS */
+  .filters-wrap {
+    padding: 20px 28px;
+    display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  }
+  .filter-group {
+    display: flex; align-items: center; gap: 6px;
+  }
+  .filter-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+  select, input[type=text] {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 8px;
+    padding: 7px 12px;
+    font-size: 13px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color .2s;
+  }
+  select:hover, input[type=text]:hover { border-color: #333; }
+  select:focus, input[type=text]:focus { border-color: var(--cyan); }
+  input[type=text] { width: 220px; }
+  input[type=text]::placeholder { color: var(--muted); }
+
+  .toggle-group { display: flex; gap: 6px; }
+  .toggle-btn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    border-radius: 8px;
+    padding: 7px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all .2s;
+    white-space: nowrap;
+  }
+  .toggle-btn:hover { border-color: #333; color: var(--text); }
+  .toggle-btn.active { background: rgba(0,229,255,.1); border-color: var(--cyan); color: var(--cyan); }
+  .toggle-btn.active.violet { background: rgba(124,58,237,.1); border-color: var(--violet); color: #a78bfa; }
+
+  .btn-reset {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: auto;
+    transition: all .2s;
+  }
+  .btn-reset:hover { border-color: var(--red); color: var(--red); }
+
+  /* RESULTS BAR */
+  .results-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px 16px;
+  }
+  .results-count { font-size: 13px; color: var(--muted); }
+  .results-count strong { color: #fff; }
+  .view-toggle { display: flex; gap: 4px; }
+  .view-btn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    border-radius: 6px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all .2s;
+  }
+  .view-btn.active { border-color: var(--cyan); color: var(--cyan); background: rgba(0,229,255,.08); }
+
+  /* LEADS GRID */
+  .leads-wrap { padding: 0 28px 40px; }
+  .leads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 14px;
+  }
+  .leads-grid.list-view {
+    grid-template-columns: 1fr;
+  }
+
+  /* LEAD CARD */
+  .lead-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: border-color .2s, transform .15s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+  .lead-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent-bar, #1e1e1e);
+    border-radius: 14px 14px 0 0;
+  }
+  .lead-card:hover { border-color: #2a2a2a; transform: translateY(-1px); }
+  .leads-grid.list-view .lead-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 18px;
+  }
+
+  .card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .card-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+  }
+  .card-id { font-size: 10px; color: var(--muted); }
+
+  .card-badges { display: flex; flex-wrap: wrap; gap: 5px; }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .badge-niche { background: rgba(124,58,237,.15); color: #a78bfa; border: 1px solid rgba(124,58,237,.3); }
+  .badge-district { background: rgba(0,229,255,.08); color: var(--cyan); border: 1px solid rgba(0,229,255,.2); }
+  .badge-has-website { background: rgba(255,109,0,.1); color: var(--orange); border: 1px solid rgba(255,109,0,.3); }
+  .badge-no-website { background: rgba(0,200,83,.08); color: var(--green); border: 1px solid rgba(0,200,83,.2); }
+  .badge-phone-ok { background: rgba(0,200,83,.08); color: var(--green); border: 1px solid rgba(0,200,83,.2); }
+  .badge-phone-est { background: rgba(100,100,100,.15); color: var(--muted); border: 1px solid #2a2a2a; }
+  .badge-design { background: rgba(0,229,255,.05); color: #555; border: 1px solid #1a1a1a; font-size: 9px; }
+
+  .card-contact { display: flex; flex-direction: column; gap: 5px; }
+  .card-contact-row {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 12px; color: var(--muted);
+  }
+  .card-contact-row .icon { font-size: 13px; }
+  .card-contact-row a { color: var(--text); text-decoration: none; }
+  .card-contact-row a:hover { color: var(--cyan); }
+
+  .card-services {
+    display: flex; flex-wrap: wrap; gap: 4px;
+  }
+  .svc-tag {
+    font-size: 10px;
+    background: #161616;
+    border: 1px solid #1e1e1e;
+    color: var(--muted);
+    padding: 2px 7px;
+    border-radius: 4px;
+  }
+
+  .card-actions { display: flex; gap: 8px; margin-top: auto; }
+  .btn-action {
+    flex: 1;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    border-radius: 8px;
+    padding: 7px 10px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all .2s;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .btn-action:hover { background: rgba(0,229,255,.08); border-color: var(--cyan); color: var(--cyan); }
+  .btn-action.primary { background: rgba(0,229,255,.1); border-color: var(--cyan); color: var(--cyan); }
+  .btn-action.wa { background: rgba(37,211,102,.08); border-color: rgba(37,211,102,.3); color: #25d366; }
+  .btn-action.wa:hover { background: rgba(37,211,102,.15); }
+
+  /* LIST VIEW adjustments */
+  .leads-grid.list-view .card-head { min-width: 200px; }
+  .leads-grid.list-view .card-services { display: none; }
+  .leads-grid.list-view .card-actions { flex-direction: row; min-width: 200px; }
+
+  /* NICHE ACCENT BARS */
+  .niche-restaurant { --accent-bar: #DC2626; }
+  .niche-fitness { --accent-bar: #F97316; }
+  .niche-beauty { --accent-bar: #EC4899; }
+  .niche-auto { --accent-bar: #059669; }
+  .niche-hotel { --accent-bar: #1E3A8A; }
+  .niche-construction { --accent-bar: #EA580C; }
+  .niche-dentistry { --accent-bar: #00b4d8; }
+  .niche-clinic { --accent-bar: #7c3aed; }
+
+  /* EMPTY STATE */
+  .empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    color: var(--muted);
+  }
+  .empty-state .icon { font-size: 48px; margin-bottom: 16px; }
+  .empty-state p { font-size: 15px; }
+
+  /* PAGINATION */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 20px 28px 40px;
+  }
+  .page-btn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .page-btn:hover { border-color: #333; color: #fff; }
+  .page-btn.active { background: rgba(0,229,255,.1); border-color: var(--cyan); color: var(--cyan); }
+  .page-btn:disabled { opacity: .3; cursor: not-allowed; }
+
+  /* LOADING SKELETON */
+  .skeleton {
+    background: linear-gradient(90deg, #111 25%, #1a1a1a 50%, #111 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 8px;
+    height: 14px;
+  }
+  @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-logo">⚡ <span>B2B</span> Toshkent</div>
+  <nav class="topbar-nav">
+    <a href="/dashboard/index.html">Dashboard</a>
+    <a href="/website/index.html">Agency Site</a>
+    <a href="/pipeline/index.html">Pipeline</a>
+    <a href="/scraper/index.html" class="active">Scraper</a>
+    <a href="/crm/">CRM</a>
+  </nav>
+</div>
+
+<div class="stats-row" id="statsRow">
+  <div class="stat-card cyan">
+    <div class="label">Jami leads</div>
+    <div class="value" id="statTotal">—</div>
+    <div class="sub">barcha nişalar</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Saytisiz</div>
+    <div class="value" id="statNoSite">—</div>
+    <div class="sub">yangi sayt taklifi</div>
+  </div>
+  <div class="stat-card violet">
+    <div class="label">Sayt bor</div>
+    <div class="value" id="statHasSite">—</div>
+    <div class="sub">boshqa xizmat taklifi</div>
+  </div>
+  <div class="stat-card green">
+    <div class="label">Tasdiqlangan tel.</div>
+    <div class="value" id="statVerified">—</div>
+    <div class="sub">real tekshirilgan</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Nishalar</div>
+    <div class="value" id="statNiches">—</div>
+    <div class="sub">turli soha</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Ko'rsatilmoqda</div>
+    <div class="value" id="statShown">—</div>
+    <div class="sub">filter natijalari</div>
+  </div>
+</div>
+
+<div class="filters-wrap">
+  <div class="filter-group">
+    <span class="filter-label">Nisha</span>
+    <select id="filterNiche">
+      <option value="">Barcha nishalar</option>
+      <option value="Restaurant">🍽 Restoran</option>
+      <option value="Fitness">💪 Fitnes</option>
+      <option value="Beauty">💅 Go'zallik</option>
+      <option value="Auto">🚗 Avto servis</option>
+      <option value="Hotel">🏨 Mehmonxona</option>
+      <option value="Construction">🏗 Qurilish</option>
+      <option value="Dentistry">🦷 Stomatologiya</option>
+      <option value="Clinic">🏥 Klinika</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <span class="filter-label">Tuman</span>
+    <select id="filterDistrict">
+      <option value="">Barcha tumanlar</option>
+      <option value="Yunusobod">Yunusobod</option>
+      <option value="Mirzo-Ulugbek">Mirzo-Ulug'bek</option>
+      <option value="Chilonzor">Chilonzor</option>
+      <option value="Mirabad">Mirabad</option>
+      <option value="Shayxontohur">Shayxontohur</option>
+      <option value="Almazar">Almazar</option>
+      <option value="Yakkasaray">Yakkasaray</option>
+      <option value="Uchtepa">Uchtepa</option>
+      <option value="Sergeli">Sergeli</option>
+      <option value="Yashnobod">Yashnobod</option>
+      <option value="Bektemir">Bektemir</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <span class="filter-label">Sayt holati</span>
+    <div class="toggle-group">
+      <button class="toggle-btn" id="btnNoSite" onclick="toggleFilter('no_site')">🟢 Saytisiz</button>
+      <button class="toggle-btn violet" id="btnHasSite" onclick="toggleFilter('has_site')" style="display:none;border-color:#333;color:var(--muted);background:var(--card)">🟠 Sayt bor</button>
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <span class="filter-label">Telefon</span>
+    <div class="toggle-group">
+      <button class="toggle-btn" id="btnVerified" onclick="toggleFilter('verified')">✅ Tasdiqlangan</button>
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <span class="filter-label">Dizayn</span>
+    <select id="filterDesign">
+      <option value="">Barcha dizaynlar</option>
+      <option value="restaurant_bold_vibrant">🍽 Bold Vibrant (Restoran)</option>
+      <option value="fitness_dark_neon">💪 Dark Neon (Fitnes)</option>
+      <option value="beauty_soft_ui">💅 Soft UI (Go'zallik)</option>
+      <option value="auto_industrial_minimal">🚗 Industrial (Avto)</option>
+      <option value="hotel_liquid_glass_luxury">🏨 Liquid Glass (Hotel)</option>
+      <option value="construction_bold_minimal">🏗 Bold Minimal (Qurilish)</option>
+    </select>
+  </div>
+
+  <input type="text" id="filterSearch" placeholder="🔍  Nomi yoki manzil bo'yicha qidirish..." oninput="renderLeads()">
+
+  <button class="btn-reset" onclick="resetFilters()">✕ Filtrni tozalash</button>
+</div>
+
+<div class="results-bar">
+  <div class="results-count">
+    <strong id="shownCount">0</strong> ta lead topildi
+  </div>
+  <div class="view-toggle">
+    <button class="view-btn active" id="gridViewBtn" onclick="setView('grid')">▦ Grid</button>
+    <button class="view-btn" id="listViewBtn" onclick="setView('list')">☰ List</button>
+  </div>
+</div>
+
+<div class="leads-wrap">
+  <div class="leads-grid" id="leadsGrid">
+    <div style="grid-column:1/-1;padding:40px;text-align:center;color:#555">Yuklanmoqda...</div>
+  </div>
+</div>
+
+<div class="pagination" id="pagination"></div>
+
+<script>
+let allLeads = [];
+let filteredLeads = [];
+let currentPage = 1;
+const PER_PAGE = 24;
+let viewMode = 'grid';
+let activeFilters = { no_site: false, has_site: false, verified: false };
+
+const NICHE_EMOJI = {
+  Restaurant: '🍽', Fitness: '💪', Beauty: '💅',
+  Auto: '🚗', Hotel: '🏨', Construction: '🏗',
+  Dentistry: '🦷', Clinic: '🏥'
+};
+const NICHE_CLASS = {
+  Restaurant: 'niche-restaurant', Fitness: 'niche-fitness',
+  Beauty: 'niche-beauty', Auto: 'niche-auto',
+  Hotel: 'niche-hotel', Construction: 'niche-construction',
+  Dentistry: 'niche-dentistry', Clinic: 'niche-clinic'
+};
+
+async function loadData() {
+  const [r1, r2] = await Promise.allSettled([
+    fetch('/pipeline/dental_clinic_leads.json').then(r => r.json()),
+    fetch('/pipeline/new_leads_100.json').then(r => r.json())
+  ]);
+  const set1 = r1.status === 'fulfilled' ? r1.value : [];
+  const set2 = r2.status === 'fulfilled' ? r2.value : [];
+  allLeads = [...set1, ...set2];
+  updateStats(allLeads);
+  filterAndRender();
+}
+
+function updateStats(leads) {
+  document.getElementById('statTotal').textContent = leads.length;
+  document.getElementById('statNoSite').textContent = leads.filter(l => !l.has_website).length;
+  document.getElementById('statHasSite').textContent = leads.filter(l => l.has_website).length;
+  document.getElementById('statVerified').textContent = leads.filter(l => l.phone_verified).length;
+  const niches = new Set(leads.map(l => l.niche));
+  document.getElementById('statNiches').textContent = niches.size;
+}
+
+function filterAndRender() {
+  const niche = document.getElementById('filterNiche').value;
+  const district = document.getElementById('filterDistrict').value;
+  const design = document.getElementById('filterDesign').value;
+  const search = document.getElementById('filterSearch').value.toLowerCase();
+
+  filteredLeads = allLeads.filter(l => {
+    if (niche && l.niche !== niche) return false;
+    if (district && l.district !== district) return false;
+    if (design && l.design_style !== design) return false;
+    if (activeFilters.no_site && l.has_website) return false;
+    if (activeFilters.has_site && !l.has_website) return false;
+    if (activeFilters.verified && !l.phone_verified) return false;
+    if (search) {
+      const haystack = `${l.name} ${l.address} ${l.phone} ${l.niche}`.toLowerCase();
+      if (!haystack.includes(search)) return false;
+    }
+    return true;
+  });
+
+  currentPage = 1;
+  document.getElementById('shownCount').textContent = filteredLeads.length;
+  document.getElementById('statShown').textContent = filteredLeads.length;
+  renderLeads();
+  renderPagination();
+}
+
+function renderLeads() {
+  const grid = document.getElementById('leadsGrid');
+  grid.className = 'leads-grid' + (viewMode === 'list' ? ' list-view' : '');
+
+  const start = (currentPage - 1) * PER_PAGE;
+  const page = filteredLeads.slice(start, start + PER_PAGE);
+
+  if (page.length === 0) {
+    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
+      <div class="icon">🔍</div>
+      <p>Filtr natijasi bo'yicha lead topilmadi</p>
+    </div>`;
+    return;
+  }
+
+  grid.innerHTML = page.map(l => buildCard(l)).join('');
+}
+
+function buildCard(l) {
+  const nicheClass = NICHE_CLASS[l.niche] || '';
+  const emoji = NICHE_EMOJI[l.niche] || '🏢';
+  const services = (l.services || []).slice(0, 3);
+  const waLink = `https://wa.me/${l.wa_number}?text=Assalomu%20alaykum!%20${encodeURIComponent(l.name)}%20uchun%20sayt%20yaratib%20bermoqchimiz`;
+  const pitchType = l.has_website
+    ? 'Boshqa xizmatlar taklif qilish'
+    : 'Yangi sayt yaratish taklifi';
+  const phoneStatus = l.phone_verified
+    ? '<span class="badge badge-phone-ok">✓ Tasdiqlangan</span>'
+    : '<span class="badge badge-phone-est">~ Taxminiy</span>';
+  const siteStatus = l.has_website
+    ? '<span class="badge badge-has-website">🌐 Sayt bor</span>'
+    : '<span class="badge badge-no-website">🆕 Sayt yo\'q</span>';
+  const designBadge = l.design_style
+    ? `<span class="badge badge-design">${l.design_style.replace(/_/g,' ')}</span>`
+    : '';
+
+  return `
+  <div class="lead-card ${nicheClass}">
+    <div class="card-head">
+      <div>
+        <div class="card-name">${emoji} ${l.name}</div>
+        <div class="card-id">#${l.id} · ${l.source || 'manual'}</div>
+      </div>
+    </div>
+    <div class="card-badges">
+      <span class="badge badge-niche">${l.niche}</span>
+      ${l.district ? `<span class="badge badge-district">${l.district}</span>` : ''}
+      ${siteStatus}
+      ${phoneStatus}
+    </div>
+    <div class="card-contact">
+      <div class="card-contact-row">
+        <span class="icon">📞</span>
+        <a href="tel:${l.phone}">${l.phone}</a>
+      </div>
+      ${l.address ? `<div class="card-contact-row"><span class="icon">📍</span><span>${l.address.substring(0, 55)}${l.address.length > 55 ? '…' : ''}</span></div>` : ''}
+      ${l.instagram ? `<div class="card-contact-row"><span class="icon">📸</span><a href="https://instagram.com/${l.instagram.replace('@','')}" target="_blank">${l.instagram}</a></div>` : ''}
+    </div>
+    ${services.length ? `<div class="card-services">${services.map(s => `<span class="svc-tag">${s}</span>`).join('')}${l.services.length > 3 ? `<span class="svc-tag">+${l.services.length-3}</span>` : ''}</div>` : ''}
+    ${designBadge ? `<div>${designBadge}</div>` : ''}
+    <div class="card-actions">
+      <a class="btn-action wa" href="${waLink}" target="_blank">💬 WhatsApp</a>
+      <button class="btn-action primary" onclick="copyPitch(${l.id})">📋 Matn nusxa</button>
+      <button class="btn-action" onclick="markContacted(${l.id}, this)">✓ Bog'lanildi</button>
+    </div>
+  </div>`;
+}
+
+function copyPitch(id) {
+  const lead = allLeads.find(l => l.id === id);
+  if (!lead) return;
+  const hasWebsite = lead.has_website;
+  const pitch = hasWebsite
+    ? `Assalomu alaykum! ${lead.name} kompaniyasi uchun murojaat qilyapmiz.\n\nSizda sayt bor, ammo biz quyidagi xizmatlarni taklif qilamiz:\n✅ AI chatbot integratsiyasi\n✅ CRM tizimi\n✅ Targeting reklama\n✅ Saytni yangilash\n\nBepul konsultatsiya uchun bog'laning!`
+    : `Assalomu alaykum! ${lead.name} kompaniyasi uchun professional sayt yaratib bermoqchimiz!\n\n✅ Mobile-first dizayn\n✅ WhatsApp integratsiyasi\n✅ 3 kun ichida tayyor\n✅ Arzon narx\n\nBepul namuna ko'rish uchun bog'laning!`;
+  navigator.clipboard.writeText(pitch);
+  showToast('Matn nusxalandi! 📋');
+}
+
+function markContacted(id, btn) {
+  btn.textContent = '✅ Bog\'lanildi';
+  btn.style.background = 'rgba(0,200,83,.08)';
+  btn.style.borderColor = 'rgba(0,200,83,.3)';
+  btn.style.color = 'var(--green)';
+  btn.disabled = true;
+}
+
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.style.cssText = 'position:fixed;bottom:24px;right:24px;background:#1a1a1a;border:1px solid #333;color:#fff;padding:12px 20px;border-radius:10px;font-size:13px;z-index:9999;animation:fadeIn .2s';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 2500);
+}
+
+function toggleFilter(key) {
+  if (key === 'no_site') {
+    activeFilters.no_site = !activeFilters.no_site;
+    activeFilters.has_site = false;
+    document.getElementById('btnNoSite').classList.toggle('active', activeFilters.no_site);
+    document.getElementById('btnHasSite').style.display = activeFilters.no_site ? 'none' : 'inline-flex';
+  } else if (key === 'has_site') {
+    activeFilters.has_site = !activeFilters.has_site;
+    activeFilters.no_site = false;
+    const btn = document.getElementById('btnHasSite');
+    if (activeFilters.has_site) {
+      btn.classList.add('active');
+      btn.style.cssText = 'background:rgba(124,58,237,.1);border-color:#7c3aed;color:#a78bfa';
+    } else {
+      btn.style.cssText = 'background:var(--card);border-color:#333;color:var(--muted)';
+    }
+    document.getElementById('btnNoSite').classList.toggle('active', false);
+  } else if (key === 'verified') {
+    activeFilters.verified = !activeFilters.verified;
+    document.getElementById('btnVerified').classList.toggle('active', activeFilters.verified);
+  }
+
+  // Show has_site button always when no_site is off
+  if (!activeFilters.no_site) {
+    document.getElementById('btnHasSite').style.display = '';
+  }
+
+  filterAndRender();
+}
+
+function resetFilters() {
+  document.getElementById('filterNiche').value = '';
+  document.getElementById('filterDistrict').value = '';
+  document.getElementById('filterDesign').value = '';
+  document.getElementById('filterSearch').value = '';
+  activeFilters = { no_site: false, has_site: false, verified: false };
+  document.getElementById('btnNoSite').classList.remove('active');
+  document.getElementById('btnVerified').classList.remove('active');
+  document.getElementById('btnHasSite').style.cssText = '';
+  filterAndRender();
+}
+
+function renderPagination() {
+  const total = Math.ceil(filteredLeads.length / PER_PAGE);
+  const wrap = document.getElementById('pagination');
+  if (total <= 1) { wrap.innerHTML = ''; return; }
+
+  let html = `<button class="page-btn" onclick="goPage(${currentPage-1})" ${currentPage===1?'disabled':''}>← Oldingi</button>`;
+  for (let i = 1; i <= total; i++) {
+    if (i === 1 || i === total || Math.abs(i - currentPage) <= 2) {
+      html += `<button class="page-btn ${i===currentPage?'active':''}" onclick="goPage(${i})">${i}</button>`;
+    } else if (Math.abs(i - currentPage) === 3) {
+      html += `<span style="color:#444;padding:0 4px">…</span>`;
+    }
+  }
+  html += `<button class="page-btn" onclick="goPage(${currentPage+1})" ${currentPage===total?'disabled':''}>Keyingi →</button>`;
+  wrap.innerHTML = html;
+}
+
+function goPage(n) {
+  const total = Math.ceil(filteredLeads.length / PER_PAGE);
+  if (n < 1 || n > total) return;
+  currentPage = n;
+  renderLeads();
+  renderPagination();
+  window.scrollTo({top: 200, behavior: 'smooth'});
+}
+
+function setView(v) {
+  viewMode = v;
+  document.getElementById('gridViewBtn').classList.toggle('active', v === 'grid');
+  document.getElementById('listViewBtn').classList.toggle('active', v === 'list');
+  renderLeads();
+}
+
+// Filter listeners
+['filterNiche','filterDistrict','filterDesign'].forEach(id => {
+  document.getElementById(id).addEventListener('change', filterAndRender);
+});
+
+loadData();
+</script>
+</body>
+</html>

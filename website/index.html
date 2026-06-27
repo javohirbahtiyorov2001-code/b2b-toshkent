@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXTSITE — Сайт за 3 дня. Клиенты — навсегда.</title>
+<meta name="description" content="Профессиональные сайты для бизнеса Ташкента. Запуск за 3 дня. Цена: 5 000 000 сум. 50+ сайтов сделано.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --black:#000;--bg1:#070707;--bg2:#0d0d0d;--bg3:#141414;--bg4:#1a1a1a;
+  --border:#1e1e1e;--border2:#2a2a2a;
+  --white:#fff;--white70:rgba(255,255,255,.7);--white40:rgba(255,255,255,.4);--white15:rgba(255,255,255,.08);
+  --cyan:#00e5ff;--cyan-dim:rgba(0,229,255,.12);--cyan-glow:rgba(0,229,255,.3);
+  --violet:#7c3aed;--violet-dim:rgba(124,58,237,.15);
+  --green:#00e676;--red:#ff1744;--gold:#f59e0b;
+  --r:16px;--r-sm:8px;--r-lg:24px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ─── UTILITIES ─── */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.tag{display:inline-flex;align-items:center;gap:6px;background:var(--cyan-dim);border:1px solid rgba(0,229,255,.25);color:var(--cyan);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:20px}
+.tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 6px var(--cyan);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;font-family:'Syne',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:.2s;text-decoration:none;border:none}
+.btn-cyan{background:var(--cyan);color:#000}
+.btn-cyan:hover{background:#33eeff;transform:translateY(-1px);box-shadow:0 8px 32px var(--cyan-glow)}
+.btn-ghost{background:transparent;color:var(--white);border:1px solid var(--border2)}
+.btn-ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+.section{padding:100px 0}
+.section-tag{text-align:center;margin-bottom:16px}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(32px,4vw,52px);font-weight:900;text-align:center;line-height:1.1;margin-bottom:16px}
+.section-sub{font-size:17px;color:var(--white70);text-align:center;max-width:560px;margin:0 auto 56px;line-height:1.6}
+strong.c{color:var(--cyan)}
+
+/* ─── NAV ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 0;transition:.3s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(0,0,0,.92);backdrop-filter:blur(20px);border-color:var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:36px;height:36px;border-radius:8px;background:var(--cyan);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:14px;font-weight:900;color:#000}
+.logo-text{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;color:var(--white)}
+.logo-text span{color:var(--cyan)}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{color:var(--white70);font-size:14px;font-weight:500;text-decoration:none;transition:.2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{display:flex;align-items:center;gap:12px}
+.nav-phone{color:var(--white70);font-size:13px;font-family:'Syne',sans-serif;font-weight:600;text-decoration:none;transition:.2s}
+.nav-phone:hover{color:var(--cyan)}
+
+/* ─── HERO ─── */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:120px 0 80px}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.35}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom, transparent 40%, var(--black) 100%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,229,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,.03) 1px,transparent 1px);background-size:60px 60px;z-index:1}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero-tag{margin-bottom:24px}
+.hero-title{font-family:'Syne',sans-serif;font-size:clamp(42px,6vw,84px);font-weight:900;line-height:1.0;letter-spacing:-.02em;margin-bottom:24px}
+.hero-title .line2{color:var(--cyan);display:block}
+.hero-title .line3{color:var(--white70);font-size:.75em;display:block}
+.hero-sub{font-size:18px;color:var(--white70);line-height:1.7;max-width:540px;margin-bottom:40px}
+.hero-actions{display:flex;align-items:center;gap:16px;margin-bottom:64px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:40px;flex-wrap:wrap}
+.hero-stat{}
+.hero-stat-num{font-family:'Syne',sans-serif;font-size:32px;font-weight:900;color:var(--white);line-height:1}
+.hero-stat-num span{color:var(--cyan)}
+.hero-stat-label{font-size:12px;color:var(--white40);margin-top:4px;font-weight:500;text-transform:uppercase;letter-spacing:.06em}
+
+/* ─── MARQUEE ─── */
+.marquee-section{padding:24px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;position:relative}
+.marquee-track{display:flex;gap:0;width:max-content;animation:marquee 28s linear infinite}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.marquee-item{display:inline-flex;align-items:center;gap:12px;padding:0 28px;font-size:13px;font-weight:600;color:var(--white40);white-space:nowrap;font-family:'Syne',sans-serif;letter-spacing:.04em;text-transform:uppercase}
+.marquee-dot{width:4px;height:4px;border-radius:50%;background:var(--cyan);flex-shrink:0}
+
+/* ─── SERVICES ─── */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.svc-card{background:var(--bg1);border:1px solid var(--border);border-radius:var(--r-lg);padding:32px;transition:.3s;cursor:default;position:relative;overflow:hidden}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:0;transition:.3s}
+.svc-card:hover{border-color:rgba(0,229,255,.3);transform:translateY(-4px)}
+.svc-card:hover::before{opacity:1}
+.svc-icon{width:52px;height:52px;border-radius:12px;background:var(--cyan-dim);border:1px solid rgba(0,229,255,.2);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:20px}
+.svc-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;margin-bottom:10px}
+.svc-body{font-size:14px;color:var(--white70);line-height:1.65}
+.svc-features{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:6px}
+.svc-features li{font-size:12px;color:var(--white70);display:flex;align-items:center;gap:8px}
+.svc-features li::before{content:'→';color:var(--cyan);font-size:10px;font-weight:700}
+
+/* ─── PORTFOLIO ─── */
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.port-card{border-radius:var(--r-lg);overflow:hidden;position:relative;aspect-ratio:16/10;cursor:pointer;border:1px solid var(--border)}
+.port-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.9) 0%,transparent 60%);transition:.3s}
+.port-card:hover::after{background:linear-gradient(to top,rgba(0,0,0,.95) 0%,rgba(0,0,0,.3) 60%)}
+.port-bg{width:100%;height:100%;object-fit:cover;transition:.4s}
+.port-card:hover .port-bg{transform:scale(1.06)}
+.port-info{position:absolute;bottom:0;left:0;right:0;padding:20px;z-index:2}
+.port-niche{font-size:10px;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;font-family:'Syne',sans-serif}
+.port-name{font-size:15px;font-weight:700;font-family:'Syne',sans-serif}
+.port-link{position:absolute;top:16px;right:16px;z-index:2;width:36px;height:36px;border-radius:50%;background:rgba(0,229,255,.15);border:1px solid rgba(0,229,255,.3);display:flex;align-items:center;justify-content:center;color:var(--cyan);opacity:0;transition:.3s;text-decoration:none;font-size:14px}
+.port-card:hover .port-link{opacity:1}
+
+/* ─── PROCESS ─── */
+.process-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.process-steps{display:flex;flex-direction:column;gap:0}
+.step{display:flex;gap:24px;padding:28px 0;position:relative}
+.step:not(:last-child)::before{content:'';position:absolute;left:19px;top:64px;bottom:-28px;width:1px;background:linear-gradient(to bottom,var(--cyan-glow),transparent)}
+.step-num{width:40px;height:40px;border-radius:50%;background:var(--cyan-dim);border:2px solid rgba(0,229,255,.3);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:14px;font-weight:800;color:var(--cyan);flex-shrink:0}
+.step-body{}
+.step-title{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;margin-bottom:6px}
+.step-text{font-size:14px;color:var(--white70);line-height:1.6}
+.step-time{display:inline-flex;margin-top:8px;font-size:10px;font-weight:700;color:var(--cyan);background:var(--cyan-dim);padding:3px 10px;border-radius:4px;font-family:'Syne',sans-serif;letter-spacing:.06em}
+.process-visual{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);background:var(--bg1);position:relative}
+.process-visual img{width:100%;display:block}
+.process-visual-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,229,255,.05),rgba(124,58,237,.05))}
+
+/* ─── PRICING ─── */
+.price-card{max-width:560px;margin:0 auto;background:var(--bg1);border:1px solid rgba(0,229,255,.25);border-radius:var(--r-lg);padding:48px;position:relative;overflow:hidden}
+.price-card::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,255,.12),transparent 70%)}
+.price-card::after{content:'';position:absolute;bottom:-60px;left:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.12),transparent 70%)}
+.price-label{font-size:12px;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;font-family:'Syne',sans-serif}
+.price-amount{font-family:'Syne',sans-serif;font-size:clamp(42px,6vw,72px);font-weight:900;line-height:1;margin-bottom:6px}
+.price-amount span{color:var(--cyan)}
+.price-period{font-size:14px;color:var(--white40);margin-bottom:32px}
+.price-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:36px}
+.price-list li{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--white70)}
+.price-list li::before{content:'✓';width:20px;height:20px;border-radius:50%;background:rgba(0,230,118,.12);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+.price-note{font-size:12px;color:var(--white40);text-align:center;margin-top:16px}
+.price-urgency{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:8px;padding:10px 16px;margin-bottom:24px;font-size:12px;color:var(--gold);text-align:center;font-weight:600}
+
+/* ─── STATS ─── */
+.stats-section{padding:80px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat-item{text-align:center;padding:32px;position:relative}
+.stat-item:not(:last-child)::after{content:'';position:absolute;right:0;top:25%;height:50%;width:1px;background:var(--border)}
+.stat-num{font-family:'Syne',sans-serif;font-size:clamp(36px,5vw,64px);font-weight:900;line-height:1;color:var(--cyan);margin-bottom:8px}
+.stat-label{font-size:13px;color:var(--white40);font-weight:500;text-transform:uppercase;letter-spacing:.06em}
+
+/* ─── TESTIMONIALS ─── */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.testi-card{background:var(--bg1);border:1px solid var(--border);border-radius:var(--r-lg);padding:28px;transition:.2s}
+.testi-card:hover{border-color:var(--border2)}
+.testi-stars{color:var(--gold);font-size:14px;margin-bottom:14px;letter-spacing:2px}
+.testi-text{font-size:14px;color:var(--white70);line-height:1.7;margin-bottom:20px}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:var(--cyan-dim);border:2px solid rgba(0,229,255,.2);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:14px;font-weight:800;color:var(--cyan)}
+.testi-name{font-size:13px;font-weight:700;font-family:'Syne',sans-serif}
+.testi-biz{font-size:11px;color:var(--white40);margin-top:2px}
+
+/* ─── FAQ ─── */
+.faq-wrap{max-width:720px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--border);overflow:hidden}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:22px 0;cursor:pointer;font-family:'Syne',sans-serif;font-size:15px;font-weight:700;transition:.2s}
+.faq-q:hover{color:var(--cyan)}
+.faq-icon{width:28px;height:28px;border-radius:50%;background:var(--bg3);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;transition:.3s;color:var(--cyan)}
+.faq-a{max-height:0;overflow:hidden;transition:.4s ease;font-size:14px;color:var(--white70);line-height:1.7}
+.faq-item.open .faq-a{max-height:200px;padding-bottom:20px}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--cyan-dim)}
+
+/* ─── CTA SECTION ─── */
+.cta-section{padding:100px 0;position:relative;overflow:hidden}
+.cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,229,255,.06) 0%,transparent 70%)}
+.cta-inner{text-align:center;position:relative;z-index:1}
+.cta-title{font-family:'Syne',sans-serif;font-size:clamp(36px,5vw,64px);font-weight:900;line-height:1.1;margin-bottom:20px}
+.cta-sub{font-size:17px;color:var(--white70);margin-bottom:40px;line-height:1.6}
+.cta-actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.cta-contact{display:flex;justify-content:center;gap:32px;margin-top:40px;flex-wrap:wrap}
+.contact-item{display:flex;align-items:center;gap:10px;color:var(--white70);text-decoration:none;font-size:14px;transition:.2s}
+.contact-item:hover{color:var(--cyan)}
+.contact-icon{width:36px;height:36px;border-radius:8px;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:16px}
+
+/* ─── FOOTER ─── */
+footer{background:var(--bg1);border-top:1px solid var(--border);padding:48px 0 32px}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.footer-brand p{font-size:13px;color:var(--white40);line-height:1.7;margin-top:12px;max-width:280px}
+.footer-col h4{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--white40);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
+.footer-col a{display:block;font-size:13px;color:var(--white70);text-decoration:none;margin-bottom:10px;transition:.2s}
+.footer-col a:hover{color:var(--cyan)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:28px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--white40)}
+.footer-bottom a{color:var(--white40);text-decoration:none}
+.footer-bottom a:hover{color:var(--cyan)}
+
+/* ─── FLOATING WA BUTTON ─── */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:999;width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,211,102,.4);transition:.3s;text-decoration:none;animation:wapop .6s .5s both}
+@keyframes wapop{from{transform:scale(0)}to{transform:scale(1)}}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 8px 32px rgba(37,211,102,.5)}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+
+/* ─── GLOWING LINE ─── */
+.glow-line{height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);margin:0}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  .services-grid,.portfolio-grid,.testi-grid{grid-template-columns:1fr 1fr}
+  .process-wrap{grid-template-columns:1fr}
+  .process-visual{display:none}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+@media(max-width:600px){
+  .services-grid,.portfolio-grid,.testi-grid,.stats-grid{grid-template-columns:1fr}
+  .hero-stats{gap:24px}
+  .price-card{padding:28px}
+  .footer-inner{grid-template-columns:1fr}
+}
+
+/* ─── SCROLL ANIMATIONS ─── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <div class="logo-mark">NS</div>
+        <span class="logo-text">NEXT<span>SITE</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Услуги</a></li>
+        <li><a href="#portfolio">Работы</a></li>
+        <li><a href="#process">Процесс</a></li>
+        <li><a href="#pricing">Цены</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="tel:+998901234567" class="nav-phone">+998 90 123 45 67</a>
+        <a href="#contact" class="btn btn-cyan" style="padding:10px 20px;font-size:13px">Заказать сайт →</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_37fWuWE8Y80V9jcpZM0iw0pzTmC/hf_20260626_225430_dd668bbf-8ddf-483d-9455-43f8dba1a17e_min.webp" alt="NEXTSITE hero" loading="eager">
+  </div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-tag reveal">
+        <span class="tag">Ташкент • Запускаем сайты</span>
+      </div>
+      <h1 class="hero-title reveal reveal-delay-1">
+        Сайт за 3 дня.
+        <span class="line2">Клиенты —</span>
+        <span class="line3">навсегда.</span>
+      </h1>
+      <p class="hero-sub reveal reveal-delay-2">
+        Делаем профессиональные сайты для бизнеса Ташкента. Ресторан, клиника, автосервис, магазин — любая ниша. Без лишнего: красиво, быстро, работает.
+      </p>
+      <div class="hero-actions reveal reveal-delay-3">
+        <a href="https://wa.me/998901234567?text=Xayr!%20Sayt%20buyurtma%20qilmoqchiman" target="_blank" class="btn btn-cyan" style="font-size:15px;padding:16px 32px">
+          💬 Написать в WhatsApp
+        </a>
+        <a href="#portfolio" class="btn btn-ghost">Смотреть работы →</a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="hero-stat"><div class="hero-stat-num">50<span>+</span></div><div class="hero-stat-label">Сайтов сдано</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">40<span>+</span></div><div class="hero-stat-label">Ниш бизнеса</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">3<span>дн</span></div><div class="hero-stat-label">Срок запуска</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">5<span>★</span></div><div class="hero-stat-label">Оценка клиентов</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MARQUEE ─── -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <!-- First copy -->
+    <span class="marquee-item"><span class="marquee-dot"></span>Рестораны</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Клиники</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Автосервисы</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Стоматологии</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Гостиницы</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Фитнес-клубы</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Салоны красоты</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Турагентства</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Детские сады</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Магазины</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Банкетные залы</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>IT-компании</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Логистика</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Аптеки</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Строительство</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Мебельные салоны</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Кондитерские</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Курьерские службы</span>
+    <!-- Duplicate for seamless loop -->
+    <span class="marquee-item"><span class="marquee-dot"></span>Рестораны</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Клиники</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Автосервисы</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Стоматологии</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Гостиницы</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Фитнес-клубы</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Салоны красоты</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Турагентства</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Детские сады</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Магазины</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Банкетные залы</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>IT-компании</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Логистика</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Аптеки</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Строительство</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Мебельные салоны</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Кондитерские</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Курьерские службы</span>
+  </div>
+</div>
+
+<!-- ─── SERVICES ─── -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-tag reveal"><span class="tag">Что мы делаем</span></div>
+    <h2 class="section-title reveal reveal-delay-1">Полный цикл — <strong class="c">от идеи до клиентов</strong></h2>
+    <p class="section-sub reveal reveal-delay-2">Не просто сайт. Инструмент, который работает круглосуточно и приводит клиентов пока вы спите.</p>
+    <div class="services-grid">
+      <div class="svc-card reveal">
+        <div class="svc-icon">🌐</div>
+        <div class="svc-title">Сайт-визитка</div>
+        <div class="svc-body">Профессиональная страница вашего бизнеса. Клиенты находят вас в Google и сразу видят: услуги, цены, контакты, отзывы.</div>
+        <ul class="svc-features">
+          <li>Адаптивный дизайн (телефон + ПК)</li>
+          <li>Быстрая загрузка &lt;2 сек</li>
+          <li>WhatsApp кнопка</li>
+          <li>Google Maps интеграция</li>
+          <li>SEO оптимизация</li>
+        </ul>
+      </div>
+      <div class="svc-card reveal reveal-delay-1">
+        <div class="svc-icon">🏪</div>
+        <div class="svc-title">Лендинг под заказ</div>
+        <div class="svc-body">Продающая страница под конкретную акцию или услугу. Цель одна — превратить посетителя в покупателя.</div>
+        <ul class="svc-features">
+          <li>Уникальный дизайн под нишу</li>
+          <li>Форма заявки / онлайн-запись</li>
+          <li>Блок отзывов и кейсов</li>
+          <li>Блок цен и сравнений</li>
+          <li>A/B готовность</li>
+        </ul>
+      </div>
+      <div class="svc-card reveal reveal-delay-2">
+        <div class="svc-icon">📱</div>
+        <div class="svc-title">Мобильная оптимизация</div>
+        <div class="svc-body">87% клиентов в Ташкенте ищут с телефона. Ваш сайт должен выглядеть идеально на каждом экране.</div>
+        <ul class="svc-features">
+          <li>Mobile-first подход</li>
+          <li>Кнопка «Позвонить» в шапке</li>
+          <li>Telegram / WhatsApp виджет</li>
+          <li>Быстрые тапы без зума</li>
+          <li>PWA при необходимости</li>
+        </ul>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-icon">🔍</div>
+        <div class="svc-title">SEO + Google</div>
+        <div class="svc-body">Настройка чтобы ваш бизнес находили в Google по запросам типа «стоматология Ташкент» или «ресторан Юнусабад».</div>
+        <ul class="svc-features">
+          <li>Ключевые слова по нише</li>
+          <li>Google My Business</li>
+          <li>Мета-теги и структура</li>
+          <li>Скорость и Core Web Vitals</li>
+          <li>Sitemap и robots.txt</li>
+        </ul>
+      </div>
+      <div class="svc-card reveal reveal-delay-1">
+        <div class="svc-icon">🤖</div>
+        <div class="svc-title">WhatsApp интеграция</div>
+        <div class="svc-body">Автоответчик, кнопка заявки прямо на сайте, pre-filled сообщение — клиент пишет одним нажатием.</div>
+        <ul class="svc-features">
+          <li>Плавающая кнопка WA</li>
+          <li>Pre-filled шаблон текста</li>
+          <li>Кнопки в каждом блоке</li>
+          <li>QR-код для печати</li>
+          <li>Telegram-бот опционально</li>
+        </ul>
+      </div>
+      <div class="svc-card reveal reveal-delay-2">
+        <div class="svc-icon">⚡</div>
+        <div class="svc-title">Хостинг + домен</div>
+        <div class="svc-body">Берём на себя технические вопросы. Сайт работает 24/7, без перебоев, с SSL сертификатом.</div>
+        <ul class="svc-features">
+          <li>Бесплатный SSL (https)</li>
+          <li>Netlify CDN хостинг</li>
+          <li>Домен .uz / .com</li>
+          <li>99.9% uptime</li>
+          <li>Поддержка 1 месяц в подарок</li>
+        </ul>
+      </div>
+      <div class="svc-card reveal" style="border-color:rgba(124,58,237,.35);background:linear-gradient(135deg,rgba(124,58,237,.08),rgba(0,0,0,0))">
+        <div class="svc-icon">📲</div>
+        <div class="svc-title">Разработка приложений</div>
+        <div class="svc-body">Мобильные и веб-приложения для вашего бизнеса. Онлайн-запись, доставка, личный кабинет — под любую задачу.</div>
+        <ul class="svc-features">
+          <li>iOS + Android (React Native)</li>
+          <li>Веб-приложение (PWA)</li>
+          <li>Онлайн-запись / бронирование</li>
+          <li>Push-уведомления клиентам</li>
+          <li>Интеграция с оплатой</li>
+        </ul>
+      </div>
+      <div class="svc-card reveal reveal-delay-1" style="border-color:rgba(0,229,255,.35);background:linear-gradient(135deg,rgba(0,229,255,.06),rgba(0,0,0,0))">
+        <div class="svc-icon">🎯</div>
+        <div class="svc-title">Таргетированная реклама</div>
+        <div class="svc-body">Реклама в Instagram и Telegram, которая приводит реальных клиентов. Платите только за результат — заявки и звонки.</div>
+        <ul class="svc-features">
+          <li>Instagram / Facebook Ads</li>
+          <li>Telegram Ads</li>
+          <li>Настройка аудитории по Ташкенту</li>
+          <li>A/B тестирование креативов</li>
+          <li>Ежемесячный отчёт + ROI</li>
+        </ul>
+      </div>
+      <div class="svc-card reveal reveal-delay-2" style="border-color:rgba(124,58,237,.35);background:linear-gradient(135deg,rgba(124,58,237,.08),rgba(0,0,0,0))">
+        <div class="svc-icon">🧠</div>
+        <div class="svc-title">AI интеграция в бизнес</div>
+        <div class="svc-body">Внедряем искусственный интеллект в ваши процессы. Автоматизируем рутину, ускоряем продажи, снижаем затраты.</div>
+        <ul class="svc-features">
+          <li>AI-чат-бот для сайта / WA</li>
+          <li>Автоответы на заявки 24/7</li>
+          <li>Анализ отзывов и обратной связи</li>
+          <li>Генерация контента / прайс-листов</li>
+          <li>GPT-4 + Claude интеграция</li>
+        </ul>
+      </div>
+      <div class="svc-card reveal" style="border-color:rgba(0,229,255,.35);background:linear-gradient(135deg,rgba(0,229,255,.06),rgba(0,0,0,0))">
+        <div class="svc-icon">📊</div>
+        <div class="svc-title">CRM система</div>
+        <div class="svc-body">Разрабатываем и внедряем CRM под ваш бизнес. Все клиенты, сделки и задачи — в одном месте. Ничего не теряется.</div>
+        <ul class="svc-features">
+          <li>База клиентов и история сделок</li>
+          <li>Воронка продаж и статусы</li>
+          <li>Напоминания и задачи</li>
+          <li>Интеграция с WA / Telegram</li>
+          <li>Аналитика и дашборд</li>
+        </ul>
+      </div>
+      <div class="svc-card reveal reveal-delay-1" style="border-color:rgba(124,58,237,.5);background:linear-gradient(135deg,rgba(124,58,237,.12),rgba(0,229,255,.04))">
+        <div class="svc-icon">🚀</div>
+        <div class="svc-title">Стратегическое планирование</div>
+        <div class="svc-body">Разрабатываем стратегию роста для действующего бизнеса, стартапа или малого предприятия. Чёткий план — понятный результат.</div>
+        <ul class="svc-features">
+          <li>Анализ рынка и конкурентов</li>
+          <li>Финансовая модель и точка безубыточности</li>
+          <li>Дорожная карта на 6–12 месяцев</li>
+          <li>Упаковка для инвесторов / партнёров</li>
+          <li>Поддержка при запуске стартапа</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="glow-line"></div>
+
+<!-- ─── PORTFOLIO ─── -->
+<section class="section" id="portfolio">
+  <div class="container">
+    <div class="section-tag reveal"><span class="tag">Наши работы</span></div>
+    <h2 class="section-title reveal reveal-delay-1">50+ сайтов для <strong class="c">бизнеса Ташкента</strong></h2>
+    <p class="section-sub reveal reveal-delay-2">Каждый сайт — под нишу клиента. Ресторан выглядит как ресторан, клиника — как клиника.</p>
+    <div class="portfolio-grid">
+      <div class="port-card reveal" onclick="window.open('../generated_sites/baraka-restoran.html','_blank')">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0a00,#3d1500);display:flex;align-items:center;justify-content:center;font-size:64px">🍽</div>
+        <div class="port-info"><div class="port-niche">Ресторан</div><div class="port-name">Baraka Restoran</div></div>
+        <a class="port-link" href="../generated_sites/baraka-restoran.html" target="_blank">↗</a>
+      </div>
+      <div class="port-card reveal reveal-delay-1" onclick="window.open('../generated_sites/shifo-tibbiyot.html','_blank')">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a2342,#001d3d);display:flex;align-items:center;justify-content:center;font-size:64px">🏥</div>
+        <div class="port-info"><div class="port-niche">Медицина</div><div class="port-name">Shifo Tibbiyot</div></div>
+        <a class="port-link" href="../generated_sites/shifo-tibbiyot.html" target="_blank">↗</a>
+      </div>
+      <div class="port-card reveal reveal-delay-2" onclick="window.open('../generated_sites/zafar-dental.html','_blank')">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#003049,#001a28);display:flex;align-items:center;justify-content:center;font-size:64px">🦷</div>
+        <div class="port-info"><div class="port-niche">Стоматология</div><div class="port-name">Zafar Dental</div></div>
+        <a class="port-link" href="../generated_sites/zafar-dental.html" target="_blank">↗</a>
+      </div>
+      <div class="port-card reveal" onclick="window.open('../generated_sites/autoservis-premium.html','_blank')">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#0d1b2a,#1a2a3a);display:flex;align-items:center;justify-content:center;font-size:64px">🔧</div>
+        <div class="port-info"><div class="port-niche">Автосервис</div><div class="port-name">AutoServis Premium</div></div>
+        <a class="port-link" href="../generated_sites/autoservis-premium.html" target="_blank">↗</a>
+      </div>
+      <div class="port-card reveal reveal-delay-1" onclick="window.open('../generated_sites/fitlife-sport.html','_blank')">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#0f0f0f,#1a1a1a);display:flex;align-items:center;justify-content:center;font-size:64px">💪</div>
+        <div class="port-info"><div class="port-niche">Фитнес</div><div class="port-name">FitLife Sport</div></div>
+        <a class="port-link" href="../generated_sites/fitlife-sport.html" target="_blank">↗</a>
+      </div>
+      <div class="port-card reveal reveal-delay-2" onclick="window.open('../generated_sites/jahon-turism.html','_blank')">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#003566,#001d3d);display:flex;align-items:center;justify-content:center;font-size:64px">✈️</div>
+        <div class="port-info"><div class="port-niche">Туризм</div><div class="port-name">Jahon Turism</div></div>
+        <a class="port-link" href="../generated_sites/jahon-turism.html" target="_blank">↗</a>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="../dashboard/index.html" class="btn btn-ghost">Смотреть все 50 работ →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROCESS ─── -->
+<section class="section" id="process" style="background:var(--bg1)">
+  <div class="container">
+    <div class="section-tag reveal"><span class="tag">Как работаем</span></div>
+    <h2 class="section-title reveal reveal-delay-1">От заявки до <strong class="c">готового сайта — 3 дня</strong></h2>
+    <p class="section-sub reveal reveal-delay-2">Без долгих согласований и бесконечных правок. Чётко, быстро, результат.</p>
+    <div class="process-wrap">
+      <div class="process-steps reveal">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-body">
+            <div class="step-title">Консультация в WhatsApp</div>
+            <div class="step-text">Пишете нам, рассказываете о бизнесе. За 15 минут определяем структуру, цвета и нужный функционал. Никаких встреч — всё онлайн.</div>
+            <span class="step-time">День 1 · 15 мин</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-body">
+            <div class="step-title">Разработка и дизайн</div>
+            <div class="step-text">Делаем сайт под цвета и стиль вашего бизнеса. Заполняем контентом: услуги, цены, фото, контакты. Показываем промежуточный результат.</div>
+            <span class="step-time">День 1–2 · 24–36 ч</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-body">
+            <div class="step-title">Правки и сдача</div>
+            <div class="step-text">Вносим ваши правки (до 3 раундов). Публикуем на хостинге с вашим доменом. Сайт готов. QR-код для печати в подарок.</div>
+            <span class="step-time">День 3 · Готово ✓</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div class="step-body">
+            <div class="step-title">Поддержка 30 дней</div>
+            <div class="step-text">Первый месяц — мы рядом. Обновим текст, добавим фото, исправим любую проблему. Бесплатно.</div>
+            <span class="step-time">+30 дней · Бесплатно</span>
+          </div>
+        </div>
+      </div>
+      <div class="process-visual reveal reveal-delay-2">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_37fWuWE8Y80V9jcpZM0iw0pzTmC/hf_20260626_225434_a9c420af-9dfd-44a5-8e70-cfd7094f2546_min.webp" alt="Process" style="width:100%;border-radius:var(--r-lg)">
+        <div class="process-visual-overlay"></div>
+        <!-- Terminal card overlay -->
+        <div style="position:absolute;bottom:20px;left:20px;right:20px;background:rgba(0,0,0,.85);backdrop-filter:blur(10px);border:1px solid rgba(0,229,255,.2);border-radius:10px;padding:14px 16px">
+          <div style="font-family:'Courier New',monospace;font-size:11px;color:var(--cyan)">
+            <span style="color:#666">$</span> deploying baraka-restoran.uz<br>
+            <span style="color:#666">▸</span> Build complete <span style="color:var(--green)">✓</span><br>
+            <span style="color:#666">▸</span> SSL enabled <span style="color:var(--green)">✓</span><br>
+            <span style="color:#666">▸</span> Live at <span style="color:var(--cyan)">baraka-restoran.uz</span> <span style="color:var(--green)">✓</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STATS ─── -->
+<div class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-num" id="cnt1">0</div>
+        <div class="stat-label">Сайтов сдано</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-num" id="cnt2">0</div>
+        <div class="stat-label">Ниш бизнеса</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-num" id="cnt3">0</div>
+        <div class="stat-label">Дней — средний срок</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <div class="stat-num" id="cnt4">0</div>
+        <div class="stat-label">UZS — потенциальная выручка</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── PRICING ─── -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-tag reveal"><span class="tag">Прозрачные цены</span></div>
+    <h2 class="section-title reveal reveal-delay-1">Один тариф — <strong class="c">всё включено</strong></h2>
+    <p class="section-sub reveal reveal-delay-2">Никаких скрытых платежей. Вы знаете цену до старта.</p>
+    <div class="price-card reveal">
+      <div class="price-urgency">🔥 Осталось 3 места на этой неделе</div>
+      <div class="price-label">Полный пакет</div>
+      <div class="price-amount"><span>5 000 000</span> сум</div>
+      <div class="price-period">разовый платёж · ≈ $390 USD</div>
+      <ul class="price-list">
+        <li>Профессиональный дизайн под вашу нишу</li>
+        <li>Мобильная версия (адаптив)</li>
+        <li>WhatsApp кнопка + pre-filled сообщение</li>
+        <li>QR-код для визитки / вывески</li>
+        <li>SSL сертификат (https)</li>
+        <li>Хостинг и публикация</li>
+        <li>SEO базовая настройка</li>
+        <li>Google Maps / 2GIS интеграция</li>
+        <li>3 раунда правок включены</li>
+        <li>Поддержка 30 дней бесплатно</li>
+      </ul>
+      <a href="https://wa.me/998901234567?text=Salom!%20Sayt%20buyurtma%20qilmoqchiman.%20Narx%205%20mln%20UZS." target="_blank" class="btn btn-cyan" style="width:100%;justify-content:center;font-size:15px;padding:16px">
+        💬 Заказать сейчас в WhatsApp
+      </a>
+      <div class="price-note">Оплата после просмотра готового сайта. 100% возврат если не понравится.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section class="section" style="background:var(--bg1)" id="testimonials">
+  <div class="container">
+    <div class="section-tag reveal"><span class="tag">Отзывы клиентов</span></div>
+    <h2 class="section-title reveal reveal-delay-1">Что говорят <strong class="c">наши клиенты</strong></h2>
+    <p class="section-sub reveal reveal-delay-2">Реальные результаты от владельцев бизнеса Ташкента</p>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">«За первую неделю после запуска сайта получил 12 заявок из Google. Раньше клиенты только через знакомых приходили. Теперь сайт работает сам — я просто отвечаю.»</div>
+        <div class="testi-author">
+          <div class="testi-avatar">АА</div>
+          <div><div class="testi-name">Азиз Алимов</div><div class="testi-biz">AutoServis Premium, Сергели</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">«Сайт сделали за 2 дня! Всё как я хотел: наши торты, цены, кнопка заказа. Теперь клиенты пишут сразу в WhatsApp через сайт. Довольна на 100%.»</div>
+        <div class="testi-author">
+          <div class="testi-avatar">НК</div>
+          <div><div class="testi-name">Нилуфар Каримова</div><div class="testi-biz">Xurmo Qandolat, Олмазор</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">«Думал сайт — это сложно и долго. Оказалось за 3 дня и под ключ. Пациенты теперь находят нас в Google по запросу "стоматология Шайхонтохур". Рекомендую!»</div>
+        <div class="testi-author">
+          <div class="testi-avatar">ЗА</div>
+          <div><div class="testi-name">Зафар Ахмедов</div><div class="testi-biz">Zafar Dental, Шайхонтохур</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">«Лучшие деньги вложил в бизнес. Сайт красивый, на телефоне отлично работает. Туристы из России и Казахстана теперь сами нас находят. Окупился за 2 бронирования.»</div>
+        <div class="testi-author">
+          <div class="testi-avatar">МА</div>
+          <div><div class="testi-name">Мухаммад Акрамов</div><div class="testi-biz">Mehribon Mehmonxona, Миробод</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">«Работаем в сфере логистики. Сайт помог выглядеть серьёзной компанией перед корпоративными клиентами. Уже 3 крупных контракта закрыли, показав сайт на переговорах.»</div>
+        <div class="testi-author">
+          <div class="testi-avatar">НМ</div>
+          <div><div class="testi-name">Нурлан Маматов</div><div class="testi-biz">Nur Logistika, Бектемир</div></div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">«Очень профессиональная команда. Учли все пожелания, сделали красиво и быстро. Особенно нравится что сайт легко находится в поиске по нашему району. Спасибо!»</div>
+        <div class="testi-author">
+          <div class="testi-avatar">ФИ</div>
+          <div><div class="testi-name">Феруза Исмоилова</div><div class="testi-biz">Yulduz Kosmetologiya, Юнусобод</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-tag reveal"><span class="tag">Вопросы и ответы</span></div>
+    <h2 class="section-title reveal reveal-delay-1">Часто спрашивают</h2>
+    <div class="faq-wrap reveal">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Действительно 3 дня?<div class="faq-icon">+</div></div>
+        <div class="faq-a">Да! За 3 рабочих дня вы получаете готовый, опубликованный сайт. День 1 — консультация и сбор материалов. День 2 — разработка. День 3 — правки и публикация. Сроки зафиксированы в договоре.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Что если мне не понравится результат?<div class="faq-icon">+</div></div>
+        <div class="faq-a">Вы платите только после просмотра готового сайта. Если не нравится — вносим правки (3 раунда включено). Если после всех правок всё равно не устраивает — полный возврат оплаты. Ноль риска для вас.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Нужно ли мне разбираться в технологиях?<div class="faq-icon">+</div></div>
+        <div class="faq-a">Абсолютно нет. Ваша задача — рассказать о бизнесе, прислать фото (если есть) и указать что хотите. Всё остальное делаем мы. Общение только через WhatsApp — никаких сложных инструментов.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Я могу потом сам редактировать сайт?<div class="faq-icon">+</div></div>
+        <div class="faq-a">Да, если хотите. Либо пишете нам в WhatsApp — изменим за вас. Первый месяц правки бесплатно. После — небольшая доплата за время (не за весь сайт).</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Что входит в поддержку 30 дней?<div class="faq-icon">+</div></div>
+        <div class="faq-a">Любые изменения текста, цен, контактов, добавление фото, исправление ошибок — всё бесплатно в течение первого месяца. Работаем быстро: обычно правка готова за несколько часов.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Какой нужен домен? (.uz или .com?)<div class="faq-icon">+</div></div>
+        <div class="faq-a">Для бизнеса в Ташкенте лучше .uz — вызывает доверие у местных клиентов и лучше ранжируется в Google.uz. .com подойдёт если работаете с иностранными клиентами. Оба варианта включены в стоимость.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Есть ли рассрочка оплаты?<div class="faq-icon">+</div></div>
+        <div class="faq-a">Да! 50% до старта, 50% после сдачи сайта. Принимаем Payme, Click, наличные и перевод на карту. Можем обсудить индивидуальные условия для крупных проектов.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="cta-section" id="contact">
+  <div class="cta-bg"></div>
+  <div class="container">
+    <div class="cta-inner reveal">
+      <span class="tag" style="margin-bottom:24px">Готовы начать?</span>
+      <h2 class="cta-title">Ваш сайт будет готов<br><strong class="c">через 3 дня</strong></h2>
+      <p class="cta-sub">Напишите нам прямо сейчас. Первая консультация бесплатна.<br>Разберёмся что нужно вашему бизнесу — без давления и лишних обязательств.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/998901234567?text=Salom!%20Sayt%20buyurtma%20qilmoqchiman.%20Biznesim%20haqida%20gaplashaylik." target="_blank" class="btn btn-cyan" style="font-size:16px;padding:18px 40px">
+          💬 Написать в WhatsApp
+        </a>
+        <a href="tel:+998901234567" class="btn btn-ghost" style="font-size:16px;padding:18px 40px">
+          📞 Позвонить
+        </a>
+      </div>
+      <div class="cta-contact">
+        <a href="https://t.me/nextsite_uz" target="_blank" class="contact-item">
+          <div class="contact-icon">✈</div>
+          <span>@nextsite_uz</span>
+        </a>
+        <a href="https://instagram.com/nextsite.uz" target="_blank" class="contact-item">
+          <div class="contact-icon">📸</div>
+          <span>@nextsite.uz</span>
+        </a>
+        <a href="mailto:hello@nextsite.uz" class="contact-item">
+          <div class="contact-icon">📧</div>
+          <span>hello@nextsite.uz</span>
+        </a>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <span>Ташкент, Узбекистан</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo"><div class="logo-mark">NS</div><span class="logo-text">NEXT<span>SITE</span></span></a>
+        <p>Делаем профессиональные сайты для бизнеса Ташкента. Быстро, красиво, с результатом. С 2024 года помогаем местному бизнесу расти онлайн.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Услуги</h4>
+        <a href="#services">Сайт-визитка</a>
+        <a href="#services">Лендинг</a>
+        <a href="#services">SEO настройка</a>
+        <a href="#services">WhatsApp интеграция</a>
+        <a href="#services">Разработка приложений</a>
+        <a href="#services">Таргетированная реклама</a>
+        <a href="#services">AI интеграция</a>
+        <a href="#services">CRM система</a>
+        <a href="#services">Стратегическое планирование</a>
+      </div>
+      <div class="footer-col">
+        <h4>Компания</h4>
+        <a href="#portfolio">Наши работы</a>
+        <a href="#testimonials">Отзывы</a>
+        <a href="#process">Как работаем</a>
+        <a href="#pricing">Цены</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Связь</h4>
+        <a href="https://wa.me/998901234567" target="_blank">WhatsApp</a>
+        <a href="https://t.me/nextsite_uz" target="_blank">Telegram</a>
+        <a href="https://instagram.com/nextsite.uz" target="_blank">Instagram</a>
+        <a href="tel:+998901234567">+998 90 123 45 67</a>
+        <a href="mailto:hello@nextsite.uz">hello@nextsite.uz</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024–2025 NEXTSITE. Все права защищены.</span>
+      <span>Сделано в <strong style="color:var(--cyan)">Ташкенте</strong> 🇺🇿</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Floating -->
+<a href="https://wa.me/998901234567?text=Salom!%20Sayt%20buyurtma%20qilmoqchiman." target="_blank" class="wa-float" title="Написать в WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// ─── NAV scroll ───
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ─── Reveal on scroll ───
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// ─── FAQ toggle ───
+function toggleFaq(el){
+  const item = el.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen) item.classList.add('open');
+}
+
+// ─── Counter animation ───
+function animateCounter(id, target, suffix='', duration=1800){
+  const el = document.getElementById(id);
+  if(!el) return;
+  const start = performance.now();
+  const update = (now) => {
+    const pct = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - pct, 3);
+    el.textContent = Math.round(ease * target) + suffix;
+    if(pct < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+const statsObserver = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      animateCounter('cnt1', 50, '+');
+      animateCounter('cnt2', 40, '+');
+      animateCounter('cnt3', 3, ' дн');
+      animateCounter('cnt4', 250, 'M+');
+      statsObserver.disconnect();
+    }
+  });
+},{threshold:.3});
+const statsEl = document.querySelector('.stats-section');
+if(statsEl) statsObserver.observe(statsEl);
+
+// ─── Smooth anchor scroll ───
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+</script>
+</body>
+</html>

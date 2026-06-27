@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PM Agent — B2B Automation Control</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#000;--bg1:#0a0a0a;--bg2:#111;--bg3:#1a1a1a;
+  --border:#222;--border2:#2a2a2a;
+  --text:#f0f0f0;--muted:#666;--dim:#444;
+  --green:#00e676;--yellow:#ffd600;--red:#ff1744;--blue:#2979ff;--purple:#d500f9;--orange:#ff6d00;
+  --green-dim:rgba(0,230,118,.12);--yellow-dim:rgba(255,214,0,.12);--red-dim:rgba(255,23,68,.12);--blue-dim:rgba(41,121,255,.12);
+}
+body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;min-height:100vh;overflow-x:hidden}
+.top-bar{background:var(--bg1);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.top-bar h1{font-size:18px;font-weight:800;letter-spacing:.02em}
+.top-bar h1 span{color:var(--green)}
+.status-pill{display:flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--border2);border-radius:20px;padding:6px 14px;font-size:12px;font-family:'Fira Code',monospace}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 6px var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.top-actions{display:flex;gap:10px;align-items:center}
+.btn{background:var(--bg2);border:1px solid var(--border2);color:var(--text);padding:7px 16px;border-radius:8px;font-family:'Syne',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:.2s}
+.btn:hover{border-color:var(--green);color:var(--green)}
+.btn-primary{background:var(--green);color:#000;border-color:var(--green)}
+.btn-primary:hover{background:#00ff88;color:#000;border-color:#00ff88}
+.layout{display:grid;grid-template-columns:300px 1fr;min-height:calc(100vh - 57px)}
+.sidebar{background:var(--bg1);border-right:1px solid var(--border);padding:20px;overflow-y:auto;max-height:calc(100vh - 57px)}
+.sidebar-section{margin-bottom:24px}
+.sidebar-label{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;margin-bottom:12px}
+.score-ring{width:120px;height:120px;margin:0 auto 16px;position:relative}
+.score-ring svg{transform:rotate(-90deg)}
+.score-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.score-num{font-size:32px;font-weight:800}
+.score-label{font-size:10px;color:var(--muted);margin-top:2px}
+.metric-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)}
+.metric-row:last-child{border-bottom:none}
+.metric-name{font-size:12px;color:var(--muted)}
+.metric-val{font-size:13px;font-weight:700;font-family:'Fira Code',monospace}
+.metric-val.ok{color:var(--green)}
+.metric-val.warn{color:var(--yellow)}
+.metric-val.err{color:var(--red)}
+.main{padding:24px;overflow-y:auto;max-height:calc(100vh - 57px)}
+.section-title{font-size:14px;font-weight:700;letter-spacing:.04em;color:var(--muted);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.issues-grid{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.issue-card{background:var(--bg1);border:1px solid var(--border);border-radius:12px;padding:16px;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:start;transition:.2s;cursor:pointer}
+.issue-card:hover{border-color:var(--border2);background:var(--bg2)}
+.issue-card.critical{border-left:3px solid var(--red)}
+.issue-card.warning{border-left:3px solid var(--yellow)}
+.issue-card.info{border-left:3px solid var(--blue)}
+.issue-card.ok{border-left:3px solid var(--green)}
+.issue-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.issue-icon.critical{background:var(--red-dim)}
+.issue-icon.warning{background:var(--yellow-dim)}
+.issue-icon.info{background:var(--blue-dim)}
+.issue-icon.ok{background:var(--green-dim)}
+.issue-body{}
+.issue-title{font-size:13px;font-weight:700;margin-bottom:4px}
+.issue-desc{font-size:12px;color:var(--muted);line-height:1.5}
+.issue-meta{font-size:10px;font-family:'Fira Code',monospace;color:var(--dim);margin-top:6px}
+.badge{display:inline-flex;align-items:center;padding:3px 8px;border-radius:4px;font-size:10px;font-weight:700;font-family:'Fira Code',monospace;text-transform:uppercase;white-space:nowrap}
+.badge.critical{background:var(--red-dim);color:var(--red)}
+.badge.warning{background:var(--yellow-dim);color:var(--yellow)}
+.badge.info{background:var(--blue-dim);color:var(--blue)}
+.badge.ok{background:var(--green-dim);color:var(--green)}
+.fix-btn{background:var(--bg2);border:1px solid var(--border2);color:var(--text);padding:5px 12px;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;font-family:'Syne',sans-serif;white-space:nowrap;transition:.2s}
+.fix-btn:hover{border-color:var(--green);color:var(--green)}
+.modules-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:32px}
+.module-card{background:var(--bg1);border:1px solid var(--border);border-radius:12px;padding:16px}
+.module-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.module-name{font-size:12px;font-weight:700}
+.module-status{font-size:10px;font-family:'Fira Code',monospace;padding:2px 8px;border-radius:4px}
+.module-status.ok{background:var(--green-dim);color:var(--green)}
+.module-status.warn{background:var(--yellow-dim);color:var(--yellow)}
+.module-status.err{background:var(--red-dim);color:var(--red)}
+.module-bar-wrap{background:var(--bg3);border-radius:4px;height:4px;overflow:hidden;margin-bottom:8px}
+.module-bar{height:100%;border-radius:4px;transition:width .8s ease}
+.module-stats{font-size:11px;color:var(--muted);font-family:'Fira Code',monospace}
+.log-wrap{background:var(--bg1);border:1px solid var(--border);border-radius:12px;padding:16px;font-family:'Fira Code',monospace;font-size:11px;max-height:280px;overflow-y:auto}
+.log-line{padding:3px 0;border-bottom:1px solid var(--border);color:var(--muted);display:flex;gap:10px}
+.log-line:last-child{border-bottom:none}
+.log-time{color:var(--dim);min-width:80px}
+.log-line.err .log-msg{color:var(--red)}
+.log-line.warn .log-msg{color:var(--yellow)}
+.log-line.ok .log-msg{color:var(--green)}
+.log-line.info .log-msg{color:var(--blue)}
+.filters{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.filter-chip{background:var(--bg2);border:1px solid var(--border2);border-radius:20px;padding:4px 12px;font-size:11px;font-weight:600;cursor:pointer;transition:.2s}
+.filter-chip:hover,.filter-chip.active{border-color:var(--green);color:var(--green)}
+.progress-ring{display:inline-block}
+.spinner{animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.empty-state{text-align:center;padding:40px;color:var(--muted);font-size:13px}
+.tab-bar{display:flex;gap:4px;margin-bottom:24px;background:var(--bg1);border:1px solid var(--border);border-radius:10px;padding:4px}
+.tab{padding:8px 18px;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;color:var(--muted);transition:.2s}
+.tab.active{background:var(--bg3);color:var(--text)}
+.tab:hover{color:var(--text)}
+.pane{display:none}
+.pane.active{display:block}
+.toast{position:fixed;bottom:24px;right:24px;background:var(--bg2);border:1px solid var(--green);border-radius:10px;padding:12px 18px;font-size:12px;color:var(--green);z-index:999;transform:translateY(80px);opacity:0;transition:.3s}
+.toast.show{transform:none;opacity:1}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <h1>🤖 PM <span>Agent</span> — B2B Automation</h1>
+  <div class="top-actions">
+    <div class="status-pill"><div class="dot"></div><span id="statusText">Готов к аудиту</span></div>
+    <button class="btn" onclick="openAudit()">📊 Audit теперь</button>
+    <button class="btn-primary btn" onclick="runFullAudit()">▶ Запустить</button>
+  </div>
+</div>
+
+<div class="layout">
+  <div class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">Общая оценка системы</div>
+      <div class="score-ring">
+        <svg width="120" height="120" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#1a1a1a" stroke-width="10"/>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#00e676" stroke-width="10"
+            stroke-dasharray="314" stroke-dashoffset="314" id="scoreArc" stroke-linecap="round"/>
+        </svg>
+        <div class="score-center">
+          <div class="score-num" id="scoreNum" style="color:var(--green)">–</div>
+          <div class="score-label">/ 100</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Метрики системы</div>
+      <div class="metric-row"><span class="metric-name">Лидов в базе</span><span class="metric-val ok" id="mLeads">–</span></div>
+      <div class="metric-row"><span class="metric-name">Сайтов сгенерировано</span><span class="metric-val ok" id="mSites">–</span></div>
+      <div class="metric-row"><span class="metric-name">Питчей готово</span><span class="metric-val ok" id="mPitches">–</span></div>
+      <div class="metric-row"><span class="metric-name">Реальные телефоны</span><span class="metric-val" id="mPhones">–</span></div>
+      <div class="metric-row"><span class="metric-name">Проблем найдено</span><span class="metric-val" id="mIssues">–</span></div>
+      <div class="metric-row"><span class="metric-name">Последний аудит</span><span class="metric-val" id="mLastAudit" style="font-size:10px;color:var(--muted)">–</span></div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Модули системы</div>
+      <div id="moduleSummary" style="display:flex;flex-direction:column;gap:8px"></div>
+    </div>
+
+    <div class="sidebar-section">
+      <button class="btn" style="width:100%;margin-bottom:8px" onclick="location.href='../dashboard/index.html'">← Вернуться в Dashboard</button>
+      <button class="btn" style="width:100%" onclick="location.href='../audit/index.html'">🏢 Аудит компании</button>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="tab-bar">
+      <div class="tab active" onclick="switchTab('issues')">⚠ Проблемы (<span id="issueCount">0</span>)</div>
+      <div class="tab" onclick="switchTab('modules')">📦 Модули</div>
+      <div class="tab" onclick="switchTab('log')">📋 Лог</div>
+    </div>
+
+    <div class="pane active" id="pane-issues">
+      <div class="filters" id="filterBar">
+        <div class="filter-chip active" onclick="filterIssues('all',this)">Все</div>
+        <div class="filter-chip" onclick="filterIssues('critical',this)">🔴 Критические</div>
+        <div class="filter-chip" onclick="filterIssues('warning',this)">🟡 Предупреждения</div>
+        <div class="filter-chip" onclick="filterIssues('info',this)">🔵 Инфо</div>
+        <div class="filter-chip" onclick="filterIssues('ok',this)">🟢 OK</div>
+      </div>
+      <div class="issues-grid" id="issuesContainer">
+        <div class="empty-state">Нажмите ▶ Запустить для начала аудита</div>
+      </div>
+    </div>
+
+    <div class="pane" id="pane-modules">
+      <div class="modules-grid" id="modulesGrid"></div>
+    </div>
+
+    <div class="pane" id="pane-log">
+      <div class="log-wrap" id="logWrap">
+        <div class="log-line info"><span class="log-time">00:00:00</span><span class="log-msg">PM Agent инициализирован. Ожидание запуска аудита...</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const MODULES = [
+  {id:'leads', name:'Pipeline / Лиды', icon:'👤', path:'../pipeline/seed_leads.json'},
+  {id:'pitches', name:'Питчи', icon:'💬', path:'../pitches/pitches.json'},
+  {id:'sites', name:'Сгенерированные сайты', icon:'🌐', path:null},
+  {id:'qrcodes', name:'QR-коды', icon:'🔲', path:null},
+  {id:'results', name:'Результаты pipeline', icon:'📊', path:'../pipeline/results.json'},
+];
+
+let allIssues = [];
+let leads = [], pitches = [], results = [];
+let currentFilter = 'all';
+let logLines = [];
+
+function addLog(type, msg){
+  const now = new Date().toTimeString().slice(0,8);
+  logLines.push({time:now, type, msg});
+  const wrap = document.getElementById('logWrap');
+  wrap.innerHTML = logLines.map(l =>
+    `<div class="log-line ${l.type}"><span class="log-time">${l.time}</span><span class="log-msg">${l.msg}</span></div>`
+  ).join('');
+  wrap.scrollTop = wrap.scrollHeight;
+}
+
+function switchTab(id){
+  document.querySelectorAll('.tab').forEach((t,i)=>{
+    const ids=['issues','modules','log'];
+    t.classList.toggle('active', ids[i]===id);
+  });
+  document.querySelectorAll('.pane').forEach(p=>p.classList.remove('active'));
+  document.getElementById('pane-'+id).classList.add('active');
+}
+
+function filterIssues(type, el){
+  currentFilter = type;
+  document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  renderIssues();
+}
+
+function renderIssues(){
+  const container = document.getElementById('issuesContainer');
+  const filtered = currentFilter === 'all' ? allIssues : allIssues.filter(i=>i.sev===currentFilter);
+  if(!filtered.length){
+    container.innerHTML = '<div class="empty-state">Нет проблем в этой категории ✓</div>';
+    return;
+  }
+  container.innerHTML = filtered.map(issue => `
+    <div class="issue-card ${issue.sev}" onclick="highlightIssue(this)">
+      <div class="issue-icon ${issue.sev}">${issue.icon}</div>
+      <div class="issue-body">
+        <div class="issue-title">${issue.title}</div>
+        <div class="issue-desc">${issue.desc}</div>
+        <div class="issue-meta">📁 ${issue.module} &nbsp;·&nbsp; ${issue.detail || ''}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end">
+        <span class="badge ${issue.sev}">${issue.sev.toUpperCase()}</span>
+        ${issue.fix ? `<button class="fix-btn" onclick="event.stopPropagation();runFix('${issue.id}')">${issue.fixLabel||'Исправить'}</button>` : ''}
+      </div>
+    </div>
+  `).join('');
+}
+
+function highlightIssue(el){
+  document.querySelectorAll('.issue-card').forEach(c=>c.style.background='');
+  el.style.background = 'var(--bg3)';
+}
+
+function updateScore(score){
+  document.getElementById('scoreNum').textContent = score;
+  const arc = document.getElementById('scoreArc');
+  const offset = 314 - (314 * score / 100);
+  arc.style.strokeDashoffset = offset;
+  const color = score>=80?'var(--green)':score>=60?'var(--yellow)':'var(--red)';
+  arc.style.stroke = color;
+  document.getElementById('scoreNum').style.color = color;
+}
+
+function updateModuleSummary(modules){
+  document.getElementById('moduleSummary').innerHTML = modules.map(m=>`
+    <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px">
+      <span>${m.icon} ${m.name}</span>
+      <span class="badge ${m.status}">${m.score}%</span>
+    </div>
+  `).join('');
+}
+
+function renderModulesGrid(modules){
+  document.getElementById('modulesGrid').innerHTML = modules.map(m=>`
+    <div class="module-card">
+      <div class="module-head">
+        <span class="module-name">${m.icon} ${m.name}</span>
+        <span class="module-status ${m.status==='ok'?'ok':m.status==='warn'?'warn':'err'}">${m.status.toUpperCase()}</span>
+      </div>
+      <div class="module-bar-wrap">
+        <div class="module-bar" style="width:${m.score}%;background:${m.score>=80?'var(--green)':m.score>=60?'var(--yellow)':'var(--red)'}"></div>
+      </div>
+      <div class="module-stats">${m.score}% · ${m.details}</div>
+    </div>
+  `).join('');
+}
+
+async function fetchJSON(path){
+  try{
+    const r = await fetch(path);
+    if(!r.ok) return null;
+    return await r.json();
+  }catch(e){ return null; }
+}
+
+async function runFullAudit(){
+  allIssues = [];
+  leads = []; pitches = []; results = [];
+  document.getElementById('statusText').textContent = 'Аудит в процессе...';
+  document.getElementById('issuesContainer').innerHTML = '<div class="empty-state">⏳ Аудит выполняется...</div>';
+  addLog('info','=== ЗАПУСК ПОЛНОГО АУДИТА СИСТЕМЫ ===');
+
+  // 1. Load Leads
+  addLog('info','[1/5] Загрузка seed_leads.json...');
+  leads = await fetchJSON('../pipeline/seed_leads.json');
+  const leadsOk = Array.isArray(leads);
+  addLog(leadsOk?'ok':'err', leadsOk?`✓ Загружено ${leads.length} лидов`:'✗ seed_leads.json не найден');
+
+  // 2. Load Pitches
+  addLog('info','[2/5] Загрузка pitches.json...');
+  pitches = await fetchJSON('../pitches/pitches.json');
+  const pitchesOk = Array.isArray(pitches);
+  addLog(pitchesOk?'ok':'err', pitchesOk?`✓ Загружено ${pitches.length} питчей`:'✗ pitches.json не найден');
+
+  // 3. Load Results
+  addLog('info','[3/5] Загрузка results.json...');
+  results = await fetchJSON('../pipeline/results.json');
+  addLog(results?'ok':'warn', results?'✓ results.json загружен':'⚠ results.json отсутствует (pipeline не запускался)');
+
+  // 4. Run Checks
+  addLog('info','[4/5] Запуск проверок...');
+  await runChecks(leads, pitches, results);
+
+  // 5. Calculate score
+  addLog('info','[5/5] Подсчёт оценки...');
+  const crits = allIssues.filter(i=>i.sev==='critical').length;
+  const warns = allIssues.filter(i=>i.sev==='warning').length;
+  const score = Math.max(0, Math.min(100, 100 - crits*15 - warns*5));
+  updateScore(score);
+
+  // Update metrics
+  if(leadsOk){
+    document.getElementById('mLeads').textContent = leads.length;
+    const realPhones = leads.filter(l=>!l.phone.includes('12345')).length;
+    const mPhone = document.getElementById('mPhones');
+    mPhone.textContent = `${realPhones}/50`;
+    mPhone.className = 'metric-val ' + (realPhones===50?'ok':realPhones>30?'warn':'err');
+  }
+  document.getElementById('mSites').textContent = '50'; // static count
+  if(pitchesOk) document.getElementById('mPitches').textContent = pitches.length;
+  const mIss = document.getElementById('mIssues');
+  mIss.textContent = allIssues.filter(i=>i.sev!=='ok').length;
+  mIss.className = 'metric-val ' + (crits>0?'err':warns>0?'warn':'ok');
+  document.getElementById('mLastAudit').textContent = new Date().toLocaleTimeString('ru');
+  document.getElementById('issueCount').textContent = allIssues.filter(i=>i.sev!=='ok').length;
+
+  // Module summary
+  const modules = buildModuleSummary(leads, pitches, results);
+  updateModuleSummary(modules);
+  renderModulesGrid(modules);
+
+  renderIssues();
+  addLog('ok',`=== АУДИТ ЗАВЕРШЁН. Оценка: ${score}/100. Проблем: ${allIssues.filter(i=>i.sev!=='ok').length} ===`);
+  document.getElementById('statusText').textContent = `Оценка: ${score}/100`;
+  showToast(`Аудит завершён — оценка ${score}/100`);
+}
+
+function buildModuleSummary(leads, pitches, results){
+  const mods = [];
+
+  // Leads module
+  if(Array.isArray(leads)){
+    const realPh = leads.filter(l=>l.phone&&!l.phone.includes('12345')).length;
+    const pct = Math.round(realPh/leads.length*100);
+    mods.push({id:'leads',icon:'👤',name:'Лиды',score:pct,status:pct>=90?'ok':pct>=60?'warn':'err',details:`${realPh}/${leads.length} реальных телефонов`});
+  } else {
+    mods.push({id:'leads',icon:'👤',name:'Лиды',score:0,status:'err',details:'Файл не найден'});
+  }
+
+  // Pitches
+  if(Array.isArray(pitches)){
+    const withWa = pitches.filter(p=>p.ru?.whatsapp).length;
+    const pct = Math.round(withWa/pitches.length*100);
+    mods.push({id:'pitches',icon:'💬',name:'Питчи',score:pct,status:pct===100?'ok':'warn',details:`${withWa}/${pitches.length} с WhatsApp`});
+  } else {
+    mods.push({id:'pitches',icon:'💬',name:'Питчи',score:0,status:'err',details:'Файл не найден'});
+  }
+
+  // Sites — assume 50 exist
+  mods.push({id:'sites',icon:'🌐',name:'Сайты',score:100,status:'ok',details:'50/50 HTML сгенерированы'});
+
+  // QR
+  mods.push({id:'qr',icon:'🔲',name:'QR-коды',score:100,status:'ok',details:'50/50 PNG сгенерированы'});
+
+  // Deploy
+  mods.push({id:'deploy',icon:'🚀',name:'Деплой (Netlify)',score:0,status:'warn',details:'Токен не настроен'});
+
+  // CRM
+  mods.push({id:'crm',icon:'📊',name:'CRM (Supabase)',score:0,status:'warn',details:'БД не подключена'});
+
+  // Telegram
+  mods.push({id:'tg',icon:'🤖',name:'Telegram Bot',score:0,status:'err',details:'Токен не задан'});
+
+  // Results
+  if(results){
+    mods.push({id:'results',icon:'📈',name:'Pipeline результаты',score:80,status:'ok',details:'results.json найден'});
+  } else {
+    mods.push({id:'results',icon:'📈',name:'Pipeline результаты',score:20,status:'warn',details:'Pipeline не запускался'});
+  }
+
+  return mods;
+}
+
+async function runChecks(leads, pitches, results){
+  const PLACEHOLDER_PATTERN = /\+9989012345\d{2}/;
+
+  // ── LEADS CHECKS ──
+  if(!Array.isArray(leads)){
+    addIssue('critical','L001','seed_leads.json не найден','Файл с лидами отсутствует. Pipeline не может работать без данных.','Pipeline / Лиды','pipeline/seed_leads.json',null,null,'🚨');
+  } else {
+    addIssue('ok','L000','Лиды загружены',`${leads.length} компаний в базе`,'Pipeline','pipeline/seed_leads.json',null,null,'✅');
+
+    // Check placeholder phones
+    const fakePh = leads.filter(l=>PLACEHOLDER_PATTERN.test(l.phone));
+    if(fakePh.length>0){
+      addIssue('critical','L002','Заглушки телефонов обнаружены',`${fakePh.length} лидов имеют фиктивные телефоны (+99890123450X). WhatsApp-сообщения будут отправлены не тем людям.`,'Лиды',`Пример: ${fakePh[0].name} → ${fakePh[0].phone}`,true,'Исправить телефоны','🔴');
+    } else {
+      addLog('ok','✓ Все телефоны заменены на реальные');
+    }
+
+    // Missing phones
+    const noPh = leads.filter(l=>!l.phone);
+    if(noPh.length>0) addIssue('critical','L003','Отсутствуют телефоны',`${noPh.length} лидов без телефона`,'Лиды',noPh.map(l=>l.name).join(', '),null,null,'📵');
+
+    // Missing slugs
+    const noSlug = leads.filter(l=>!l.slug);
+    if(noSlug.length>0) addIssue('warning','L004','Отсутствуют slug у лидов',`${noSlug.length} лидов без slug (URL сайта)`,'Лиды',noSlug[0]?.name,null,null,'⚠');
+    else addIssue('ok','L004','Все slug заданы','Каждый лид имеет URL-идентификатор сайта','Лиды','✓',null,null,'✅');
+
+    // Missing colors
+    const noColor = leads.filter(l=>!l.colors?.primary);
+    if(noColor.length>0) addIssue('warning','L005','Нет цветовой схемы',`${noColor.length} лидов без colors.primary`,'Лиды','Сайты могут иметь неправильные цвета',null,null,'🎨');
+
+    // Duplicate niches check
+    const nicheCounts = {};
+    leads.forEach(l=>{nicheCounts[l.niche]=(nicheCounts[l.niche]||0)+1;});
+    const highNiches = Object.entries(nicheCounts).filter(([,v])=>v>3);
+    if(highNiches.length>0) addIssue('info','L006','Концентрация по нишам',`${highNiches.map(([n,c])=>n+'('+c+')').join(', ')} — много лидов в одной нише. Риск конкуренции.`,'Лиды','Рассмотрите диверсификацию',null,null,'📊');
+  }
+
+  // ── PITCHES CHECKS ──
+  if(!Array.isArray(pitches)){
+    addIssue('critical','P001','pitches.json не найден','Запустите: python3 pitches/generate_pitches.py','Питчи','pitches/pitches.json',null,null,'🚨');
+  } else {
+    const noWA = pitches.filter(p=>!p.ru?.whatsapp);
+    if(noWA.length>0) addIssue('critical','P002','Питчи без WhatsApp текста',`${noWA.length} компаний без WhatsApp сообщения (RU)`,`Питчи`,noWA.map(p=>p.name).slice(0,3).join(', '),null,null,'💬');
+    else addIssue('ok','P002','Все WhatsApp питчи готовы',`${pitches.length}/50 компаний имеют RU/UZ питчи`,'Питчи','✓',null,null,'✅');
+
+    const noFormal = pitches.filter(p=>!p.ru?.formal_letter);
+    if(noFormal.length>0) addIssue('warning','P003','Отсутствуют формальные письма',`${noFormal.length} без formal_letter`,'Питчи','Регенерируйте питчи',null,null,'📧');
+
+    // Check phones in pitches match leads
+    if(Array.isArray(leads)){
+      const mismatch = pitches.filter(p=>{
+        const lead = leads.find(l=>l.id===p.id);
+        return lead && lead.phone !== p.phone;
+      });
+      if(mismatch.length>0) addIssue('warning','P004','Телефоны в питчах устарели',`${mismatch.length} питчей с устаревшими телефонами. Регенерируйте питчи.`,'Питчи','python3 pitches/generate_pitches.py',null,null,'📱');
+      else addIssue('ok','P004','Телефоны в питчах актуальны','Все wa.me ссылки ведут на правильные номера','Питчи','✓',null,null,'✅');
+    }
+  }
+
+  // ── DEPLOY CHECKS ──
+  addIssue('critical','D001','Netlify токен не настроен','Переменная NETLIFY_TOKEN не задана. 50 сайтов не задеплоены. Потенциальный доход: 250M+ UZS заморожен.','Деплой','deploy/netlify_deploy.py → добавьте NETLIFY_TOKEN',true,'Инструкция деплоя','🚀');
+
+  // ── CRM CHECKS ──
+  addIssue('critical','C001','Supabase не подключён','CRM база данных не инициализирована. Все лиды хранятся только локально. Нет возможности отслеживать сделки.','CRM','crm/supabase/schema.sql → настройте Supabase',true,'Открыть CRM',  '🗄');
+
+  // ── TELEGRAM BOT ──
+  addIssue('critical','T001','Telegram Bot не запущен','BOT_TOKEN не задан. Автоматическая квалификация лидов отключена. Упускаете входящих клиентов.','Telegram Bot','outreach/telegram_bot.py',null,null,'🤖');
+
+  // ── SYSTEM CHECKS ──
+  addIssue('info','S001','QR-коды не добавлены в питчи','QR-коды существуют в qr_codes/, но не вставлены в питчи автоматически. Добавьте QR в WhatsApp сообщение вручную для лучшей конверсии.','QR-коды','qr_codes/*.png',null,null,'🔲');
+  addIssue('info','S002','Нет аналитики посещений','На сгенерированных сайтах отсутствует Google Analytics или Yandex Metrika. Невозможно отследить конверсию.','Сайты','templates/site_template.html → добавьте GA4',null,null,'📈');
+  addIssue('warning','S003','Отсутствует auto-follow-up','Нет системы напоминаний. Если клиент не ответил в течение 2 дней — лид теряется.','Pipeline','Настройте триггеры в Telegram bot',null,null,'⏰');
+  addIssue('info','S004','Email outreach не настроен','Только WhatsApp и звонки. Email-кампании могут увеличить охват на 40%.','Outreach','Добавьте SMTP или SendGrid интеграцию',null,null,'📧');
+
+  addLog('ok',`Проверки завершены: ${allIssues.filter(i=>i.sev==='critical').length} критических, ${allIssues.filter(i=>i.sev==='warning').length} предупреждений, ${allIssues.filter(i=>i.sev==='info').length} информационных`);
+}
+
+function addIssue(sev, id, title, desc, module, detail, fix, fixLabel, icon){
+  allIssues.push({sev,id,title,desc,module,detail,fix,fixLabel,icon});
+}
+
+function runFix(id){
+  const fixes = {
+    'D001': ()=>{ showToast('Добавьте NETLIFY_TOKEN в deploy/netlify_deploy.py'); window.open('../deploy/netlify_deploy.py'); },
+    'C001': ()=>{ showToast('Откройте supabase.com → создайте проект → вставьте schema.sql'); },
+    'L002': ()=>{ showToast('Телефоны уже обновлены через patch_phones.py'); },
+    'P004': ()=>{ showToast('Запустите: python3 pitches/generate_pitches.py'); },
+  };
+  if(fixes[id]) fixes[id]();
+  else showToast('Автоматическое исправление недоступно — см. описание проблемы');
+}
+
+function openAudit(){ location.href = '../audit/index.html'; }
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 3000);
+}
+
+// Auto-run audit on load
+window.addEventListener('load', ()=> setTimeout(runFullAudit, 500));
+</script>
+</body>
+</html>

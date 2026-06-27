@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Company Audit — B2B Intelligence</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#000;--bg1:#0a0a0a;--bg2:#111;--bg3:#1a1a1a;
+  --border:#1e1e1e;--border2:#2a2a2a;
+  --text:#f0f0f0;--muted:#666;--dim:#333;
+  --green:#00e676;--yellow:#ffd600;--red:#ff1744;--blue:#2979ff;--purple:#d500f9;--orange:#ff6d00;--cyan:#00e5ff;
+}
+body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;min-height:100vh}
+/* ─── TOP BAR ─── */
+.topbar{background:var(--bg1);border-bottom:1px solid var(--border);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.topbar-brand{display:flex;align-items:center;gap:12px}
+.topbar-brand h1{font-size:17px;font-weight:800}
+.topbar-brand h1 span{color:var(--cyan)}
+.badge-new{background:var(--cyan);color:#000;font-size:9px;font-weight:800;padding:2px 6px;border-radius:4px;letter-spacing:.08em}
+.btn{background:var(--bg2);border:1px solid var(--border2);color:var(--text);padding:7px 16px;border-radius:8px;font-family:'Syne',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:.15s}
+.btn:hover{border-color:var(--cyan);color:var(--cyan)}
+.btn-cyan{background:var(--cyan);color:#000;border-color:var(--cyan)}
+.btn-cyan:hover{background:#00fff0;border-color:#00fff0;color:#000}
+/* ─── WIZARD LAYOUT ─── */
+.wizard-wrap{max-width:960px;margin:0 auto;padding:32px 24px}
+.step-track{display:flex;gap:0;margin-bottom:40px;position:relative}
+.step-track::before{content:'';position:absolute;top:18px;left:0;right:0;height:1px;background:var(--border2);z-index:0}
+.step-item{flex:1;text-align:center;position:relative;z-index:1}
+.step-circle{width:36px;height:36px;border-radius:50%;background:var(--bg2);border:2px solid var(--border2);display:flex;align-items:center;justify-content:center;margin:0 auto 6px;font-size:13px;font-weight:700;transition:.3s}
+.step-item.active .step-circle{border-color:var(--cyan);background:rgba(0,229,255,.12);color:var(--cyan)}
+.step-item.done .step-circle{border-color:var(--green);background:rgba(0,230,118,.12);color:var(--green)}
+.step-label{font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.step-item.active .step-label{color:var(--cyan)}
+.step-item.done .step-label{color:var(--green)}
+/* ─── STEP PANELS ─── */
+.step-panel{display:none}
+.step-panel.active{display:block}
+.panel-title{font-size:22px;font-weight:800;margin-bottom:6px}
+.panel-sub{font-size:13px;color:var(--muted);margin-bottom:28px}
+/* ─── FORM ELEMENTS ─── */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+.form-grid.cols-1{grid-template-columns:1fr}
+.form-grid.cols-3{grid-template-columns:1fr 1fr 1fr}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.field input,.field select,.field textarea{background:var(--bg1);border:1px solid var(--border2);color:var(--text);padding:10px 14px;border-radius:8px;font-family:'Syne',sans-serif;font-size:13px;transition:.2s;outline:none}
+.field input:focus,.field select,.field textarea:focus{border-color:var(--cyan)}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='%23666'%3E%3Cpath d='M0 0l6 8 6-8z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;cursor:pointer}
+.field textarea{min-height:80px;resize:vertical;line-height:1.5}
+.field input::placeholder,.field textarea::placeholder{color:var(--dim)}
+/* Rating slider */
+.slider-wrap{display:flex;align-items:center;gap:12px}
+.slider-wrap input[type=range]{flex:1;-webkit-appearance:none;height:4px;background:var(--bg3);border-radius:2px;outline:none}
+.slider-wrap input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--cyan);cursor:pointer;box-shadow:0 0 6px var(--cyan)}
+.slider-val{font-size:16px;font-weight:800;font-family:'Fira Code',monospace;color:var(--cyan);min-width:28px;text-align:center}
+/* Checkboxes */
+.check-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
+.check-item{display:flex;align-items:center;gap:8px;background:var(--bg1);border:1px solid var(--border);border-radius:8px;padding:8px 12px;cursor:pointer;transition:.2s;font-size:12px}
+.check-item:hover{border-color:var(--border2)}
+.check-item.selected{border-color:var(--cyan);background:rgba(0,229,255,.06)}
+.check-item input{display:none}
+/* Section headers */
+.form-section{margin-bottom:24px}
+.form-section-title{font-size:11px;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+/* Wizard nav */
+.wizard-nav{display:flex;justify-content:space-between;margin-top:32px;padding-top:20px;border-top:1px solid var(--border)}
+/* ─── REPORT ─── */
+.report-header{background:linear-gradient(135deg,rgba(0,229,255,.08),rgba(0,230,118,.04));border:1px solid var(--border2);border-radius:16px;padding:28px;margin-bottom:28px;display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center}
+.big-score{font-size:72px;font-weight:800;line-height:1;font-family:'Fira Code',monospace}
+.company-info-head h2{font-size:22px;font-weight:800}
+.company-info-head p{font-size:13px;color:var(--muted);margin-top:4px}
+.score-grade{font-size:13px;font-weight:700;padding:8px 20px;border-radius:8px;text-align:center;margin-top:8px}
+.score-categories{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px}
+.cat-card{background:var(--bg1);border:1px solid var(--border);border-radius:12px;padding:16px}
+.cat-name{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.cat-score{font-size:28px;font-weight:800;font-family:'Fira Code',monospace;margin-bottom:8px}
+.cat-bar{background:var(--bg3);border-radius:3px;height:3px;overflow:hidden}
+.cat-fill{height:100%;border-radius:3px;transition:width 1s ease}
+.recs-grid{display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
+.rec-card{background:var(--bg1);border:1px solid var(--border);border-radius:12px;padding:18px;display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:start}
+.rec-card.priority-1{border-left:3px solid var(--red)}
+.rec-card.priority-2{border-left:3px solid var(--yellow)}
+.rec-card.priority-3{border-left:3px solid var(--blue)}
+.rec-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.p1{background:rgba(255,23,68,.1)}
+.p2{background:rgba(255,214,0,.1)}
+.p3{background:rgba(41,121,255,.1)}
+.rec-title{font-size:13px;font-weight:700;margin-bottom:4px}
+.rec-body{font-size:12px;color:var(--muted);line-height:1.6}
+.rec-impact{font-size:10px;font-weight:700;color:var(--green);font-family:'Fira Code',monospace;margin-top:6px}
+.priority-badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:4px;white-space:nowrap}
+.pb1{background:rgba(255,23,68,.15);color:var(--red)}
+.pb2{background:rgba(255,214,0,.15);color:var(--yellow)}
+.pb3{background:rgba(41,121,255,.15);color:var(--blue)}
+.section-head{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.section-head::after{content:'';flex:1;height:1px;background:var(--border)}
+.action-table{width:100%;border-collapse:collapse;margin-bottom:28px}
+.action-table th{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;padding:8px 12px;border-bottom:1px solid var(--border2);text-align:left}
+.action-table td{padding:10px 12px;border-bottom:1px solid var(--border);font-size:12px;vertical-align:top}
+.action-table tr:last-child td{border-bottom:none}
+.action-table tr:hover td{background:var(--bg1)}
+.timeline-chip{font-size:10px;font-family:'Fira Code',monospace;padding:2px 8px;border-radius:4px;background:var(--bg2);border:1px solid var(--border2)}
+.print-btn{background:var(--bg2);border:1px solid var(--border2);color:var(--muted);padding:7px 16px;border-radius:8px;font-size:12px;cursor:pointer;font-family:'Syne',sans-serif}
+.print-btn:hover{border-color:var(--cyan);color:var(--cyan)}
+@media print{.topbar,.wizard-nav,.print-btn,.step-track{display:none}.report-header{background:none;border:1px solid #ccc}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-brand">
+    <h1>🏢 Company <span>Audit</span></h1>
+    <span class="badge-new">BETA</span>
+  </div>
+  <div style="display:flex;gap:10px">
+    <button class="btn" onclick="location.href='../agent/index.html'">← PM Agent</button>
+    <button class="btn" onclick="location.href='../dashboard/index.html'">Dashboard</button>
+  </div>
+</div>
+
+<div class="wizard-wrap">
+
+  <!-- STEP TRACKER -->
+  <div class="step-track" id="stepTrack">
+    <div class="step-item active" id="st0"><div class="step-circle">1</div><div class="step-label">Компания</div></div>
+    <div class="step-item" id="st1"><div class="step-circle">2</div><div class="step-label">Продажи</div></div>
+    <div class="step-item" id="st2"><div class="step-circle">3</div><div class="step-label">Клиенты</div></div>
+    <div class="step-item" id="st3"><div class="step-circle">4</div><div class="step-label">Маркетинг</div></div>
+    <div class="step-item" id="st4"><div class="step-circle">5</div><div class="step-label">Операции</div></div>
+    <div class="step-item" id="st5"><div class="step-circle">✓</div><div class="step-label">Отчёт</div></div>
+  </div>
+
+  <!-- ══ STEP 0 — Компания ══ -->
+  <div class="step-panel active" id="panel0">
+    <div class="panel-title">О компании</div>
+    <div class="panel-sub">Расскажите о вашем бизнесе, чтобы мы провели точный анализ</div>
+
+    <div class="form-section">
+      <div class="form-section-title">Основная информация</div>
+      <div class="form-grid">
+        <div class="field"><label>Название компании *</label><input id="f_name" placeholder="ООО «Ваша компания»"></div>
+        <div class="field"><label>Отрасль / Ниша *</label>
+          <select id="f_niche">
+            <option value="">— выберите —</option>
+            <option>Ресторан / Кафе</option><option>Медицина / Клиника</option><option>Строительство</option>
+            <option>Автосервис</option><option>Стоматология</option><option>Логистика / Доставка</option>
+            <option>Образование / Курсы</option><option>Гостиница / Отель</option><option>Фитнес / Спорт</option>
+            <option>Розничная торговля</option><option>Недвижимость</option><option>Ремонт электроники</option>
+            <option>Мебель</option><option>Полиграфия</option><option>Кондитерская / Пекарня</option>
+            <option>Ландшафтный дизайн</option><option>Оптовая торговля</option><option>Детский сад</option>
+            <option>Химчистка / Прачечная</option><option>Банкетный зал / Той-хона</option>
+            <option>Электромонтаж</option><option>Аптека</option><option>Салон красоты</option>
+            <option>Туризм / Путешествия</option><option>Автостёкла</option><option>Свадебный салон</option>
+            <option>Металлоконструкции</option><option>АЗС / Топливо</option><option>Бухгалтерия</option>
+            <option>IT-услуги</option><option>Фотостудия</option><option>Клининг</option>
+            <option>Лифты / Подъёмники</option><option>Цветочный магазин</option><option>Курьерская служба</option>
+            <option>Ритуальные услуги</option><option>Стройматериалы</option><option>Кондиционеры / HVAC</option>
+            <option>Автосалон</option><option>Другое</option>
+          </select>
+        </div>
+        <div class="field"><label>Город</label><input id="f_city" placeholder="Ташкент" value="Ташкент"></div>
+        <div class="field"><label>Лет на рынке</label><input id="f_years" type="number" placeholder="3" min="0" max="100"></div>
+      </div>
+      <div class="form-grid cols-1">
+        <div class="field"><label>Краткое описание бизнеса</label><textarea id="f_desc" placeholder="Чем занимаетесь, кто ваши клиенты, в чём уникальность..."></textarea></div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-title">Финансы</div>
+      <div class="form-grid cols-3">
+        <div class="field"><label>Месячный оборот (млн UZS)</label><input id="f_revenue" type="number" placeholder="50" min="0"></div>
+        <div class="field"><label>Кол-во сотрудников</label><input id="f_employees" type="number" placeholder="10" min="1"></div>
+        <div class="field"><label>Средний чек (тыс. UZS)</label><input id="f_avgcheck" type="number" placeholder="150" min="0"></div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-title">Онлайн-присутствие</div>
+      <div class="check-grid" id="presenceGrid">
+        <label class="check-item"><input type="checkbox" value="website">🌐 Сайт</label>
+        <label class="check-item"><input type="checkbox" value="instagram">📸 Instagram</label>
+        <label class="check-item"><input type="checkbox" value="telegram">✈ Telegram канал</label>
+        <label class="check-item"><input type="checkbox" value="whatsapp_biz">💬 WhatsApp Business</label>
+        <label class="check-item"><input type="checkbox" value="2gis">📍 2GIS профиль</label>
+        <label class="check-item"><input type="checkbox" value="google_maps">🗺 Google Maps</label>
+        <label class="check-item"><input type="checkbox" value="tiktok">🎵 TikTok</label>
+        <label class="check-item"><input type="checkbox" value="youtube">▶ YouTube</label>
+      </div>
+    </div>
+
+    <div class="wizard-nav">
+      <div></div>
+      <button class="btn-cyan btn" onclick="goStep(1)">Далее →</button>
+    </div>
+  </div>
+
+  <!-- ══ STEP 1 — Продажи ══ -->
+  <div class="step-panel" id="panel1">
+    <div class="panel-title">Продажи и выручка</div>
+    <div class="panel-sub">Как вы привлекаете и конвертируете клиентов?</div>
+
+    <div class="form-section">
+      <div class="form-section-title">Текущие каналы продаж</div>
+      <div class="check-grid" id="salesGrid">
+        <label class="check-item"><input type="checkbox" value="walk_in">🚶 Проходящий трафик</label>
+        <label class="check-item"><input type="checkbox" value="referral">🤝 Сарафанное радио</label>
+        <label class="check-item"><input type="checkbox" value="social_ads">📢 Реклама в соцсетях</label>
+        <label class="check-item"><input type="checkbox" value="search_ads">🔍 Контекстная реклама</label>
+        <label class="check-item"><input type="checkbox" value="cold_call">📞 Холодные звонки</label>
+        <label class="check-item"><input type="checkbox" value="partnerships">🤝 Партнёрства</label>
+        <label class="check-item"><input type="checkbox" value="marketplace">🛒 Маркетплейсы</label>
+        <label class="check-item"><input type="checkbox" value="repeat">🔄 Повторные клиенты</label>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-title">Показатели продаж</div>
+      <div class="form-grid cols-3">
+        <div class="field"><label>Конверсия обращений в покупку (%)</label><input id="f_conv" type="number" placeholder="25" min="0" max="100"></div>
+        <div class="field"><label>Новых клиентов в месяц</label><input id="f_newcl" type="number" placeholder="20" min="0"></div>
+        <div class="field"><label>Повторные покупки (%)</label><input id="f_repeat" type="number" placeholder="30" min="0" max="100"></div>
+      </div>
+      <div class="form-grid">
+        <div class="field"><label>Есть ли CRM-система?</label>
+          <select id="f_crm"><option value="no">Нет</option><option value="excel">Excel/таблицы</option><option value="basic">Простая CRM</option><option value="advanced">Полноценная CRM</option></select>
+        </div>
+        <div class="field"><label>Есть ли скрипты продаж?</label>
+          <select id="f_scripts"><option value="no">Нет</option><option value="basic">Базовые</option><option value="advanced">Детальные скрипты</option></select>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-title">Оценка отдела продаж (0–10)</div>
+      <div class="form-grid">
+        <div class="field"><label>Скорость ответа на заявки</label><div class="slider-wrap"><input type="range" id="s_speed" min="0" max="10" value="5"><span class="slider-val" id="sv_speed">5</span></div></div>
+        <div class="field"><label>Качество обработки возражений</label><div class="slider-wrap"><input type="range" id="s_obj" min="0" max="10" value="5"><span class="slider-val" id="sv_obj">5</span></div></div>
+        <div class="field"><label>Follow-up система</label><div class="slider-wrap"><input type="range" id="s_follow" min="0" max="10" value="3"><span class="slider-val" id="sv_follow">3</span></div></div>
+        <div class="field"><label>Понимание потребностей клиента</label><div class="slider-wrap"><input type="range" id="s_needs" min="0" max="10" value="6"><span class="slider-val" id="sv_needs">6</span></div></div>
+      </div>
+    </div>
+
+    <div class="wizard-nav">
+      <button class="btn" onclick="goStep(0)">← Назад</button>
+      <button class="btn-cyan btn" onclick="goStep(2)">Далее →</button>
+    </div>
+  </div>
+
+  <!-- ══ STEP 2 — Клиенты ══ -->
+  <div class="step-panel" id="panel2">
+    <div class="panel-title">Клиентский опыт</div>
+    <div class="panel-sub">Насколько хорошо вы обслуживаете и удерживаете клиентов?</div>
+
+    <div class="form-section">
+      <div class="form-section-title">Удержание клиентов</div>
+      <div class="form-grid cols-3">
+        <div class="field"><label>NPS (рекомендации) 0–10</label><div class="slider-wrap"><input type="range" id="s_nps" min="0" max="10" value="6"><span class="slider-val" id="sv_nps">6</span></div></div>
+        <div class="field"><label>Средний LTV клиента (мес.)</label><input id="f_ltv" type="number" placeholder="3" min="1"></div>
+        <div class="field"><label>Отток клиентов в месяц (%)</label><input id="f_churn" type="number" placeholder="20" min="0" max="100"></div>
+      </div>
+      <div class="form-grid">
+        <div class="field"><label>Есть ли программа лояльности?</label>
+          <select id="f_loyalty"><option value="no">Нет</option><option value="card">Дисконтная карта</option><option value="points">Баллы/бонусы</option><option value="subscr">Подписка</option><option value="vip">VIP-сегмент</option></select>
+        </div>
+        <div class="field"><label>Собираете ли отзывы?</label>
+          <select id="f_reviews"><option value="no">Нет</option><option value="verbal">Устно только</option><option value="google">Google/2GIS</option><option value="system">Системно</option></select>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-title">Качество сервиса (0–10)</div>
+      <div class="form-grid">
+        <div class="field"><label>Скорость обслуживания</label><div class="slider-wrap"><input type="range" id="s_svc_speed" min="0" max="10" value="6"><span class="slider-val" id="sv_svc_speed">6</span></div></div>
+        <div class="field"><label>Вежливость и компетентность</label><div class="slider-wrap"><input type="range" id="s_polite" min="0" max="10" value="7"><span class="slider-val" id="sv_polite">7</span></div></div>
+        <div class="field"><label>Решение жалоб</label><div class="slider-wrap"><input type="range" id="s_complaints" min="0" max="10" value="5"><span class="slider-val" id="sv_complaints">5</span></div></div>
+        <div class="field"><label>Послепродажная поддержка</label><div class="slider-wrap"><input type="range" id="s_after" min="0" max="10" value="4"><span class="slider-val" id="sv_after">4</span></div></div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-title">Главная боль клиентов</div>
+      <div class="form-grid cols-1">
+        <div class="field"><label>Основные жалобы / что клиенты говорят?</label><textarea id="f_complaints_text" placeholder="Например: долго ждут, дорого, нет удобной оплаты, сложно записаться..."></textarea></div>
+      </div>
+    </div>
+
+    <div class="wizard-nav">
+      <button class="btn" onclick="goStep(1)">← Назад</button>
+      <button class="btn-cyan btn" onclick="goStep(3)">Далее →</button>
+    </div>
+  </div>
+
+  <!-- ══ STEP 3 — Маркетинг ══ -->
+  <div class="step-panel" id="panel3">
+    <div class="panel-title">Маркетинг и бренд</div>
+    <div class="panel-sub">Как вас находят и что думают о вашем бренде?</div>
+
+    <div class="form-section">
+      <div class="form-section-title">Маркетинговый бюджет</div>
+      <div class="form-grid cols-3">
+        <div class="field"><label>Бюджет на маркетинг/мес (тыс. UZS)</label><input id="f_mktbdg" type="number" placeholder="2000" min="0"></div>
+        <div class="field"><label>% от оборота на маркетинг</label><input id="f_mktpct" type="number" placeholder="5" min="0" max="100"></div>
+        <div class="field"><label>Средняя стоимость привлечения (CAC) тыс.</label><input id="f_cac" type="number" placeholder="50" min="0"></div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-title">Бренд и позиционирование (0–10)</div>
+      <div class="form-grid">
+        <div class="field"><label>Узнаваемость бренда в городе</label><div class="slider-wrap"><input type="range" id="s_brand" min="0" max="10" value="4"><span class="slider-val" id="sv_brand">4</span></div></div>
+        <div class="field"><label>Качество визуального стиля</label><div class="slider-wrap"><input type="range" id="s_visual" min="0" max="10" value="5"><span class="slider-val" id="sv_visual">5</span></div></div>
+        <div class="field"><label>Активность в соцсетях</label><div class="slider-wrap"><input type="range" id="s_social" min="0" max="10" value="4"><span class="slider-val" id="sv_social">4</span></div></div>
+        <div class="field"><label>Рейтинг на картах (Google/2GIS)</label><div class="slider-wrap"><input type="range" id="s_rating" min="0" max="10" value="6"><span class="slider-val" id="sv_rating">6</span></div></div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-title">Конкуренты</div>
+      <div class="form-grid cols-1">
+        <div class="field"><label>Главные конкуренты и в чём их преимущество?</label><textarea id="f_competitors" placeholder="Например: «Конкурент А — дешевле на 20%, Конкурент Б — лучше соцсети»..."></textarea></div>
+        <div class="field"><label>Ваше главное конкурентное преимущество (УТП)</label><textarea id="f_usp" placeholder="Почему клиенты выбирают вас?"></textarea></div>
+      </div>
+    </div>
+
+    <div class="wizard-nav">
+      <button class="btn" onclick="goStep(2)">← Назад</button>
+      <button class="btn-cyan btn" onclick="goStep(4)">Далее →</button>
+    </div>
+  </div>
+
+  <!-- ══ STEP 4 — Операции ══ -->
+  <div class="step-panel" id="panel4">
+    <div class="panel-title">Операции и процессы</div>
+    <div class="panel-sub">Насколько эффективно работают внутренние процессы?</div>
+
+    <div class="form-section">
+      <div class="form-section-title">Бизнес-процессы (0–10)</div>
+      <div class="form-grid">
+        <div class="field"><label>Автоматизация рутины</label><div class="slider-wrap"><input type="range" id="s_auto" min="0" max="10" value="3"><span class="slider-val" id="sv_auto">3</span></div></div>
+        <div class="field"><label>Качество управления запасами</label><div class="slider-wrap"><input type="range" id="s_inv" min="0" max="10" value="5"><span class="slider-val" id="sv_inv">5</span></div></div>
+        <div class="field"><label>Документооборот и отчётность</label><div class="slider-wrap"><input type="range" id="s_docs" min="0" max="10" value="5"><span class="slider-val" id="sv_docs">5</span></div></div>
+        <div class="field"><label>Управление командой / HR</label><div class="slider-wrap"><input type="range" id="s_hr" min="0" max="10" value="6"><span class="slider-val" id="sv_hr">6</span></div></div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-title">Технологии</div>
+      <div class="check-grid" id="techGrid">
+        <label class="check-item"><input type="checkbox" value="crm_tool">📊 CRM система</label>
+        <label class="check-item"><input type="checkbox" value="accounting">💰 Учётная программа</label>
+        <label class="check-item"><input type="checkbox" value="pos">🖥 POS-терминал</label>
+        <label class="check-item"><input type="checkbox" value="delivery_app">🛵 Приложение доставки</label>
+        <label class="check-item"><input type="checkbox" value="booking">📅 Онлайн-запись</label>
+        <label class="check-item"><input type="checkbox" value="analytics">📈 Аналитика</label>
+        <label class="check-item"><input type="checkbox" value="chatbot">🤖 Чат-бот</label>
+        <label class="check-item"><input type="checkbox" value="payment">💳 Онлайн-оплата</label>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-title">Главная проблема бизнеса</div>
+      <div class="form-grid cols-1">
+        <div class="field"><label>Что больше всего мешает росту? (свободный ответ)</label><textarea id="f_mainproblem" placeholder="Например: нет постоянных клиентов, высокий отток персонала, не хватает рекламы..."></textarea></div>
+      </div>
+    </div>
+
+    <div class="wizard-nav">
+      <button class="btn" onclick="goStep(3)">← Назад</button>
+      <button class="btn-cyan btn" onclick="generateReport()">🔍 Сформировать аудит</button>
+    </div>
+  </div>
+
+  <!-- ══ STEP 5 — REPORT ══ -->
+  <div class="step-panel" id="panel5">
+    <div id="reportOutput"></div>
+    <div class="wizard-nav">
+      <button class="btn" onclick="goStep(0)">← Новый аудит</button>
+      <button class="print-btn" onclick="window.print()">🖨 Распечатать / PDF</button>
+    </div>
+  </div>
+
+</div><!-- /wizard-wrap -->
+
+<script>
+// ─── Slider sync ───
+document.querySelectorAll('input[type=range]').forEach(s=>{
+  const valEl = document.getElementById('sv_'+s.id.replace('s_',''));
+  if(valEl){ s.addEventListener('input',()=>valEl.textContent=s.value); }
+});
+
+// ─── Checkbox items ───
+document.querySelectorAll('.check-item').forEach(item=>{
+  item.addEventListener('click',function(){
+    this.classList.toggle('selected');
+    const cb = this.querySelector('input');
+    cb.checked = !cb.checked;
+  });
+});
+
+// ─── Step navigation ───
+let currentStep = 0;
+function goStep(n){
+  document.getElementById('panel'+currentStep).classList.remove('active');
+  document.getElementById('st'+currentStep).classList.remove('active');
+  document.getElementById('st'+currentStep).classList.add('done');
+  currentStep = n;
+  document.getElementById('panel'+n).classList.add('active');
+  document.getElementById('st'+n).classList.remove('done');
+  document.getElementById('st'+n).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ─── Get checked values ───
+function getChecked(gridId){
+  return [...document.querySelectorAll(`#${gridId} input:checked`)].map(i=>i.value);
+}
+function sliderVal(id){ return parseInt(document.getElementById(id)?.value||0); }
+function fieldVal(id){ return document.getElementById(id)?.value||''; }
+
+// ─── REPORT ENGINE ───
+function generateReport(){
+  goStep(5);
+  const data = collectData();
+  const scores = computeScores(data);
+  const recs = buildRecommendations(data, scores);
+  renderReport(data, scores, recs);
+}
+
+function collectData(){
+  return {
+    name: fieldVal('f_name')||'Ваша компания',
+    niche: fieldVal('f_niche')||'Не указана',
+    city: fieldVal('f_city'),
+    years: parseInt(fieldVal('f_years'))||1,
+    desc: fieldVal('f_desc'),
+    revenue: parseFloat(fieldVal('f_revenue'))||0,
+    employees: parseInt(fieldVal('f_employees'))||1,
+    avgcheck: parseFloat(fieldVal('f_avgcheck'))||0,
+    presence: getChecked('presenceGrid'),
+    salesChannels: getChecked('salesGrid'),
+    conv: parseFloat(fieldVal('f_conv'))||20,
+    newcl: parseInt(fieldVal('f_newcl'))||10,
+    repeat: parseFloat(fieldVal('f_repeat'))||20,
+    crm: fieldVal('f_crm'),
+    scripts: fieldVal('f_scripts'),
+    s_speed: sliderVal('s_speed'), s_obj: sliderVal('s_obj'),
+    s_follow: sliderVal('s_follow'), s_needs: sliderVal('s_needs'),
+    nps: sliderVal('s_nps'),
+    ltv: parseInt(fieldVal('f_ltv'))||2,
+    churn: parseFloat(fieldVal('f_churn'))||25,
+    loyalty: fieldVal('f_loyalty'),
+    reviews: fieldVal('f_reviews'),
+    s_svc_speed: sliderVal('s_svc_speed'), s_polite: sliderVal('s_polite'),
+    s_complaints: sliderVal('s_complaints'), s_after: sliderVal('s_after'),
+    complaints_text: fieldVal('f_complaints_text'),
+    mktbdg: parseFloat(fieldVal('f_mktbdg'))||0,
+    mktpct: parseFloat(fieldVal('f_mktpct'))||3,
+    cac: parseFloat(fieldVal('f_cac'))||0,
+    s_brand: sliderVal('s_brand'), s_visual: sliderVal('s_visual'),
+    s_social: sliderVal('s_social'), s_rating: sliderVal('s_rating'),
+    competitors: fieldVal('f_competitors'),
+    usp: fieldVal('f_usp'),
+    s_auto: sliderVal('s_auto'), s_inv: sliderVal('s_inv'),
+    s_docs: sliderVal('s_docs'), s_hr: sliderVal('s_hr'),
+    tech: getChecked('techGrid'),
+    mainproblem: fieldVal('f_mainproblem'),
+  };
+}
+
+function computeScores(d){
+  // Sales score (0–100)
+  const salesRaw = (d.s_speed+d.s_obj+d.s_follow+d.s_needs)/4*10;
+  const crmBonus = {no:0,excel:5,basic:10,advanced:20}[d.crm]||0;
+  const scriptBonus = {no:0,basic:8,advanced:15}[d.scripts]||0;
+  const channelBonus = Math.min(d.salesChannels.length*5,20);
+  const convBonus = d.conv>=50?15:d.conv>=30?8:0;
+  const sales = Math.min(100, Math.round(salesRaw+crmBonus+scriptBonus+channelBonus+convBonus)/2);
+
+  // Customer score
+  const svcRaw = (d.s_svc_speed+d.s_polite+d.s_complaints+d.s_after)/4*10;
+  const npsBonus = d.nps*3;
+  const loyaltyBonus = {no:0,card:5,points:12,subscr:18,vip:22}[d.loyalty]||0;
+  const reviewBonus = {no:0,verbal:3,google:10,system:18}[d.reviews]||0;
+  const churnPenalty = d.churn>30?-15:d.churn>20?-8:0;
+  const customer = Math.min(100, Math.round((svcRaw+npsBonus+loyaltyBonus+reviewBonus+churnPenalty)/2.5));
+
+  // Marketing score
+  const mktRaw = (d.s_brand+d.s_visual+d.s_social+d.s_rating)/4*10;
+  const presenceBonus = Math.min(d.presence.length*6,30);
+  const budgetBonus = d.mktpct>=10?15:d.mktpct>=5?8:0;
+  const marketing = Math.min(100, Math.round((mktRaw+presenceBonus+budgetBonus)/2));
+
+  // Operations score
+  const opsRaw = (d.s_auto+d.s_inv+d.s_docs+d.s_hr)/4*10;
+  const techBonus = Math.min(d.tech.length*7,28);
+  const yearsBonus = Math.min(d.years*2,10);
+  const operations = Math.min(100, Math.round((opsRaw+techBonus+yearsBonus)/2));
+
+  // Financial health
+  const empRatio = d.revenue/Math.max(d.employees,1);
+  const finRaw = empRatio>5?80:empRatio>2?60:empRatio>1?40:25;
+  const repeatBonus = d.repeat>50?20:d.repeat>30?10:0;
+  const finance = Math.min(100, Math.round(finRaw+repeatBonus));
+
+  // Quality score (composite of service + ops)
+  const quality = Math.round((customer*0.5+operations*0.3+sales*0.2));
+
+  const total = Math.round((sales*0.2+customer*0.25+marketing*0.2+operations*0.15+finance*0.1+quality*0.1));
+
+  return {sales, customer, marketing, operations, finance, quality, total};
+}
+
+function buildRecommendations(d, sc){
+  const recs = [];
+
+  const add = (priority, icon, title, body, impact, category) =>
+    recs.push({priority, icon, title, body, impact, category});
+
+  // ── SALES ──
+  if(d.crm==='no') add(1,'🗂','Внедрите CRM систему',
+    'Без CRM вы теряете до 40% лидов — они просто "пропадают". Начните с бесплатного AmoCRM или Bitrix24. Настройте воронку под ваш процесс продаж за 1 день.',
+    '+35% конверсии, −30% потерь лидов','sales');
+
+  if(d.s_speed<6) add(1,'⚡','Сократите время ответа до 5 минут',
+    'Исследования показывают: отвечая в первые 5 минут, вы в 21 раз более вероятно закрываете сделку. Настройте auto-reply в WhatsApp Business с заготовленным ответом и кнопкой "Перезвоним".',
+    '+55% шанс закрытия сделки','sales');
+
+  if(d.s_follow<5) add(1,'🔔','Создайте систему follow-up',
+    `Большинство продаж происходит на 5–7 касании. После первого контакта нет ответа → ждите 24ч → напомните. Затем 3 дня → повторный звонок. Через 7 дней → другой формат (видео, польза). Отказ — это просто "не сейчас".`,
+    '+28% к выручке без новых лидов','sales');
+
+  if(d.scripts==='no') add(2,'📋','Разработайте скрипты продаж',
+    'Запишите 10 главных возражений клиентов и готовые ответы. Для каждого этапа воронки: приветствие, выявление потребности, презентация, обработка возражений, закрытие. Обучите команду.',
+    '+20% конверсии в команде','sales');
+
+  if(d.conv<30) add(1,'🎯','Улучшите конверсию обращений',
+    `Ваша конверсия ${d.conv}% — есть пространство для роста. Главные причины низкой конверсии: долгий ответ, нет доверия (кейсы, отзывы), неправильный квалифицирующий вопрос, высокая цена без обоснования ценности.`,
+    `+${Math.round((40-d.conv)*0.5)}% к выручке при том же трафике`,'sales');
+
+  if(!d.salesChannels.includes('referral')) add(2,'🤝','Запустите реферальную программу',
+    'Попросите довольных клиентов рекомендовать вас за скидку или бонус. "Приведи друга — получи 10% скидку". Стоимость привлечения через рекомендации в 5 раз ниже рекламы.',
+    'CAC снижается на 70%','sales');
+
+  // ── CUSTOMER ──
+  if(d.churn>25) add(1,'🔄',`Устраните отток клиентов (${d.churn}%)`,
+    `При оттоке ${d.churn}% вы теряете значительную часть базы ежемесячно. Причины: нет персонального внимания после покупки, нет поводов вернуться, конкурент предложил лучшее. Позвоните 10 ушедшим клиентам лично — узнайте причину.`,
+    `+${Math.round(d.churn*0.4)}% LTV при снижении оттока`,'customer');
+
+  if(d.loyalty==='no') add(2,'🎁','Внедрите программу лояльности',
+    'Простейший вариант: накопительная карточка (купи 5 — 6-й бесплатно) или скидка постоянного клиента 5–10%. Клиент с лояльностью тратит на 67% больше. Даже простое "спасибо за выбор" в WhatsApp через 3 дня после покупки повышает возврат.',
+    '+40% к повторным покупкам','customer');
+
+  if(d.reviews==='no'||d.reviews==='verbal') add(1,'⭐','Создайте систему сбора отзывов',
+    `Алгоритм: через 24–48ч после покупки — WA-сообщение "Как вам?". Доволен → "Оставьте отзыв в Google/2GIS (ссылка)". Недоволен → "Расскажите, исправим". 4.8+ рейтинг даёт +25% к органическому трафику.`,
+    '+30% доверия новых клиентов','customer');
+
+  if(d.s_after<6) add(2,'💌','Улучшите послепродажный сервис',
+    `Клиент чувствует себя брошенным после покупки. Настройте: D+1 сообщение "Как впечатления?", D+7 полезный совет по использованию, D+30 напоминание/специальное предложение. Это увеличивает LTV вдвое.`,
+    '+25% к LTV клиента','customer');
+
+  if(d.complaints_text) add(2,'🛠','Устраните системные жалобы',
+    `Вы упомянули: "${d.complaints_text.slice(0,100)}...". Каждая повторяющаяся жалоба — это процесс, который нужно исправить, а не отдельный недовольный клиент. Составьте ТОП-5 жалоб и устраните первопричину.`,
+    'Снижение оттока на 20%+','customer');
+
+  // ── MARKETING ──
+  if(!d.presence.includes('website')) add(1,'🌐','Создайте профессиональный сайт',
+    `Без сайта вы теряете клиентов, которые ищут в Google. В 2024г 78% клиентов проверяют сайт перед покупкой. Сайт должен: быстро загружаться (под 3 сек), иметь кнопку "Позвонить/Написать", показывать отзывы и цены.`,
+    '+40% к органическому трафику','marketing');
+
+  if(!d.presence.includes('2gis')&&!d.presence.includes('google_maps')) add(1,'📍','Зарегистрируйтесь в картах',
+    'Google Maps + 2GIS — бесплатный источник горячих клиентов. Добавьте фото, часы работы, меню/прайс. Компании с заполненным профилем получают в 7 раз больше кликов.',
+    '+50 лидов/мес бесплатно','marketing');
+
+  if(d.s_social<5) add(2,'📸','Активизируйте Instagram / Telegram',
+    `${d.name} пока слабо представлен в соцсетях. Формула контента: 40% польза (советы, как-это-работает), 30% за кулисами (команда, процесс), 20% отзывы и кейсы, 10% акции. Публикуйте 4–5 раз в неделю.`,
+    '+60% узнаваемости за 3 месяца','marketing');
+
+  if(d.mktpct<5) add(2,'💰','Увеличьте маркетинговый бюджет',
+    `Вы тратите ${d.mktpct}% оборота на маркетинг. Норма для роста: 8–15%. Начните с Instagram-рекламы (от 300K UZS/мес) — таргетируйте по геолокации в вашем районе города.`,
+    'x2–3 поток новых клиентов','marketing');
+
+  if(d.s_visual<5) add(2,'🎨','Обновите визуальный стиль',
+    'Устаревший логотип, нет фирменных цветов, разный стиль в постах — клиенты не запоминают бренд. Закажите минимальный брендинг: логотип + 3 цвета + 2 шрифта = вся ваша идентичность.',
+    '+25% к воспринимаемому качеству','marketing');
+
+  if(d.s_rating<7) add(3,'🗺','Повысьте рейтинг на картах',
+    `Рейтинг ниже 4.5 — красный флаг для клиентов. Запускайте систему: после каждого обслуживания отправляйте ссылку на отзыв. Отвечайте на ВСЕ отзывы (даже негативные) в течение 24 часов.`,
+    '+20% кликов из 2GIS/Google','marketing');
+
+  // ── OPERATIONS ──
+  if(d.s_auto<5) add(2,'🤖','Автоматизируйте рутинные процессы',
+    'Что можно автоматизировать прямо сейчас: 1) Напоминания клиентам через WA-бота 2) Шаблонные ответы на частые вопросы 3) Автоматический учёт заказов в Google Sheets 4) Авто-рассылка после визита.',
+    '−3 часа рутины в день','operations');
+
+  if(!d.tech.includes('booking')) add(2,'📅','Внедрите онлайн-запись',
+    'Позвольте клиентам записываться самим через Telegram-бота или Yclients. Снижает нагрузку на администратора на 60% и снижает no-show на 40% (автонапоминания).',
+    '−60% нагрузки на администратора','operations');
+
+  if(!d.tech.includes('payment')) add(3,'💳','Добавьте онлайн-оплату',
+    'Payme, Click, Uzum — принимайте платежи онлайн. Клиенты, оплатившие заранее, в 3 раза реже отменяют запись. Интеграция с сайтом занимает 1 день.',
+    '+15% к кассе, −40% no-show','operations');
+
+  if(d.s_hr<6) add(3,'👥','Улучшите управление командой',
+    'Текучка кадров — один из главных скрытых расходов. Внедрите: еженедельные 15-мин встречи с командой, чёткие KPI на каждую должность, публичную доску признания лучших сотрудников месяца.',
+    'Снижение текучки на 30%','operations');
+
+  // Sort by priority
+  recs.sort((a,b)=>a.priority-b.priority);
+  return recs;
+}
+
+function renderReport(d, sc, recs){
+  const total = sc.total;
+  const grade = total>=80?{label:'Отлично',color:'var(--green)',bg:'rgba(0,230,118,.1)'}:
+                total>=65?{label:'Хорошо',color:'var(--yellow)',bg:'rgba(255,214,0,.1)'}:
+                total>=50?{label:'Средне',color:'var(--orange)',bg:'rgba(255,109,0,.1)'}:
+                          {label:'Требует внимания',color:'var(--red)',bg:'rgba(255,23,68,.1)'};
+
+  const cats = [
+    {name:'Продажи',key:'sales',icon:'💰'},
+    {name:'Клиенты / CX',key:'customer',icon:'❤'},
+    {name:'Маркетинг',key:'marketing',icon:'📢'},
+    {name:'Операции',key:'operations',icon:'⚙'},
+    {name:'Финансы',key:'finance',icon:'📊'},
+    {name:'Качество',key:'quality',icon:'⭐'},
+  ];
+
+  const catColor = s => s>=70?'var(--green)':s>=50?'var(--yellow)':'var(--red)';
+
+  const catCards = cats.map(c=>`
+    <div class="cat-card">
+      <div class="cat-name">${c.icon} ${c.name}</div>
+      <div class="cat-score" style="color:${catColor(sc[c.key])}">${sc[c.key]}</div>
+      <div class="cat-bar"><div class="cat-fill" style="width:${sc[c.key]}%;background:${catColor(sc[c.key])}"></div></div>
+    </div>
+  `).join('');
+
+  const priorityLabels = ['СРОЧНО','ВАЖНО','РЕКОМЕНДУЕТСЯ'];
+  const recCards = recs.map(r=>`
+    <div class="rec-card priority-${r.priority}">
+      <div class="rec-icon p${r.priority}">${r.icon}</div>
+      <div>
+        <div class="rec-title">${r.title}</div>
+        <div class="rec-body">${r.body}</div>
+        <div class="rec-impact">💡 Ожидаемый эффект: ${r.impact}</div>
+      </div>
+      <span class="priority-badge pb${r.priority}">${priorityLabels[r.priority-1]}</span>
+    </div>
+  `).join('');
+
+  // Action table — top 10 actions
+  const topActions = recs.slice(0,10).map((r,i)=>`
+    <tr>
+      <td><span class="priority-badge pb${r.priority}">${r.priority}</span></td>
+      <td><strong>${r.title}</strong></td>
+      <td style="color:var(--muted)">${r.category==='sales'?'Продажи':r.category==='customer'?'Клиенты':r.category==='marketing'?'Маркетинг':'Операции'}</td>
+      <td><span class="timeline-chip">${r.priority===1?'Нед 1–2':r.priority===2?'Мес 1':'Мес 2–3'}</span></td>
+      <td style="color:var(--green);font-size:11px">${r.impact}</td>
+    </tr>
+  `).join('');
+
+  document.getElementById('reportOutput').innerHTML = `
+    <div class="report-header">
+      <div class="big-score" style="color:${grade.color}">${total}</div>
+      <div>
+        <div class="company-info-head">
+          <h2>${d.name}</h2>
+          <p>${d.niche} · ${d.city} · ${d.years} ${d.years===1?'год':d.years<5?'года':'лет'} на рынке · ${d.employees} сотрудников</p>
+        </div>
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+          ${d.presence.map(p=>`<span style="font-size:11px;background:var(--bg2);border:1px solid var(--border2);border-radius:4px;padding:2px 8px">${p}</span>`).join('')}
+        </div>
+      </div>
+      <div style="text-align:center">
+        <div class="score-grade" style="background:${grade.bg};color:${grade.color};border:1px solid ${grade.color}">${grade.label}</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:8px">${recs.filter(r=>r.priority===1).length} критических задач</div>
+        <div style="font-size:11px;color:var(--muted)">${recs.filter(r=>r.priority===2).length} важных улучшений</div>
+        <div style="font-size:10px;color:var(--dim);margin-top:8px">Аудит: ${new Date().toLocaleDateString('ru')}</div>
+      </div>
+    </div>
+
+    <div class="section-head">Оценки по категориям</div>
+    <div class="score-categories">${catCards}</div>
+
+    <div class="section-head">Рекомендации (${recs.length})</div>
+    <div class="recs-grid">${recCards}</div>
+
+    <div class="section-head">План действий — первые 90 дней</div>
+    <table class="action-table">
+      <thead><tr><th>#</th><th>Действие</th><th>Категория</th><th>Срок</th><th>Ожидаемый эффект</th></tr></thead>
+      <tbody>${topActions}</tbody>
+    </table>
+
+    ${d.mainproblem?`
+    <div class="section-head">Ваша главная проблема: анализ</div>
+    <div style="background:var(--bg1);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:28px">
+      <div style="font-size:12px;color:var(--muted);margin-bottom:12px">Вы указали: «${d.mainproblem}»</div>
+      <div style="font-size:13px;line-height:1.7">
+        Эта проблема типична для ${d.niche} в Ташкенте. Корень, как правило, в одном из трёх:
+        <br><br>
+        <strong style="color:var(--cyan)">1. Нет системы привлечения</strong> — маркетинг нерегулярный, зависит от «сезона». Решение: настроить минимум 2 постоянных канала.
+        <br><br>
+        <strong style="color:var(--cyan)">2. Нет системы удержания</strong> — клиенты приходят один раз. Решение: программа лояльности + follow-up.
+        <br><br>
+        <strong style="color:var(--cyan)">3. Нет системы учёта</strong> — непонятно откуда клиенты, кто лучший сотрудник, какой продукт самый прибыльный. Решение: CRM + базовая аналитика.
+      </div>
+    </div>
+    `:''}
+
+    <div style="background:rgba(0,229,255,.05);border:1px solid rgba(0,229,255,.2);border-radius:12px;padding:20px;text-align:center">
+      <div style="font-size:15px;font-weight:800;margin-bottom:8px">Хотите сайт для вашего бизнеса?</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:16px">Профессиональный сайт — первый шаг к росту клиентов. Стоимость: <strong style="color:var(--cyan)">5 000 000 UZS</strong>. Запуск за 3 дня.</div>
+      <a href="../dashboard/index.html" style="display:inline-block;background:var(--cyan);color:#000;font-weight:700;font-size:13px;padding:10px 28px;border-radius:8px;text-decoration:none">Узнать подробнее →</a>
+    </div>
+  `;
+}
+</script>
+</body>
+</html>

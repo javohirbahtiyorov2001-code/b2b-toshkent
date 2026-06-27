@@ -1,0 +1,11 @@
+# Generated sites (too large, generate locally)
+generated_sites/
+__pycache__/
+*.pyc
+.env
+.DS_Store
+node_modules/
+crm/nextjs/.next/
+crm/nextjs/node_modules/
+**/.next/
+**/node_modules/
