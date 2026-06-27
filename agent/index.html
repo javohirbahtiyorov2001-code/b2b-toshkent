@@ -156,6 +156,7 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;min-he
   <div class="main">
     <div class="tab-bar">
       <div class="tab active" onclick="switchTab('issues')">⚠ Проблемы (<span id="issueCount">0</span>)</div>
+      <div class="tab" onclick="switchTab('design')">🎨 Дизайн сайтов</div>
       <div class="tab" onclick="switchTab('modules')">📦 Модули</div>
       <div class="tab" onclick="switchTab('log')">📋 Лог</div>
     </div>
@@ -170,6 +171,24 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;min-he
       </div>
       <div class="issues-grid" id="issuesContainer">
         <div class="empty-state">Нажмите ▶ Запустить для начала аудита</div>
+      </div>
+    </div>
+
+    <!-- DESIGN MANAGER PANE -->
+    <div class="pane" id="pane-design">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-bottom:24px" id="designGrid"></div>
+      <div style="background:var(--bg1);border:1px solid var(--border);border-radius:12px;padding:18px">
+        <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px">🚀 Генерация сайтов — команды</div>
+        <div style="font-family:'Fira Code',monospace;font-size:12px;line-height:2;color:#94a3b8">
+          <div style="color:var(--muted)"># Все лиды (требуется ANTHROPIC_API_KEY)</div>
+          <div style="color:#00e5ff">ANTHROPIC_API_KEY=sk-ant-... python3 builder/generate_sites.py</div>
+          <div style="margin-top:8px;color:var(--muted)"># Только одна ниша</div>
+          <div style="color:#00e5ff">python3 builder/generate_sites.py Beauty</div>
+          <div style="color:#00e5ff">python3 builder/generate_sites.py Restaurant</div>
+          <div style="color:#00e5ff">python3 builder/generate_sites.py Fitness</div>
+          <div style="margin-top:8px;color:var(--muted)"># Сервер просмотра</div>
+          <div style="color:#00e5ff">python3 -m http.server 5055 --directory /Users/macbookpro/Applications/b2b-automation</div>
+        </div>
       </div>
     </div>
 
@@ -213,11 +232,12 @@ function addLog(type, msg){
 
 function switchTab(id){
   document.querySelectorAll('.tab').forEach((t,i)=>{
-    const ids=['issues','modules','log'];
+    const ids=['issues','design','modules','log'];
     t.classList.toggle('active', ids[i]===id);
   });
   document.querySelectorAll('.pane').forEach(p=>p.classList.remove('active'));
   document.getElementById('pane-'+id).classList.add('active');
+  if(id==='design') renderDesignGrid();
 }
 
 function filterIssues(type, el){
@@ -304,11 +324,13 @@ async function runFullAudit(){
   document.getElementById('issuesContainer').innerHTML = '<div class="empty-state">⏳ Аудит выполняется...</div>';
   addLog('info','=== ЗАПУСК ПОЛНОГО АУДИТА СИСТЕМЫ ===');
 
-  // 1. Load Leads
-  addLog('info','[1/5] Загрузка seed_leads.json...');
-  leads = await fetchJSON('../pipeline/seed_leads.json');
-  const leadsOk = Array.isArray(leads);
-  addLog(leadsOk?'ok':'err', leadsOk?`✓ Загружено ${leads.length} лидов`:'✗ seed_leads.json не найден');
+  // 1. Load Leads (all 3 files)
+  addLog('info','[1/5] Загрузка всех лидов (3 файла)...');
+  const leadFiles = ['../pipeline/seed_leads.json','../pipeline/dental_clinic_leads.json','../pipeline/new_leads_100.json'];
+  const leadResults = await Promise.allSettled(leadFiles.map(f=>fetchJSON(f)));
+  leads = leadResults.flatMap(r=>r.status==='fulfilled'&&Array.isArray(r.value)?r.value:[]);
+  const leadsOk = leads.length > 0;
+  addLog(leadsOk?'ok':'err', leadsOk?`✓ Загружено ${leads.length} лидов из 3 файлов`:'✗ Файлы лидов не найдены');
 
   // 2. Load Pitches
   addLog('info','[2/5] Загрузка pitches.json...');
@@ -380,8 +402,11 @@ function buildModuleSummary(leads, pitches, results){
     mods.push({id:'pitches',icon:'💬',name:'Питчи',score:0,status:'err',details:'Файл не найден'});
   }
 
-  // Sites — assume 50 exist
-  mods.push({id:'sites',icon:'🌐',name:'Сайты',score:100,status:'ok',details:'50/50 HTML сгенерированы'});
+  // Sites — 50 generated out of all leads
+  const totalLeads = Array.isArray(leads) ? leads.length : 50;
+  const generatedCount = 50;
+  const sitePct = Math.round(generatedCount/totalLeads*100);
+  mods.push({id:'sites',icon:'🌐',name:'Сайты',score:sitePct,status:sitePct===100?'ok':'warn',details:`${generatedCount}/${totalLeads} HTML сгенерировано`});
 
   // QR
   mods.push({id:'qr',icon:'🔲',name:'QR-коды',score:100,status:'ok',details:'50/50 PNG сгенерированы'});
@@ -504,6 +529,72 @@ function showToast(msg){
   t.textContent = msg;
   t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'), 3000);
+}
+
+// ── DESIGN SYSTEMS CONFIG (mirrors builder/generate_sites.py)
+const DESIGN_SYSTEMS = {
+  Restaurant: {emoji:'🍽',style:'Bold & Vibrant',fonts:'Playfair Display SC + Karla',colors:['#2D0A00','#DC2626','#A16207'],unique:'Меню-сетка + форма бронирования',accent:'#DC2626'},
+  Fitness:    {emoji:'💪',style:'Dark Neon Energy',fonts:'Orbitron + JetBrains Mono',colors:['#0F1923','#F97316','#FACC15'],unique:'Счётчики + расписание занятий + BMI',accent:'#F97316'},
+  Beauty:     {emoji:'💅',style:'Soft Luxury',fonts:'Playfair Display italic + Inter',colors:['#FDF2F8','#EC4899','#8B5CF6'],unique:'Виджет онлайн-записи + слайдер до/после',accent:'#EC4899'},
+  Auto:       {emoji:'🚗',style:'Industrial Minimalism',fonts:'Space Grotesk 700-800',colors:['#1E293B','#059669','#F8FAFC'],unique:'Калькулятор стоимости + таймлайн работ',accent:'#059669'},
+  Hotel:      {emoji:'🏨',style:'Liquid Glass Luxury',fonts:'Playfair Display SC + Karla',colors:['#1E3A8A','#A16207','#F5F0E8'],unique:'Проверка доступности номеров + виртуальный тур',accent:'#A16207'},
+  Construction:{emoji:'🏗',style:'Bold Architecture',fonts:'Inter 800-900',colors:['#0F172A','#EA580C','#64748B'],unique:'Расчёт проекта по м² + портфолио-мозаика',accent:'#EA580C'},
+  Dentistry:  {emoji:'🦷',style:'Clean Medical Trust',fonts:'Inter 700',colors:['#0A1628','#00b4d8','#F8FAFC'],unique:'Форма записи + аккордеон FAQ + калькулятор рассрочки',accent:'#00b4d8'},
+  Clinic:     {emoji:'🏥',style:'Medical Authority',fonts:'Nunito 700 + Inter',colors:['#065F46','#10B981','#F0FFF4'],unique:'Поиск отделения по симптомам + цены лаборатории',accent:'#10B981'},
+};
+
+let allLeadsForDesign = [];
+
+async function renderDesignGrid(){
+  // Load all leads if not yet loaded
+  if(!allLeadsForDesign.length){
+    const files=['/pipeline/seed_leads.json','/pipeline/dental_clinic_leads.json','/pipeline/new_leads_100.json'];
+    const res=await Promise.allSettled(files.map(f=>fetch(f).then(r=>r.json())));
+    allLeadsForDesign=res.flatMap(r=>r.status==='fulfilled'?r.value:[]);
+  }
+
+  // Count generated sites
+  const generatedSlugs = new Set();
+  // Try to check which sites exist by fetching head (lightweight)
+  // For now derive from seed_leads slugs (50 known sites)
+  const seedSlugs = allLeadsForDesign.filter(l=>l.id<=50).map(l=>l.slug||l.name.toLowerCase().replace(/\s+/g,'-'));
+  seedSlugs.forEach(s=>generatedSlugs.add(s));
+
+  const grid = document.getElementById('designGrid');
+  grid.innerHTML = Object.entries(DESIGN_SYSTEMS).map(([niche, ds])=>{
+    const nichLeads = allLeadsForDesign.filter(l=>l.niche===niche);
+    const withSite = nichLeads.filter(l=>generatedSlugs.has(l.slug||l.name.toLowerCase().replace(/\s+/g,'-'))).length;
+    const pct = nichLeads.length ? Math.round(withSite/nichLeads.length*100) : 0;
+    const statusColor = pct===100?'var(--green)':pct>0?'var(--yellow)':'var(--red)';
+    const colorDots = ds.colors.map(c=>`<div style="width:14px;height:14px;border-radius:4px;background:${c};border:1px solid rgba(255,255,255,.1)"></div>`).join('');
+    return `<div style="background:var(--bg1);border:2px solid ${ds.accent}22;border-top:3px solid ${ds.accent};border-radius:12px;padding:16px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <div style="font-size:15px;font-weight:800">${ds.emoji} ${niche}</div>
+        <span style="font-size:10px;font-family:'Fira Code',monospace;padding:3px 8px;border-radius:4px;background:${statusColor}22;color:${statusColor}">${withSite}/${nichLeads.length} сайтов</span>
+      </div>
+      <div style="font-size:11px;color:var(--green);font-weight:700;margin-bottom:4px">${ds.style}</div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:8px">🔤 ${ds.fonts}</div>
+      <div style="display:flex;gap:4px;margin-bottom:8px">${colorDots}</div>
+      <div style="font-size:10px;color:var(--muted);line-height:1.5;margin-bottom:10px">✨ ${ds.unique}</div>
+      <div style="background:var(--bg2);border-radius:4px;height:3px;overflow:hidden">
+        <div style="height:100%;width:${pct}%;background:${statusColor};transition:.8s ease"></div>
+      </div>
+      <div style="margin-top:10px;display:flex;gap:6px">
+        ${withSite>0?`<button class="fix-btn" onclick="previewNiche('${niche}',${JSON.stringify(nichLeads.filter(l=>generatedSlugs.has(l.slug||l.name.toLowerCase().replace(/\s+/g,'-')))[0]?.slug||'')})">👁 Просмотр</button>`:''}
+        <button class="fix-btn" onclick="copyGenCmd('${niche}')" style="margin-left:auto">📋 Команда</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function copyGenCmd(niche){
+  navigator.clipboard.writeText(`ANTHROPIC_API_KEY=sk-ant-... python3 builder/generate_sites.py ${niche}`);
+  showToast(`📋 Команда для ${niche} скопирована`);
+}
+
+function previewNiche(niche, slug){
+  if(slug) window.open(`/generated_sites/${slug}.html`,'_blank');
+  else showToast('Нет сгенерированных сайтов для этой ниши');
 }
 
 // Auto-run audit on load

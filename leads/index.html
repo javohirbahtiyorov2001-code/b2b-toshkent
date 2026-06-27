@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Leads — B2B Toshkent</title>
+<title>Лиды — B2B Ташкент</title>
 <style>
 :root{--bg:#000;--s:#0a0a0a;--c:#111;--b:#1e1e1e;--cy:#00e5ff;--vi:#7c3aed;--tx:#e0e0e0;--mu:#555;--gn:#00c853;--or:#ff6d00;--rd:#ff1744}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -102,78 +102,78 @@ td{padding:12px 14px;font-size:13px;vertical-align:middle}
 <nav>
   <div class="logo">⚡ <span>B2B</span> Toshkent</div>
   <div class="nav-links">
-    <a href="/dashboard/index.html">Dashboard</a>
-    <a href="/leads/index.html" class="active">Leads</a>
-    <a href="/scraper/index.html">Scraper</a>
-    <a href="/pitches/index.html">Pitches</a>
-    <a href="/website/index.html">Agency</a>
+    <a href="/dashboard/index.html">Дашборд</a>
+    <a href="/leads/index.html" class="active">Лиды</a>
+    <a href="/scraper/index.html">Скрейпер</a>
+    <a href="/pitches/index.html">Питчи</a>
+    <a href="/website/index.html">Агентство</a>
   </div>
 </nav>
 
 <div class="header">
   <div>
-    <h1>Leads bazasi</h1>
-    <p id="headerSub">Yuklanmoqda...</p>
+    <h1>База лидов</h1>
+    <p id="headerSub">Загрузка...</p>
   </div>
-  <button class="btn-new" onclick="location.href='/scraper/index.html'">+ Yangi lead qo'shish</button>
+  <button class="btn-new" onclick="location.href='/scraper/index.html'">+ Добавить лид</button>
 </div>
 
 <div class="stats">
-  <div class="stat cy"><div class="lbl">Jami</div><div class="val" id="sTotal">—</div></div>
-  <div class="stat gn"><div class="lbl">Saytisiz</div><div class="val" id="sNoSite">—</div></div>
-  <div class="stat or"><div class="lbl">Sayt bor</div><div class="val" id="sHasSite">—</div></div>
-  <div class="stat"><div class="lbl">Bog'lanildi</div><div class="val" id="sContacted">—</div></div>
-  <div class="stat gn"><div class="lbl">Won</div><div class="val" id="sWon">—</div></div>
-  <div class="stat vi"><div class="lbl">Nishalar</div><div class="val" id="sNiches">—</div></div>
+  <div class="stat cy"><div class="lbl">Всего</div><div class="val" id="sTotal">—</div></div>
+  <div class="stat gn"><div class="lbl">Без сайта</div><div class="val" id="sNoSite">—</div></div>
+  <div class="stat or"><div class="lbl">Есть сайт</div><div class="val" id="sHasSite">—</div></div>
+  <div class="stat"><div class="lbl">Контакт</div><div class="val" id="sContacted">—</div></div>
+  <div class="stat gn"><div class="lbl">Выиграно</div><div class="val" id="sWon">—</div></div>
+  <div class="stat vi"><div class="lbl">Ниши</div><div class="val" id="sNiches">—</div></div>
 </div>
 
 <div class="filters">
-  <input type="text" id="fSearch" placeholder="🔍  Qidirish (nom, tel, manzil)..." oninput="applyFilters()">
+  <input type="text" id="fSearch" placeholder="🔍  Поиск (название, тел, адрес)..." oninput="applyFilters()">
   <select id="fNiche" onchange="applyFilters()">
-    <option value="">Barcha nishalar</option>
-    <option value="Restaurant">🍽 Restoran</option>
-    <option value="Fitness">💪 Fitnes</option>
-    <option value="Beauty">💅 Go'zallik</option>
-    <option value="Auto">🚗 Avto</option>
-    <option value="Hotel">🏨 Mehmonxona</option>
-    <option value="Construction">🏗 Qurilish</option>
-    <option value="Dentistry">🦷 Stomatologiya</option>
-    <option value="Clinic">🏥 Klinika</option>
+    <option value="">Все ниши</option>
+    <option value="Restaurant">🍽 Ресторан</option>
+    <option value="Fitness">💪 Фитнес</option>
+    <option value="Beauty">💅 Красота</option>
+    <option value="Auto">🚗 Авто</option>
+    <option value="Hotel">🏨 Отель</option>
+    <option value="Construction">🏗 Строительство</option>
+    <option value="Dentistry">🦷 Стоматология</option>
+    <option value="Clinic">🏥 Клиника</option>
   </select>
   <select id="fDistrict" onchange="applyFilters()">
-    <option value="">Barcha tumanlar</option>
+    <option value="">Все районы</option>
     <option>Yunusobod</option><option>Mirzo-Ulugbek</option><option>Chilonzor</option>
     <option>Mirabad</option><option>Shayxontohur</option><option>Almazar</option>
     <option>Yakkasaray</option><option>Uchtepa</option><option>Sergeli</option>
     <option>Yashnobod</option><option>Bektemir</option>
   </select>
   <select id="fStatus" onchange="applyFilters()">
-    <option value="">Barcha statuslar</option>
-    <option value="new">🆕 Yangi</option>
-    <option value="contacted">📞 Bog'lanildi</option>
-    <option value="won">✅ Won</option>
-    <option value="lost">❌ Lost</option>
+    <option value="">Все статусы</option>
+    <option value="new">🆕 Новый</option>
+    <option value="contacted">📞 Связались</option>
+    <option value="won">✅ Выиграно</option>
+    <option value="lost">❌ Проиграно</option>
   </select>
-  <button class="tbtn" id="btnNoSite" onclick="toggleF('noSite')">🟢 Saytisiz</button>
-  <button class="tbtn" id="btnVerified" onclick="toggleF('verified')">✅ Tasdiqlangan tel</button>
-  <button class="breset" onclick="resetFilters()">✕ Tozalash</button>
+  <button class="tbtn" id="btnNoSite" onclick="toggleF('noSite')">🟢 Без сайта</button>
+  <button class="tbtn" id="btnVerified" onclick="toggleF('verified')">✅ Подтвержд. тел.</button>
+  <button class="breset" onclick="resetFilters()">✕ Сбросить</button>
 </div>
 
 <div class="table-wrap">
   <div class="results-bar">
-    <span><strong id="rCount">0</strong> ta lead</span>
+    <span><strong id="rCount">0</strong> лидов</span>
   </div>
   <table>
     <thead>
       <tr>
         <th>#</th>
-        <th>Kompaniya</th>
-        <th>Nisha</th>
-        <th>Telefon</th>
-        <th>Tuman</th>
-        <th>Sayt</th>
-        <th>Telefon</th>
-        <th>Status</th>
+        <th>Компания</th>
+        <th>Ниша</th>
+        <th>Телефон</th>
+        <th>Район</th>
+        <th>Сайт</th>
+        <th>Телефон</th>
+        <th>Статус</th>
         <th></th>
       </tr>
     </thead>
@@ -207,7 +207,7 @@ async function init(){
   document.getElementById('sContacted').textContent=cont;
   document.getElementById('sWon').textContent=won;
   document.getElementById('sNiches').textContent=niches;
-  document.getElementById('headerSub').textContent=`${ALL.length} ta lead · ${niches} ta nisha`;
+  document.getElementById('headerSub').textContent=`${ALL.length} лидов · ${niches} ниш`;
 
   applyFilters();
 }
@@ -249,22 +249,22 @@ const NICHE_EMOJI={Restaurant:'🍽',Fitness:'💪',Beauty:'💅',Auto:'🚗',Ho
 function render(){
   const tbody=document.getElementById('tbody');
   const slice=filtered.slice((page-1)*PER,page*PER);
-  if(!slice.length){tbody.innerHTML=`<tr><td colspan="9" style="text-align:center;padding:60px;color:var(--mu)">Lead topilmadi</td></tr>`;return}
+  if(!slice.length){tbody.innerHTML=`<tr><td colspan="9" style="text-align:center;padding:60px;color:var(--mu)">Лиды не найдены</td></tr>`;return}
   const statuses=getStatuses();
   tbody.innerHTML=slice.map(l=>{
     const status=statuses[l.id]||'new';
     const statusBadge={
-      new:'<span class="badge b-new">🆕 Yangi</span>',
-      contacted:'<span class="badge b-cont">📞 Bog\'lanildi</span>',
-      won:'<span class="badge b-won">✅ Won</span>',
-      lost:'<span class="badge b-lost">❌ Lost</span>'
+      new:'<span class="badge b-new">🆕 Новый</span>',
+      contacted:'<span class="badge b-cont">📞 Связались</span>',
+      won:'<span class="badge b-won">✅ Выиграно</span>',
+      lost:'<span class="badge b-lost">❌ Проиграно</span>'
     }[status]||'';
     const siteBadge=l.has_website
-      ?'<span class="badge b-site">🌐 Bor</span>'
-      :'<span class="badge b-new">🆕 Yo\'q</span>';
+      ?'<span class="badge b-site">🌐 Есть</span>'
+      :'<span class="badge b-new">🆕 Нет</span>';
     const phoneBadge=l.phone_verified
-      ?'<span class="badge b-verif">✓ Real</span>'
-      :'<span class="badge b-est">~ Taxm.</span>';
+      ?'<span class="badge b-verif">✓ Реальный</span>'
+      :'<span class="badge b-est">~ Прибл.</span>';
     const emoji=NICHE_EMOJI[l.niche]||'🏢';
     return `<tr onclick="openLead(${l.id})">
       <td class="td-id">#${String(l.id).padStart(3,'0')}</td>
@@ -275,7 +275,7 @@ function render(){
       <td>${siteBadge}</td>
       <td>${phoneBadge}</td>
       <td>${statusBadge}</td>
-      <td class="td-action"><button class="btn-open">Ochish →</button></td>
+      <td class="td-action"><button class="btn-open">Открыть →</button></td>
     </tr>`;
   }).join('');
 }
