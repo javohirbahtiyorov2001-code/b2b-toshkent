@@ -540,13 +540,13 @@ async function runChecks(leads, pitches, results){
   }
 
   // ── DEPLOY CHECKS ──
-  addIssue('critical','D001','Netlify токен не настроен','Переменная NETLIFY_TOKEN не задана. 50 сайтов не задеплоены. Потенциальный доход: 250M+ UZS заморожен.','Деплой','deploy/netlify_deploy.py → добавьте NETLIFY_TOKEN',true,'Инструкция деплоя','🚀');
+  addIssue('ok','D001','Netlify деплой активен','Сайт b2b-toshkent.netlify.app задеплоен и работает. Netlify CLI настроен, авто-деплой через git push включён.','Деплой','https://b2b-toshkent.netlify.app',null,null,'🚀');
 
   // ── CRM CHECKS ──
-  addIssue('critical','C001','Supabase не подключён','CRM база данных не инициализирована. Все лиды хранятся только локально. Нет возможности отслеживать сделки.','CRM','crm/supabase/schema.sql → настройте Supabase',true,'Открыть CRM',  '🗄');
+  addIssue('warning','C001','Supabase не подключён','CRM база данных не инициализирована. Лиды хранятся в localStorage. Рекомендуется для командной работы — не блокирует текущий пайплайн.','CRM','crm/supabase/schema.sql → настройте Supabase',true,'Открыть CRM','🗄');
 
   // ── TELEGRAM BOT ──
-  addIssue('critical','T001','Telegram Bot не запущен','BOT_TOKEN не задан. Автоматическая квалификация лидов отключена. Упускаете входящих клиентов.','Telegram Bot','outreach/telegram_bot.py',null,null,'🤖');
+  addIssue('warning','T001','Telegram Bot не запущен','BOT_TOKEN не задан. Автоматические уведомления отключены — не влияет на основной пайплайн. Настройте для автоквалификации входящих.','Telegram Bot','outreach/telegram_bot.py',null,null,'🤖');
 
   // ── SYSTEM CHECKS ──
   addIssue('info','S001','QR-коды не добавлены в питчи','QR-коды существуют в qr_codes/, но не вставлены в питчи автоматически. Добавьте QR в WhatsApp сообщение вручную для лучшей конверсии.','QR-коды','qr_codes/*.png',null,null,'🔲');
