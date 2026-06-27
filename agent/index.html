@@ -102,6 +102,56 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;min-he
 .pane.active{display:block}
 .toast{position:fixed;bottom:24px;right:24px;background:var(--bg2);border:1px solid var(--green);border-radius:10px;padding:12px 18px;font-size:12px;color:var(--green);z-index:999;transform:translateY(80px);opacity:0;transition:.3s}
 .toast.show{transform:none;opacity:1}
+
+/* ══ MOBILE BOTTOM NAV ══ */
+.mob-bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:#0a0a0a;border-top:1px solid #1e1e1e;padding:0 0 env(safe-area-inset-bottom,0);height:56px}
+.mob-bottom-nav .mbn-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none;color:#555;font-size:9px;font-weight:600;padding:6px 0;transition:.2s;letter-spacing:.02em}
+.mob-bottom-nav .mbn-item:hover,.mob-bottom-nav .mbn-active{color:#00e5ff}
+.mob-bottom-nav .mbn-icon{font-size:18px;line-height:1}
+.mob-bottom-nav .mbn-label{font-size:9px;text-transform:uppercase;letter-spacing:.06em}
+
+@media(max-width:768px){
+  .mob-bottom-nav{display:flex}
+  body{padding-bottom:56px}
+}
+
+@media(max-width:768px){
+  .top-bar{padding:12px 14px;flex-wrap:wrap;gap:8px}
+  .top-bar h1{font-size:14px}
+  .status-pill{font-size:10px;padding:4px 10px}
+  .top-actions{gap:6px}
+  .top-actions .btn{font-size:11px;padding:5px 10px}
+
+  .layout{grid-template-columns:1fr;min-height:auto}
+  .sidebar{border-right:none;border-bottom:1px solid var(--border);max-height:none;padding:14px}
+  .score-ring{width:90px;height:90px}
+  .score-ring svg{width:90px;height:90px}
+  .score-num{font-size:24px}
+  .sidebar-section{margin-bottom:16px}
+  .sidebar-label{font-size:9px}
+  .metric-row{padding:6px 0}
+  .metric-name{font-size:11px}
+  .metric-val{font-size:12px}
+  .btn[style*="width:100"]{font-size:11px;padding:8px}
+
+  .main{padding:14px;max-height:none;overflow-y:visible}
+  .tab-bar{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:3px;gap:2px}
+  .tab{font-size:11px;padding:6px 12px;white-space:nowrap;flex-shrink:0}
+  .section-title{font-size:12px}
+  .issue-card{grid-template-columns:auto 1fr;gap:10px;padding:12px}
+  .issue-card>div:last-child{grid-column:2;justify-content:flex-start;flex-direction:row;flex-wrap:wrap;gap:5px}
+  .issue-icon{width:30px;height:30px;font-size:13px}
+  .issue-title{font-size:12px}
+  .issue-desc{font-size:11px}
+  .modules-grid{grid-template-columns:1fr}
+  .module-card{padding:12px}
+  .filters{gap:5px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .filter-chip{flex-shrink:0;font-size:11px;padding:4px 10px}
+  .log-wrap{font-size:10px}
+  /* design grid */
+  #designGrid{grid-template-columns:1fr!important}
+}
+
 </style>
 </head>
 <body>
@@ -600,5 +650,9 @@ function previewNiche(niche, slug){
 // Auto-run audit on load
 window.addEventListener('load', ()=> setTimeout(runFullAudit, 500));
 </script>
+
+<nav class="mob-bottom-nav" id="mobNav">
+  <a href="/dashboard/index.html" class="mbn-item"><span class="mbn-icon">⊞</span><span class="mbn-label">Дашборд</span></a><a href="/leads/index.html" class="mbn-item"><span class="mbn-icon">☰</span><span class="mbn-label">Лиды</span></a><a href="/scraper/index.html" class="mbn-item"><span class="mbn-icon">⊕</span><span class="mbn-label">Скрейпер</span></a><a href="/agent/index.html" class="mbn-item mbn-active"><span class="mbn-icon">⚙</span><span class="mbn-label">Агент</span></a>
+</nav>
 </body>
 </html>

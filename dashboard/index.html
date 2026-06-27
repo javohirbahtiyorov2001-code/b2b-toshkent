@@ -163,6 +163,86 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#07070d;color:#e2e8f0
 
 @media(max-width:1200px){.s3{grid-column:span 6}.s4{grid-column:span 6}.s8{grid-column:span 12}.s6{grid-column:span 12}}
 @media(max-width:768px){.sb{display:none}.main{margin-left:0;padding:0 14px 40px}.g{grid-template-columns:1fr}.s3,.s4,.s5,.s6,.s8,.s12{grid-column:span 1}}
+
+/* ══ MOBILE BOTTOM NAV ══ */
+.mob-bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:#0a0a0a;border-top:1px solid #1e1e1e;padding:0 0 env(safe-area-inset-bottom,0);height:56px}
+.mob-bottom-nav .mbn-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none;color:#555;font-size:9px;font-weight:600;padding:6px 0;transition:.2s;letter-spacing:.02em}
+.mob-bottom-nav .mbn-item:hover,.mob-bottom-nav .mbn-active{color:#00e5ff}
+.mob-bottom-nav .mbn-icon{font-size:18px;line-height:1}
+.mob-bottom-nav .mbn-label{font-size:9px;text-transform:uppercase;letter-spacing:.06em}
+
+@media(max-width:768px){
+  .mob-bottom-nav{display:flex}
+  body{padding-bottom:56px}
+}
+
+@media(max-width:768px){
+  /* topbar */
+  .tb{padding:14px 0 12px;flex-wrap:nowrap;gap:8px}
+  .tb h1{font-size:1.1rem}
+  .tb p{font-size:.68rem}
+  .tb-r{gap:6px}
+  .tb-r .btn{display:none}
+  .pill{font-size:.67rem;padding:.28rem .65rem}
+
+  /* bento grid – 2 columns on mobile */
+  .g{grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+  .s3,.s4,.s5{grid-column:span 1}
+  .s6,.s8,.s12{grid-column:span 2}
+
+  /* KPI card tweaks */
+  .c{padding:1rem;border-radius:14px}
+  .big{font-size:1.9rem}
+  .big.sm{font-size:1.4rem}
+  .lbl{font-size:.6rem}
+  .sub{font-size:.68rem}
+  .tag{font-size:.6rem;padding:.18rem .5rem}
+  .spk{height:28px;margin-top:.6rem}
+
+  /* pipeline scroll */
+  .pipe{overflow-x:auto;gap:0;padding-bottom:4px}
+  .ps{min-width:70px;padding:.5rem .3rem}
+  .pn{font-size:1rem}
+  .pl{font-size:.55rem}
+
+  /* table scroll */
+  .lt{font-size:.7rem}
+  .lt th,.lt td{padding:.45rem .5rem}
+  /* hide Score col on mobile */
+  .lt th:nth-child(4),.lt td:nth-child(4){display:none}
+
+  /* activity feed */
+  .feed{max-height:160px}
+  .fi{gap:.5rem}
+  .ftx{font-size:.7rem}
+
+  /* sites grid */
+  .sg{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));max-height:none}
+  .sth{height:52px}
+
+  /* donut section */
+  .dl .dlr{font-size:.68rem}
+  .dlv{font-size:.68rem}
+
+  /* steps */
+  .step{padding:.5rem}
+  .steptx{font-size:.68rem}
+
+  /* modal */
+  .modal{padding:1.25rem;border-radius:14px}
+  .modal code{font-size:.72rem;padding:.7rem}
+
+  /* mini stat */
+  .ms{gap:.5rem}
+  .msv{font-size:.82rem}
+}
+
+@media(max-width:480px){
+  .g{grid-template-columns:1fr}
+  .s3,.s4,.s5,.s6,.s8,.s12{grid-column:span 1}
+  .big{font-size:1.7rem}
+}
+
 </style>
 </head>
 <body>
@@ -629,5 +709,9 @@ setTimeout(()=>{
   });
 },200);
 </script>
+
+<nav class="mob-bottom-nav" id="mobNav">
+  <a href="/dashboard/index.html" class="mbn-item mbn-active"><span class="mbn-icon">⊞</span><span class="mbn-label">Дашборд</span></a><a href="/leads/index.html" class="mbn-item"><span class="mbn-icon">☰</span><span class="mbn-label">Лиды</span></a><a href="/scraper/index.html" class="mbn-item"><span class="mbn-icon">⊕</span><span class="mbn-label">Скрейпер</span></a><a href="/agent/index.html" class="mbn-item"><span class="mbn-icon">⚙</span><span class="mbn-label">Агент</span></a>
+</nav>
 </body>
 </html>

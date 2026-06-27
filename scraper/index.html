@@ -320,6 +320,49 @@
     height: 14px;
   }
   @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+/* ══ MOBILE BOTTOM NAV ══ */
+.mob-bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:#0a0a0a;border-top:1px solid #1e1e1e;padding:0 0 env(safe-area-inset-bottom,0);height:56px}
+.mob-bottom-nav .mbn-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none;color:#555;font-size:9px;font-weight:600;padding:6px 0;transition:.2s;letter-spacing:.02em}
+.mob-bottom-nav .mbn-item:hover,.mob-bottom-nav .mbn-active{color:#00e5ff}
+.mob-bottom-nav .mbn-icon{font-size:18px;line-height:1}
+.mob-bottom-nav .mbn-label{font-size:9px;text-transform:uppercase;letter-spacing:.06em}
+
+@media(max-width:768px){
+  .mob-bottom-nav{display:flex}
+  body{padding-bottom:56px}
+}
+
+@media(max-width:768px){
+  .topbar{padding:10px 14px;gap:10px}
+  .topbar-logo{font-size:13px}
+  .topbar-nav a{font-size:11px;padding:5px 8px}
+
+  .stats-row{padding:12px 14px 0;gap:8px;grid-template-columns:repeat(2,1fr)}
+  .stat-card{padding:12px 14px}
+  .stat-card .value{font-size:22px}
+  .stat-card .label{font-size:9px}
+
+  .filters-wrap,.filter-group{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:10px 14px;gap:6px}
+  .filter-group{flex-shrink:0}
+  select,input[type=text]{font-size:12px;padding:6px 10px;flex-shrink:0}
+  input[type=text]{width:170px}
+  .toggle-btn{font-size:11px;padding:6px 10px;flex-shrink:0;white-space:nowrap}
+  .btn-reset{flex-shrink:0;font-size:11px;padding:6px 10px}
+
+  .results-bar{padding:0 14px 10px;font-size:12px}
+
+  .leads-wrap{padding:0 14px 80px}
+  .leads-grid{grid-template-columns:1fr!important}
+  .lead-card{padding:14px}
+  .lead-card.list-view{flex-direction:column;padding:14px}
+
+  .pagination-wrap{padding:12px 14px;gap:5px;flex-wrap:wrap;justify-content:center}
+}
+@media(max-width:480px){
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+}
+
 </style>
 </head>
 <body>
@@ -698,5 +741,9 @@ function setView(v) {
 
 loadData();
 </script>
+
+<nav class="mob-bottom-nav" id="mobNav">
+  <a href="/dashboard/index.html" class="mbn-item"><span class="mbn-icon">⊞</span><span class="mbn-label">Дашборд</span></a><a href="/leads/index.html" class="mbn-item"><span class="mbn-icon">☰</span><span class="mbn-label">Лиды</span></a><a href="/scraper/index.html" class="mbn-item mbn-active"><span class="mbn-icon">⊕</span><span class="mbn-label">Скрейпер</span></a><a href="/agent/index.html" class="mbn-item"><span class="mbn-icon">⚙</span><span class="mbn-label">Агент</span></a>
+</nav>
 </body>
 </html>

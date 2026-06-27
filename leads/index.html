@@ -95,6 +95,55 @@ td{padding:12px 14px;font-size:13px;vertical-align:middle}
 .pg:hover{border-color:#333;color:#fff}
 .pg.on{background:rgba(0,229,255,.1);border-color:var(--cy);color:var(--cy)}
 .pg:disabled{opacity:.3;cursor:not-allowed}
+
+/* ══ MOBILE BOTTOM NAV ══ */
+.mob-bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:#0a0a0a;border-top:1px solid #1e1e1e;padding:0 0 env(safe-area-inset-bottom,0);height:56px}
+.mob-bottom-nav .mbn-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none;color:#555;font-size:9px;font-weight:600;padding:6px 0;transition:.2s;letter-spacing:.02em}
+.mob-bottom-nav .mbn-item:hover,.mob-bottom-nav .mbn-active{color:#00e5ff}
+.mob-bottom-nav .mbn-icon{font-size:18px;line-height:1}
+.mob-bottom-nav .mbn-label{font-size:9px;text-transform:uppercase;letter-spacing:.06em}
+
+@media(max-width:768px){
+  .mob-bottom-nav{display:flex}
+  body{padding-bottom:56px}
+}
+
+@media(max-width:768px){
+  nav{padding:10px 14px;gap:10px;overflow-x:auto}
+  .nav-links{gap:2px}
+  .nav-links a{font-size:11px;padding:5px 9px}
+
+  .header{padding:16px 14px 0;flex-direction:column;align-items:flex-start;gap:10px}
+  .header h1{font-size:18px}
+  .btn-new{width:100%;text-align:center;padding:10px}
+
+  .stats{grid-template-columns:repeat(3,1fr);gap:7px;padding:12px 14px 0}
+  .stat{padding:10px 10px}
+  .stat .val{font-size:20px}
+  .stat .lbl{font-size:9px}
+
+  .filters{padding:10px 14px;gap:6px;overflow-x:auto;flex-wrap:nowrap}
+  .filters input[type=text]{min-width:0;width:180px;flex-shrink:0}
+  .filters select,.tbtn,.breset{flex-shrink:0;font-size:11px;padding:6px 10px}
+  .breset{margin-left:0}
+
+  .table-wrap{padding:0 14px 100px;overflow-x:hidden}
+  .results-bar{padding:0 0 10px}
+
+  /* hide table, show as cards */
+  table{display:none}
+  #mobileCards{display:flex;flex-direction:column;gap:8px}
+
+  .pagination{padding:0 14px 20px;gap:4px;flex-wrap:wrap}
+  .pg{font-size:12px;padding:5px 9px}
+}
+@media(min-width:769px){#mobileCards{display:none}}
+
+@media(max-width:480px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat .val{font-size:18px}
+}
+
 </style>
 </head>
 <body>
@@ -179,6 +228,7 @@ td{padding:12px 14px;font-size:13px;vertical-align:middle}
     </thead>
     <tbody id="tbody"></tbody>
   </table>
+  <div id="mobileCards" style="display:none"></div>
 </div>
 <div class="pagination" id="pagination"></div>
 
@@ -246,7 +296,7 @@ function resetFilters(){
 
 const NICHE_EMOJI={Restaurant:'🍽',Fitness:'💪',Beauty:'💅',Auto:'🚗',Hotel:'🏨',Construction:'🏗',Dentistry:'🦷',Clinic:'🏥'};
 
-function render(){
+function render(){ renderMobileCards();
   const tbody=document.getElementById('tbody');
   const slice=filtered.slice((page-1)*PER,page*PER);
   if(!slice.length){tbody.innerHTML=`<tr><td colspan="9" style="text-align:center;padding:60px;color:var(--mu)">Лиды не найдены</td></tr>`;return}
@@ -300,6 +350,39 @@ function openLead(id){
 }
 
 init();
+
+// ── MOBILE CARD VIEW ──────────────────────────────────────────────────
+function renderMobileCards(){
+  if(window.innerWidth > 768){ return; }
+  const wrap = document.getElementById('mobileCards');
+  if(!wrap) return;
+  const slice = filtered.slice((page-1)*PER, page*PER);
+  const statuses = getStatuses();
+  if(!slice.length){wrap.innerHTML='<div style="text-align:center;padding:40px;color:#555">Лиды не найдены</div>';return}
+  const EMOJI={Restaurant:'🍽',Fitness:'💪',Beauty:'💅',Auto:'🚗',Hotel:'🏨',Construction:'🏗',Dentistry:'🦷',Clinic:'🏥'};
+  wrap.innerHTML = slice.map(l=>{
+    const st = statuses[l.id]||'new';
+    const stColor={new:'#555',contacted:'#00e5ff',won:'#00c853',lost:'#ff1744'}[st]||'#555';
+    const stLabel={new:'Новый',contacted:'Связались',won:'Выиграно',lost:'Проиграно'}[st]||st;
+    return `<div onclick="openLead(${l.id})" style="background:#111;border:1px solid #1e1e1e;border-radius:12px;padding:14px;display:flex;align-items:center;gap:12px;cursor:pointer;active:background:#1a1a1a">
+      <div style="width:42px;height:42px;border-radius:10px;background:rgba(0,229,255,.08);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">${EMOJI[l.niche]||'🏢'}</div>
+      <div style="flex:1;min-width:0">
+        <div style="font-weight:700;color:#fff;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${l.name}</div>
+        <div style="font-size:11px;color:#555;margin-top:2px">${l.niche} · ${l.district||'—'}</div>
+        <div style="font-size:11px;color:#00e5ff;margin-top:2px;font-family:monospace">${l.phone}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0">
+        <span style="font-size:10px;padding:3px 8px;border-radius:10px;background:${stColor}22;color:${stColor};white-space:nowrap">${stLabel}</span>
+        ${l.has_website?'<span style="font-size:9px;color:#ff6d00">🌐 сайт есть</span>':'<span style="font-size:9px;color:#00c853">+ новый</span>'}
+      </div>
+    </div>`;
+  }).join('');
+}
+
 </script>
+
+<nav class="mob-bottom-nav" id="mobNav">
+  <a href="/dashboard/index.html" class="mbn-item"><span class="mbn-icon">⊞</span><span class="mbn-label">Дашборд</span></a><a href="/leads/index.html" class="mbn-item mbn-active"><span class="mbn-icon">☰</span><span class="mbn-label">Лиды</span></a><a href="/scraper/index.html" class="mbn-item"><span class="mbn-icon">⊕</span><span class="mbn-label">Скрейпер</span></a><a href="/agent/index.html" class="mbn-item"><span class="mbn-icon">⚙</span><span class="mbn-label">Агент</span></a>
+</nav>
 </body>
 </html>

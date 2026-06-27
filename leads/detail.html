@@ -181,6 +181,94 @@ nav{display:flex;align-items:center;gap:12px;padding:14px 28px;border-bottom:1px
 .tl-dot{width:8px;height:8px;border-radius:50%;background:var(--cy);flex-shrink:0;margin-top:5px}
 .tl-text{font-size:13px;color:var(--tx)}
 .tl-time{font-size:11px;color:var(--mu);margin-top:2px}
+
+/* ══ MOBILE BOTTOM NAV ══ */
+.mob-bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:#0a0a0a;border-top:1px solid #1e1e1e;padding:0 0 env(safe-area-inset-bottom,0);height:56px}
+.mob-bottom-nav .mbn-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none;color:#555;font-size:9px;font-weight:600;padding:6px 0;transition:.2s;letter-spacing:.02em}
+.mob-bottom-nav .mbn-item:hover,.mob-bottom-nav .mbn-active{color:#00e5ff}
+.mob-bottom-nav .mbn-icon{font-size:18px;line-height:1}
+.mob-bottom-nav .mbn-label{font-size:9px;text-transform:uppercase;letter-spacing:.06em}
+
+@media(max-width:768px){
+  .mob-bottom-nav{display:flex}
+  body{padding-bottom:56px}
+}
+
+@media(max-width:768px){
+  nav{padding:10px 14px;gap:8px}
+  .logo{display:none}
+  .back{padding:5px 10px;font-size:12px}
+  .nav-links a{font-size:11px;padding:5px 8px}
+
+  .hero{padding:14px 14px 0;gap:12px}
+  .hero-avatar{width:52px;height:52px;border-radius:12px;font-size:24px;flex-shrink:0}
+  .hero-name{font-size:18px}
+  .hero-meta{gap:5px;margin-top:6px}
+  .hero-actions{flex-shrink:0;display:flex;flex-direction:column;gap:5px;min-width:90px}
+  .hero-actions .btn{padding:7px 10px;font-size:11px;width:100%}
+  .badge{font-size:10px;padding:3px 7px}
+
+  .status-row{padding:10px 14px 0;gap:8px;flex-wrap:wrap}
+  .status-select{font-size:12px;padding:6px 10px}
+
+  .tabs{padding:14px 14px 0;gap:0;-webkit-overflow-scrolling:touch}
+  .tab{padding:8px 12px;font-size:12px;white-space:nowrap}
+
+  .panels{padding:16px 14px 80px}
+
+  /* info grid already 1-col at 768 */
+  .info-card{padding:14px;border-radius:10px}
+  .info-card h3{font-size:10px;margin-bottom:10px}
+  .info-row{margin-bottom:8px;gap:8px}
+  .info-icon{font-size:14px;width:20px}
+  .info-content .key{font-size:10px}
+  .info-content .val{font-size:13px}
+
+  /* website iframe */
+  .site-toolbar{flex-wrap:wrap;gap:7px;padding:10px}
+  .site-url{font-size:11px;width:100%}
+  .device-toggle{display:none}
+  .site-toolbar .btn{padding:5px 10px;font-size:11px}
+  .site-frame{height:420px}
+
+  /* pitches */
+  .pitch-tabs{overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;gap:5px}
+  .ptab{white-space:nowrap;font-size:11px;padding:6px 11px;flex-shrink:0}
+  .pitch-text{font-size:12px;padding:12px;min-height:100px}
+  .pitch-actions{flex-wrap:wrap;gap:6px}
+  .pitch-actions .btn{flex:1;min-width:120px;font-size:11px;padding:7px 10px;justify-content:center}
+
+  /* audit */
+  .audit-header{flex-direction:column;gap:12px;align-items:flex-start}
+  .audit-grid{grid-template-columns:1fr}
+  .audit-item{padding:10px 12px}
+  .audit-item-text .title{font-size:12px}
+  .audit-item-text .sub{font-size:10px}
+
+  /* CRM */
+  .crm-hero{flex-direction:column;gap:12px;padding:14px}
+  .crm-icon{width:48px;height:48px;font-size:28px}
+  .crm-hero-text h2{font-size:16px}
+  .crm-grid{grid-template-columns:1fr}
+  .crm-modules{grid-template-columns:repeat(2,1fr)}
+  .crm-module{padding:10px}
+  .crm-total{flex-direction:column;gap:4px;align-items:flex-start}
+  .crm-total .amount{font-size:18px}
+
+  /* notes */
+  .notes-area{min-height:160px;font-size:13px}
+
+  /* timeline */
+  .tl-text{font-size:12px}
+  .tl-time{font-size:10px}
+}
+@media(max-width:480px){
+  .hero{flex-wrap:wrap}
+  .hero-actions{width:100%;flex-direction:row;flex-wrap:wrap}
+  .hero-actions .btn{flex:1}
+  .crm-modules{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
@@ -1039,5 +1127,9 @@ function showToast(msg){
 
 loadLead();
 </script>
+
+<nav class="mob-bottom-nav" id="mobNav">
+  <a href="/dashboard/index.html" class="mbn-item"><span class="mbn-icon">⊞</span><span class="mbn-label">Дашборд</span></a><a href="/leads/index.html" class="mbn-item mbn-active"><span class="mbn-icon">☰</span><span class="mbn-label">Лиды</span></a><a href="/scraper/index.html" class="mbn-item"><span class="mbn-icon">⊕</span><span class="mbn-label">Скрейпер</span></a><a href="/agent/index.html" class="mbn-item"><span class="mbn-icon">⚙</span><span class="mbn-label">Агент</span></a>
+</nav>
 </body>
 </html>
