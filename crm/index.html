@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRM — B2B Toshkent</title>
+<style>
+:root{--bg:#000;--s:#0a0a0a;--card:#111;--bd:#1e1e1e;--bd2:#2a2a2a;--text:#e0e0e0;--mu:#555;--green:#00e676;--cyan:#00e5ff;--yellow:#ffd600;--red:#ff1744;--orange:#ff6d00;--violet:#7c3aed}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Inter','SF Pro',system-ui,sans-serif;font-size:14px;min-height:100vh}
+a{text-decoration:none;color:inherit}
+.nav{display:flex;align-items:center;gap:16px;padding:13px 24px;border-bottom:1px solid var(--bd);background:var(--s);position:sticky;top:0;z-index:100}
+.logo{font-size:15px;font-weight:700;color:#fff}.logo span{color:var(--cyan)}
+.nav-links{display:flex;gap:3px;margin-left:auto}
+.nav-links a{color:var(--mu);font-size:12px;padding:5px 13px;border-radius:7px;transition:.2s}
+.nav-links a:hover{background:#1a1a1a;color:#fff}
+.nav-links a.active{background:rgba(0,229,255,.08);color:var(--cyan)}
+
+.wrap{padding:28px 24px 100px;max-width:1400px;margin:0 auto}
+.page-title{font-size:22px;font-weight:800;margin-bottom:6px}
+.page-sub{color:var(--mu);font-size:13px;margin-bottom:24px}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:28px}
+.stat{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px 16px}
+.stat .val{font-size:26px;font-weight:800;font-family:monospace}
+.stat .lbl{font-size:10px;color:var(--mu);text-transform:uppercase;letter-spacing:.06em;margin-top:4px}
+.stat.g .val{color:var(--green)}.stat.c .val{color:var(--cyan)}.stat.y .val{color:var(--yellow)}.stat.r .val{color:var(--red)}.stat.o .val{color:var(--orange)}
+
+/* KANBAN */
+.kanban{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:start;margin-bottom:28px}
+.col{background:var(--card);border:1px solid var(--bd);border-radius:12px;overflow:hidden}
+.col-head{padding:12px 14px;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between}
+.col-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.col-count{font-size:11px;font-family:monospace;color:var(--mu);background:var(--bd2);padding:2px 8px;border-radius:10px}
+.col-new .col-head{border-top:3px solid var(--mu)}
+.col-contact .col-head{border-top:3px solid var(--cyan)}
+.col-proposal .col-head{border-top:3px solid var(--yellow)}
+.col-won .col-head{border-top:3px solid var(--green)}
+.col-lost .col-head{border-top:3px solid var(--red)}
+.col-cards{padding:8px;display:flex;flex-direction:column;gap:6px;min-height:120px;max-height:70vh;overflow-y:auto}
+.card{background:#0a0a0a;border:1px solid var(--bd2);border-radius:8px;padding:10px 12px;cursor:pointer;transition:.15s}
+.card:hover{border-color:var(--bd);background:#111}
+.card-name{font-size:12px;font-weight:700;color:#fff;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-niche{font-size:10px;color:var(--mu)}
+.card-phone{font-size:10px;color:var(--cyan);font-family:monospace;margin-top:4px}
+.card-actions{display:flex;gap:4px;margin-top:8px;flex-wrap:wrap}
+.ca{background:none;border:1px solid var(--bd2);color:var(--mu);font-size:9px;padding:2px 7px;border-radius:4px;cursor:pointer;transition:.2s;white-space:nowrap}
+.ca:hover{border-color:var(--cyan);color:var(--cyan)}
+.ca.green:hover{border-color:var(--green);color:var(--green)}
+.ca.red:hover{border-color:var(--red);color:var(--red)}
+
+/* FILTER BAR */
+.filter-bar{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;align-items:center}
+.filter-bar input,.filter-bar select{background:var(--card);border:1px solid var(--bd2);color:var(--text);padding:7px 12px;border-radius:8px;font-size:12px;outline:none}
+.filter-bar input:focus,.filter-bar select:focus{border-color:var(--cyan)}
+.filter-bar input{min-width:200px}
+.btn{background:var(--card);border:1px solid var(--bd2);color:var(--text);padding:7px 14px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;transition:.2s}
+.btn:hover{border-color:var(--cyan);color:var(--cyan)}
+.btn-green{background:var(--green);color:#000;border-color:var(--green)}
+.btn-green:hover{background:#00ff88;border-color:#00ff88}
+
+/* TOAST */
+.toast{position:fixed;bottom:72px;right:20px;background:var(--card);border:1px solid var(--green);border-radius:10px;padding:10px 16px;font-size:12px;color:var(--green);z-index:999;transform:translateY(80px);opacity:0;transition:.3s}
+.toast.show{transform:none;opacity:1}
+
+/* MOBILE */
+.mob-bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:#0a0a0a;border-top:1px solid var(--bd);padding:0 0 env(safe-area-inset-bottom,0);height:56px}
+.mob-bottom-nav .mbn-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none;color:#555;font-size:9px;font-weight:600;padding:6px 0;transition:.2s}
+.mob-bottom-nav .mbn-active,.mob-bottom-nav .mbn-item:hover{color:#00e5ff}
+.mob-bottom-nav .mbn-icon{font-size:18px;line-height:1}
+.mob-bottom-nav .mbn-label{font-size:9px;text-transform:uppercase;letter-spacing:.06em}
+@media(max-width:900px){
+  .kanban{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:768px){
+  .mob-bottom-nav{display:flex}
+  body{padding-bottom:56px}
+  .wrap{padding:16px 14px 80px}
+  .kanban{grid-template-columns:repeat(2,1fr)}
+  .page-title{font-size:18px}
+  .filter-bar{gap:5px}
+  .filter-bar input{min-width:0;width:100%}
+}
+@media(max-width:480px){
+  .kanban{grid-template-columns:1fr}
+  .col-cards{max-height:200px}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="logo">⚡ <span>B2B</span> Toshkent</div>
+  <div class="nav-links">
+    <a href="/dashboard/index.html">Дашборд</a>
+    <a href="/leads/index.html">Лиды</a>
+    <a href="/scraper/index.html">Скрейпер</a>
+    <a href="/pipeline/index.html">Pipeline</a>
+    <a href="/crm/index.html" class="active">CRM</a>
+    <a href="/agent/index.html">Агент</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="page-title">📊 CRM — Воронка сделок</div>
+  <div class="page-sub">Управление лидами по стадиям · Статусы хранятся локально (localStorage)</div>
+
+  <div class="stats">
+    <div class="stat c"><div class="val" id="sTotal">—</div><div class="lbl">Всего лидов</div></div>
+    <div class="stat"><div class="val" id="sNew">—</div><div class="lbl">Новые</div></div>
+    <div class="stat c"><div class="val" id="sContact">—</div><div class="lbl">Контакт</div></div>
+    <div class="stat y"><div class="val" id="sProposal">—</div><div class="lbl">Предложение</div></div>
+    <div class="stat g"><div class="val" id="sWon">—</div><div class="lbl">Выиграно</div></div>
+    <div class="stat r"><div class="val" id="sLost">—</div><div class="lbl">Проиграно</div></div>
+    <div class="stat o"><div class="val" id="sRevenue">—</div><div class="lbl">Потенц. доход</div></div>
+  </div>
+
+  <div class="filter-bar">
+    <input type="text" id="fSearch" placeholder="🔍 Поиск компании..." oninput="render()">
+    <select id="fNiche" onchange="render()">
+      <option value="">Все ниши</option>
+      <option value="Restaurant">🍽 Ресторан</option>
+      <option value="Fitness">💪 Фитнес</option>
+      <option value="Beauty">💅 Красота</option>
+      <option value="Auto">🚗 Авто</option>
+      <option value="Hotel">🏨 Отель</option>
+      <option value="Construction">🏗 Строительство</option>
+      <option value="Dentistry">🦷 Стоматология</option>
+      <option value="Clinic">🏥 Клиника</option>
+    </select>
+    <button class="btn" onclick="resetFilters()">✕ Сбросить</button>
+    <button class="btn btn-green" onclick="exportWon()">⬇ Экспорт выигранных</button>
+  </div>
+
+  <div class="kanban">
+    <div class="col col-new">
+      <div class="col-head"><span class="col-title">🆕 Новые</span><span class="col-count" id="cnt-new">0</span></div>
+      <div class="col-cards" id="col-new"></div>
+    </div>
+    <div class="col col-contact">
+      <div class="col-head"><span class="col-title" style="color:var(--cyan)">📞 Контакт</span><span class="col-count" id="cnt-contacted">0</span></div>
+      <div class="col-cards" id="col-contacted"></div>
+    </div>
+    <div class="col col-proposal">
+      <div class="col-head"><span class="col-title" style="color:var(--yellow)">📋 Предложение</span><span class="col-count" id="cnt-proposal">0</span></div>
+      <div class="col-cards" id="col-proposal"></div>
+    </div>
+    <div class="col col-won">
+      <div class="col-head"><span class="col-title" style="color:var(--green)">✅ Выиграно</span><span class="col-count" id="cnt-won">0</span></div>
+      <div class="col-cards" id="col-won"></div>
+    </div>
+    <div class="col col-lost">
+      <div class="col-head"><span class="col-title" style="color:var(--red)">❌ Проиграно</span><span class="col-count" id="cnt-lost">0</span></div>
+      <div class="col-cards" id="col-lost"></div>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<nav class="mob-bottom-nav">
+  <a href="/dashboard/index.html" class="mbn-item"><span class="mbn-icon">⊞</span><span class="mbn-label">Дашборд</span></a>
+  <a href="/leads/index.html" class="mbn-item"><span class="mbn-icon">☰</span><span class="mbn-label">Лиды</span></a>
+  <a href="/scraper/index.html" class="mbn-item"><span class="mbn-icon">⊕</span><span class="mbn-label">Скрейпер</span></a>
+  <a href="/agent/index.html" class="mbn-item"><span class="mbn-icon">⚙</span><span class="mbn-label">Агент</span></a>
+</nav>
+
+<script>
+const STATUS_KEY = 'b2b_lead_status';
+const NICHE_EMOJI = {Restaurant:'🍽',Fitness:'💪',Beauty:'💅',Auto:'🚗',Hotel:'🏨',Construction:'🏗',Dentistry:'🦷',Clinic:'🏥'};
+const PRICES = {Restaurant:3500000,Fitness:4000000,Beauty:2800000,Auto:3200000,Hotel:5000000,Construction:6000000,Dentistry:4500000,Clinic:5500000};
+
+let ALL = [];
+
+function getStatuses(){ try{return JSON.parse(localStorage.getItem(STATUS_KEY)||'{}')}catch{return{}} }
+function setStatus(id, s){
+  const m = getStatuses(); m[id] = s;
+  localStorage.setItem(STATUS_KEY, JSON.stringify(m));
+  render();
+  toast(`Статус обновлён → ${STATUS_LABELS[s]||s}`);
+}
+
+const STATUS_LABELS = {new:'Новый',contacted:'Связались',proposal:'Предложение',won:'Выиграно',lost:'Проиграно'};
+const COLS = ['new','contacted','proposal','won','lost'];
+
+function render(){
+  const q = document.getElementById('fSearch').value.toLowerCase();
+  const ni = document.getElementById('fNiche').value;
+  const st = getStatuses();
+
+  const filtered = ALL.filter(l=>{
+    if(ni && l.niche !== ni) return false;
+    if(q && !`${l.name} ${l.niche} ${l.phone}`.toLowerCase().includes(q)) return false;
+    return true;
+  });
+
+  // Clear columns
+  COLS.forEach(c=>{ document.getElementById('col-'+c).innerHTML=''; document.getElementById('cnt-'+c).textContent='0'; });
+
+  const counts = {new:0,contacted:0,proposal:0,won:0,lost:0};
+
+  filtered.forEach(l=>{
+    const status = st[l.id] || 'new';
+    if(!counts.hasOwnProperty(status)) return;
+    counts[status]++;
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="card-name" title="${l.name}">${NICHE_EMOJI[l.niche]||'🏢'} ${l.name}</div>
+      <div class="card-niche">${l.niche} · ${l.district||'—'}</div>
+      <div class="card-phone">${l.phone}</div>
+      <div class="card-actions">
+        <button class="ca" onclick="window.open('https://wa.me/${(l.phone||'').replace(/\D/g,'')}','_blank');event.stopPropagation()">💬 WA</button>
+        <button class="ca" onclick="window.open('tel:${l.phone}');event.stopPropagation()">📞</button>
+        <button class="ca green" onclick="setStatus(${l.id},'won');event.stopPropagation()">✅ Выиграно</button>
+        <button class="ca" onclick="nextStatus(${l.id},'${status}');event.stopPropagation()">→ Далее</button>
+        <button class="ca red" onclick="setStatus(${l.id},'lost');event.stopPropagation()">✗</button>
+      </div>`;
+    card.onclick = ()=>{ location.href = `/leads/detail.html?id=${l.id}`; };
+    document.getElementById('col-'+status).appendChild(card);
+  });
+
+  COLS.forEach(c=>{ document.getElementById('cnt-'+c).textContent = counts[c]; });
+
+  // Stats
+  const total = filtered.length;
+  document.getElementById('sTotal').textContent = ALL.length;
+  document.getElementById('sNew').textContent = counts.new;
+  document.getElementById('sContact').textContent = counts.contacted;
+  document.getElementById('sProposal').textContent = counts.proposal;
+  document.getElementById('sWon').textContent = counts.won;
+  document.getElementById('sLost').textContent = counts.lost;
+
+  // Revenue estimate from won leads
+  const wonLeads = filtered.filter(l=>(st[l.id]||'new')==='won');
+  const rev = wonLeads.reduce((sum,l)=>sum+(PRICES[l.niche]||3000000),0);
+  document.getElementById('sRevenue').textContent = rev>=1000000 ? Math.round(rev/1000000)+'M' : rev.toLocaleString();
+}
+
+function nextStatus(id, current){
+  const order = ['new','contacted','proposal','won'];
+  const idx = order.indexOf(current);
+  if(idx < order.length-1) setStatus(id, order[idx+1]);
+}
+
+function resetFilters(){
+  document.getElementById('fSearch').value='';
+  document.getElementById('fNiche').value='';
+  render();
+}
+
+function exportWon(){
+  const st = getStatuses();
+  const won = ALL.filter(l=>(st[l.id]||'new')==='won');
+  if(!won.length){ toast('Нет выигранных лидов'); return; }
+  const csv = ['Компания,Ниша,Телефон,Район', ...won.map(l=>`"${l.name}","${l.niche}","${l.phone}","${l.district||''}"`)].join('\n');
+  const a = document.createElement('a');
+  a.href = 'data:text/csv;charset=utf-8,﻿'+encodeURIComponent(csv);
+  a.download = 'won_leads.csv';
+  a.click();
+  toast(`Экспортировано ${won.length} лидов`);
+}
+
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2500);
+}
+
+async function init(){
+  const files=['/pipeline/seed_leads.json','/pipeline/dental_clinic_leads.json','/pipeline/new_leads_100.json'];
+  const res = await Promise.allSettled(files.map(f=>fetch(f).then(r=>r.json())));
+  ALL = res.flatMap(r=>r.status==='fulfilled'&&Array.isArray(r.value)?r.value:[]);
+  render();
+}
+
+init();
+</script>
+</body>
+</html>

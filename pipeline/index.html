@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pipeline — B2B Toshkent</title>
+<style>
+:root{--bg:#000;--s:#0a0a0a;--card:#111;--bd:#1e1e1e;--bd2:#2a2a2a;--text:#e0e0e0;--mu:#555;--green:#00e676;--cyan:#00e5ff;--yellow:#ffd600;--red:#ff1744;--orange:#ff6d00;--violet:#7c3aed}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Inter','SF Pro',system-ui,sans-serif;font-size:14px;min-height:100vh}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+.nav{display:flex;align-items:center;gap:16px;padding:13px 24px;border-bottom:1px solid var(--bd);background:var(--s);position:sticky;top:0;z-index:100}
+.logo{font-size:15px;font-weight:700;color:#fff}.logo span{color:var(--cyan)}
+.nav-links{display:flex;gap:3px;margin-left:auto}
+.nav-links a{color:var(--mu);font-size:12px;padding:5px 13px;border-radius:7px;transition:.2s}
+.nav-links a:hover{background:#1a1a1a;color:#fff}
+.nav-links a.active{background:rgba(0,229,255,.08);color:var(--cyan)}
+
+/* LAYOUT */
+.wrap{max-width:1200px;margin:0 auto;padding:28px 24px 100px}
+.page-title{font-size:22px;font-weight:800;margin-bottom:6px}
+.page-sub{color:var(--mu);font-size:13px;margin-bottom:24px}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:28px}
+.stat{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px 18px}
+.stat .val{font-size:28px;font-weight:800;font-family:monospace}
+.stat .lbl{font-size:10px;color:var(--mu);text-transform:uppercase;letter-spacing:.06em;margin-top:4px}
+.stat.g .val{color:var(--green)}
+.stat.c .val{color:var(--cyan)}
+.stat.y .val{color:var(--yellow)}
+.stat.o .val{color:var(--orange)}
+
+/* PIPELINE STAGES */
+.stages{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-bottom:28px;border:1px solid var(--bd);border-radius:12px;overflow:hidden}
+.stage{background:var(--card);padding:16px;border-right:1px solid var(--bd);position:relative}
+.stage:last-child{border-right:none}
+.stage-n{font-size:10px;color:var(--mu);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.stage-v{font-size:26px;font-weight:800}
+.stage-bar{position:absolute;bottom:0;left:0;height:3px;background:var(--cyan);transition:.8s ease}
+
+/* CMD BOX */
+.cmd-box{background:var(--card);border:1px solid var(--bd2);border-radius:12px;padding:20px;margin-bottom:28px}
+.cmd-box h3{font-size:12px;color:var(--mu);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
+.cmd-list{display:flex;flex-direction:column;gap:8px}
+.cmd-row{display:flex;align-items:center;gap:10px;background:#0a0a0a;border:1px solid var(--bd);border-radius:8px;padding:10px 14px}
+.cmd-row code{flex:1;font-family:'Fira Code',monospace;font-size:12px;color:var(--cyan)}
+.cmd-copy{background:none;border:1px solid var(--bd2);color:var(--mu);padding:4px 10px;border-radius:5px;font-size:11px;cursor:pointer;transition:.2s;white-space:nowrap}
+.cmd-copy:hover{border-color:var(--cyan);color:var(--cyan)}
+.cmd-label{font-size:10px;color:var(--mu);min-width:120px}
+
+/* RESULTS TABLE */
+.section-title{font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--mu);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.section-title::after{content:'';flex:1;height:1px;background:var(--bd)}
+.tbl-wrap{background:var(--card);border:1px solid var(--bd);border-radius:12px;overflow:auto;margin-bottom:28px}
+table{width:100%;border-collapse:collapse}
+th{background:#0a0a0a;padding:10px 14px;text-align:left;font-size:10px;color:var(--mu);text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--bd);white-space:nowrap}
+td{padding:10px 14px;border-bottom:1px solid var(--bd);font-size:12px}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:rgba(255,255,255,.02)}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700;font-family:monospace}
+.badge.ok{background:rgba(0,230,118,.12);color:var(--green)}
+.badge.warn{background:rgba(255,214,0,.12);color:var(--yellow)}
+.badge.err{background:rgba(255,23,68,.12);color:var(--red)}
+.view-btn{background:none;border:1px solid var(--bd2);color:var(--mu);padding:3px 9px;border-radius:5px;font-size:10px;cursor:pointer;transition:.2s}
+.view-btn:hover{border-color:var(--cyan);color:var(--cyan)}
+
+/* LOG */
+.log{background:#050505;border:1px solid var(--bd);border-radius:12px;padding:16px;font-family:'Fira Code',monospace;font-size:11px;max-height:240px;overflow-y:auto}
+.log-line{padding:2px 0;border-bottom:1px solid var(--bd);color:var(--mu);display:flex;gap:10px}
+.log-line:last-child{border-bottom:none}
+.lt{color:#333;min-width:70px}
+.lok{color:var(--green)} .lwarn{color:var(--yellow)} .lerr{color:var(--red)} .linfo{color:var(--cyan)}
+
+/* MOBILE */
+.mob-bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:#0a0a0a;border-top:1px solid var(--bd);padding:0 0 env(safe-area-inset-bottom,0);height:56px}
+.mob-bottom-nav .mbn-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-decoration:none;color:#555;font-size:9px;font-weight:600;padding:6px 0;transition:.2s}
+.mob-bottom-nav .mbn-active,.mob-bottom-nav .mbn-item:hover{color:#00e5ff}
+.mob-bottom-nav .mbn-icon{font-size:18px;line-height:1}
+.mob-bottom-nav .mbn-label{font-size:9px;text-transform:uppercase;letter-spacing:.06em}
+@media(max-width:768px){
+  .mob-bottom-nav{display:flex}
+  body{padding-bottom:56px}
+  .stages{grid-template-columns:repeat(3,1fr)}
+  .stages .stage:nth-child(4),.stages .stage:nth-child(5){border-top:1px solid var(--bd)}
+  .wrap{padding:16px 14px 80px}
+  .page-title{font-size:18px}
+  th:nth-child(4),td:nth-child(4),th:nth-child(5),td:nth-child(5){display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="logo">⚡ <span>B2B</span> Toshkent</div>
+  <div class="nav-links">
+    <a href="/dashboard/index.html">Дашборд</a>
+    <a href="/leads/index.html">Лиды</a>
+    <a href="/scraper/index.html">Скрейпер</a>
+    <a href="/pipeline/index.html" class="active">Pipeline</a>
+    <a href="/crm/index.html">CRM</a>
+    <a href="/agent/index.html">Агент</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="page-title">⚙️ Pipeline</div>
+  <div class="page-sub">Генерация сайтов · Деплой · Результаты · Управление</div>
+
+  <div class="stats" id="statsRow">
+    <div class="stat c"><div class="val" id="sTotal">—</div><div class="lbl">Всего лидов</div></div>
+    <div class="stat g"><div class="val" id="sSites">50</div><div class="lbl">Сайтов создано</div></div>
+    <div class="stat y"><div class="val" id="sPitches">—</div><div class="lbl">Питчей готово</div></div>
+    <div class="stat o"><div class="val" id="sDeployed">50</div><div class="lbl">Задеплоено</div></div>
+  </div>
+
+  <div class="stages">
+    <div class="stage">
+      <div class="stage-n">1. Скрейп</div>
+      <div class="stage-v" id="p1">246</div>
+      <div class="stage-bar" style="width:100%"></div>
+    </div>
+    <div class="stage">
+      <div class="stage-n">2. Питчи</div>
+      <div class="stage-v" id="p2">50</div>
+      <div class="stage-bar" id="p2bar" style="width:20%"></div>
+    </div>
+    <div class="stage">
+      <div class="stage-n">3. Сайты</div>
+      <div class="stage-v" id="p3">50</div>
+      <div class="stage-bar" id="p3bar" style="width:20%"></div>
+    </div>
+    <div class="stage">
+      <div class="stage-n">4. Деплой</div>
+      <div class="stage-v" id="p4">50</div>
+      <div class="stage-bar" style="width:20%;background:var(--green)"></div>
+    </div>
+    <div class="stage">
+      <div class="stage-n">5. Выиграно</div>
+      <div class="stage-v" id="p5" style="color:var(--green)">—</div>
+      <div class="stage-bar" id="p5bar" style="width:0%;background:var(--green)"></div>
+    </div>
+  </div>
+
+  <div class="cmd-box">
+    <h3>🖥 Команды для запуска</h3>
+    <div class="cmd-list">
+      <div class="cmd-row">
+        <div class="cmd-label">Полный pipeline</div>
+        <code>python3 pipeline/run_pipeline.py</code>
+        <button class="cmd-copy" onclick="copy(this,'python3 pipeline/run_pipeline.py')">Копировать</button>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-label">Скрейп Google Maps</div>
+        <code>python3 scraper/google_maps.py</code>
+        <button class="cmd-copy" onclick="copy(this,'python3 scraper/google_maps.py')">Копировать</button>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-label">Генерация питчей</div>
+        <code>python3 pitches/generate_pitches.py</code>
+        <button class="cmd-copy" onclick="copy(this,'python3 pitches/generate_pitches.py')">Копировать</button>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-label">Генерация сайтов</div>
+        <code>python3 builder/generate_sites.py</code>
+        <button class="cmd-copy" onclick="copy(this,'python3 builder/generate_sites.py')">Копировать</button>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-label">По нише</div>
+        <code>python3 builder/generate_sites.py Restaurant</code>
+        <button class="cmd-copy" onclick="copy(this,'python3 builder/generate_sites.py Restaurant')">Копировать</button>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-label">Деплой Netlify</div>
+        <code>netlify deploy --prod --dir=.</code>
+        <button class="cmd-copy" onclick="copy(this,'netlify deploy --prod --dir=.')">Копировать</button>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-label">Git + авто-деплой</div>
+        <code>git add . && git commit -m "update" && git push</code>
+        <button class="cmd-copy" onclick="copy(this,'git add . && git commit -m \"update\" && git push')">Копировать</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">Результаты Pipeline (50 сайтов)</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th><th>Компания</th><th>Ниша</th><th>Телефон</th><th>Slug</th><th>Сайт</th><th>QR</th><th>Статус</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <div class="section-title">Системный лог</div>
+  <div class="log" id="logBox">
+    <div class="log-line"><span class="lt">—</span><span class="linfo">Загрузка данных pipeline...</span></div>
+  </div>
+</div>
+
+<nav class="mob-bottom-nav">
+  <a href="/dashboard/index.html" class="mbn-item"><span class="mbn-icon">⊞</span><span class="mbn-label">Дашборд</span></a>
+  <a href="/leads/index.html" class="mbn-item"><span class="mbn-icon">☰</span><span class="mbn-label">Лиды</span></a>
+  <a href="/scraper/index.html" class="mbn-item"><span class="mbn-icon">⊕</span><span class="mbn-label">Скрейпер</span></a>
+  <a href="/agent/index.html" class="mbn-item"><span class="mbn-icon">⚙</span><span class="mbn-label">Агент</span></a>
+</nav>
+
+<script>
+function log(cls, msg){
+  const box = document.getElementById('logBox');
+  const t = new Date().toTimeString().slice(0,8);
+  box.innerHTML += `<div class="log-line"><span class="lt">${t}</span><span class="${cls}">${msg}</span></div>`;
+  box.scrollTop = box.scrollHeight;
+}
+
+function copy(btn, text){
+  navigator.clipboard.writeText(text).then(()=>{
+    btn.textContent='✓ Скопировано';btn.style.color='var(--green)';
+    setTimeout(()=>{btn.textContent='Копировать';btn.style.color='';},1800);
+  });
+}
+
+async function fetchJ(url){ try{const r=await fetch(url);if(!r.ok)throw new Error(r.status);return r.json()}catch{return null}}
+
+async function init(){
+  log('linfo','[1/3] Загрузка лидов...');
+  const files=['/pipeline/seed_leads.json','/pipeline/dental_clinic_leads.json','/pipeline/new_leads_100.json'];
+  const res = await Promise.allSettled(files.map(f=>fetchJ(f)));
+  const leads = res.flatMap(r=>r.status==='fulfilled'&&Array.isArray(r.value)?r.value:[]);
+  document.getElementById('sTotal').textContent = leads.length;
+  log('lok',`✓ Загружено ${leads.length} лидов из 3 файлов`);
+
+  log('linfo','[2/3] Загрузка питчей...');
+  const pitches = await fetchJ('/pitches/pitches.json');
+  if(Array.isArray(pitches)){
+    document.getElementById('sPitches').textContent = pitches.length;
+    log('lok',`✓ ${pitches.length} питчей готово`);
+  } else {
+    document.getElementById('sPitches').textContent = '0';
+    log('lwarn','⚠ pitches.json не найден');
+  }
+
+  const total = leads.length;
+  document.getElementById('p2bar').style.width = Math.round(50/total*100)+'%';
+  document.getElementById('p3bar').style.width = Math.round(50/total*100)+'%';
+
+  // Won count from localStorage
+  try{
+    const st = JSON.parse(localStorage.getItem('b2b_lead_status')||'{}');
+    const won = Object.values(st).filter(v=>v==='won').length;
+    document.getElementById('p5').textContent = won;
+    document.getElementById('p5bar').style.width = won>0?Math.round(won/total*100)+'%':'0%';
+  }catch{}
+
+  log('linfo','[3/3] Загрузка results.json...');
+  const results = await fetchJ('/pipeline/results.json');
+  if(Array.isArray(results)){
+    log('lok',`✓ results.json: ${results.length} записей`);
+    renderTable(results);
+  } else {
+    log('lwarn','⚠ results.json не найден — pipeline не запускался');
+    renderTable([]);
+  }
+
+  log('lok','=== Pipeline дашборд загружен ===');
+}
+
+function renderTable(results){
+  const NICHE_EMOJI={Restaurant:'🍽',Fitness:'💪',Beauty:'💅',Auto:'🚗',Hotel:'🏨',Construction:'🏗',Dentistry:'🦷',Clinic:'🏥'};
+  const tbody = document.getElementById('tbody');
+  if(!results.length){
+    tbody.innerHTML='<tr><td colspan="8" style="text-align:center;padding:32px;color:var(--mu)">Нет данных. Запустите: <code style="color:var(--cyan)">python3 pipeline/run_pipeline.py</code></td></tr>';
+    return;
+  }
+  tbody.innerHTML = results.map((r,i)=>`
+    <tr>
+      <td style="color:var(--mu)">${i+1}</td>
+      <td style="font-weight:600;color:#fff">${r.name}</td>
+      <td>${NICHE_EMOJI[r.niche]||'🏢'} ${r.niche}</td>
+      <td style="font-family:monospace;color:var(--cyan)">${r.phone}</td>
+      <td style="font-family:monospace;font-size:11px;color:var(--mu)">${r.slug||'—'}</td>
+      <td><a href="/generated_sites/${r.slug}.html" target="_blank" class="view-btn">🌐 Сайт</a></td>
+      <td><a href="/qr_codes/${r.slug}.png" target="_blank" class="view-btn">📱 QR</a></td>
+      <td><span class="badge ok">✓ Готово</span></td>
+    </tr>
+  `).join('');
+}
+
+init();
+</script>
+</body>
+</html>

@@ -372,10 +372,204 @@
   <nav class="topbar-nav">
     <a href="/dashboard/index.html">Dashboard</a>
     <a href="/website/index.html">Agency Site</a>
+    <a href="/dashboard/index.html">Дашборд</a>
+    <a href="/leads/index.html">Лиды</a>
     <a href="/pipeline/index.html">Pipeline</a>
-    <a href="/scraper/index.html" class="active">Scraper</a>
-    <a href="/crm/">CRM</a>
+    <a href="/scraper/index.html" class="active">Скрейпер</a>
+    <a href="/crm/index.html">CRM</a>
+    <a href="/agent/index.html">Агент</a>
   </nav>
+</div>
+
+<style>
+/* ── SCRAPER CONTROL PANEL ── */
+.scraper-panel{background:#0a0a0a;border-bottom:1px solid var(--border);padding:20px 28px}
+.scraper-tabs{display:flex;gap:4px;margin-bottom:18px;border-bottom:1px solid var(--border);padding-bottom:0}
+.stab{padding:8px 18px;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:.2s}
+.stab.active{color:var(--cyan);border-bottom-color:var(--cyan)}
+.stab-pane{display:none}.stab-pane.active{display:block}
+
+/* Config grid */
+.cfg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:14px}
+.cfg-field label{display:block;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
+.cfg-field select,.cfg-field input{width:100%;background:#111;border:1px solid #222;color:var(--text);padding:8px 11px;border-radius:8px;font-size:12px;outline:none;transition:.2s}
+.cfg-field select:focus,.cfg-field input:focus{border-color:var(--cyan)}
+.cmd-output{background:#050505;border:1px solid #1a1a1a;border-radius:8px;padding:12px 14px;display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.cmd-output code{flex:1;font-family:'Fira Code',monospace;font-size:12px;color:var(--cyan);word-break:break-all}
+.copy-btn{background:none;border:1px solid #2a2a2a;color:var(--muted);padding:5px 12px;border-radius:6px;font-size:11px;cursor:pointer;white-space:nowrap;transition:.2s;flex-shrink:0}
+.copy-btn:hover{border-color:var(--cyan);color:var(--cyan)}
+.info-note{font-size:11px;color:var(--muted);margin-bottom:10px;line-height:1.5}
+.info-note strong{color:var(--yellow)}
+
+/* Schedule chips */
+.sched-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.chip{background:#111;border:1px solid #222;color:var(--muted);padding:5px 12px;border-radius:20px;font-size:11px;cursor:pointer;transition:.2s}
+.chip.on{background:rgba(0,229,255,.08);border-color:var(--cyan);color:var(--cyan)}
+
+/* Manual add form */
+.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:12px}
+.form-field label{display:block;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
+.form-field input,.form-field select,.form-field textarea{width:100%;background:#111;border:1px solid #222;color:var(--text);padding:8px 11px;border-radius:8px;font-size:12px;outline:none;transition:.2s;font-family:inherit}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:var(--cyan)}
+.form-field textarea{resize:vertical;min-height:70px}
+.btn-submit{background:var(--cyan);color:#000;border:none;padding:9px 22px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;transition:.2s}
+.btn-submit:hover{background:#00ffff}
+.btn-secondary{background:#111;border:1px solid #222;color:var(--text);padding:9px 22px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;transition:.2s}
+.btn-secondary:hover{border-color:var(--cyan);color:var(--cyan)}
+
+/* Import area */
+.import-drop{border:2px dashed #222;border-radius:10px;padding:30px;text-align:center;cursor:pointer;transition:.2s;position:relative;margin-bottom:12px}
+.import-drop:hover{border-color:var(--cyan);background:rgba(0,229,255,.03)}
+.import-drop input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer}
+.import-drop p{font-size:13px;color:var(--muted)}
+.import-drop strong{color:var(--cyan)}
+.import-textarea{width:100%;background:#050505;border:1px solid #222;color:var(--text);padding:12px;border-radius:8px;font-family:'Fira Code',monospace;font-size:11px;min-height:120px;outline:none;margin-bottom:10px;transition:.2s}
+.import-textarea:focus{border-color:var(--cyan)}
+.import-result{font-size:12px;padding:8px 12px;border-radius:6px;margin-bottom:8px;display:none}
+.import-result.ok{background:rgba(0,230,118,.1);border:1px solid rgba(0,230,118,.3);color:#00e676}
+.import-result.err{background:rgba(255,23,68,.1);border:1px solid rgba(255,23,68,.3);color:#ff1744}
+
+@media(max-width:768px){
+  .scraper-panel{padding:14px}
+  .cfg-grid{grid-template-columns:1fr 1fr}
+  .form-grid{grid-template-columns:1fr}
+  .cmd-output{flex-direction:column;align-items:flex-start}
+  .copy-btn{align-self:flex-end}
+}
+@media(max-width:480px){
+  .cfg-grid{grid-template-columns:1fr}
+  .stab{padding:7px 12px;font-size:11px}
+}
+</style>
+
+<div class="scraper-panel">
+  <div class="scraper-tabs">
+    <div class="stab active" onclick="switchStab('configure')">⚙ Настройка</div>
+    <div class="stab" onclick="switchStab('manual')">✏ Добавить лид</div>
+    <div class="stab" onclick="switchStab('import')">📥 Импорт JSON</div>
+  </div>
+
+  <!-- TAB: Configure & Run -->
+  <div class="stab-pane active" id="stab-configure">
+    <div class="info-note">
+      Настройте параметры скрейпинга → скопируйте команду → запустите в терминале.<br>
+      <strong>Требования:</strong> Python 3.10+, Playwright (<code>pip install playwright && playwright install chromium</code>)
+    </div>
+    <div class="cfg-grid">
+      <div class="cfg-field">
+        <label>Ниша</label>
+        <select id="cfgNiche" onchange="buildCmd()">
+          <option value="">-- Все ниши --</option>
+          <option value="restoran">🍽 Ресторан</option>
+          <option value="fitnes markaz">💪 Фитнес</option>
+          <option value="go'zallik saloni">💅 Красота / Салон</option>
+          <option value="avtoservis">🚗 Автосервис</option>
+          <option value="mehmonxona">🏨 Отель</option>
+          <option value="qurilish kompaniyasi">🏗 Строительство</option>
+          <option value="stomatologiya">🦷 Стоматология</option>
+          <option value="klinika">🏥 Клиника</option>
+        </select>
+      </div>
+      <div class="cfg-field">
+        <label>Район</label>
+        <select id="cfgDistrict" onchange="buildCmd()">
+          <option value="">-- Весь Ташкент --</option>
+          <option value="Yunusobod">Yunusobod</option>
+          <option value="Mirzo-Ulugbek">Mirzo-Ulug'bek</option>
+          <option value="Chilonzor">Chilonzor</option>
+          <option value="Mirabad">Mirabad</option>
+          <option value="Shayxontohur">Shayxontohur</option>
+          <option value="Almazar">Almazar</option>
+          <option value="Yakkasaray">Yakkasaray</option>
+          <option value="Uchtepa">Uchtepa</option>
+          <option value="Sergeli">Sergeli</option>
+          <option value="Yashnobod">Yashnobod</option>
+          <option value="Bektemir">Bektemir</option>
+        </select>
+      </div>
+      <div class="cfg-field">
+        <label>Кол-во лидов</label>
+        <input type="number" id="cfgCount" value="50" min="5" max="500" oninput="buildCmd()">
+      </div>
+      <div class="cfg-field">
+        <label>Выходной файл</label>
+        <input type="text" id="cfgOutput" value="pipeline/new_leads_100.json" oninput="buildCmd()">
+      </div>
+    </div>
+    <div class="cmd-output">
+      <code id="cmdPreview">python3 scraper/google_maps.py</code>
+      <button class="copy-btn" onclick="copyCmd()">📋 Копировать</button>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <div class="cfg-field" style="flex:1;min-width:200px">
+        <label>Быстрые пресеты</label>
+        <div class="sched-chips">
+          <div class="chip" onclick="applyPreset('all')">🔄 Все ниши</div>
+          <div class="chip" onclick="applyPreset('dental')">🦷 Стоматология × 100</div>
+          <div class="chip" onclick="applyPreset('clinic')">🏥 Клиники × 100</div>
+          <div class="chip" onclick="applyPreset('restaurant')">🍽 Рестораны × 80</div>
+          <div class="chip" onclick="applyPreset('fitness')">💪 Фитнес × 60</div>
+        </div>
+      </div>
+    </div>
+    <div class="info-note" style="margin-top:8px;margin-bottom:0">
+      После скрейпинга → обновите страницу или используйте <strong>Импорт JSON</strong> для добавления новых лидов в систему.
+    </div>
+  </div>
+
+  <!-- TAB: Manual add -->
+  <div class="stab-pane" id="stab-manual">
+    <div class="info-note">Добавьте лид вручную. Данные сохраняются в localStorage и отображаются в списке ниже.</div>
+    <div class="form-grid">
+      <div class="form-field"><label>Название компании *</label><input type="text" id="mName" placeholder="Baraka Restoran"></div>
+      <div class="form-field"><label>Ниша *</label>
+        <select id="mNiche">
+          <option value="Restaurant">🍽 Ресторан</option><option value="Fitness">💪 Фитнес</option>
+          <option value="Beauty">💅 Красота</option><option value="Auto">🚗 Авто</option>
+          <option value="Hotel">🏨 Отель</option><option value="Construction">🏗 Строительство</option>
+          <option value="Dentistry">🦷 Стоматология</option><option value="Clinic">🏥 Клиника</option>
+        </select>
+      </div>
+      <div class="form-field"><label>Телефон *</label><input type="tel" id="mPhone" placeholder="+998901234567"></div>
+      <div class="form-field"><label>Район</label>
+        <select id="mDistrict">
+          <option value="">— выберите —</option>
+          <option>Yunusobod</option><option>Mirzo-Ulugbek</option><option>Chilonzor</option>
+          <option>Mirabad</option><option>Shayxontohur</option><option>Almazar</option>
+          <option>Yakkasaray</option><option>Uchtepa</option><option>Sergeli</option>
+          <option>Yashnobod</option><option>Bektemir</option>
+        </select>
+      </div>
+      <div class="form-field"><label>Адрес</label><input type="text" id="mAddress" placeholder="Toshkent, Yunusobod, ..."></div>
+      <div class="form-field"><label>Instagram</label><input type="text" id="mInsta" placeholder="@baraka_restoran"></div>
+      <div class="form-field"><label>Есть сайт?</label>
+        <select id="mHasSite"><option value="false">❌ Нет</option><option value="true">✅ Да</option></select>
+      </div>
+      <div class="form-field"><label>Услуги (через запятую)</label>
+        <input type="text" id="mServices" placeholder="O'zbek taomi, Banket, Yetkazib berish">
+      </div>
+    </div>
+    <div style="display:flex;gap:8px">
+      <button class="btn-submit" onclick="addManualLead()">+ Добавить лид</button>
+      <button class="btn-secondary" onclick="clearManualForm()">✕ Очистить</button>
+    </div>
+    <div id="manualResult" class="import-result"></div>
+  </div>
+
+  <!-- TAB: Import JSON -->
+  <div class="stab-pane" id="stab-import">
+    <div class="info-note">Вставьте JSON-массив лидов из scraper/google_maps.py или загрузите файл. Данные добавятся в список.</div>
+    <div class="import-drop" id="dropZone">
+      <input type="file" accept=".json" onchange="loadFile(event)">
+      <p>📁 Перетащите <strong>.json файл</strong> сюда или нажмите для выбора</p>
+    </div>
+    <textarea class="import-textarea" id="importJson" placeholder='[{"name":"...","niche":"Restaurant","phone":"+998..."}]'></textarea>
+    <div id="importResult" class="import-result"></div>
+    <div style="display:flex;gap:8px">
+      <button class="btn-submit" onclick="importJSON()">📥 Импортировать</button>
+      <button class="btn-secondary" onclick="document.getElementById('importJson').value=''">✕ Очистить</button>
+    </div>
+  </div>
 </div>
 
 <div class="stats-row" id="statsRow">
@@ -739,7 +933,174 @@ function setView(v) {
   document.getElementById(id).addEventListener('change', filterAndRender);
 });
 
-loadData();
+// ── SCRAPER CONTROL PANEL ─────────────────────────────────────────────
+const MANUAL_KEY = 'b2b_manual_leads';
+
+function switchStab(id){
+  document.querySelectorAll('.stab').forEach((t,i)=>t.classList.toggle('active', ['configure','manual','import'][i]===id));
+  document.querySelectorAll('.stab-pane').forEach(p=>p.classList.remove('active'));
+  document.getElementById('stab-'+id).classList.add('active');
+}
+
+function buildCmd(){
+  const niche = document.getElementById('cfgNiche').value;
+  const district = document.getElementById('cfgDistrict').value;
+  const count = document.getElementById('cfgCount').value || 50;
+  const output = document.getElementById('cfgOutput').value || 'pipeline/new_leads_100.json';
+  let query = niche ? niche : 'biznes';
+  if(district) query += ' '+district;
+  else query += ' Toshkent';
+  const cmd = `python3 scraper/google_maps.py --query "${query}" --count ${count} --output ${output}`;
+  document.getElementById('cmdPreview').textContent = cmd;
+}
+
+function copyCmd(){
+  const cmd = document.getElementById('cmdPreview').textContent;
+  navigator.clipboard.writeText(cmd).then(()=>{
+    const btn = document.querySelector('.copy-btn');
+    btn.textContent='✓ Скопировано'; btn.style.color='var(--green)';
+    setTimeout(()=>{btn.textContent='📋 Копировать';btn.style.color='';},2000);
+  });
+}
+
+function applyPreset(key){
+  const presets = {
+    all:        {niche:'', district:'', count:200, output:'pipeline/new_leads_100.json'},
+    dental:     {niche:'stomatologiya', district:'', count:100, output:'pipeline/dental_clinic_leads.json'},
+    clinic:     {niche:'klinika', district:'', count:100, output:'pipeline/dental_clinic_leads.json'},
+    restaurant: {niche:'restoran', district:'', count:80, output:'pipeline/new_leads_100.json'},
+    fitness:    {niche:"fitnes markaz", district:'', count:60, output:'pipeline/new_leads_100.json'},
+  };
+  const p = presets[key]; if(!p) return;
+  document.getElementById('cfgNiche').value = p.niche;
+  document.getElementById('cfgDistrict').value = p.district;
+  document.getElementById('cfgCount').value = p.count;
+  document.getElementById('cfgOutput').value = p.output;
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+  event.target.classList.add('on');
+  buildCmd();
+}
+
+// Manual lead add
+function getManualLeads(){ try{return JSON.parse(localStorage.getItem(MANUAL_KEY)||'[]')}catch{return[]} }
+function saveManualLeads(arr){ localStorage.setItem(MANUAL_KEY, JSON.stringify(arr)); }
+
+function addManualLead(){
+  const name = document.getElementById('mName').value.trim();
+  const niche = document.getElementById('mNiche').value;
+  const phone = document.getElementById('mPhone').value.trim();
+  if(!name||!phone){ showManualResult('err','Название и телефон обязательны'); return; }
+  const services = document.getElementById('mServices').value.split(',').map(s=>s.trim()).filter(Boolean);
+  const existing = getManualLeads();
+  const id = 9000 + existing.length + 1;
+  const slug = name.toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,'');
+  const lead = {
+    id, name, niche, phone, slug,
+    wa_number: phone.replace(/\D/g,''),
+    district: document.getElementById('mDistrict').value,
+    address: document.getElementById('mAddress').value.trim(),
+    instagram: document.getElementById('mInsta').value.trim(),
+    has_website: document.getElementById('mHasSite').value === 'true',
+    phone_verified: false,
+    services,
+    source: 'manual',
+    colors: {primary:'#0a1628', accent:'#00b4d8'}
+  };
+  existing.push(lead);
+  saveManualLeads(existing);
+  allLeads.unshift(lead);
+  filterAndRender();
+  updateStats(allLeads);
+  showManualResult('ok', `✅ Лид "${name}" добавлен (#${id})`);
+  clearManualForm();
+}
+
+function clearManualForm(){
+  ['mName','mPhone','mAddress','mInsta','mServices'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('mNiche').value='Restaurant';
+  document.getElementById('mDistrict').value='';
+  document.getElementById('mHasSite').value='false';
+}
+
+function showManualResult(type, msg){
+  const el = document.getElementById('manualResult');
+  el.className = 'import-result '+type;
+  el.textContent = msg;
+  el.style.display='block';
+  setTimeout(()=>el.style.display='none', 4000);
+}
+
+// JSON Import
+function loadFile(e){
+  const file = e.target.files[0]; if(!file) return;
+  const reader = new FileReader();
+  reader.onload = ev=>{ document.getElementById('importJson').value = ev.target.result; };
+  reader.readAsText(file);
+}
+
+function importJSON(){
+  const raw = document.getElementById('importJson').value.trim();
+  const res = document.getElementById('importResult');
+  try{
+    let data = JSON.parse(raw);
+    if(!Array.isArray(data)) data = [data];
+    if(!data.length) throw new Error('Массив пуст');
+    // Normalize
+    const maxId = allLeads.reduce((m,l)=>Math.max(m,l.id||0),0);
+    const normalized = data.map((l,i)=>({
+      id: l.id || maxId+i+1,
+      name: l.name||'Без названия',
+      niche: l.niche||'Clinic',
+      phone: l.phone||'',
+      wa_number: (l.phone||'').replace(/\D/g,''),
+      slug: (l.slug||l.name||'lead').toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9-]/g,''),
+      district: l.district||l.tumani||'',
+      address: l.address||'',
+      instagram: l.instagram||'',
+      has_website: !!l.has_website,
+      phone_verified: !!l.phone_verified,
+      services: Array.isArray(l.services)?l.services:[],
+      source: l.source||'import',
+      colors: l.colors||{primary:'#0a1628',accent:'#00b4d8'},
+    }));
+    // Deduplicate by phone
+    const existing = new Set(allLeads.map(l=>l.phone));
+    const fresh = normalized.filter(l=>!existing.has(l.phone));
+    const dupes = normalized.length - fresh.length;
+    fresh.forEach(l=>allLeads.unshift(l));
+    const saved = getManualLeads();
+    saveManualLeads([...saved, ...fresh]);
+    filterAndRender();
+    updateStats(allLeads);
+    res.className='import-result ok';
+    res.textContent=`✅ Импортировано ${fresh.length} лидов${dupes?` (${dupes} дубликатов пропущено)`:''}`;
+    res.style.display='block';
+    document.getElementById('importJson').value='';
+  }catch(e){
+    res.className='import-result err';
+    res.textContent='❌ Ошибка разбора JSON: '+e.message;
+    res.style.display='block';
+  }
+}
+
+// Load manual leads alongside JSON files
+const _origLoad = loadData;
+async function loadData(){
+  const [r1, r2, r3] = await Promise.allSettled([
+    fetch('/pipeline/seed_leads.json').then(r=>r.json()),
+    fetch('/pipeline/dental_clinic_leads.json').then(r=>r.json()),
+    fetch('/pipeline/new_leads_100.json').then(r=>r.json())
+  ]);
+  const set1 = r1.status==='fulfilled'?r1.value:[];
+  const set2 = r2.status==='fulfilled'?r2.value:[];
+  const set3 = r3.status==='fulfilled'?r3.value:[];
+  const manual = getManualLeads();
+  allLeads = [...manual, ...set1, ...set2, ...set3];
+  updateStats(allLeads);
+  filterAndRender();
+}
+
+buildCmd();
 </script>
 
 <nav class="mob-bottom-nav" id="mobNav">
