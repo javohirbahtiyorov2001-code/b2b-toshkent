@@ -228,7 +228,7 @@ td{padding:12px 14px;font-size:13px;vertical-align:middle}
     </thead>
     <tbody id="tbody"></tbody>
   </table>
-  <div id="mobileCards" style="display:none"></div>
+  <div id="mobileCards"></div>
 </div>
 <div class="pagination" id="pagination"></div>
 
@@ -353,7 +353,6 @@ init();
 
 // ── MOBILE CARD VIEW ──────────────────────────────────────────────────
 function renderMobileCards(){
-  if(window.innerWidth > 768){ return; }
   const wrap = document.getElementById('mobileCards');
   if(!wrap) return;
   const slice = filtered.slice((page-1)*PER, page*PER);

@@ -1093,33 +1093,39 @@ async function startScrape(){
     logEl.scrollTop = logEl.scrollHeight;
   }
 
-  addLog(`🚀 Запуск скрейпинга: ${count} лидов, ниша: ${niche||'все'}, район: ${district||'весь Ташкент'}`, '#00e5ff');
+  addLog(`🚀 Запуск: ${count} лидов${noSiteOnly?' · только без сайта':''}, ниша: ${niche||'все'}, район: ${district||'весь Ташкент'}`, '#00e5ff');
   addLog('📡 Подключение к Google Maps...', '#555');
   await sleep(600);
   addLog('✓ Соединение установлено', '#00e676');
   await sleep(400);
   addLog(`🔍 Поиск: "${niche||'все ниши'} Toshkent${district?' '+district:''}"`, '#555');
+  if(noSiteOnly) addLog('🚫 Фильтр: пропускаем компании с существующим сайтом', '#ffd600');
   await sleep(500);
 
   const scraped = [];
   let idBase = allLeads.reduce((m,l)=>Math.max(m,l.id||0),10000) - 9999;
+  let attempts = 0;
 
-  for(let i=0; i<count; i++){
+  while(scraped.length < count && attempts < count * 5){
+    attempts++;
     const leadNiche = niche || randItem(niches);
-    const lead = generateLead(leadNiche, district, idBase+i);
-    if(noSiteOnly && lead.has_website){ i--; idBase++; continue; }
-    scraped.push(lead);
+    const lead = generateLead(leadNiche, district, idBase + attempts);
 
-    const pct = Math.round((i+1)/count*100);
-    barEl.style.width = pct+'%';
-    cntEl.textContent = `${i+1} / ${count}`;
-
-    if(i % 3 === 0 || i < 3){
-      addLog(`  ✓ [${leadNiche}] ${lead.name} — ${lead.phone}`, '#e0e0e0');
-    } else if(i % 7 === 0){
-      addLog(`  ⚡ Обработано ${i+1} результатов...`, '#555');
+    // Skip companies that already have a website when filter is on
+    if(noSiteOnly && lead.has_website){
+      if(attempts % 8 === 0) addLog(`  ⏭ Пропущено: ${lead.name} (уже есть сайт)`, '#444');
+      continue;
     }
-    await sleep(randInt(60,160));
+
+    scraped.push(lead);
+    const pct = Math.round(scraped.length / count * 100);
+    barEl.style.width = pct + '%';
+    cntEl.textContent = `${scraped.length} / ${count}`;
+
+    if(scraped.length <= 3 || scraped.length % 4 === 0){
+      addLog(`  ✓ [${leadNiche}] ${lead.name} — ${lead.phone}`, '#e0e0e0');
+    }
+    await sleep(randInt(60, 150));
   }
 
   await sleep(300);

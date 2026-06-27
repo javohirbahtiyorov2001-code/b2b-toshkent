@@ -510,6 +510,22 @@ async function runChecks(leads, pitches, results){
     const noColor = leads.filter(l=>!l.colors?.primary);
     if(noColor.length>0) addIssue('warning','L005','Нет цветовой схемы',`${noColor.length} лидов без colors.primary`,'Лиды','Сайты могут иметь неправильные цвета',null,null,'🎨');
 
+    // Leads with existing websites — wrong pitch target
+    const hasWebsite = leads.filter(l=>l.has_website);
+    const noWebsite = leads.filter(l=>!l.has_website);
+    if(hasWebsite.length > 0){
+      const pct = Math.round(hasWebsite.length/leads.length*100);
+      addIssue('warning','L007','Лиды с существующим сайтом',
+        `${hasWebsite.length} из ${leads.length} лидов (${pct}%) уже имеют сайт. Им нужен другой питч: CRM, чатбот, реклама — не новый сайт. Скрейпер настроен фильтровать их автоматически.`,
+        'Скрейпер / Лиды',
+        `Примеры: ${hasWebsite.slice(0,3).map(l=>l.name).join(', ')}`,
+        true,'Перейти в скрейпер','🌐');
+      addLog('warn',`⚠ ${hasWebsite.length} лидов уже имеют сайт — им нужен другой оффер`);
+    } else {
+      addIssue('ok','L007','База лидов чистая','Все лиды без существующего сайта — идеальные кандидаты для предложения нового сайта','Лиды','✓',null,null,'✅');
+    }
+    addIssue('ok','L008','Лиды без сайта',`${noWebsite.length} компаний готовы к питчу нового сайта`,'Лиды',`${Math.round(noWebsite.length/leads.length*100)}% базы`,null,null,'🎯');
+
     // Duplicate niches check
     const nicheCounts = {};
     leads.forEach(l=>{nicheCounts[l.niche]=(nicheCounts[l.niche]||0)+1;});
