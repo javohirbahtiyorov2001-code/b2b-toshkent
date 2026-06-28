@@ -205,14 +205,33 @@ body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;min-he
 
   <div class="main">
     <div class="tab-bar">
-      <div class="tab active" onclick="switchTab('issues')">⚠ Проблемы (<span id="issueCount">0</span>)</div>
+      <div class="tab active" onclick="switchTab('chat')">💬 Чат с PM</div>
+      <div class="tab" onclick="switchTab('issues')">⚠ Проблемы (<span id="issueCount">0</span>)</div>
       <div class="tab" onclick="switchTab('sites-check')">🌐 Сайты (<span id="sitesTabCount">50</span>)</div>
       <div class="tab" onclick="switchTab('design')">🎨 Дизайн</div>
       <div class="tab" onclick="switchTab('modules')">📦 Модули</div>
       <div class="tab" onclick="switchTab('log')">📋 Лог</div>
     </div>
 
-    <div class="pane active" id="pane-issues">
+    <!-- CHAT PANE -->
+    <div class="pane active" id="pane-chat" style="display:flex;flex-direction:column;height:calc(100vh - 130px)">
+      <div id="chatMessages" style="flex:1;overflow-y:auto;padding:4px 0 16px;display:flex;flex-direction:column;gap:12px"></div>
+      <div style="border-top:1px solid var(--border);padding-top:14px">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px" id="quickReplies">
+          <button class="filter-chip" onclick="sendQuick('Покажи обзор воронки продаж')">📊 Обзор воронки</button>
+          <button class="filter-chip" onclick="sendQuick('Сколько лидов в работе сейчас?')">👤 Лиды в работе</button>
+          <button class="filter-chip" onclick="sendQuick('Какой следующий приоритет?')">🎯 Приоритет</button>
+          <button class="filter-chip" onclick="sendQuick('Список задач на сегодня')">✅ Задачи дня</button>
+          <button class="filter-chip" onclick="sendQuick('Деплой на Netlify — статус?')">🚀 Деплой</button>
+        </div>
+        <div style="display:flex;gap:8px">
+          <textarea id="chatInput" placeholder="Написать задачу или вопрос менеджеру..." style="flex:1;background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:10px 14px;color:var(--text);font-size:13px;font-family:'Syne',sans-serif;resize:none;outline:none;height:44px;line-height:1.5;transition:.2s" onkeydown="chatKey(event)" oninput="autoGrow(this)"></textarea>
+          <button onclick="sendChat()" style="background:var(--green);color:#000;border:none;border-radius:10px;padding:0 18px;font-size:16px;cursor:pointer;font-weight:700;flex-shrink:0;transition:.2s" onmouseover="this.style.background='#00ff88'" onmouseout="this.style.background='var(--green)'">↑</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pane" id="pane-issues">
       <div class="filters" id="filterBar">
         <div class="filter-chip active" onclick="filterIssues('all',this)">Все</div>
         <div class="filter-chip" onclick="filterIssues('critical',this)">🔴 Критические</div>
@@ -295,12 +314,121 @@ function addLog(type, msg){
 
 function switchTab(id){
   document.querySelectorAll('.tab').forEach((t,i)=>{
-    const ids=['issues','sites-check','design','modules','log'];
+    const ids=['chat','issues','sites-check','design','modules','log'];
     t.classList.toggle('active', ids[i]===id);
   });
   document.querySelectorAll('.pane').forEach(p=>p.classList.remove('active'));
   document.getElementById('pane-'+id).classList.add('active');
   if(id==='design') renderDesignGrid();
+}
+
+// ── PM AGENT CHAT ─────────────────────────────────────────────────────────
+const CHAT_KEY = 'b2b_pm_chat';
+let chatHistory = [];
+
+const PM_KNOWLEDGE = {
+  greet: ['привет','salom','hello','салом','хай','hi'],
+  pipeline: ['воронка','pipeline','лидов','leads','конверс'],
+  tasks: ['задач','задания','task','todo','сделать','план'],
+  deploy: ['деплой','deploy','netlify','сайт живой','опубликовать'],
+  leads: ['лид','клиент','компани','сколько','база'],
+  priority: ['приоритет','priority','важн','first','сначала'],
+  revenue: ['доход','выручк','деньги','money','прибыль','заработ'],
+  status: ['статус','status','обзор','overview','как дела'],
+};
+
+function pmReply(msg){
+  const m = msg.toLowerCase();
+  const isMatch = (keys) => keys.some(k => m.includes(k));
+
+  if(isMatch(PM_KNOWLEDGE.greet)){
+    return `Assalomu alaykum! 👋 Мен сизнинг PM Агентингизман.\n\nЯ слежу за всей B2B системой. Что нужно сделать? Спрашивайте о лидах, воронке, деплое, задачах — отвечу конкретно.`;
+  }
+  if(isMatch(PM_KNOWLEDGE.pipeline)||isMatch(PM_KNOWLEDGE.status)){
+    const r=results.length, l=leads.length;
+    const won=Object.values(JSON.parse(localStorage.getItem('b2b_lead_status')||'{}')).filter(v=>v==='won').length;
+    const contacted=Object.values(JSON.parse(localStorage.getItem('b2b_lead_status')||'{}')).filter(v=>v==='contacted').length;
+    return `📊 **Воронка продаж — обзор:**\n\n👤 Лидов в базе: ${l}\n🌐 Сайтов создано: ${r}\n📞 Связались: ${contacted}\n✅ Выиграно (договорились): ${won}\n\n${won===0?'⚠️ Ещё нет закрытых сделок — фокус на outreach!':'🔥 Отличный прогресс! Продолжайте в том же темпе.'}\n\nСледующий шаг: звонить по тем лидам у которых статус "Новый".`;
+  }
+  if(isMatch(PM_KNOWLEDGE.leads)){
+    const l=leads.length;
+    return `👤 **Лиды:**\n\nВ базе ${l} компаний.\n\n📌 Ниши: Dentistry, Restaurant, Beauty, Auto, Fitness\n📍 Город: Ташкент\n\n⚡ Действие: Откройте /leads/index.html → выберите лида → вкладка "Питчи" → отправьте в Telegram.\n\nЧем конкретно помочь по лидам?`;
+  }
+  if(isMatch(PM_KNOWLEDGE.tasks)||isMatch(PM_KNOWLEDGE.priority)){
+    return `🎯 **Приоритеты на сегодня:**\n\n1️⃣ Авторизоваться в Netlify (netlify login) и задеплоить сайт\n2️⃣ Выбрать 10 лидов из базы → отправить питч в Telegram\n3️⃣ Настроить реальный скрейпер лидов (нужен Google Places API)\n4️⃣ Обновить статусы лидов после звонков\n\n💬 По каждому пункту — спрашивайте детали.`;
+  }
+  if(isMatch(PM_KNOWLEDGE.deploy)){
+    return `🚀 **Деплой на Netlify:**\n\nСтатус: сессия истекла в прошлый раз.\n\nЧтобы задеплоить:\n\`\`\`\nnetlify login\nnetlify deploy --prod --dir=.\n\`\`\`\n\nИли через GitHub — каждый push автодеплоится если подключён репо.\n\n📦 Деплоить нужно папку: /Users/macbookpro/Applications/b2b-automation`;
+  }
+  if(isMatch(PM_KNOWLEDGE.revenue)){
+    return `💰 **Доход от системы:**\n\nЦены на услуги:\n• Сайт за 3 дня: от 500K – 2M UZS\n• Мобильное приложение: от 10M UZS\n• CRM система: от 5M UZS\n• Telegram бот: от 1.5M UZS\n\n🎯 Цель: 1 сделка в неделю = 2M+ UZS/мес\n\nДля этого нужно: 20 питчей → 3 ответа → 1 клиент.`;
+  }
+
+  // Default: echo as task logged
+  const taskId = Date.now().toString(36).toUpperCase();
+  return `📋 **Задача записана** [${taskId}]\n\n"${msg}"\n\nВыполню в ближайшее время. Если нужен конкретный ответ — уточните детали или выберите быстрый ответ ниже.`;
+}
+
+function addChatMsg(role, text, save=true){
+  const box = document.getElementById('chatMessages');
+  const isUser = role==='user';
+  const time = new Date().toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'});
+  const div = document.createElement('div');
+  div.style.cssText=`display:flex;gap:10px;align-items:flex-start;${isUser?'flex-direction:row-reverse':''}`;
+
+  const avatar = document.createElement('div');
+  avatar.style.cssText=`width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;background:${isUser?'rgba(0,230,118,.15)':'rgba(0,229,255,.1)'};border:1px solid ${isUser?'rgba(0,230,118,.3)':'rgba(0,229,255,.2)'}`;
+  avatar.textContent=isUser?'👤':'🤖';
+
+  const bubble = document.createElement('div');
+  bubble.style.cssText=`max-width:75%;background:${isUser?'rgba(0,230,118,.08)':'var(--bg2)'};border:1px solid ${isUser?'rgba(0,230,118,.2)':'var(--border2)'};border-radius:12px;padding:10px 14px;font-size:13px;line-height:1.6;white-space:pre-wrap`;
+  // bold markdown
+  bubble.innerHTML=text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/`([^`]+)`/g,'<code style="background:#111;padding:1px 5px;border-radius:4px;font-size:11px;font-family:monospace">$1</code>');
+
+  const meta = document.createElement('div');
+  meta.style.cssText='font-size:10px;color:var(--muted);margin-top:4px';
+  meta.textContent=time;
+  bubble.appendChild(meta);
+
+  div.appendChild(avatar);
+  div.appendChild(bubble);
+  box.appendChild(div);
+  box.scrollTop=box.scrollHeight;
+
+  if(save){
+    chatHistory.push({role,text,time});
+    const store=JSON.parse(localStorage.getItem(CHAT_KEY)||'[]');
+    store.push({role,text,time});
+    if(store.length>100)store.splice(0,store.length-100);
+    localStorage.setItem(CHAT_KEY,JSON.stringify(store));
+  }
+}
+
+function sendChat(){
+  const inp=document.getElementById('chatInput');
+  const msg=inp.value.trim();
+  if(!msg)return;
+  inp.value='';
+  inp.style.height='44px';
+  addChatMsg('user',msg);
+  setTimeout(()=>{
+    const reply=pmReply(msg);
+    addChatMsg('agent',reply);
+  },400);
+}
+
+function sendQuick(msg){addChatMsg('user',msg);setTimeout(()=>addChatMsg('agent',pmReply(msg)),400);}
+
+function chatKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendChat();}}
+function autoGrow(el){el.style.height='44px';el.style.height=Math.min(el.scrollHeight,160)+'px';}
+
+function loadChatHistory(){
+  const store=JSON.parse(localStorage.getItem(CHAT_KEY)||'[]');
+  if(store.length){
+    store.slice(-30).forEach(m=>addChatMsg(m.role,m.text,false));
+  } else {
+    addChatMsg('agent','Salom! 👋 Мен **PM Agent** — сизнинг B2B автоматлаштириш тизимингиз менежерингизман.\n\nМен лидлар, воронка, деплой ва даромад ҳақида маълумот бера оламан. Нима қилишим керак?',false);
+  }
 }
 
 // ── SITE HEALTH CHECKER ──────────────────────────────────────────────────
@@ -821,7 +949,10 @@ function previewNiche(niche, slug){
 }
 
 // Auto-run audit on load
-window.addEventListener('load', ()=> setTimeout(runFullAudit, 500));
+window.addEventListener('load', ()=>{
+  loadChatHistory();
+  setTimeout(runFullAudit, 500);
+});
 </script>
 
 <nav class="mob-bottom-nav" id="mobNav">

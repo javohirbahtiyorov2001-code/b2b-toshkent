@@ -272,7 +272,6 @@ async function init(){
   log('linfo','[3/3] Загрузка results.json...');
   const results = await fetchJ('/pipeline/results.json');
   if(Array.isArray(results)){
-    const siteCount = results.length;
     ALL_RESULTS = results;
     const siteCount = results.length;
     const realCount = results.filter(r=>r.site_type==='real').length;
