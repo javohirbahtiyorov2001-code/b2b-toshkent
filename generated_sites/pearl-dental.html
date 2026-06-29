@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pearl Dental 24/7 — Toshkent</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--p:#0f3460;--a:#e94560;--dark:#07111f;--glass:rgba(15,52,96,0.25);--text:#e8eaf0;--muted:#8a9bb5}
+html{scroll-behavior:smooth}
+body{background:var(--dark);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden}
+h1,h2,h3,.display{font-family:'Syne',sans-serif}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;width:100%;z-index:100;backdrop-filter:blur(18px);background:rgba(7,17,31,0.75);border-bottom:1px solid rgba(233,69,96,0.15);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:#fff;letter-spacing:-0.5px}
+.logo span{color:var(--a)}
+.nav-phone{background:var(--a);color:#fff;padding:10px 22px;border-radius:50px;font-size:.85rem;font-weight:600;text-decoration:none;transition:opacity .2s}
+.nav-phone:hover{opacity:.85}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.hero-left{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:120px 5% 80px 8%;gap:24px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(233,69,96,0.12);border:1px solid rgba(233,69,96,0.35);color:var(--a);padding:7px 16px;border-radius:50px;font-size:.8rem;font-weight:600;letter-spacing:1px;width:fit-content}
+.badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--a);animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:clamp(2.8rem,5.5vw,5.8rem);font-weight:800;line-height:1.05;letter-spacing:-2px;color:#fff}
+.hero h1 span{color:var(--a)}
+.hero-sub{color:var(--muted);font-size:1rem;line-height:1.7;max-width:420px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{background:var(--a);color:#fff;padding:14px 30px;border-radius:50px;font-weight:700;text-decoration:none;font-size:.95rem;transition:transform .2s,box-shadow .2s;box-shadow:0 0 30px rgba(233,69,96,0.4)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(233,69,96,0.6)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,0.2);color:#fff;padding:14px 30px;border-radius:50px;font-weight:600;text-decoration:none;font-size:.95rem;transition:border-color .2s,background .2s}
+.btn-ghost:hover{border-color:var(--a);background:rgba(233,69,96,0.08)}
+.hero-stats{display:flex;gap:36px;padding-top:12px}
+.stat-item .num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:#fff}
+.stat-item .num span{color:var(--a)}
+.stat-item .label{font-size:.75rem;color:var(--muted);margin-top:2px}
+.hero-right{position:relative;overflow:hidden}
+.hero-right img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--dark) 0%,rgba(7,17,31,0.3) 60%,transparent 100%)}
+.hero-right::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,var(--dark) 0%,transparent 40%);z-index:1}
+.glow-blob{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+.blob1{width:500px;height:500px;background:radial-gradient(circle,rgba(233,69,96,0.2),transparent 70%);top:-100px;left:-100px}
+.blob2{width:400px;height:400px;background:radial-gradient(circle,rgba(15,52,96,0.4),transparent 70%);bottom:0;left:30%}
+
+/* FADE ANIMATION */
+.fade-up{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* SERVICES */
+.section{padding:100px 8%}
+.sec-label{font-size:.75rem;letter-spacing:3px;color:var(--a);font-weight:600;text-transform:uppercase;margin-bottom:12px}
+.sec-title{font-size:clamp(2rem,4vw,3.5rem);font-weight:800;line-height:1.1;margin-bottom:50px}
+.sec-title span{color:var(--a)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc-card{background:var(--glass);backdrop-filter:blur(12px);border:1px solid rgba(233,69,96,0.15);border-radius:20px;padding:32px 28px;position:relative;overflow:hidden;transition:transform .3s,border-color .3s}
+.svc-card:hover{transform:translateY(-6px);border-color:rgba(233,69,96,0.45)}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--a),transparent);opacity:0;transition:opacity .3s}
+.svc-card:hover::before{opacity:1}
+.svc-num{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;color:rgba(233,69,96,0.15);line-height:1;margin-bottom:16px}
+.svc-title{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:700;margin-bottom:10px;color:#fff}
+.svc-desc{font-size:.88rem;color:var(--muted);line-height:1.65}
+
+/* PHOTO BREAK */
+.photo-break{position:relative;height:60vh;min-height:400px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.photo-break img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(7,17,31,0.85),rgba(15,52,96,0.7))}
+.photo-text{position:relative;z-index:2;text-align:center;padding:0 8%}
+.photo-text h2{font-size:clamp(1.8rem,4vw,3.5rem);font-weight:800;line-height:1.2;margin-bottom:16px}
+.photo-text p{color:var(--muted);font-size:1rem;max-width:550px;margin:0 auto}
+
+/* WHY US */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.why-card{background:var(--glass);backdrop-filter:blur(12px);border:1px solid rgba(15,52,96,0.5);border-radius:20px;padding:36px 24px;text-align:center}
+.why-num{font-family:'Syne',sans-serif;font-size:3.2rem;font-weight:800;color:#fff;line-height:1}
+.why-num span{color:var(--a)}
+.why-label{color:var(--muted);font-size:.85rem;margin-top:8px;line-height:1.5}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.testi-card{background:var(--glass);backdrop-filter:blur(12px);border:1px solid rgba(15,52,96,0.5);border-radius:20px;padding:30px 26px}
+.stars{color:var(--a);font-size:1rem;letter-spacing:2px;margin-bottom:16px}
+.testi-text{color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:20px}
+.testi-author{display:flex;align-items:center;gap:12px}
+.avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--a),var(--p));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:.9rem;color:#fff}
+.author-name{font-weight:600;font-size:.9rem;color:#fff}
+.author-role{font-size:.75rem;color:var(--muted)}
+
+/* CTA */
+.cta-section{min-height:80vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 8%;position:relative;overflow:hidden}
+.cta-section .blob1{top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;opacity:.5}
+.cta-section h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;color:var(--muted);margin-bottom:16px;position:relative;z-index:2}
+.cta-phone{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:800;color:#fff;text-decoration:none;line-height:1.1;position:relative;z-index:2;transition:color .2s}
+.cta-phone:hover{color:var(--a)}
+.cta-btns{display:flex;gap:16px;margin-top:36px;position:relative;z-index:2;flex-wrap:wrap;justify-content:center}
+.btn-tg{background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);color:#fff;padding:14px 32px;border-radius:50px;font-weight:600;text-decoration:none;transition:background .2s}
+.btn-tg:hover{background:rgba(255,255,255,0.14)}
+.address-text{color:var(--muted);font-size:.9rem;margin-top:24px;position:relative;z-index:2}
+
+/* FOOTER */
+footer{border-top:1px solid rgba(255,255,255,0.06);padding:40px 8%;display:flex;align-items:center;justify-content:space-between;flex-wrap:gap}
+.foot-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;color:#fff}
+.foot-logo span{color:var(--a)}
+.foot-copy{color:var(--muted);font-size:.8rem}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}.hero-right{display:block;height:50vw;max-height:500px}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .testi-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:12px;text-align:center}
+}
+@media(max-width:600px){
+  .services-grid{grid-template-columns:1fr}
+  .section{padding:70px 6%}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Pearl <span>Dental</span> 24/7</div>
+  <a href="tel:+998712333747" class="nav-phone">📞 +998 71 233 37 47</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="glow-blob blob1"></div>
+  <div class="glow-blob blob2"></div>
+  <div class="hero-left">
+    <div class="badge fade-up">✦ 24/7 OCHIQ · TOSHKENT</div>
+    <h1 class="fade-up">Mukammal<br><span>Tabassum</span><br>Sizdan Bir<br>Qadam Uzoq</h1>
+    <p class="hero-sub fade-up">Pearl Dental 24/7 — Toshkentdagi eng zamonaviy stomatologiya klinikasi. Kecha-kunduz, bayram va dam olish kunlari ham xizmatdamiz.</p>
+    <div class="hero-btns fade-up">
+      <a href="tel:+998712333747" class="btn-primary">Qo'ng'iroq qiling</a>
+      <a href="#xizmatlar" class="btn-ghost">Xizmatlar →</a>
+    </div>
+    <div class="hero-stats fade-up">
+      <div class="stat-item">
+        <div class="num">12<span>+</span></div>
+        <div class="label">Yil tajriba</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">15k<span>+</span></div>
+        <div class="label">Baxtli bemor</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">24<span>/7</span></div>
+        <div class="label">Doim ochiq</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="assets/pearl-dental/hero.png" alt="Pearl Dental 24/7">
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="xizmatlar">
+  <p class="sec-label fade-up">— Bizning xizmatlar</p>
+  <h2 class="sec-title fade-up">Biz Nima <span>Taklif</span><br>Qilamiz?</h2>
+  <div class="services-grid">
+
+    <div class="svc-card fade-up">
+      <div class="svc-num">01</div>
+      <div class="svc-title">Tish Oqartirish</div>
+      <div class="svc-desc">Zamonaviy LED va lazer texnologiyalari yordamida tishlaringizni bir seans ichida bir necha ton oqartiramiz. Natija uzoq muddatli va xavfsiz.</div>
+    </div>
+
+    <div class="svc-card fade-up">
+      <div class="svc-num">02</div>
+      <div class="svc-title">Implantatsiya</div>
+      <div class="svc-desc">Premium sifatli titanium implantlar bilan yo'qolgan tishlaringizni to'liq tiklaymiz. Kafolat muddati — 10 yil. Umr bo'yi tabassum.</div>
+    </div>
+
+    <div class="svc-card fade-up">
+      <div class="svc-num">03</div>
+      <div class="svc-title">Ortodontiya</div>
+      <div class="svc-desc">Tish qiyshiqligini korreksiya qilish uchun metall va shaffof kappa (alayner) tizimlarini taklif qilamiz. Har yosh uchun yechim mavjud.</div>
+    </div>
+
+    <div class="svc-card fade-up">
+      <div class="svc-num">04</div>
+      <div class="svc-title">Vinir va Krown</div>
+      <div class="svc-desc">Estetik keramik vinirlar va metal-keramik krownlar yordamida tabassumingizni mutlaqo yangi shaklga keltiramiz. Nozik, chidamli, tabiiy.</div>
+    </div>
+
+    <div class="svc-card fade-up">
+      <div class="svc-num">05</div>
+      <div class="svc-title">Davolash va Plombalar</div>
+      <div class="svc-desc">Kariyes va boshqa tish kasalliklarini og'riqsiz davolash. Zamonaviy fotopolimer materiallar bilan uzoq muddatli plombalar o'rnatamiz.</div>
+    </div>
+
+    <div class="svc-card fade-up">
+      <div class="svc-num">06</div>
+      <div class="svc-title">Bolalar Stomatologiyasi</div>
+      <div class="svc-desc">Farzandlaringizning sog'lig'i — bizning ustuvor vazifamiz. Bolalarga do'stona muhit va og'riqsiz muolajalar bilan g'amxo'rlik qilamiz.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PHOTO BREAK -->
+<div class="photo-break">
+  <img src="assets/pearl-dental/interior.png" alt="Dentistry">
+  <div class="photo-overlay"></div>
+  <div class="photo-text fade-up">
+    <h2>Yuqori Texnologiya.<br><span style="color:var(--a)">Insoniy Yondashuv.</span></h2>
+    <p>Klinikamiz Yevropa standartlari asosida jihozlangan. Har bir kabinet to'liq sterilizatsiya tizimi va raqamli diaqnostika uskunalariga ega.</p>
+  </div>
+</div>
+
+<!-- WHY US -->
+<section class="section">
+  <p class="sec-label fade-up">— Nima uchun biz?</p>
+  <h2 class="sec-title fade-up">Raqamlar <span>Gapiradi</span></h2>
+  <div class="why-grid">
+    <div class="why-card fade-up">
+      <div class="why-num">15k<span>+</span></div>
+      <div class="why-label">Muvaffaqiyatli davolangan bemorlar 12 yil davomida</div>
+    </div>
+    <div class="why-card fade-up">
+      <div class="why-num">24<span>/7</span></div>
+      <div class="why-label">Kecha-kunduz, haftaning 7 kuni xizmatda doim tayyormiz</div>
+    </div>
+    <div class="why-card fade-up">
+      <div class="why-num">98<span>%</span></div>
+      <div class="why-label">Bemorlarning qoniqish va tavsiya ko'rsatkichi</div>
+    </div>
+    <div class="why-card fade-up">
+      <div class="why-num">20<span>+</span></div>
+      <div class="why-label">Mutaxassis shifokorlar va oliy malakali jarrohlar</div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAIL IMAGE BREAK -->
+<div class="photo-break" style="height:45vh;">
+  <img src="assets/pearl-dental/detail.png" alt="detail">
+  <div class="photo-overlay" style="background:linear-gradient(135deg,rgba(7,17,31,0.9),rgba(233,69,96,0.25))"></div>
+  <div class="photo-text fade-up">
+    <h2 style="font-size:clamp(1.5rem,3vw,2.5rem)">Har Bir Tafsilotda<br><span style="color:var(--a)">Mukammallik</span></h2>
+    <p>Eng nozik muolajalardan tortib, eng murakkab jarrohlik amaliyotlarigacha — biz barchasida eng yuqori sifatni taqdim etamiz.</p>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <p class="sec-label fade-up">— Mijozlar fikri</p>
+  <h2 class="sec-title fade-up">Ular Nima <span>Deyishdi?</span></h2>
+  <div class="testi-grid">
+
+    <div class="testi-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Implantatsiya operatsiyasidan juda qo'rqardim, lekin Pearl Dental jamoasi meni to'liq tinchlantirib, og'riqsiz amalga oshirdi. Natijalarga juda mamnunman. Hayotimda eng to'g'ri qarorim shu klinikaga borish bo'ldi."</p>
+      <div class="testi-author">
+        <div class="avatar">SJ</div>
+        <div>
+          <div class="author-name">Sarvar Jalilов</div>
+          <div class="author-role">Toshkent, IT mutaxassisi</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Bolam tishidan qattiq qo'rqardi. Bu yerda uni juda mehribon munosabat bilan davoladilar. Endi o'zi shifokorga borishni so'raydi! Klinikaning bolalar kabineti va doktorlari ajoyib. 100% tavsiya qilaman."</p>
+      <div class="testi-author">
+        <div class="avatar">MX</div>
+        <div>
+          <div class="author-name">Malika Xoliqova</div>
+          <div class="author-role">Yunusobod, ona</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"Tish oqartirish xizmati hayratlanarli natija berdi. Bir seans ichida o'n yillik dog'lardan qutulib, yangi tabassum egasi bo'ldim. Klinika jihozlari, tozaligi va xodimlari professionalligiga baho yo'q."</p>
+      <div class="testi-author">
+        <div class="avatar">AO</div>
+        <div>
+          <div class="author-name">Aziza Ortiqova</div>
+          <div class="author-role">Mirzo Ulug'bek, tadbirkor</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="glow-blob blob1"></div>
+  <p class="sec-label">— Bog'laning</p>
+  <h2>Bugun Qo'ng'iroq Qiling</h2>
+  <a href="tel:+998712333747" class="cta-phone">+998 71 233 37 47</a>
+  <div class="cta-btns">
+    <a href="tel:+998712333747" class="btn-primary">📞 Qo'ng'iroq</a>
+    <a href="https://t.me/pearldental" target="_blank" class="btn-tg">✈ Telegram orqali yozing</a>
+  </div>
+  <p class="address-text">📍 Toshkent, Yunusobod tumani &nbsp;|&nbsp; ⏰ 24 soat, 7 kun</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">Pearl <span>Dental</span> 24/7</div>
+  <div class="foot-copy">© 2025 Pearl Dental 24/7. Barcha huquqlar himoyalangan.</div>
+  <div class="foot-copy">Toshkent, Yunusobod tumani</div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('visible'); }
+  });
+}, {threshold: 0.12});
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+<section style="padding:50px 6%;background:#060d1f;text-align:center;border-top:1px solid rgba(255,255,255,0.08)">
+  <p style="color:#8899aa;font-size:.85rem;margin-bottom:1rem">Saytga QR orqali kiring</p>
+  <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A//b2b-toshkent.netlify.app/generated_sites/pearl-dental.html" alt="QR Code" style="width:160px;height:160px;border-radius:12px;border:4px solid rgba(255,255,255,0.1)">
+</section>
+</body>
+</html>

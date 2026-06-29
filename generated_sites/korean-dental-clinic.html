@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Korean Dental Clinic — Toshkent</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--primary:#001d3d;--accent:#4cc9f0;--accent2:#0096c7;--glass:rgba(255,255,255,0.05);--border:rgba(76,201,240,0.2);--text:#e0eaf5;--muted:#7a9bb5}
+html{scroll-behavior:smooth}
+body{background:#020d1a;color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden}
+h1,h2,h3,.display{font-family:'Syne',sans-serif}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(2,13,26,0.7);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:-0.02em;color:#fff}
+.nav-logo span{color:var(--accent)}
+.nav-phone{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#020d1a;font-weight:600;font-size:.85rem;padding:10px 22px;border-radius:100px;text-decoration:none;transition:opacity .2s}
+.nav-phone:hover{opacity:.85}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;padding-top:72px}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:8% 6% 8% 8%;position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--glass);border:1px solid var(--border);border-radius:100px;padding:6px 16px;font-size:.78rem;font-weight:500;color:var(--accent);width:fit-content;margin-bottom:2rem;backdrop-filter:blur(10px)}
+.hero-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
+.hero h1{font-size:clamp(2.8rem,5.5vw,6rem);font-weight:800;line-height:1.05;letter-spacing:-0.03em;color:#fff;margin-bottom:1.5rem}
+.hero h1 .accent{color:var(--accent)}
+.hero-sub{font-size:1rem;color:var(--muted);max-width:420px;line-height:1.7;margin-bottom:2.5rem}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:3.5rem}
+.btn-primary{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#020d1a;font-weight:700;font-size:.9rem;padding:14px 32px;border-radius:100px;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 0 30px rgba(76,201,240,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(76,201,240,.5)}
+.btn-secondary{border:1px solid var(--border);color:var(--text);font-weight:500;font-size:.9rem;padding:14px 32px;border-radius:100px;text-decoration:none;backdrop-filter:blur(8px);background:var(--glass);transition:border-color .2s,background .2s}
+.btn-secondary:hover{border-color:var(--accent);background:rgba(76,201,240,.08)}
+.hero-stats{display:flex;gap:2.5rem}
+.stat-val{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:#fff}
+.stat-val span{color:var(--accent)}
+.stat-label{font-size:.75rem;color:var(--muted);margin-top:2px}
+.hero-right{position:relative;overflow:hidden}
+.hero-right img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,#020d1a 0%,rgba(2,13,26,.3) 50%,transparent 100%)}
+.glow-blob{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+.blob1{width:500px;height:500px;background:radial-gradient(circle,rgba(76,201,240,.18),transparent 70%);top:-100px;left:-200px}
+.blob2{width:400px;height:400px;background:radial-gradient(circle,rgba(0,150,199,.15),transparent 70%);bottom:-100px;left:100px}
+
+/* SECTIONS COMMON */
+section{padding:100px 8%;position:relative;overflow:hidden}
+.section-tag{font-size:.78rem;font-weight:600;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1rem}
+.section-num{font-family:'Syne',sans-serif;font-size:6rem;font-weight:800;color:var(--accent);opacity:.12;line-height:1;position:absolute;top:60px;right:8%}
+.section-title{font-size:clamp(2rem,4vw,3.5rem);font-weight:800;line-height:1.1;letter-spacing:-0.02em;margin-bottom:1rem}
+.section-sub{color:var(--muted);max-width:500px;line-height:1.7;margin-bottom:3.5rem}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc-card{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:20px;padding:32px 28px;backdrop-filter:blur(12px);transition:transform .3s,box-shadow .3s,border-color .3s;position:relative;overflow:hidden}
+.svc-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(76,201,240,.05),transparent);opacity:0;transition:opacity .3s}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(76,201,240,.12);border-color:rgba(76,201,240,.45)}
+.svc-card:hover::before{opacity:1}
+.svc-num{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;color:var(--accent);opacity:.25;line-height:1;margin-bottom:.8rem}
+.svc-icon{font-size:1.8rem;margin-bottom:1rem}
+.svc-title{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:.6rem}
+.svc-desc{font-size:.85rem;color:var(--muted);line-height:1.65}
+
+/* PHOTO BREAK */
+.photo-break{padding:0;position:relative;height:520px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.photo-break img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo-break-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(2,13,26,.25),rgba(2,13,26,.40))}
+.photo-break-content{position:relative;z-index:2;padding:0 8%}
+.photo-break-content h2{font-size:clamp(1.8rem,3.5vw,3rem);font-weight:800;color:#fff;max-width:700px;margin:0 auto 1rem}
+.photo-break-content p{color:var(--muted);font-size:1rem;max-width:520px;margin:0 auto}
+
+/* STATS */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat-card{background:var(--glass);border:1px solid var(--border);border-radius:20px;padding:36px 28px;backdrop-filter:blur(12px);text-align:center}
+.stat-big{font-family:'Syne',sans-serif;font-size:3.5rem;font-weight:800;color:#fff;line-height:1}
+.stat-big span{color:var(--accent)}
+.stat-desc{color:var(--muted);font-size:.85rem;margin-top:.5rem;line-height:1.5}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.testi-card{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:20px;padding:32px 28px;backdrop-filter:blur(12px)}
+.stars{color:var(--accent);font-size:1rem;letter-spacing:2px;margin-bottom:1rem}
+.testi-text{font-size:.9rem;color:var(--text);line-height:1.7;margin-bottom:1.5rem;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent2),var(--accent));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:#020d1a}
+.testi-name{font-weight:600;font-size:.9rem;color:#fff}
+.testi-loc{font-size:.75rem;color:var(--muted)}
+
+/* CTA */
+.cta-section{min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;padding:80px 8%}
+.cta-blob{position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(76,201,240,.12),transparent 65%);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%)}
+.cta-section h2{font-size:clamp(1.6rem,3vw,2.5rem);color:var(--muted);margin-bottom:1rem;position:relative;z-index:1}
+.cta-phone{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,6vw,5.5rem);font-weight:800;color:#fff;text-decoration:none;display:block;line-height:1.1;margin-bottom:2rem;position:relative;z-index:1;transition:color .2s}
+.cta-phone:hover{color:var(--accent)}
+.cta-btns{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;position:relative;z-index:1}
+.btn-tg{background:#2AABEE;color:#fff;font-weight:700;padding:14px 36px;border-radius:100px;text-decoration:none;font-size:.95rem;transition:opacity .2s}
+.btn-tg:hover{opacity:.85}
+.cta-addr{color:var(--muted);font-size:.9rem;margin-top:2rem;position:relative;z-index:1}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:40px 8%;display:flex;align-items:center;justify-content:space-between;flex-wrap:gap 20px}
+.foot-logo{font-family:'Syne',sans-serif;font-weight:800;color:#fff;font-size:1rem}
+.foot-logo span{color:var(--accent)}
+.foot-copy{color:var(--muted);font-size:.8rem}
+.foot-links{display:flex;gap:20px}
+.foot-links a{color:var(--muted);text-decoration:none;font-size:.82rem;transition:color .2s}
+.foot-links a:hover{color:var(--accent)}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-up-d1{transition-delay:.1s}
+.fade-up-d2{transition-delay:.2s}
+.fade-up-d3{transition-delay:.3s}
+.fade-up-d4{transition-delay:.4s}
+.fade-up-d5{transition-delay:.5s}
+.fade-up-d6{transition-delay:.6s}
+
+@media(max-width:1024px){.hero{grid-template-columns:1fr}.hero-right{display:block;height:50vw;max-height:500px}.services-grid{grid-template-columns:1fr 1fr}.stats-row{grid-template-columns:1fr 1fr}.testi-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.services-grid{grid-template-columns:1fr}.stats-row{grid-template-columns:1fr 1fr}.testi-grid{grid-template-columns:1fr}.hero-stats{gap:1.5rem}.hero h1{font-size:2.8rem}footer{flex-direction:column;gap:16px;text-align:center}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Korean<span>Dental</span></div>
+  <a class="nav-phone" href="tel:+998974225775">+998 97 422 57 75</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="glow-blob blob1"></div>
+    <div class="glow-blob blob2"></div>
+
+    <div class="hero-badge">🦷 Toshkentdagi Koreys Stomatologiyasi</div>
+    <h1>Mukammal<br><span class="accent">Tabassum</span><br>Sizniki</h1>
+    <p class="hero-sub">Zamonaviy koreyscha texnologiyalar va yuqori malakali shifokorlar bilan og'riqsiz davolash — sog'lom tishlar, chiroyli kulgu.</p>
+    <div class="hero-ctas">
+      <a href="tel:+998974225775" class="btn-primary">Qo'ng'iroq qilish</a>
+      <a href="#services" class="btn-secondary">Xizmatlar →</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-val">12<span>+</span></div>
+        <div class="stat-label">Yillik tajriba</div>
+      </div>
+      <div>
+        <div class="stat-val">8000<span>+</span></div>
+        <div class="stat-label">Davolangan bemorlar</div>
+      </div>
+      <div>
+        <div class="stat-val">99<span>%</span></div>
+        <div class="stat-label">Mijozlar mamnuniyati</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="assets/korean-dental-clinic/hero.png" alt="Korean Dental Clinic">
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" style="padding-top:120px">
+  <div class="section-num">01</div>
+  <div class="section-tag fade-up">Bizning xizmatlar</div>
+  <h2 class="section-title fade-up fade-up-d1">Professional<br>Stomatologiya</h2>
+  <p class="section-sub fade-up fade-up-d2">Har bir xizmat zamonaviy koreyscha uskunalar va steril muhitda yuqori sifat bilan amalga oshiriladi.</p>
+
+  <div class="services-grid" id="services">
+    <div class="svc-card fade-up fade-up-d1">
+      <div class="svc-num">01</div>
+      <div class="svc-icon">🦷</div>
+      <div class="svc-title">Implantatsiya</div>
+      <div class="svc-desc">Yo'qolgan tishlarni koreyscha titanium implantlar bilan butunlay tiklash. Uzoq muddatli va estetik natija kafolatlanadi.</div>
+    </div>
+    <div class="svc-card fade-up fade-up-d2">
+      <div class="svc-num">02</div>
+      <div class="svc-icon">✨</div>
+      <div class="svc-title">Estetik tishlar</div>
+      <div class="svc-desc">Veneer va lumineers yordamida tabassumingizni yangilash. Hollywood smile usulida mukammal natija.</div>
+    </div>
+    <div class="svc-card fade-up fade-up-d3">
+      <div class="svc-num">03</div>
+      <div class="svc-icon">🔬</div>
+      <div class="svc-title">Ortodontiya</div>
+      <div class="svc-desc">Breket tizimi va shaffof kappalar yordamida tishlarni to'g'rilash. Bolalar va kattalar uchun mos dasturlar.</div>
+    </div>
+    <div class="svc-card fade-up fade-up-d4">
+      <div class="svc-num">04</div>
+      <div class="svc-icon">💎</div>
+      <div class="svc-title">Oqartirish</div>
+      <div class="svc-desc">Professional tishlarni oqartirish — klinik darajadagi natija. Zamonaviy Zoom va lazer texnologiyalari.</div>
+    </div>
+    <div class="svc-card fade-up fade-up-d5">
+      <div class="svc-num">05</div>
+      <div class="svc-icon">🛡️</div>
+      <div class="svc-title">Tish davolash</div>
+      <div class="svc-desc">Kariyes va kanal davolash og'riqsiz anesteziya bilan. Koreyscha materiallar bilan yuqori sifatli plombalar.</div>
+    </div>
+    <div class="svc-card fade-up fade-up-d6">
+      <div class="svc-num">06</div>
+      <div class="svc-icon">👑</div>
+      <div class="svc-title">Protezlash</div>
+      <div class="svc-desc">Sopolit, metallkeramik va zirkoniy tojlar. Bir nechta tish yo'qolganida funktsiyani tiklash uchun optimal yechim.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO BREAK -->
+<div class="photo-break fade-up">
+  <img src="assets/korean-dental-clinic/interior.png" alt="Dentistry">
+  <div class="photo-break-overlay"></div>
+  <div class="photo-break-content">
+    <h2>Zamonaviy klinika — maksimal qulay muhit</h2>
+    <p>Har bir xonada koreyscha sinfidagi uskunalar, steril sharoit va bemorlarning to'liq qulayligi uchun mo'ljallangan dizayn.</p>
+  </div>
+</div>
+
+<!-- WHY US / STATS -->
+<section>
+  <div class="section-num">02</div>
+  <div class="section-tag fade-up">Nega biz?</div>
+  <h2 class="section-title fade-up fade-up-d1">Raqamlarda<br>natijalar</h2>
+  <p class="section-sub fade-up fade-up-d2">Har yili minglab bemorlar bizga ishonib murojaat qiladi — sababini raqamlar orqali ko'rsatamiz.</p>
+
+  <div class="stats-row">
+    <div class="stat-card fade-up fade-up-d1">
+      <div class="stat-big">12<span>+</span></div>
+      <div class="stat-desc">Yillik klinik tajriba</div>
+    </div>
+    <div class="stat-card fade-up fade-up-d2">
+      <div class="stat-big">8<span>K+</span></div>
+      <div class="stat-desc">Muvaffaqiyatli davolangan bemor</div>
+    </div>
+    <div class="stat-card fade-up fade-up-d3">
+      <div class="stat-big">15<span>+</span></div>
+      <div class="stat-desc">Malakali shifokor va mutaxassis</div>
+    </div>
+    <div class="stat-card fade-up fade-up-d4">
+      <div class="stat-big">99<span>%</span></div>
+      <div class="stat-desc">Mijozlarning mamnuniyat darajasi</div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAIL / ATMOSPHERE IMAGE BREAK -->
+<div class="photo-break fade-up" style="height:420px">
+  <img src="assets/korean-dental-clinic/detail.png" alt="detail">
+  <div class="photo-break-overlay"></div>
+  <div class="photo-break-content">
+    <h2>Har bir tafsilotda mukammallik</h2>
+    <p>Tashkentda eng zamonaviy koreyscha uskunalar bilan jihozlangan stomatologiya klinikasi.</p>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section>
+  <div class="section-num">03</div>
+  <div class="section-tag fade-up">Mijozlar fikri</div>
+  <h2 class="section-title fade-up fade-up-d1">Ular nima<br>deyishadi?</h2>
+  <p class="section-sub fade-up fade-up-d2">Haqiqiy bemorlarning haqiqiy tajribalari — bizning eng yaxshi ko'rsatkichimiz.</p>
+
+  <div class="testi-grid">
+    <div class="testi-card fade-up fade-up-d1">
+      <div class="stars">★★★★★</div>
+      <div class="testi-text">"Hayotimda birinchi marta tishimni og'riqsiz davolattim. Korean Dental Clinic ning shifokori juda professional va muloyim. Implant o'rnatish jarayoni ajoyib o'tdi!"</div>
+      <div class="testi-author">
+        <div class="testi-avatar">MR</div>
+        <div>
+          <div class="testi-name">Malika Rahimova</div>
+          <div class="testi-loc">Yunusobod tumani</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card fade-up fade-up-d2">
+      <div class="stars">★★★★★</div>
+      <div class="testi-text">"Veneer o'rnatgandan keyin tabassumim butunlay o'zgardi. Klinikadagi muhit juda qulay, shifokorlar har bir savolga sabr bilan javob berdi. Hammaga tavsiya qilaman!"</div>
+      <div class="testi-author">
+        <div class="testi-avatar">JU</div>
+        <div>
+          <div class="testi-name">Jasur Umarov</div>
+          <div class="testi-loc">Chilonzor tumani</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card fade-up fade-up-d3">
+      <div class="stars">★★★★★</div>
+      <div class="testi-text">"Farzandimning tishlarini to'g'riltirish uchun murojaaat qildik. Orthodontist doktor judayam tajribali. Natijadan juda mamnunmiz, breket tizimi zo'r ishlayapti!"</div>
+      <div class="testi-author">
+        <div class="testi-avatar">SH</div>
+        <div>
+          <div class="testi-name">Shahlo Nazarova</div>
+          <div class="testi-loc">Mirzo Ulug'bek tumani</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-blob"></div>
+  <div class="section-tag fade-up">Bog'lanish</div>
+  <h2 class="fade-up fade-up-d1">Bugun qo'ng'iroq qiling</h2>
+  <a href="tel:+998974225775" class="cta-phone fade-up fade-up-d2">+998 97 422 57 75</a>
+  <div class="cta-btns fade-up fade-up-d3">
+    <a href="tel:+998974225775" class="btn-primary">📞 Qo'ng'iroq qilish</a>
+    <a href="https://t.me/+998974225775" target="_blank" class="btn-tg">✈️ Telegram</a>
+  </div>
+  <div class="cta-addr fade-up fade-up-d4">📍 Yunusobod tumani, Amir Temur — Chinobod ko'chasi, 1</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">Korean<span>Dental</span> Clinic</div>
+  <div class="foot-copy">© 2025 Korean Dental Clinic. Barcha huquqlar himoyalangan.</div>
+  <div class="foot-links">
+    <a href="tel:+998974225775">Telefon</a>
+    <a href="#services">Xizmatlar</a>
+    <a href="#">Maxfiylik</a>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+<section style="padding:50px 6%;background:#060d1f;text-align:center;border-top:1px solid rgba(255,255,255,0.08)">
+  <p style="color:#8899aa;font-size:.85rem;margin-bottom:1rem">Saytga QR orqali kiring</p>
+  <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A//b2b-toshkent.netlify.app/generated_sites/korean-dental-clinic.html" alt="QR Code" style="width:160px;height:160px;border-radius:12px;border:4px solid rgba(255,255,255,0.1)">
+</section>
+</body>
+</html>

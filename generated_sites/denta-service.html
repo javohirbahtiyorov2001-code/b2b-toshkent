@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Denta Service — Stomatologiya Klinikasi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--primary:#14213d;--accent:#fca311;--glass:rgba(255,255,255,0.05);--glass-border:rgba(255,255,255,0.1);--text:#e8e8e8;--muted:#8a8fa8}
+html{scroll-behavior:smooth}
+body{background:#0a0f1e;color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden}
+h1,h2,h3,.display{font-family:'Syne',sans-serif}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 4%;display:flex;align-items:center;justify-content:space-between;background:rgba(10,15,30,0.75);backdrop-filter:blur(18px);border-bottom:1px solid var(--glass-border)}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;color:#fff;letter-spacing:-0.02em}<br>.nav-logo span{color:var(--accent)}
+.nav-phone{background:var(--accent);color:#0a0f1e;font-weight:600;font-size:.9rem;padding:.55rem 1.4rem;border-radius:50px;text-decoration:none;transition:opacity .2s}
+.nav-phone:hover{opacity:.85}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;padding-top:72px}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:6% 5% 6% 6%;position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(252,163,17,.12);border:1px solid rgba(252,163,17,.3);color:var(--accent);font-size:.8rem;font-weight:600;padding:.4rem 1rem;border-radius:50px;margin-bottom:1.5rem;width:fit-content;letter-spacing:.05em}
+.hero h1{font-size:clamp(2.8rem,5.5vw,6rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:1.2rem}
+.hero h1 span{color:var(--accent)}
+.hero-sub{color:var(--muted);font-size:1.05rem;line-height:1.7;max-width:420px;margin-bottom:2rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
+.btn-primary{background:var(--accent);color:#0a0f1e;font-weight:700;font-size:.95rem;padding:.75rem 2rem;border-radius:50px;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(252,163,17,.35)}
+.btn-outline{border:1px solid var(--glass-border);color:#fff;font-weight:500;font-size:.95rem;padding:.75rem 2rem;border-radius:50px;text-decoration:none;background:var(--glass);backdrop-filter:blur(8px);transition:border-color .2s}
+.btn-outline:hover{border-color:var(--accent)}
+.hero-stats{display:flex;gap:2.5rem}
+.stat-item .num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:#fff}
+.stat-item .num span{color:var(--accent)}
+.stat-item .lbl{color:var(--muted);font-size:.8rem;margin-top:.15rem}
+.hero-right{position:relative;overflow:hidden}
+.hero-right img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-right::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,#0a0f1e 0%,rgba(10,15,30,.4) 50%,transparent 100%);z-index:1}
+.hero-glow{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(252,163,17,.2) 0%,transparent 70%);top:20%;left:-10%;pointer-events:none}
+
+/* SECTIONS COMMON */
+section{padding:6rem 6%}
+.sec-label{font-size:.8rem;font-weight:600;letter-spacing:.1em;color:var(--accent);text-transform:uppercase;margin-bottom:.75rem}
+.sec-title{font-size:clamp(2rem,3.5vw,3.2rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:1rem}
+.sec-num{font-family:'Syne',sans-serif;font-size:5rem;font-weight:800;color:var(--accent);opacity:.15;line-height:1;margin-bottom:-.5rem}
+
+/* FADE IN */
+.fade{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
+.fade.visible{opacity:1;transform:translateY(0)}
+
+/* SERVICES */
+.services{background:#080d18}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem}
+.s-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:2rem;backdrop-filter:blur(12px);transition:border-color .3s,transform .3s;position:relative;overflow:hidden}
+.s-card::before{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;background:radial-gradient(circle,rgba(252,163,17,.12) 0%,transparent 70%)}
+.s-card:hover{border-color:rgba(252,163,17,.4);transform:translateY(-4px)}
+.s-card-num{font-family:'Syne',sans-serif;font-size:2.5rem;font-weight:800;color:var(--accent);opacity:.25;line-height:1;margin-bottom:.75rem}
+.s-card h3{font-size:1.15rem;font-weight:700;margin-bottom:.6rem;color:#fff}
+.s-card p{color:var(--muted);font-size:.9rem;line-height:1.65}
+
+/* PHOTO BREAK */
+.photo-break{padding:0;position:relative;height:60vh;overflow:hidden}
+.photo-break img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-break-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,13,24,.6),rgba(8,13,24,.35));display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:2rem}
+.photo-break-overlay h2{font-size:clamp(1.8rem,4vw,3.5rem);font-weight:800;max-width:700px;line-height:1.2}
+.photo-break-overlay h2 span{color:var(--accent)}
+.photo-break-overlay p{color:var(--muted);margin-top:1rem;font-size:1rem;max-width:500px}
+
+/* WHY US */
+.whyus{background:#080d18;text-align:center}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3.5rem}
+.big-stat{background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:2.5rem 1.5rem;backdrop-filter:blur(12px)}
+.big-stat .big-num{font-family:'Syne',sans-serif;font-size:3.5rem;font-weight:800;color:var(--accent);line-height:1}
+.big-stat .big-lbl{color:var(--muted);font-size:.9rem;margin-top:.5rem}
+
+/* TESTIMONIALS */
+.testimonials .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.t-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:2rem;backdrop-filter:blur(12px);position:relative}
+.t-stars{color:var(--accent);font-size:1rem;margin-bottom:1rem;letter-spacing:.1em}
+.t-text{color:var(--muted);font-size:.92rem;line-height:1.7;margin-bottom:1.5rem}
+.t-author{display:flex;align-items:center;gap:.75rem}
+.t-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#e07c00);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:#0a0f1e}
+.t-name{font-weight:600;font-size:.95rem;color:#fff}
+.t-role{font-size:.8rem;color:var(--muted)}
+
+/* CTA */
+.cta-section{background:linear-gradient(135deg,#0a0f1e 0%,#14213d 100%);text-align:center;padding:8rem 6%;position:relative;overflow:hidden}
+.cta-glow{position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(252,163,17,.15) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.cta-section h2{font-size:clamp(1.5rem,3vw,2.5rem);font-weight:700;margin-bottom:1rem;position:relative}
+.cta-phone{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,6vw,5.5rem);font-weight:800;color:var(--accent);text-decoration:none;display:block;margin:1.5rem 0;letter-spacing:-.02em;transition:opacity .2s;position:relative}
+.cta-phone:hover{opacity:.8}
+.tg-btn{display:inline-flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.07);border:1px solid var(--glass-border);color:#fff;font-weight:600;padding:.8rem 2rem;border-radius:50px;text-decoration:none;backdrop-filter:blur(8px);transition:border-color .2s,background .2s;position:relative}
+.tg-btn:hover{border-color:var(--accent);background:rgba(252,163,17,.1)}
+
+/* FOOTER */
+footer{background:#040710;padding:2.5rem 6%;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--glass-border);flex-wrap:wrap;gap:1rem}
+.f-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:#fff}
+.f-logo span{color:var(--accent)}
+footer p{color:var(--muted);font-size:.85rem}
+
+@media(max-width:900px){
+.hero{grid-template-columns:1fr}.hero-right{display:block;height:50vw;max-height:500px}
+.services-grid{grid-template-columns:1fr}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.testimonials .testi-grid{grid-template-columns:1fr}
+footer{flex-direction:column;text-align:center}
+}
+@media(max-width:600px){.stats-grid{grid-template-columns:1fr}.hero-stats{flex-wrap:wrap;gap:1.5rem}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Denta<span>Service</span></div>
+  <a href="tel:+998712455477" class="nav-phone">+998 71 245 54 77</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-left">
+    <div class="hero-badge">
+      <span>★</span> Toshkentdagi №1 Stomatologiya Klinikasi
+    </div>
+    <h1>Sog'lom<br>Tish — <span>Baxtli</span><br>Hayot</h1>
+    <p class="hero-sub">Denta Service — zamonaviy uskunalar va tajribali shifokorlar bilan sifatli stomatologiya xizmatlarini taqdim etamiz. Sizning tabassum bizning g'ururimiz.</p>
+    <div class="hero-btns">
+      <a href="tel:+998712455477" class="btn-primary">Qabulga yozilish</a>
+      <a href="#xizmatlar" class="btn-outline">Xizmatlarni ko'rish</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="num">12<span>+</span></div>
+        <div class="lbl">Yil tajriba</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">8500<span>+</span></div>
+        <div class="lbl">Bemorlar</div>
+      </div>
+      <div class="stat-item">
+        <div class="num">98<span>%</span></div>
+        <div class="lbl">Mamnunlik</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="assets/denta-service/hero.png" alt="Denta Service">
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="xizmatlar">
+  <div class="fade">
+    <div class="sec-num">01</div>
+    <div class="sec-label">Bizning xizmatlar</div>
+    <h2 class="sec-title">Barcha Stomatologiya<br>Xizmatlari</h2>
+  </div>
+  <div class="services-grid">
+    <div class="s-card fade">
+      <div class="s-card-num">01</div>
+      <h3>Tish Protezlash</h3>
+      <p>Yo'qolgan tishlarni zamonaviy protezlar bilan tiklash. Keramika, zirkoniy va implant asosidagi yuqori sifatli protezlar.</p>
+    </div>
+    <div class="s-card fade">
+      <div class="s-card-num">02</div>
+      <h3>Tish Oqartirish</h3>
+      <p>Professional oqartirish tizimi yordamida tishlaringizni bir seansda 8 tona yorqinlashtirish. Tez va xavfsiz.</p>
+    </div>
+    <div class="s-card fade">
+      <div class="s-card-num">03</div>
+      <h3>Ortodontiya (Breketlar)</h3>
+      <p>Tish qatorini to'g'rilash uchun zamonaviy metal va keramik breketlar, shuningdek, shaffof kappalar.</p>
+    </div>
+    <div class="s-card fade">
+      <div class="s-card-num">04</div>
+      <h3>Davolash va Plomba</h3>
+      <p>Karies va chuqur yemirishlarni og'riqsiz davolash. Zamonaviy fotopolimer materiallardan foydalanish.</p>
+    </div>
+    <div class="s-card fade">
+      <div class="s-card-num">05</div>
+      <h3>Implantatsiya</h3>
+      <p>Tish ildizini titanium implant bilan almashtirish. Umrbod xizmat qiladigan yechim. Avropa standartlari.</p>
+    </div>
+    <div class="s-card fade">
+      <div class="s-card-num">06</div>
+      <h3>Bolalar Stomatologiyasi</h3>
+      <p>Bolalar uchun maxsus yondoshuv: og'riqsiz va qo'rquvni bartaraf etuvchi davolash usullari.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO BREAK -->
+<div class="photo-break">
+  <img src="assets/denta-service/interior.png" alt="Dentistry">
+  <div class="photo-break-overlay">
+    <h2 class="fade">Zamonaviy Klinika,<br><span>Evropa Darajasida</span></h2>
+    <p class="fade">Eng ilg'or texnologiyalar va qulay muhit — har bir tashrif sizga haqiqiy g'amxo'rlik tuyg'usini beradi.</p>
+  </div>
+</div>
+
+<!-- WHY US -->
+<section class="whyus" id="biz-haqimizda">
+  <div class="fade">
+    <div class="sec-num">02</div>
+    <div class="sec-label">Nima uchun biz?</div>
+    <h2 class="sec-title">Raqamlar O'z-o'zicha<br>Gapiradi</h2>
+  </div>
+  <div class="stats-grid">
+    <div class="big-stat fade">
+      <div class="big-num">12+</div>
+      <div class="big-lbl">Yil klinik tajriba</div>
+    </div>
+    <div class="big-stat fade">
+      <div class="big-num">8500+</div>
+      <div class="big-lbl">Mamnun bemorlar</div>
+    </div>
+    <div class="big-stat fade">
+      <div class="big-num">15</div>
+      <div class="big-lbl">Tajribali shifokorlar</div>
+    </div>
+    <div class="big-stat fade">
+      <div class="big-num">98%</div>
+      <div class="big-lbl">Muvaffaqiyat darajasi</div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAIL BREAK -->
+<div class="photo-break">
+  <img src="assets/denta-service/detail.png" alt="detail">
+  <div class="photo-break-overlay">
+    <h2 class="fade">Har Bir Tafsilot<br><span>Muhim</span></h2>
+    <p class="fade">Biz faqat davolamaymiz — biz sog'liqni va chiroyli tabassum yaratamiz. Har bir bemorga individual yondashuv.</p>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="sharhlar">
+  <div class="fade">
+    <div class="sec-num">03</div>
+    <div class="sec-label">Bemorlar fikri</div>
+    <h2 class="sec-title">Ular Nima Deydi?</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="t-card fade">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-text">"Denta Service'da ikkita implant o'rnatdim. Jarayon umuman og'riqsiz kechdi. Shifokorlar juda professionallar, klinika juda toza va zamonaviy. Tavsiya qilaman!"</p>
+      <div class="t-author">
+        <div class="t-avatar">AK</div>
+        <div>
+          <div class="t-name">Aziz Karimov</div>
+          <div class="t-role">Tadbirkor, Toshkent</div>
+        </div>
+      </div>
+    </div>
+    <div class="t-card fade">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-text">"Farzandimni olib keldim, breketlar qo'ydirishdi. Bolalar doktori juda mehribon va sabrli edi. Bola endi qo'rqmaydi, har oyda xursand borib keladi!"</p>
+      <div class="t-author">
+        <div class="t-avatar">MN</div>
+        <div>
+          <div class="t-name">Malika Nazarova</div>
+          <div class="t-role">Ona, Chilonzor</div>
+        </div>
+      </div>
+    </div>
+    <div class="t-card fade">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-text">"Tish oqartirish xizmatidan foydalandim. Natija ajoyib — tishlarim hayotimda hech qachon bu qadar oq bo'lmagan. Tabassum yanada keng bo'ldi!"</p>
+      <div class="t-author">
+        <div class="t-avatar">SU</div>
+        <div>
+          <div class="t-name">Sarvinoz Umarova</div>
+          <div class="t-role">O'qituvchi, Yunusobod</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="aloqa">
+  <div class="cta-glow"></div>
+  <div class="fade">
+    <div class="sec-label">Bugun qabulga yoziling</div>
+    <h2>Sog'lom tishlar uchun<br>birinchi qadamni bosing</h2>
+  </div>
+  <a href="tel:+998712455477" class="cta-phone fade">+998 71 245 54 77</a>
+  <div class="fade" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem">
+    <a href="https://t.me/dentaservice" class="tg-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+      Telegram orqali yozish
+    </a>
+    <a href="tel:+998712455477" class="tg-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l1.3-1.3a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Qo'ng'iroq qilish
+    </a>
+  </div>
+  <p class="fade" style="color:var(--muted);font-size:.9rem">📍 Chilonzor tumani, Furqat ko'chasi, 167 — Toshkent</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">Denta<span>Service</span></div>
+  <p>© 2025 Denta Service. Barcha huquqlar himoyalangan.</p>
+  <p style="color:var(--muted);font-size:.85rem">Chilonzor, Furqat ko'chasi 167, Toshkent</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('visible'); }
+  });
+}, {threshold:0.12});
+document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+</script>
+
+<section style="padding:50px 6%;background:#060d1f;text-align:center;border-top:1px solid rgba(255,255,255,0.08)">
+  <p style="color:#8899aa;font-size:.85rem;margin-bottom:1rem">Saytga QR orqali kiring</p>
+  <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A//b2b-toshkent.netlify.app/generated_sites/denta-service.html" alt="QR Code" style="width:160px;height:160px;border-radius:12px;border:4px solid rgba(255,255,255,0.1)">
+</section>
+</body>
+</html>

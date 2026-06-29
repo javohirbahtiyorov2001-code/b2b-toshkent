@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hollywood Smile — Косметическая стоматология, Бешагач</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#080808;--ink-2:#111;--ink-3:#1a1a1a;
+  --gold:#c9a84c;--gold-light:#e8c97a;--gold-dim:rgba(201,168,76,.12);--gold-border:rgba(201,168,76,.22);
+  --cream:#f5f0e8;--muted:rgba(245,240,232,.5);--dim:rgba(245,240,232,.22);
+  --ease:cubic-bezier(0.23,1,0.32,1);
+}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--cream);font-family:'Inter',sans-serif;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;inset:0 0 auto;z-index:99;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 60px;background:rgba(8,8,8,.88);backdrop-filter:blur(24px);border-bottom:1px solid rgba(201,168,76,.1)}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:17px;letter-spacing:.04em;text-transform:uppercase;color:var(--cream)}
+.logo em{font-style:normal;color:var(--gold)}
+.nav-links{display:flex;gap:40px;list-style:none}
+.nav-links a{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .18s}
+.nav-links a:hover{color:var(--cream)}
+.nav-btn{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);background:var(--gold);padding:10px 22px;border-radius:4px;border:none;cursor:pointer;text-decoration:none;transition:transform .15s var(--ease),filter .2s}
+.nav-btn:hover{filter:brightness(1.15);transform:translateY(-1px)}
+.nav-btn:active{transform:scale(.96)}
+
+/* HERO — editorial, centered manifesto */
+.hero{min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:72px 60px 80px;position:relative;overflow:hidden;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,.08) 0%,transparent 60%)}
+.hero-eyebrow{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:28px}
+.hero-h1{font-family:'Syne',sans-serif;font-size:clamp(3.2rem,7vw,7rem);font-weight:800;line-height:.98;letter-spacing:-.02em;max-width:16ch;margin-bottom:32px}
+.hero-h1 em{font-style:italic;color:var(--gold)}
+.hero-p{font-size:16px;color:var(--muted);max-width:48ch;line-height:1.75;margin-bottom:48px}
+.hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-gold{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:var(--gold);padding:16px 36px;border-radius:4px;border:none;cursor:pointer;text-decoration:none;transition:transform .15s var(--ease),filter .2s}
+.btn-gold:hover{filter:brightness(1.12);transform:translateY(-2px)}
+.btn-gold:active{transform:scale(.97)}
+.btn-outline{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);background:transparent;padding:15px 32px;border-radius:4px;border:1px solid rgba(201,168,76,.3);cursor:pointer;text-decoration:none;transition:border-color .2s,background .2s}
+.btn-outline:hover{border-color:var(--gold);background:rgba(201,168,76,.05)}
+.scroll-indicator{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--dim)}
+.scroll-indicator span{font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-family:'Syne',sans-serif}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--gold),transparent)}
+
+/* NUMBERS STRIP */
+.strip{border-top:1px solid rgba(201,168,76,.12);border-bottom:1px solid rgba(201,168,76,.12);display:flex;justify-content:center;gap:0}
+.strip-item{flex:1;max-width:220px;padding:32px 24px;text-align:center;border-right:1px solid rgba(201,168,76,.1)}
+.strip-item:last-child{border:none}
+.strip-item .n{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:800;color:var(--gold);line-height:1}
+.strip-item .l{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+
+/* SERVICES — bento */
+.services{padding:100px 60px;max-width:1400px;margin:0 auto}
+.sec-label{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.sec-h2{font-family:'Syne',sans-serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:800;letter-spacing:-.02em;line-height:1.08;margin-bottom:60px;max-width:24ch}
+.bento{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;gap:2px;background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.08);border-radius:16px;overflow:hidden}
+.bcard{background:var(--ink-2);padding:40px;transition:background .25s}
+.bcard:hover{background:var(--ink-3)}
+.bcard.wide{grid-column:span 2}
+.bcard.tall{grid-row:span 2}
+.bcard-tag{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.bcard-n{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;line-height:1.2;margin-bottom:12px;letter-spacing:-.01em}
+.bcard-d{font-size:13px;color:var(--muted);line-height:1.7}
+.bcard-price{display:inline-block;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--gold);margin-top:20px;padding:4px 12px;border:1px solid var(--gold-border);border-radius:20px;background:var(--gold-dim)}
+.bcard-big-num{font-family:'Syne',sans-serif;font-size:5rem;font-weight:800;color:var(--gold);opacity:.2;line-height:1;margin-bottom:12px}
+
+/* PROCESS */
+.process{padding:100px 60px;background:var(--ink-2)}
+.process-inner{max-width:1400px;margin:0 auto}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:60px}
+.step{padding:40px 36px;border-right:1px solid rgba(255,255,255,.05)}
+.step:last-child{border:none}
+.step-num{font-family:'Syne',sans-serif;font-size:48px;font-weight:800;color:var(--gold);opacity:.18;line-height:1;margin-bottom:16px}
+.step-n{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:10px;letter-spacing:-.01em}
+.step-d{font-size:13px;color:var(--muted);line-height:1.65}
+
+/* RESULTS */
+.results{padding:100px 60px;max-width:1400px;margin:0 auto}
+.results-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px;flex-wrap:wrap;gap:24px}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:0}
+.tcard{background:var(--ink-2);border:1px solid rgba(201,168,76,.08);border-radius:12px;padding:28px;transition:border-color .25s}
+.tcard:hover{border-color:var(--gold-border)}
+.tstars{color:var(--gold);font-size:12px;letter-spacing:3px;margin-bottom:14px}
+.tq{font-size:13px;color:var(--muted);line-height:1.75;font-style:italic}
+.ta{display:flex;align-items:center;gap:10px;margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.05)}
+.ta img{width:36px;height:36px;border-radius:50%;object-fit:cover}
+.ta-n{font-family:'Syne',sans-serif;font-size:13px;font-weight:600}
+.ta-r{font-size:11px;color:var(--dim);margin-top:1px}
+
+/* CTA */
+.hero-cta{padding:100px 60px;position:relative;overflow:hidden;text-align:center}
+.hero-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,.07) 0%,transparent 70%)}
+.hero-cta h2{font-family:'Syne',sans-serif;font-size:clamp(2.2rem,4vw,4rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;max-width:24ch;margin:0 auto 18px}
+.hero-cta p{font-size:15px;color:var(--muted);max-width:42ch;margin:0 auto 40px;line-height:1.7}
+.contact-row{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin-bottom:40px}
+.ci .lbl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);font-family:'Syne',sans-serif;font-weight:700}
+.ci .val{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--cream);margin-top:6px}
+
+footer{background:var(--ink-2);padding:28px 60px;border-top:1px solid rgba(201,168,76,.08);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.fc{font-size:12px;color:var(--dim)}
+.fb a{font-size:12px;color:var(--gold);text-decoration:none}
+
+[data-r]{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+[data-r].on{opacity:1;transform:none}
+
+@media(max-width:900px){
+  nav{padding:0 20px}.nav-links{display:none}
+  .hero{padding:80px 20px 60px;text-align:left;align-items:flex-start}
+  .hero-actions{justify-content:flex-start}
+  .scroll-indicator{display:none}
+  .strip{flex-wrap:wrap}.strip-item{min-width:50%;border:none;border-bottom:1px solid rgba(201,168,76,.1)}
+  .services,.process,.results,.hero-cta{padding:60px 20px}
+  .bento{grid-template-columns:1fr}.bcard.wide,.bcard.tall{grid-column:1;grid-row:auto}
+  .process-grid{grid-template-columns:1fr 1fr}.step{border:none;border-bottom:1px solid rgba(255,255,255,.04)}
+  .tgrid{grid-template-columns:1fr}
+  .contact-row{gap:24px}
+  footer{padding:20px;flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Hollywood <em>Smile</em></div>
+  <ul class="nav-links">
+    <li><a href="#services">Услуги</a></li>
+    <li><a href="#process">Процесс</a></li>
+    <li><a href="#reviews">Отзывы</a></li>
+    <li><a href="#contact">Контакты</a></li>
+  </ul>
+  <a href="tel:+998901234567" class="nav-btn">Консультация</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow">Косметическая стоматология — мкр. Бешагач, 6 — Ташкент</div>
+  <h1 class="hero-h1">Улыбка,<br>которую<br><em>заметят</em></h1>
+  <p class="hero-p">Виниры, имплантация и косметическое отбеливание премиального класса. Мы создаем улыбки, которые меняют первое впечатление.</p>
+  <div class="hero-actions">
+    <a href="tel:+998901234567" class="btn-gold">Записаться сейчас</a>
+    <a href="#services" class="btn-outline">Смотреть услуги</a>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <span>Прокрутить</span>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="strip-item"><div class="n">10+</div><div class="l">Лет практики</div></div>
+  <div class="strip-item"><div class="n">5 000+</div><div class="l">Успешных кейсов</div></div>
+  <div class="strip-item"><div class="n">3 года</div><div class="l">Гарантия на работу</div></div>
+  <div class="strip-item"><div class="n">0 сум</div><div class="l">Первая консультация</div></div>
+</div>
+
+<section class="services" id="services">
+  <div class="sec-label" data-r>Наши услуги</div>
+  <h2 class="sec-h2" data-r>Косметическая стоматология нового уровня</h2>
+  <div class="bento">
+    <div class="bcard wide" data-r>
+      <div class="bcard-tag">Премиум</div>
+      <div class="bcard-n">Виниры E.max и Lumineers</div>
+      <p class="bcard-d">Фарфоровые накладки толщиной 0.3 мм. Исправляем цвет, форму, размер зубов — без боли и почти без обточки эмали. Результат, который держится 15-20 лет.</p>
+      <span class="bcard-price">от 1 500 000 сум / зуб</span>
+    </div>
+    <div class="bcard" data-r>
+      <div class="bcard-tag">Популярно</div>
+      <div class="bcard-n">Отбеливание Zoom 4</div>
+      <p class="bcard-d">8-10 тонов за одно посещение. Безопасно для эмали.</p>
+      <span class="bcard-price">от 900 000 сум</span>
+    </div>
+    <div class="bcard" data-r>
+      <div class="bcard-tag">Хирургия</div>
+      <div class="bcard-n">Имплантация Nobel</div>
+      <p class="bcard-d">Импланты Nobel Biocare. Пожизненная гарантия на конструкцию.</p>
+      <span class="bcard-price">от 3 000 000 сум</span>
+    </div>
+    <div class="bcard" data-r>
+      <div class="bcard-big-num">∞</div>
+      <div class="bcard-n">Голливудская улыбка под ключ</div>
+      <p class="bcard-d">Полный комплекс: отбеливание, виниры, коррекция десны. Создаем улыбку мечты с нуля по индивидуальному плану.</p>
+      <span class="bcard-price">Индивидуально</span>
+    </div>
+    <div class="bcard" data-r>
+      <div class="bcard-tag">Ортодонтия</div>
+      <div class="bcard-n">Invisalign</div>
+      <p class="bcard-d">Невидимые элайнеры для идеального прикуса без металла во рту.</p>
+      <span class="bcard-price">от 800 000 сум</span>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="process-inner">
+    <div class="sec-label" data-r>Как мы работаем</div>
+    <h2 class="sec-h2" data-r>Четыре шага к улыбке мечты</h2>
+    <div class="process-grid">
+      <div class="step" data-r>
+        <div class="step-num">01</div>
+        <div class="step-n">Бесплатная консультация</div>
+        <p class="step-d">Осматриваем, слушаем ваши пожелания, делаем 3D-снимок и составляем цифровой план улыбки.</p>
+      </div>
+      <div class="step" data-r>
+        <div class="step-num">02</div>
+        <div class="step-n">Дизайн улыбки</div>
+        <p class="step-d">Показываем результат на фото до начала работы. Корректируем форму, размер и цвет виниров вместе с вами.</p>
+      </div>
+      <div class="step" data-r>
+        <div class="step-num">03</div>
+        <div class="step-n">Лечение</div>
+        <p class="step-d">Минимальная инвазивность, максимальная точность. Большинство процедур завершается за 2-3 посещения.</p>
+      </div>
+      <div class="step" data-r>
+        <div class="step-num">04</div>
+        <div class="step-n">Результат и уход</div>
+        <p class="step-d">Передаем рекомендации по уходу и остаемся на связи. Гарантия на все работы до 3 лет.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="results" id="reviews">
+  <div class="results-header" data-r>
+    <div>
+      <div class="sec-label">Отзывы</div>
+      <h2 class="sec-h2" style="margin-bottom:0">Они уже улыбаются</h2>
+    </div>
+  </div>
+  <div class="tgrid">
+    <div class="tcard" data-r>
+      <div class="tstars">★★★★★</div>
+      <p class="tq">"Делала виниры на 10 зубов. Результат потрясающий — абсолютно натурально, никто не догадывается, что это виниры. Спасибо доктору Алишеру!"</p>
+      <div class="ta"><div style="width:36px;height:36px;border-radius:50%;background:#1a1400;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:#c9a84c;flex-shrink:0;font-family:sans-serif">ДХ</div><div><div class="ta-n">Дильноза Хасанова</div><div class="ta-r">Предприниматель</div></div></div>
+    </div>
+    <div class="tcard" data-r>
+      <div class="tstars">★★★★★</div>
+      <p class="tq">"Отбеливание Zoom сделали за 1.5 часа. На 9 тонов светлее, чувствительности нет вообще. Теперь хочу еще и виниры!"</p>
+      <div class="ta"><div style="width:36px;height:36px;border-radius:50%;background:#100f00;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:#c9a84c;flex-shrink:0;font-family:sans-serif">БМ</div><div><div class="ta-n">Бобур Мирзаев</div><div class="ta-r">Менеджер</div></div></div>
+    </div>
+    <div class="tcard" data-r>
+      <div class="tstars">★★★★★</div>
+      <p class="tq">"Имплант поставили быстро и безболезненно. Прошел год — как родной зуб. Буду рекомендовать всем знакомым."</p>
+      <div class="ta"><div style="width:36px;height:36px;border-radius:50%;background:#1a1400;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:#c9a84c;flex-shrink:0;font-family:sans-serif">ФК</div><div><div class="ta-n">Феруза Каримова</div><div class="ta-r">Врач</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="hero-cta" id="contact">
+  <h2 data-r>Запишитесь на<br>бесплатную консультацию</h2>
+  <p data-r>Покажем, какой будет ваша улыбка — до начала лечения. Консультация и 3D-снимок бесплатно.</p>
+  <div class="contact-row" data-r>
+    <div class="ci"><div class="lbl">Адрес</div><div class="val">мкр. Бешагач, 6, Ташкент</div></div>
+    <div class="ci"><div class="lbl">Телефон</div><div class="val">+998 90 123-45-67</div></div>
+    <div class="ci"><div class="lbl">Telegram</div><div class="val">@hollywoodsmile_uz</div></div>
+  </div>
+  <a href="tel:+998901234567" class="btn-gold" style="font-size:13px;padding:18px 44px;letter-spacing:.14em" data-r>ЗАПИСАТЬСЯ СЕЙЧАС</a>
+</section>
+
+<footer>
+  <div class="fc">© 2024 Hollywood Smile. мкр. Бешагач, 6, Ташкент</div>
+  <div class="fb"><a href="https://t.me/jorjie_b">Сайт создан SmartDev.uz</a></div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target)} }), {threshold:.1,rootMargin:'0px 0px -24px 0px'});
+document.querySelectorAll('[data-r]').forEach((el,i) => { el.style.transitionDelay=(i%3)*70+'ms'; io.observe(el); });
+</script>
+
+<section style="padding:50px 6%;background:#060d1f;text-align:center;border-top:1px solid rgba(255,255,255,0.08)">
+  <p style="color:#8899aa;font-size:.85rem;margin-bottom:1rem">Saytga QR orqali kiring</p>
+  <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A//b2b-toshkent.netlify.app/generated_sites/hollywood-smile.html" alt="QR Code" style="width:160px;height:160px;border-radius:12px;border:4px solid rgba(255,255,255,0.1)">
+</section>
+</body>
+</html>

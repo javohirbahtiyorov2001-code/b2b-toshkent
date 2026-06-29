@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smalto Dente — Premium Stomatologiya</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#1a0533;--accent:#9b5de5;--accent2:#c084fc;--dark:#0d0118;--glass:rgba(155,93,229,0.08);--glassborder:rgba(155,93,229,0.25)}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--dark);color:#f0e8ff;overflow-x:hidden}
+h1,h2,h3,.display{font-family:'Syne',sans-serif}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 4rem;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(20px);background:rgba(13,1,24,0.7);border-bottom:1px solid var(--glassborder)}
+.logo{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;letter-spacing:0.05em;color:#fff}
+.logo span{color:var(--accent)}
+.nav-phone{background:linear-gradient(135deg,var(--accent),var(--accent2));padding:0.6rem 1.4rem;border-radius:50px;font-size:0.85rem;font-weight:600;color:#fff;text-decoration:none;transition:opacity 0.3s}
+.nav-phone:hover{opacity:0.85}
+
+/* HERO */
+.hero{height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:8rem 4rem 4rem;position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--glass);border:1px solid var(--glassborder);padding:0.4rem 1rem;border-radius:50px;font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent2);margin-bottom:1.5rem;width:fit-content}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;display:block}
+.hero h1{font-size:clamp(3rem,5.5vw,6rem);font-weight:800;line-height:1.0;letter-spacing:-0.02em;margin-bottom:1.2rem}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1rem;color:rgba(240,232,255,0.6);line-height:1.7;max-width:420px;margin-bottom:2rem}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;padding:0.85rem 2rem;border-radius:50px;font-weight:600;font-size:0.9rem;text-decoration:none;transition:transform 0.3s,box-shadow 0.3s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(155,93,229,0.4)}
+.btn-outline{border:1px solid var(--glassborder);color:#f0e8ff;padding:0.85rem 2rem;border-radius:50px;font-weight:600;font-size:0.9rem;text-decoration:none;backdrop-filter:blur(10px);background:var(--glass);transition:border-color 0.3s}
+.btn-outline:hover{border-color:var(--accent)}
+.hero-stats{display:flex;gap:2.5rem}
+.stat{display:flex;flex-direction:column}
+.stat-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:#fff}
+.stat-num span{color:var(--accent)}
+.stat-label{font-size:0.75rem;color:rgba(240,232,255,0.5);margin-top:0.2rem}
+.hero-right{position:relative;overflow:hidden}
+.hero-right img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--dark) 0%,transparent 40%)}
+.hero-right::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,var(--dark) 0%,transparent 30%);z-index:1}
+.glow-blob{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+.blob1{width:400px;height:400px;background:radial-gradient(circle,rgba(155,93,229,0.25),transparent 70%);top:-100px;left:-100px}
+.blob2{width:300px;height:300px;background:radial-gradient(circle,rgba(192,132,252,0.2),transparent 70%);bottom:10%;right:10%}
+
+/* SECTIONS */
+section{padding:7rem 4rem;position:relative;overflow:hidden}
+.section-label{font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:0.8rem}
+.section-title{font-size:clamp(2rem,4vw,3.5rem);font-weight:800;line-height:1.1;margin-bottom:1rem}
+.section-num{font-family:'Syne',sans-serif;font-size:6rem;font-weight:800;color:var(--accent);opacity:0.15;line-height:1;margin-bottom:-1.5rem}
+
+/* SERVICES */
+.services-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3.5rem;flex-wrap:wrap;gap:1rem}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.service-card{background:var(--glass);border:1px solid var(--glassborder);backdrop-filter:blur(12px);border-radius:20px;padding:2rem;transition:transform 0.4s,border-color 0.4s,box-shadow 0.4s;cursor:default}
+.service-card:hover{transform:translateY(-6px);border-color:var(--accent);box-shadow:0 20px 60px rgba(155,93,229,0.2)}
+.card-num{font-family:'Syne',sans-serif;font-size:0.75rem;font-weight:700;color:var(--accent);letter-spacing:0.1em;margin-bottom:1rem}
+.card-icon{font-size:2rem;margin-bottom:0.8rem}
+.service-card h3{font-size:1.15rem;font-weight:700;margin-bottom:0.6rem}
+.service-card p{font-size:0.85rem;color:rgba(240,232,255,0.55);line-height:1.6}
+
+/* PHOTO BREAK */
+.photo-break{padding:0;height:65vh;position:relative;overflow:hidden}
+.photo-break img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(13,1,24,0.6),rgba(26,5,51,0.8));display:flex;align-items:center;justify-content:center;text-align:center;flex-direction:column;gap:1rem;padding:2rem}
+.photo-overlay h2{font-size:clamp(2rem,5vw,4.5rem);font-weight:800;line-height:1.1;max-width:800px}
+.photo-overlay p{font-size:1rem;color:rgba(240,232,255,0.65);max-width:500px}
+
+/* WHY US */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem}
+.why-card{text-align:center;padding:2.5rem 1.5rem;background:var(--glass);border:1px solid var(--glassborder);border-radius:20px;backdrop-filter:blur(12px)}
+.why-num{font-family:'Syne',sans-serif;font-size:3.5rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.why-label{font-size:0.85rem;color:rgba(240,232,255,0.55);margin-top:0.5rem;line-height:1.4}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem}
+.testi-card{background:var(--glass);border:1px solid var(--glassborder);backdrop-filter:blur(12px);border-radius:20px;padding:2rem}
+.stars{color:var(--accent2);font-size:0.9rem;margin-bottom:1rem;letter-spacing:2px}
+.testi-card p{font-size:0.9rem;color:rgba(240,232,255,0.65);line-height:1.7;margin-bottom:1.2rem;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:0.8rem}
+.author-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem}
+.author-name{font-weight:600;font-size:0.9rem}
+.author-tag{font-size:0.75rem;color:rgba(240,232,255,0.4)}
+
+/* CTA */
+.cta-section{min-height:80vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 4rem;background:linear-gradient(135deg,var(--dark),var(--primary));position:relative}
+.cta-section .section-label{margin-bottom:1.5rem}
+.cta-title{font-size:clamp(1.8rem,4vw,3rem);font-weight:800;margin-bottom:1rem;opacity:0.7}
+.cta-phone{display:block;font-family:'Syne',sans-serif;font-size:clamp(2.5rem,7vw,6rem);font-weight:800;background:linear-gradient(135deg,#fff,var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none;margin-bottom:1rem;line-height:1.1;transition:opacity 0.3s}
+.cta-phone:hover{opacity:0.8}
+.cta-address{font-size:0.9rem;color:rgba(240,232,255,0.45);margin-bottom:2.5rem}
+.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-tg{background:#2AABEE;color:#fff;padding:0.9rem 2.2rem;border-radius:50px;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:opacity 0.3s}
+.btn-tg:hover{opacity:0.85}
+.cta-blob{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(155,93,229,0.15),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+
+/* FOOTER */
+footer{padding:2.5rem 4rem;border-top:1px solid var(--glassborder);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;background:var(--dark)}
+.footer-logo{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;color:#fff}
+.footer-logo span{color:var(--accent)}
+footer p{font-size:0.8rem;color:rgba(240,232,255,0.3)}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(40px);transition:opacity 0.7s ease,transform 0.7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-up:nth-child(2){transition-delay:0.1s}
+.fade-up:nth-child(3){transition-delay:0.2s}
+.fade-up:nth-child(4){transition-delay:0.3s}
+
+@media(max-width:900px){
+  nav{padding:1rem 2rem}
+  .hero{grid-template-columns:1fr;height:auto}
+  .hero-left{padding:7rem 2rem 3rem}
+  .hero-right{height:50vh}
+  .hero-right::after{background:linear-gradient(to bottom,transparent,var(--dark))}
+  section{padding:5rem 2rem}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .services-header{flex-direction:column;align-items:flex-start}
+  footer{flex-direction:column;text-align:center}
+}
+@media(max-width:600px){
+  .services-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .hero-stats{gap:1.5rem}
+  .cta-phone{font-size:2.2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Smalto<span>Dente</span></div>
+  <a href="tel:+998712333747" class="nav-phone">+998 71 233 37 47</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding:0">
+  <div class="glow-blob blob1"></div>
+  <div class="hero-left">
+    <div class="hero-badge">Toshkent | Premium Stomatologiya</div>
+    <h1>Sog'lom<br>Tabassum<br><em>Yangi Hayot</em></h1>
+    <p class="hero-sub">Smalto Dente — zamonaviy texnologiyalar va professional shifokorlar bilan sizning tabassumingizni mukammal holatga keltiramiz.</p>
+    <div class="hero-ctas">
+      <a href="tel:+998712333747" class="btn-primary">Qo'ng'iroq Qilish</a>
+      <a href="#xizmatlar" class="btn-outline">Xizmatlar →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">12<span>+</span></span>
+        <span class="stat-label">Yil tajriba</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">8400<span>+</span></span>
+        <span class="stat-label">Mamnun bemorlar</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">98<span>%</span></span>
+        <span class="stat-label">Muvaffaqiyat darajasi</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="assets/smalto-dente/hero.png" alt="Smalto Dente">
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="xizmatlar" style="background:linear-gradient(to bottom,var(--dark),var(--primary))">
+  <div class="glow-blob" style="width:500px;height:500px;background:radial-gradient(circle,rgba(155,93,229,0.18),transparent 70%);top:0;right:-150px;position:absolute;border-radius:50%;filter:blur(80px)"></div>
+  <div class="services-header">
+    <div>
+      <div class="section-num">01</div>
+      <p class="section-label">Bizning xizmatlar</p>
+      <h2 class="section-title">Barcha Stomatologiya<br>Xizmatlari</h2>
+    </div>
+    <p style="max-width:320px;color:rgba(240,232,255,0.5);font-size:0.9rem;line-height:1.7">Og'iz bo'shlig'i salomatligi va estetik stomatologiya bo'yicha to'liq spektrdagi professional xizmatlar.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <div class="card-num">— 01</div>
+      <div class="card-icon">🦷</div>
+      <h3>Implantatsiya</h3>
+      <p>Yo'qolgan tishlarni titan implantlar bilan qayta tiklash. Uzoq muddatli va estetik natija kafolatlanadi.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="card-num">— 02</div>
+      <div class="card-icon">✨</div>
+      <h3>Tish Oqartirish</h3>
+      <p>Professional lazer oqartirish texnologiyasi bilan bir seansdayoq porloq tabassum kashf eting.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="card-num">— 03</div>
+      <div class="card-icon">💎</div>
+      <h3>Estetik Plastika</h3>
+      <p>Vinirlar, lumineers va keramik qoplamalar yordamida tishlaringizni ideallashtirish.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="card-num">— 04</div>
+      <div class="card-icon">🔬</div>
+      <h3>Ortodontiya</h3>
+      <p>Invisible breket tizimi va kapa yordamida noto'g'ri tish qatorini tuzatish — og'riqsiz va sezilmasdan.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="card-num">— 05</div>
+      <div class="card-icon">🛡️</div>
+      <h3>Davolash</h3>
+      <p>Kariyes, pulpit va periodontit kasalliklarini zamonaviy metodlar bilan og'riqsiz davolash.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="card-num">— 06</div>
+      <div class="card-icon">👶</div>
+      <h3>Bolalar Stomatologiyasi</h3>
+      <p>Farzandlaringiz uchun xavfsiz va qulay muhitda professional tish parvarishi va davolash.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO BREAK -->
+<div class="photo-break">
+  <img src="assets/smalto-dente/interior.png" alt="Dentistry">
+  <div class="photo-overlay">
+    <h2>Zamonaviy Klinika,<br><em style="font-style:normal;color:var(--accent2)">Iliq Muhit</em></h2>
+    <p>Har bir bemorni shaxsiy yondashuv bilan kutib olamiz. Sizning qulayligingiz — bizning ustuvor vazifamiz.</p>
+  </div>
+</div>
+
+<!-- WHY US -->
+<section style="background:var(--primary)">
+  <div class="glow-blob" style="width:400px;height:400px;background:radial-gradient(circle,rgba(192,132,252,0.2),transparent 70%);bottom:-100px;left:-100px;position:absolute;border-radius:50%;filter:blur(80px)"></div>
+  <div style="text-align:center;margin-bottom:0.5rem">
+    <div class="section-num" style="text-align:center">02</div>
+    <p class="section-label" style="text-align:center">Nima uchun biz</p>
+    <h2 class="section-title" style="text-align:center">Raqamlar Orqali<br>Bizni Taniying</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card fade-up">
+      <div class="why-num">12+</div>
+      <div class="why-label">Yil klinik<br>tajribasi</div>
+    </div>
+    <div class="why-card fade-up">
+      <div class="why-num">8400+</div>
+      <div class="why-label">Muvaffaqiyatli<br>davolangan bemorlar</div>
+    </div>
+    <div class="why-card fade-up">
+      <div class="why-num">15+</div>
+      <div class="why-label">Malakali<br>shifokorlar</div>
+    </div>
+    <div class="why-card fade-up">
+      <div class="why-num">98%</div>
+      <div class="why-label">Bemorlar<br>mamnuniyati</div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAIL IMAGE BREAK -->
+<div class="photo-break" style="height:45vh">
+  <img src="assets/smalto-dente/detail.png" alt="detail">
+  <div class="photo-overlay">
+    <h2 style="font-size:clamp(1.5rem,4vw,3rem)">Eng Ilg'or Uskunalar —<br>Eng Yaxshi Natija</h2>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section style="background:linear-gradient(to bottom,var(--primary),var(--dark))">
+  <div class="glow-blob" style="width:450px;height:450px;background:radial-gradient(circle,rgba(155,93,229,0.15),transparent 70%);top:-50px;right:0;position:absolute;border-radius:50%;filter:blur(80px)"></div>
+  <div class="section-num">03</div>
+  <p class="section-label">Bemorlar fikri</p>
+  <h2 class="section-title">Mamnun Bemorlarimiz<br>Nima Deydi?</h2>
+  <div class="testi-grid">
+    <div class="testi-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p>"Smalto Dente klinikasida implantatsiya qildirdim. Shifokorlar juda professional va e'tiborli. Operatsiya mutlaqo og'riqsiz o'tdi. Natijadan nihoyatda mamnunman — tabassum qilishdan charchamayapman!"</p>
+      <div class="testi-author">
+        <div class="author-avatar">MR</div>
+        <div>
+          <div class="author-name">Mansur Rahimov</div>
+          <div class="author-tag">Implantatsiya bemorli</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p>"Vinirlar o'rnatib olish uchun bir necha klinika ko'rib chiqdim. Smalto Dente eng yaxshisi! Uslub maslahati bepul berildi, natija esa tushimda ham ko'rmaganim darajada chiroyli chiqdi."</p>
+      <div class="testi-author">
+        <div class="author-avatar">SD</div>
+        <div>
+          <div class="author-name">Sarvinoz Davlatova</div>
+          <div class="author-tag">Estetik stomatologiya</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card fade-up">
+      <div class="stars">★★★★★</div>
+      <p>"Farzandimni olib bordim. Bolalar bo'limidagi shifokorlar juda mehribon, bola qo'rqmadi umuman. Klinika juda toza va zamonaviy. Endi butun oilamiz shu yerga boramiz!"</p>
+      <div class="testi-author">
+        <div class="author-avatar">FK</div>
+        <div>
+          <div class="author-name">Feruza Karimova</div>
+          <div class="author-tag">Bolalar stomatologiyasi</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-blob"></div>
+  <p class="section-label">Bog'lanish</p>
+  <h2 class="cta-title">Bugun Qo'ng'iroq Qiling</h2>
+  <a href="tel:+998712333747" class="cta-phone">+998 71 233 37 47</a>
+  <p class="cta-address">📍 Yunusobod tumani, Fidokor ko'chasi, 32A · Toshkent</p>
+  <div class="cta-buttons">
+    <a href="tel:+998712333747" class="btn-primary" style="font-size:1rem;padding:1rem 2.5rem">📞 Qo'ng'iroq</a>
+    <a href="https://t.me/smaltodente" class="btn-tg" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg>
+      Telegram
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Smalto<span>Dente</span></div>
+  <p>© 2025 Smalto Dente. Barcha huquqlar himoyalangan.</p>
+  <p style="color:rgba(240,232,255,0.3);font-size:0.8rem">Yunusobod, Toshkent</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, {threshold: 0.15});
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+<section style="padding:50px 6%;background:#060d1f;text-align:center;border-top:1px solid rgba(255,255,255,0.08)">
+  <p style="color:#8899aa;font-size:.85rem;margin-bottom:1rem">Saytga QR orqali kiring</p>
+  <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A//b2b-toshkent.netlify.app/generated_sites/smalto-dente.html" alt="QR Code" style="width:160px;height:160px;border-radius:12px;border:4px solid rgba(255,255,255,0.1)">
+</section>
+</body>
+</html>

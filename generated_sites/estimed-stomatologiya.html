@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EstiMed Stomatologiya — Toshkent</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--accent:#e63946;--white:#f8f9fa;--dark:#080a0f;--dark2:#0d1117;--glass:rgba(248,249,250,0.04);--glass-border:rgba(248,249,250,0.08)}
+html{scroll-behavior:smooth}
+body{background:var(--dark);color:var(--white);font-family:'Inter',sans-serif;overflow-x:hidden}
+/* NAV */
+nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:1.2rem 4%;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(18px);background:rgba(8,10,15,0.7);border-bottom:1px solid var(--glass-border)}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;letter-spacing:-0.02em}.logo span{color:var(--accent)}
+.nav-phone{background:var(--accent);color:#fff;padding:.55rem 1.4rem;border-radius:50px;font-size:.85rem;font-weight:600;text-decoration:none;transition:opacity .2s}
+.nav-phone:hover{opacity:.85}
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:10rem 4% 5rem 5%;position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(230,57,70,.12);border:1px solid rgba(230,57,70,.3);color:var(--accent);font-size:.78rem;font-weight:600;padding:.4rem 1rem;border-radius:50px;margin-bottom:2rem;width:fit-content;letter-spacing:.05em;text-transform:uppercase}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);display:block}
+.hero-h1{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,5vw,5.5rem);font-weight:800;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.5rem}
+.hero-h1 em{color:var(--accent);font-style:normal}
+.hero-sub{color:rgba(248,249,250,.55);font-size:1.05rem;line-height:1.7;max-width:480px;margin-bottom:2.5rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3.5rem}
+.btn-primary{background:var(--accent);color:#fff;padding:.85rem 2rem;border-radius:50px;font-weight:600;font-size:.95rem;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 0 30px rgba(230,57,70,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(230,57,70,.5)}
+.btn-ghost{border:1px solid var(--glass-border);color:var(--white);padding:.85rem 2rem;border-radius:50px;font-weight:500;font-size:.95rem;text-decoration:none;backdrop-filter:blur(10px);background:var(--glass);transition:border-color .2s}
+.btn-ghost:hover{border-color:rgba(248,249,250,.25)}
+.hero-kpis{display:flex;gap:2.5rem;flex-wrap:wrap}
+.kpi{display:flex;flex-direction:column}
+.kpi-num{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--white);line-height:1}
+.kpi-num span{color:var(--accent)}
+.kpi-label{font-size:.78rem;color:rgba(248,249,250,.45);margin-top:.3rem;letter-spacing:.03em}
+.hero-right{position:relative;overflow:hidden}
+.hero-right img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-right::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--dark) 0%,transparent 50%);z-index:1}
+.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,var(--dark) 0%,transparent 40%);z-index:1}
+/* BLOBS */
+.blob{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+/* SECTIONS */
+section{padding:7rem 5%}
+.section-tag{font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.section-num{font-family:'Syne',sans-serif;font-size:clamp(5rem,10vw,9rem);font-weight:800;color:rgba(230,57,70,.08);line-height:1;position:absolute;top:0;left:0;pointer-events:none;z-index:0}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin-bottom:1rem}
+/* SERVICES */
+.services{background:var(--dark2);position:relative;overflow:hidden}
+.services-blob{position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(230,57,70,.15),transparent 70%);top:-100px;right:-100px;pointer-events:none}
+.services-header{position:relative;margin-bottom:4rem}
+.services-subtitle{color:rgba(248,249,250,.5);max-width:500px;line-height:1.7}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.scard{background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;padding:2rem;backdrop-filter:blur(12px);transition:transform .3s,border-color .3s,box-shadow .3s;position:relative;overflow:hidden}
+.scard:hover{transform:translateY(-6px);border-color:rgba(230,57,70,.3);box-shadow:0 20px 60px rgba(230,57,70,.08)}
+.scard-num{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;color:rgba(230,57,70,.2);line-height:1;margin-bottom:1rem}
+.scard-icon{font-size:1.8rem;margin-bottom:1rem}
+.scard-title{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:700;margin-bottom:.7rem}
+.scard-desc{font-size:.88rem;color:rgba(248,249,250,.5);line-height:1.7}
+/* PHOTO BREAK */
+.photo-break{padding:0;position:relative;height:65vh;overflow:hidden}
+.photo-break img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,10,15,.5),rgba(8,10,15,.75));display:flex;align-items:center;justify-content:center;text-align:center;flex-direction:column;gap:1.5rem;padding:2rem}
+.photo-overlay h2{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,4rem);font-weight:800;line-height:1.1;max-width:800px}
+.photo-overlay p{color:rgba(248,249,250,.6);font-size:1.1rem;max-width:500px;line-height:1.7}
+/* STATS */
+.stats{background:var(--dark);position:relative;overflow:hidden}
+.stats-blob{position:absolute;width:700px;height:700px;background:radial-gradient(circle,rgba(230,57,70,.12),transparent 70%);bottom:-200px;left:-200px;pointer-events:none}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:4rem}
+.stat-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;padding:2.5rem 2rem;text-align:center;backdrop-filter:blur(12px)}
+.stat-big{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:800;color:var(--white);line-height:1}
+.stat-big span{color:var(--accent)}
+.stat-label{color:rgba(248,249,250,.45);font-size:.85rem;margin-top:.7rem;line-height:1.5}
+/* TESTIMONIALS */
+.testimonials{background:var(--dark2);position:relative;overflow:hidden}
+.test-blob{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(230,57,70,.1),transparent 70%);top:50%;right:-100px;transform:translateY(-50%);pointer-events:none}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem}
+.tcard{background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;padding:2rem;backdrop-filter:blur(12px)}
+.tcard-stars{color:var(--accent);font-size:1rem;margin-bottom:1.2rem;letter-spacing:.1em}
+.tcard-text{color:rgba(248,249,250,.7);font-size:.93rem;line-height:1.75;margin-bottom:1.5rem;font-style:italic}
+.tcard-name{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem}
+.tcard-role{font-size:.78rem;color:rgba(248,249,250,.4);margin-top:.2rem}
+/* CTA */
+.cta-section{background:var(--dark);padding:8rem 5%;text-align:center;position:relative;overflow:hidden}
+.cta-blob{position:absolute;width:800px;height:800px;background:radial-gradient(circle,rgba(230,57,70,.15),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.cta-section .section-tag{justify-content:center;display:block;text-align:center}
+.cta-title{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:800;margin-bottom:1rem;letter-spacing:-0.02em}
+.cta-phone{display:block;font-family:'Syne',sans-serif;font-size:clamp(2.5rem,7vw,6rem);font-weight:800;color:var(--white);text-decoration:none;line-height:1;margin:1.5rem 0;transition:color .2s}
+.cta-phone:hover{color:var(--accent)}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem}
+.btn-tg{background:rgba(0,136,204,.15);border:1px solid rgba(0,136,204,.3);color:#fff;padding:.85rem 2rem;border-radius:50px;font-weight:600;font-size:.95rem;text-decoration:none;transition:background .2s}
+.btn-tg:hover{background:rgba(0,136,204,.3)}
+/* FOOTER */
+footer{background:#050608;padding:3rem 5%;border-top:1px solid var(--glass-border);display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;align-items:start}
+.footer-brand .logo{font-size:1.2rem;margin-bottom:.8rem;display:block}
+.footer-brand p{color:rgba(248,249,250,.35);font-size:.82rem;line-height:1.7}
+.footer-col h4{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;margin-bottom:1rem;color:rgba(248,249,250,.6);letter-spacing:.05em;text-transform:uppercase}
+.footer-col p,.footer-col a{color:rgba(248,249,250,.35);font-size:.85rem;line-height:1.8;text-decoration:none;display:block}
+.footer-col a:hover{color:var(--accent)}
+.footer-bottom{background:#050608;padding:1.2rem 5%;border-top:1px solid rgba(248,249,250,.04);text-align:center;color:rgba(248,249,250,.2);font-size:.78rem}
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+/* RESPONSIVE */
+@media(max-width:1024px){.services-grid{grid-template-columns:repeat(2,1fr)}.stats-grid{grid-template-columns:repeat(2,1fr)}.test-grid{grid-template-columns:1fr}}
+@media(max-width:768px){.hero{grid-template-columns:1fr;min-height:auto}.hero-right{height:50vh}.hero-left{padding:8rem 5% 4rem}.hero-right::before{background:linear-gradient(to top,var(--dark) 0%,transparent 60%)}.services-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:1fr 1fr}footer{grid-template-columns:1fr}.test-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Esti<span>Med</span></div>
+  <a href="tel:+998785555775" class="nav-phone">+998 78 555 57 75</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">✦ Toshkent №1 Stomatologiya</div>
+    <h1 class="hero-h1">
+      Mukammal<br>
+      <em>Tabassum</em><br>
+      Sizniki
+    </h1>
+    <p class="hero-sub">EstiMed Stomatologiyada zamonaviy uskunalar va tajribali shifokorlar bilan tishlaringizni davolaymiz. Siz uchun shaxsiy, nozik va professional yondashuv.</p>
+    <div class="hero-btns">
+      <a href="tel:+998785555775" class="btn-primary">Qo'ng'iroq qiling</a>
+      <a href="#xizmatlar" class="btn-ghost">Xizmatlarni ko'rish</a>
+    </div>
+    <div class="hero-kpis">
+      <div class="kpi">
+        <div class="kpi-num">12<span>+</span></div>
+        <div class="kpi-label">Yillik tajriba</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num">8K<span>+</span></div>
+        <div class="kpi-label">Mamnun bemorlar</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-num">98<span>%</span></div>
+        <div class="kpi-label">Ijobiy natija</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="assets/estimed-stomatologiya/hero.png" alt="EstiMed Stomatologiya">
+    <div class="blob" style="width:400px;height:400px;background:radial-gradient(circle,rgba(230,57,70,.2),transparent 70%);bottom:-100px;right:-100px"></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="xizmatlar">
+  <div class="services-blob"></div>
+  <div class="services-header fade-up">
+    <div class="section-tag">02 — Xizmatlar</div>
+    <h2 class="section-title">Biz taklif etadigan<br>xizmatlar</h2>
+    <p class="services-subtitle">Tish sog'lig'ingiz uchun barcha zamonaviy va an'anaviy stomatologiya xizmatlarini bir joyda taqdim etamiz.</p>
+  </div>
+  <div class="services-grid">
+    <div class="scard fade-up">
+      <div class="scard-num">01</div>
+      <div class="scard-icon">🦷</div>
+      <div class="scard-title">Tish davolash</div>
+      <p class="scard-desc">Kariyes, pulpit va boshqa tish kasalliklarini zamonaviy materiallar bilan og'riqsiz davolaymiz.</p>
+    </div>
+    <div class="scard fade-up">
+      <div class="scard-num">02</div>
+      <div class="scard-icon">✨</div>
+      <div class="scard-title">Tish oqartirish</div>
+      <p class="scard-desc">Professional Zoom va lazer texnologiyalari yordamida tishlaringizni bir seans ichida oqartiramiz.</p>
+    </div>
+    <div class="scard fade-up">
+      <div class="scard-num">03</div>
+      <div class="scard-icon">🔬</div>
+      <div class="scard-title">Implantatsiya</div>
+      <p class="scard-desc">Yo'qolgan tishlarni hayotiy implantlar bilan tiklash — uzoq muddatli va estetik natija kafolati bilan.</p>
+    </div>
+    <div class="scard fade-up">
+      <div class="scard-num">04</div>
+      <div class="scard-icon">😁</div>
+      <div class="scard-title">Ortodontiya</div>
+      <p class="scard-desc">Invisalign va metall breketlar orqali tish qatoringizni to'g'rilash — bolalar va kattalar uchun.</p>
+    </div>
+    <div class="scard fade-up">
+      <div class="scard-num">05</div>
+      <div class="scard-icon">💎</div>
+      <div class="scard-title">Estetik tish tabobati</div>
+      <p class="scard-desc">Vinirlar, koronkalar va kompozit restoratsiya orqali "Hollywood tabassum" yaratamiz.</p>
+    </div>
+    <div class="scard fade-up">
+      <div class="scard-num">06</div>
+      <div class="scard-icon">🧒</div>
+      <div class="scard-title">Bolalar stomatologiyasi</div>
+      <p class="scard-desc">Bolalar uchun maxsus, qo'rquvni kamaytiruvchi muhit va yondashuv bilan latifdona davolash.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO BREAK -->
+<div class="photo-break">
+  <img src="assets/estimed-stomatologiya/interior.png" alt="Dentistry">
+  <div class="photo-overlay">
+    <h2 class="fade-up">Zamonaviy klinika —<br>Qulay muhit</h2>
+    <p class="fade-up">Har bir bemorga individual yondashuv, steril muhit va eng yangi tibbiy asbob-uskunalar bilan xizmat ko'rsatamiz.</p>
+  </div>
+</div>
+
+<!-- STATS / WHY US -->
+<section class="stats" id="biz-haqimizda">
+  <div class="stats-blob"></div>
+  <div class="fade-up" style="text-align:center">
+    <div class="section-tag" style="text-align:center">04 — Nima uchun biz</div>
+    <h2 class="section-title" style="text-align:center">Raqamlar bizning<br>natijamizni ko'rsatadi</h2>
+  </div>
+  <div class="stats-grid">
+    <div class="stat-card fade-up">
+      <div class="stat-big">12<span>+</span></div>
+      <div class="stat-label">Yil davomida Toshkentda<br>bemorlarni davolaymiz</div>
+    </div>
+    <div class="stat-card fade-up">
+      <div class="stat-big">8<span>K+</span></div>
+      <div class="stat-label">Mamnun bemor<br>va oilalar</div>
+    </div>
+    <div class="stat-card fade-up">
+      <div class="stat-big">15<span>+</span></div>
+      <div class="stat-label">Mutaxassis<br>shifokorlar</div>
+    </div>
+    <div class="stat-card fade-up">
+      <div class="stat-big">98<span>%</span></div>
+      <div class="stat-label">Bemorlar qaytib<br>keladigan klinika</div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAIL BREAK -->
+<div class="photo-break" style="height:50vh">
+  <img src="assets/estimed-stomatologiya/detail.png" alt="detail">
+  <div class="photo-overlay">
+    <h2 class="fade-up" style="font-size:clamp(1.5rem,4vw,3rem)">Har bir tafsilot muhim</h2>
+    <p class="fade-up">Eng zamonaviy diagnostika va davolash usullari bilan sog'lig'ingizni asraymiz.</p>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="sharhlar">
+  <div class="test-blob"></div>
+  <div class="fade-up">
+    <div class="section-tag">05 — Mijozlar sharhi</div>
+    <h2 class="section-title">Ularning gaplari<br>bizning g'ururimiz</h2>
+  </div>
+  <div class="test-grid">
+    <div class="tcard fade-up">
+      <div class="tcard-stars">★★★★★</div>
+      <p class="tcard-text">"EstiMedga kelgunimcha tish davolashdan qo'rqardim. Bu yerda shifokorlar shunchalik mehribon va professional ediki, endi hech qanday qo'rquvsiz kelaman. Natija ajoyib!"</p>
+      <div class="tcard-name">Malika Yusupova</div>
+      <div class="tcard-role">Toshkent shahri, doimiy mijoz</div>
+    </div>
+    <div class="tcard fade-up">
+      <div class="tcard-stars">★★★★★</div>
+      <p class="tcard-text">"Implantatsiya qo'ydirdim. Jarayon og'riqsiz va tez kechdi. Shifokor har bir bosqichni tushuntirib berdi. Endi tabassum bilan yurishim yana ham qulay — chindan sifatli xizmat!"</p>
+      <div class="tcard-name">Jahongir Toshmatov</div>
+      <div class="tcard-role">Tadbirkor, Chilonzor tumani</div>
+    </div>
+    <div class="tcard fade-up">
+      <div class="tcard-stars">★★★★★</div>
+      <p class="tcard-text">"Farzandimni EstiMedga olib keldim. Bolalar bo'limi juda qulay, shifokorlar bolalar bilan gaplashishni biladi. Bola qo'rqmasdan davolandi. Barcha ota-onalarga tavsiya qilaman!"</p>
+      <div class="tcard-name">Nargiza Karimova</div>
+      <div class="tcard-role">Ona va pedagog, Toshkent</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="aloqa">
+  <div class="cta-blob"></div>
+  <div style="position:relative;z-index:1">
+    <div class="section-tag fade-up">06 — Bog'laning</div>
+    <h2 class="cta-title fade-up">Bugun qo'ng'iroq qiling<br>va konsultatsiya oling</h2>
+    <a href="tel:+998785555775" class="cta-phone fade-up">+998 78 555 57 75</a>
+    <p class="fade-up" style="color:rgba(248,249,250,.45);margin-bottom:.5rem">Manzil: Chilonzor tumani, 1-mavze, Mukimiy ko'chasi, 11A</p>
+    <div class="cta-btns fade-up">
+      <a href="tel:+998785555775" class="btn-primary">📞 Qo'ng'iroq qiling</a>
+      <a href="https://t.me/EstiMedStom" target="_blank" class="btn-tg">✈️ Telegramda yozing</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <span class="logo">Esti<span>Med</span></span>
+    <p>Toshkentdagi ishonchli va zamonaviy stomatologiya klinikasi. Sog'lom tish — baxtli hayot.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Xizmatlar</h4>
+    <a href="#">Tish davolash</a>
+    <a href="#">Tish oqartirish</a>
+    <a href="#">Implantatsiya</a>
+    <a href="#">Ortodontiya</a>
+    <a href="#">Estetik tish tabobati</a>
+    <a href="#">Bolalar stomatologiyasi</a>
+  </div>
+  <div class="footer-col">
+    <h4>Aloqa</h4>
+    <a href="tel:+998785555775">+998 78 555 57 75</a>
+    <p>Chilonzor tumani, 1-mavze,<br>Mukimiy ko'chasi, 11A</p>
+    <p style="margin-top:.5rem">Dush–Shan: 9:00 – 20:00<br>Yakshanba: Dam olish</p>
+  </div>
+</footer>
+<div class="footer-bottom">
+  © 2025 EstiMed Stomatologiya. Barcha huquqlar himoyalangan.
+</div>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, 100);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-up').forEach((el, i) => {
+  el.style.transitionDelay = (i % 4) * 0.1 + 's';
+  observer.observe(el);
+});
+</script>
+
+<section style="padding:50px 6%;background:#060d1f;text-align:center;border-top:1px solid rgba(255,255,255,0.08)">
+  <p style="color:#8899aa;font-size:.85rem;margin-bottom:1rem">Saytga QR orqali kiring</p>
+  <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A//b2b-toshkent.netlify.app/generated_sites/estimed-stomatologiya.html" alt="QR Code" style="width:160px;height:160px;border-radius:12px;border:4px solid rgba(255,255,255,0.1)">
+</section>
+</body>
+</html>

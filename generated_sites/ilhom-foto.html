@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pg-title">...</title>
+<meta name="description" id="pg-desc" content="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+
+<!-- ═══════════════════════════════════════════════════════════
+     SAYT KONFIGURATSIYASI — FAQAT SHU YERDAN TAHRIRLANG
+     ═══════════════════════════════════════════════════════════ -->
+<script>
+window.CFG = {
+  name:       "Ilhom Foto Studio",
+  tagline:    "Hayotning eng chiroyli lahzalarini abadiylashtiring",
+  desc:       "Ilhom Foto Studio — Photography sohasida professional xizmatlar Toshkentda.",
+  phone:      "+998901234550",
+  whatsapp:   "998901234550",
+  address:    "Toshkent, Yunusobod tumani, 26-mavze 1-uy",
+  instagram:  "ilhom_foto_uz",
+  niche:      "Photography",
+  slug:       "{{SLUG}}",
+  c1:         "#0a0a0a",
+  c2:         "#e040fb",
+  services:   ["To'y fotosuratlari", "Hujjat fotosi", "Reklama foto", "Video montaj", "Studio ijara"],
+  reviews: [
+    { name:"Ahmadjon T.", role:"Doimiy mijoz", text:"Xizmat sifati kutganimdan ham yuqori chiqdi. Tezkor, professional, hech qanday muammo bo'lmadi.", stars:5 },
+    { name:"Malika R.",   role:"Biznes hamkor", text:"Narx-sifat nisbati zo'r. Yana murojaaat qilaman va do'stlarimga tavsiya qilaman.", stars:5 },
+    { name:"Bobur S.",    role:"VIP mijoz",     text:"Juda professional yondashuv. Har bir tafsilotga e'tibor berishadi.", stars:5 }
+  ],
+  pin: "4550"
+};
+</script>
+
+<style>
+/* ── Reset & tokens ─────────────────────────────────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+:root{
+  --p: #0f0f13;
+  --a: #6c63ff;
+  --g: #f5f5f7;
+  --w: #ffffff;
+  --t: #1a1a2e;
+  --muted: #6e6e80;
+  --border: rgba(0,0,0,.07);
+  --r: 16px;
+  --r2: 24px;
+  --sh: 0 2px 40px rgba(0,0,0,.08);
+  --sh2: 0 8px 60px rgba(0,0,0,.14);
+}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--t);background:var(--w);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:inherit;border:none}
+
+/* ── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--a);border-radius:99px}
+
+/* ── Typography ─────────────────────────────────────────── */
+.display{font-family:'Syne',sans-serif;font-weight:900;line-height:1.0;letter-spacing:-0.03em}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--a)}
+
+/* ── Buttons ────────────────────────────────────────────── */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:.85rem 2rem;border-radius:999px;font-size:.9rem;font-weight:700;transition:all .25s cubic-bezier(.4,0,.2,1)}
+.btn-solid{background:var(--a);color:#fff}
+.btn-solid:hover{filter:brightness(1.12);transform:translateY(-2px);box-shadow:0 10px 30px rgba(108,99,255,.35)}
+.btn-ghost{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.25);backdrop-filter:blur(8px)}
+.btn-ghost:hover{background:rgba(255,255,255,.18);transform:translateY(-2px)}
+.btn-dark{background:var(--t);color:#fff}
+.btn-dark:hover{background:#000;transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.btn-outline{background:transparent;color:var(--t);border:2px solid var(--border)}
+.btn-outline:hover{border-color:var(--a);color:var(--a)}
+
+/* ── NAV ────────────────────────────────────────────────── */
+#nav{
+  position:fixed;top:16px;left:50%;transform:translateX(-50%);
+  width:calc(100% - 48px);max-width:1200px;z-index:900;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.85rem 1.5rem;border-radius:999px;
+  background:rgba(255,255,255,.8);backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.6);
+  box-shadow:0 4px 24px rgba(0,0,0,.06);
+  transition:all .3s;
+}
+#nav.dark-nav{background:rgba(15,15,19,.8);border-color:rgba(255,255,255,.08);box-shadow:0 4px 24px rgba(0,0,0,.3)}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:900;font-size:1.05rem;letter-spacing:-.02em}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:.85rem;font-weight:600;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--t)}
+#nav.dark-nav .nav-links a{color:rgba(255,255,255,.5)}
+#nav.dark-nav .nav-links a:hover{color:#fff}
+#nav.dark-nav .nav-logo{color:#fff}
+.nav-pill{background:var(--t);color:#fff;padding:.55rem 1.3rem;border-radius:999px;font-size:.82rem;font-weight:700;transition:all .2s}
+.nav-pill:hover{background:var(--a)}
+#nav.dark-nav .nav-pill{background:rgba(255,255,255,.12);color:#fff}
+#nav.dark-nav .nav-pill:hover{background:var(--a)}
+.ham{display:none;width:32px;height:32px;align-items:center;justify-content:center;flex-direction:column;gap:5px;background:none;border:none}
+.ham span{display:block;width:22px;height:2px;background:var(--t);border-radius:2px;transition:.3s}
+#nav.dark-nav .ham span{background:#fff}
+
+/* ── HERO ───────────────────────────────────────────────── */
+.hero{
+  min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
+  position:relative;overflow:hidden;padding:0 6% 80px;
+}
+.hero-bg{position:absolute;inset:0;z-index:0;background:var(--p)}
+/* Noise texture overlay */
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity:.4;pointer-events:none;
+}
+.mesh{
+  position:absolute;border-radius:50%;filter:blur(100px);opacity:.6;
+  animation:drift 12s ease-in-out infinite alternate;
+}
+.m1{width:70vw;height:70vw;top:-20%;left:-15%;background:var(--p);animation-delay:0s}
+.m2{width:50vw;height:50vw;top:10%;right:-10%;background:var(--a);opacity:.25;animation-delay:-4s}
+.m3{width:40vw;height:40vw;bottom:-10%;left:30%;background:color-mix(in srgb,var(--a) 60%,var(--p));opacity:.3;animation-delay:-8s}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}100%{transform:translate(3%,4%) scale(1.05)}}
+
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
+  color:rgba(255,255,255,.8);padding:.45rem 1rem;border-radius:999px;
+  font-size:.78rem;font-weight:600;margin-bottom:1.75rem;
+  backdrop-filter:blur(8px);width:fit-content;
+}
+.hero-tag::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--a);box-shadow:0 0 8px var(--a);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+.hero-content{position:relative;z-index:2;max-width:900px}
+.hero h1{
+  font-family:'Syne',sans-serif;font-weight:900;
+  font-size:clamp(3rem,8vw,7rem);line-height:.95;letter-spacing:-.04em;
+  color:#fff;margin-bottom:2rem;
+}
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(135deg,var(--a),color-mix(in srgb,var(--a) 60%,#fff));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-sub{
+  font-size:1.1rem;color:rgba(255,255,255,.6);max-width:480px;
+  line-height:1.75;margin-bottom:2.5rem;
+}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.hero-scroll-hint{
+  position:absolute;bottom:32px;right:6%;z-index:2;
+  display:flex;align-items:center;gap:10px;
+  color:rgba(255,255,255,.3);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+}
+.scroll-line{width:40px;height:1px;background:rgba(255,255,255,.2)}
+
+/* ── MARQUEE ────────────────────────────────────────────── */
+.marquee-wrap{
+  background:var(--a);overflow:hidden;padding:.9rem 0;
+  display:flex;gap:0;
+}
+.marquee-track{
+  display:flex;gap:3rem;white-space:nowrap;
+  animation:scroll 18s linear infinite;
+  flex-shrink:0;
+}
+.marquee-track:nth-child(2){animation-delay:-9s}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-item{font-size:.8rem;font-weight:700;color:rgba(255,255,255,.8);letter-spacing:.1em;text-transform:uppercase;flex-shrink:0}
+.marquee-dot{color:rgba(255,255,255,.4);flex-shrink:0}
+
+/* ── SECTION BASE ───────────────────────────────────────── */
+.section{padding:100px 6%}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-header{margin-bottom:4rem}
+.section-header .eyebrow{margin-bottom:.75rem;display:block}
+.section-header h2{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.03em;margin-bottom:1rem}
+.section-header p{color:var(--muted);font-size:1rem;max-width:520px;line-height:1.75}
+
+/* ── SERVICES ───────────────────────────────────────────── */
+.services-bg{background:var(--g)}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5px;background:var(--border)}
+.svc-card{
+  background:var(--w);padding:2.5rem;
+  display:flex;flex-direction:column;gap:1.25rem;
+  transition:all .3s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;
+}
+.svc-card::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--a) 6%,transparent),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.svc-card:hover{transform:translateY(-4px);z-index:1;box-shadow:var(--sh2)}
+.svc-card:hover::after{opacity:1}
+.svc-num{
+  font-family:'Syne',sans-serif;font-size:3rem;font-weight:900;
+  color:color-mix(in srgb,var(--a) 15%,transparent);line-height:1;
+}
+.svc-icon{
+  width:48px;height:48px;border-radius:14px;
+  background:color-mix(in srgb,var(--a) 10%,transparent);
+  display:flex;align-items:center;justify-content:center;font-size:1.4rem;
+}
+.svc-card h3{font-size:1.1rem;font-weight:700;letter-spacing:-.02em}
+.svc-card p{font-size:.88rem;color:var(--muted);line-height:1.7;flex:1}
+.svc-arrow{
+  width:36px;height:36px;border-radius:50%;border:1.5px solid var(--border);
+  display:flex;align-items:center;justify-content:center;font-size:.9rem;
+  transition:all .3s;align-self:flex-start;margin-top:.5rem;
+}
+.svc-card:hover .svc-arrow{background:var(--a);border-color:var(--a);color:#fff;transform:rotate(45deg)}
+
+/* ── STATS BAND ─────────────────────────────────────────── */
+.stats-band{background:var(--t);padding:70px 6%}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);max-width:1200px;margin:0 auto;gap:2px;background:rgba(255,255,255,.06)}
+.stat-box{padding:2.5rem 2rem;text-align:center;background:var(--t)}
+.stat-box .val{
+  font-family:'Syne',sans-serif;font-size:clamp(2.2rem,4vw,3.5rem);
+  font-weight:900;color:#fff;line-height:1;letter-spacing:-.04em;
+}
+.stat-box .val em{font-style:normal;color:var(--a)}
+.stat-box .lbl{font-size:.78rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;margin-top:.6rem;font-weight:600}
+
+/* ── BENTO ABOUT ────────────────────────────────────────── */
+.bento{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:1.5px;background:var(--border)}
+.bento-cell{background:var(--w);padding:3rem;overflow:hidden;position:relative}
+.bento-cell.accent-bg{background:var(--a)}
+.bento-cell.dark-bg{background:var(--t)}
+.bento-cell.span-v{grid-row:span 2}
+.bento-cell h2{font-family:'Syne',sans-serif;font-weight:900;font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:-.03em;margin-bottom:1rem}
+.bento-cell.accent-bg h2,.bento-cell.dark-bg h2{color:#fff}
+.bento-cell.accent-bg p,.bento-cell.dark-bg p{color:rgba(255,255,255,.7)}
+.bento-cell p{color:var(--muted);line-height:1.75;font-size:.95rem}
+.bento-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);
+  color:#fff;padding:.4rem .9rem;border-radius:999px;font-size:.75rem;font-weight:600;
+  margin-bottom:1.5rem;
+}
+.why-list{margin-top:1.5rem;display:flex;flex-direction:column;gap:.8rem}
+.why-item{display:flex;align-items:center;gap:.75rem;font-size:.9rem;font-weight:600}
+.why-dot{width:8px;height:8px;border-radius:50%;background:var(--a);flex-shrink:0}
+.bento-cell.dark-bg .why-dot{background:color-mix(in srgb,var(--a) 80%,#fff)}
+
+/* ── PROCESS ────────────────────────────────────────────── */
+.process-bg{background:var(--t)}
+.process-bg .section-header h2{color:#fff}
+.process-bg .section-header p{color:rgba(255,255,255,.5)}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06)}
+.proc-step{padding:2.5rem 2rem;background:var(--t)}
+.proc-n{
+  font-family:'Syne',sans-serif;font-size:4rem;font-weight:900;
+  color:rgba(255,255,255,.06);line-height:1;margin-bottom:1.5rem;
+}
+.proc-icon{font-size:1.5rem;margin-bottom:1rem}
+.proc-step h3{font-size:1rem;font-weight:700;color:#fff;margin-bottom:.5rem}
+.proc-step p{font-size:.85rem;color:rgba(255,255,255,.45);line-height:1.7}
+
+/* ── GALLERY ────────────────────────────────────────────── */
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,260px);gap:1.5px;background:var(--border)}
+.gal-cell{overflow:hidden;position:relative;cursor:pointer}
+.gal-cell:first-child{grid-row:span 2}
+.gal-inner{
+  width:100%;height:100%;
+  background:linear-gradient(135deg,var(--p),color-mix(in srgb,var(--a) 40%,var(--p)));
+  display:flex;align-items:flex-end;padding:1.5rem;
+  transition:transform .5s cubic-bezier(.4,0,.2,1);
+}
+.gal-cell:hover .gal-inner{transform:scale(1.03)}
+.gal-label{
+  font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;
+  color:rgba(255,255,255,.7);letter-spacing:.05em;text-transform:uppercase;
+  background:rgba(0,0,0,.3);padding:.3rem .7rem;border-radius:6px;backdrop-filter:blur(4px);
+}
+
+/* ── TESTIMONIALS ───────────────────────────────────────── */
+.reviews-bg{background:var(--g)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.rev-card{
+  background:var(--w);border-radius:var(--r2);padding:2rem;
+  border:1px solid var(--border);
+  transition:all .3s;
+}
+.rev-card:hover{box-shadow:var(--sh2);transform:translateY(-4px);border-color:var(--a)}
+.rev-stars{color:var(--a);font-size:1rem;letter-spacing:2px;margin-bottom:1rem}
+.rev-text{font-size:.92rem;line-height:1.8;color:var(--muted);margin-bottom:1.5rem;font-style:italic}
+.rev-author{display:flex;align-items:center;gap:.75rem}
+.rev-avatar{
+  width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,var(--p),var(--a));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;color:#fff;font-size:.85rem;flex-shrink:0;
+}
+.rev-name{font-size:.88rem;font-weight:700}
+.rev-role{font-size:.75rem;color:var(--muted)}
+
+/* ── CONTACT ────────────────────────────────────────────── */
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;max-width:1200px;margin:0 auto}
+.contact-left h2{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.03em;margin-bottom:1.5rem}
+.cinfo{display:flex;flex-direction:column;gap:1.25rem;margin-bottom:2.5rem}
+.cinfo-row{display:flex;align-items:center;gap:1rem}
+.cinfo-icon{
+  width:44px;height:44px;border-radius:12px;background:color-mix(in srgb,var(--a) 10%,transparent);
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;
+}
+.cinfo-row h4{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:3px;font-weight:600}
+.cinfo-row p{font-size:.95rem;font-weight:600}
+.contact-form-wrap{background:var(--g);border-radius:var(--r2);padding:2.5rem}
+.contact-form-wrap h3{font-size:1.2rem;font-weight:700;margin-bottom:.4rem}
+.contact-form-wrap>p{font-size:.85rem;color:var(--muted);margin-bottom:1.75rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.fld label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.4rem}
+.fld input,.fld textarea,.fld select{
+  width:100%;padding:.8rem 1rem;background:var(--w);border:1.5px solid var(--border);
+  border-radius:10px;font-family:inherit;font-size:.9rem;
+  transition:border-color .2s;color:var(--t);
+}
+.fld input:focus,.fld textarea:focus{outline:none;border-color:var(--a)}
+.fld textarea{height:100px;resize:vertical}
+.btn-submit{
+  width:100%;padding:.9rem;background:var(--t);color:#fff;border-radius:10px;
+  font-size:.95rem;font-weight:700;transition:all .25s;margin-top:.5rem;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.btn-submit:hover{background:var(--a);transform:translateY(-2px);box-shadow:0 8px 24px rgba(108,99,255,.3)}
+
+/* ── FOOTER ─────────────────────────────────────────────── */
+footer{background:var(--p);padding:60px 6% 32px}
+footer .fi{max-width:1200px;margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:3rem;flex-wrap:wrap;gap:2rem}
+.footer-brand .logo{font-family:'Syne',sans-serif;font-weight:900;font-size:1.2rem;color:#fff;margin-bottom:.5rem}
+.footer-brand p{font-size:.85rem;color:rgba(255,255,255,.35);max-width:240px;line-height:1.6}
+.footer-links{display:flex;gap:3rem;flex-wrap:wrap}
+.footer-col h4{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.25);margin-bottom:1rem}
+.footer-col a{display:block;font-size:.85rem;color:rgba(255,255,255,.5);margin-bottom:.6rem;transition:color .2s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:.78rem;color:rgba(255,255,255,.2)}
+.footer-badge{font-size:.72rem;color:rgba(255,255,255,.2);display:flex;align-items:center;gap:.5rem}
+
+/* ── QR SECTION ─────────────────────────────────────────── */
+.qr-section{padding:60px 6%;background:var(--g);text-align:center}
+.qr-section h3{font-size:1rem;font-weight:700;margin-bottom:.4rem}
+.qr-section p{font-size:.8rem;color:var(--muted);margin-bottom:1.25rem}
+.qr-section img{width:140px;height:140px;border-radius:12px;margin:0 auto;border:4px solid var(--w);box-shadow:var(--sh)}
+
+/* ── WA FLOAT ───────────────────────────────────────────── */
+#wa-float{
+  position:fixed;bottom:28px;right:28px;z-index:800;
+  display:flex;flex-direction:column;align-items:flex-end;gap:10px;
+}
+.wa-chip{
+  background:var(--w);padding:.45rem 1rem;border-radius:999px;
+  font-size:.78rem;font-weight:700;box-shadow:var(--sh);white-space:nowrap;
+}
+.wa-btn{
+  width:58px;height:58px;border-radius:50%;background:#25d366;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,.4);
+  animation:wa-pulse 2.5s infinite;transition:transform .2s;
+}
+.wa-btn:hover{transform:scale(1.1)}
+@keyframes wa-pulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}50%{box-shadow:0 4px 32px rgba(37,211,102,.7)}}
+.wa-btn svg{width:26px;height:26px;fill:#fff}
+
+/* ── MOBILE MENU ────────────────────────────────────────── */
+#mob-menu{
+  display:none;position:fixed;inset:0;background:var(--p);z-index:950;
+  flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;
+}
+#mob-menu.open{display:flex}
+#mob-menu a{font-family:'Syne',sans-serif;font-size:2rem;font-weight:900;color:rgba(255,255,255,.7);transition:color .2s}
+#mob-menu a:hover{color:#fff}
+#mob-close{position:absolute;top:24px;right:24px;background:rgba(255,255,255,.08);border:none;width:44px;height:44px;border-radius:50%;color:#fff;font-size:1.2rem;display:flex;align-items:center;justify-content:center}
+
+/* ── EDIT PANEL ─────────────────────────────────────────── */
+#edit-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+#edit-overlay.open{display:flex}
+#edit-panel{background:var(--w);border-radius:var(--r2);padding:2rem;width:90%;max-width:480px;max-height:90vh;overflow-y:auto}
+#edit-panel h2{font-size:1.2rem;font-weight:800;margin-bottom:.3rem}
+#edit-panel>p{color:var(--muted);font-size:.83rem;margin-bottom:1.5rem}
+.ep-field{margin-bottom:.9rem}
+.ep-field label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.35rem}
+.ep-field input,.ep-field textarea{width:100%;padding:.7rem .9rem;border:1.5px solid var(--border);border-radius:8px;font-family:inherit;font-size:.88rem}
+.ep-field input:focus,.ep-field textarea:focus{outline:none;border-color:var(--a)}
+.ep-actions{display:flex;gap:.75rem;margin-top:1.25rem}
+.ep-actions button{flex:1;padding:.75rem;border-radius:8px;font-size:.88rem;font-weight:700}
+.ep-save{background:var(--t);color:#fff}
+.ep-cancel{background:var(--g);color:var(--t)}
+
+/* ── REVEAL ─────────────────────────────────────────────── */
+.r{opacity:0;transform:translateY(40px);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1)}
+.r.in{opacity:1;transform:translateY(0)}
+.r-d1{transition-delay:.1s}.r-d2{transition-delay:.2s}.r-d3{transition-delay:.3s}.r-d4{transition-delay:.4s}
+
+/* ── RESPONSIVE ─────────────────────────────────────────── */
+@media(max-width:900px){
+  .nav-links,.nav-pill{display:none}
+  .ham{display:flex}
+  .stats-grid,.process-grid{grid-template-columns:repeat(2,1fr)}
+  .bento{grid-template-columns:1fr}.bento-cell.span-v{grid-row:span 1}
+  .rev-grid{grid-template-columns:1fr}
+  .contact-wrap{grid-template-columns:1fr;gap:2.5rem}
+  .footer-top{flex-direction:column}
+  .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}.gal-cell:first-child{grid-row:span 1}
+  .form-row{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  #nav{width:calc(100% - 24px);top:10px}
+  .hero{padding:0 5% 64px}
+  .hero h1{font-size:2.6rem}
+  .section{padding:70px 5%}
+  .stats-grid,.process-grid{grid-template-columns:1fr 1fr}
+  .svc-grid{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav" class="dark-nav">
+  <a href="#" class="nav-logo" id="nav-logo">…</a>
+  <ul class="nav-links">
+    <li><a href="#services">Xizmatlar</a></li>
+    <li><a href="#about">Biz haqimizda</a></li>
+    <li><a href="#gallery">Galereya</a></li>
+    <li><a href="#contact">Aloqa</a></li>
+  </ul>
+  <a href="#contact" class="nav-pill" id="nav-pill">Qo'ng'iroq →</a>
+  <button class="ham" onclick="openMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mob-menu">
+  <button id="mob-close" onclick="closeMenu()">✕</button>
+  <a href="#services" onclick="closeMenu()">Xizmatlar</a>
+  <a href="#about" onclick="closeMenu()">Biz haqimizda</a>
+  <a href="#gallery" onclick="closeMenu()">Galereya</a>
+  <a href="#contact" onclick="closeMenu()">Aloqa</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="mesh m1"></div>
+    <div class="mesh m2"></div>
+    <div class="mesh m3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-tag" id="hero-tag">Toshkentda #1 xizmat</div>
+    <h1 id="hero-h1"><em>Business</em><br>Name</h1>
+    <p class="hero-sub" id="hero-sub">Tagline here</p>
+    <div class="hero-actions">
+      <a href="#" id="h-call" class="btn btn-solid">📞 Qo'ng'iroq qiling</a>
+      <a href="#" id="h-wa" class="btn btn-ghost">💬 WhatsApp</a>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span class="scroll-line"></span>
+    <span>Pastga aylantiring</span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap" id="marquee-wrap">
+  <div class="marquee-track" id="mt1"></div>
+  <div class="marquee-track" id="mt2"></div>
+</div>
+
+<!-- SERVICES -->
+<section class="section services-bg" id="services">
+  <div class="section-inner">
+    <div class="section-header r">
+      <span class="eyebrow">Bizning xizmatlar</span>
+      <h2>Nima taklif qilamiz</h2>
+      <p id="svc-sub">Professional va sifatli xizmatlarimiz.</p>
+    </div>
+    <div class="svc-grid r r-d1" id="svc-grid"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stats-grid" id="stats-grid"></div>
+</div>
+
+<!-- ABOUT BENTO -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="bento r">
+      <div class="bento-cell accent-bg span-v">
+        <div class="bento-badge">⚡ Bizning afzallik</div>
+        <h2>Nima uchun aynan biz?</h2>
+        <p>Biz nafaqat xizmat ko'rsatamiz — biz ishonchli hamkor bo'lamiz. Har bir mijozimiz alohida e'tibor va yakka yondashuv oladi.</p>
+        <div class="why-list" id="why-list"></div>
+      </div>
+      <div class="bento-cell">
+        <span class="eyebrow">Missiyamiz</span>
+        <h2 style="font-size:1.6rem">Sifat — bizning tamoyilimiz</h2>
+        <p style="margin-top:1rem">Har bir loyihani o'z biznesimizday qabul qilamiz. Natija emas — jarayon ham muhim.</p>
+      </div>
+      <div class="bento-cell dark-bg">
+        <span style="font-family:'Syne',sans-serif;font-size:2.5rem;font-weight:900;color:rgba(255,255,255,.08);line-height:1;display:block;margin-bottom:1rem">500+</span>
+        <h2 style="font-size:1.4rem;color:#fff">Mamnun mijozlar</h2>
+        <p style="color:rgba(255,255,255,.5);margin-top:.75rem">Har yili 100 dan ortiq yangi mijoz bizga ishonadi va qayta murojaat qiladi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section process-bg" id="process">
+  <div class="section-inner">
+    <div class="section-header r">
+      <span class="eyebrow" style="color:rgba(255,255,255,.4)">Qanday ishlashimiz</span>
+      <h2>Oddiy jarayon</h2>
+      <p>To'rtta oddiy qadam bilan natijaga erishamiz.</p>
+    </div>
+    <div class="process-grid r r-d1">
+      <div class="proc-step"><div class="proc-n">01</div><div class="proc-icon">📞</div><h3>Murojaat</h3><p>Qo'ng'iroq yoki WhatsApp orqali murojaat qiling — bepul maslahat.</p></div>
+      <div class="proc-step"><div class="proc-n">02</div><div class="proc-icon">🎯</div><h3>Tahlil</h3><p>Sizning ehtiyojlaringizni aniqlab, eng yaxshi yechimni taklif qilamiz.</p></div>
+      <div class="proc-step"><div class="proc-n">03</div><div class="proc-icon">⚡</div><h3>Bajarish</h3><p>Belgilangan muddatda va yuqori sifatda ishni bajaramiz.</p></div>
+      <div class="proc-step"><div class="proc-n">04</div><div class="proc-icon">🏆</div><h3>Natija</h3><p>Natijadan mamnun bo'lasiz — kafolatimiz bor.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section" id="gallery">
+  <div class="section-inner">
+    <div class="section-header r">
+      <span class="eyebrow">Galereya</span>
+      <h2>Ishlarimizdan namunalar</h2>
+    </div>
+    <div class="gal-grid r r-d1" id="gal-grid"></div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section reviews-bg" id="reviews">
+  <div class="section-inner">
+    <div class="section-header r">
+      <span class="eyebrow">Mijozlar fikri</span>
+      <h2>Ular nima deydi</h2>
+      <p>Haqiqiy mijozlarning haqiqiy sharhlari.</p>
+    </div>
+    <div class="rev-grid r r-d1" id="rev-grid"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="contact-wrap">
+    <div class="contact-left r">
+      <span class="eyebrow">Aloqa</span>
+      <h2>Bugun boshlaylik</h2>
+      <div class="cinfo" id="cinfo"></div>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap">
+        <a href="#" id="c-call" class="btn btn-dark">📞 Qo'ng'iroq</a>
+        <a href="#" id="c-wa" class="btn btn-outline" style="color:var(--t)">💬 WhatsApp</a>
+      </div>
+    </div>
+    <div class="contact-form-wrap r r-d2">
+      <h3>Xabar qoldiring</h3>
+      <p>Tez orada siz bilan bog'lanamiz.</p>
+      <form onsubmit="sendForm(event)">
+        <div class="form-row">
+          <div class="fld"><label>Ismingiz</label><input type="text" placeholder="Ism Familiya" required></div>
+          <div class="fld"><label>Telefon</label><input type="tel" id="form-tel" placeholder="+998 XX XXX XX XX" required></div>
+        </div>
+        <div class="fld" style="margin-bottom:1rem"><label>Xizmat turi</label>
+          <select id="form-svc"><option value="">Tanlang...</option></select>
+        </div>
+        <div class="fld" style="margin-bottom:1rem"><label>Xabar</label><textarea placeholder="Savolingiz yoki qo'shimcha ma'lumot..."></textarea></div>
+        <button type="submit" class="btn-submit" id="form-btn">Yuborish <span>→</span></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- QR PLACEHOLDER -->
+<div class="qr-section" id="qr-section">
+  <h3>Saytga QR orqali kiring</h3>
+  <p>Telefon kamerangizni quyidagi kodni ustiga tutib oching</p>
+  <img id="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A//b2b-toshkent.netlify.app/generated_sites/ilhom-foto.html&color=000000&bgcolor=ffffff" alt="QR Code">
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fi">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo" id="f-logo">…</div>
+        <p id="f-tagline">…</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Sayt</h4>
+          <a href="#home">Bosh sahifa</a>
+          <a href="#services">Xizmatlar</a>
+          <a href="#about">Biz haqimizda</a>
+          <a href="#gallery">Galereya</a>
+        </div>
+        <div class="footer-col">
+          <h4>Aloqa</h4>
+          <a href="#" id="f-phone">…</a>
+          <a href="#" id="f-wa-link">WhatsApp</a>
+          <a href="#" id="f-insta">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy" id="f-copy">© 2025</span>
+      <span class="footer-badge">🔒 Barcha ma'lumotlar himoyalangan</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<div id="wa-float">
+  <div class="wa-chip">Yozing! 👋</div>
+  <a href="#" id="wa-fb" class="wa-btn" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+</div>
+
+<!-- EDIT PANEL -->
+<div id="edit-overlay">
+  <div id="edit-panel">
+    <h2>✏️ Saytni tahrirlash</h2>
+    <p>O'zgartirishlar brauzeringizda saqlanadi. Doimiy qilish uchun bizga yuboring.</p>
+    <div class="ep-field"><label>Kompaniya nomi</label><input id="ep-name" type="text"></div>
+    <div class="ep-field"><label>Taglayn</label><input id="ep-tag" type="text"></div>
+    <div class="ep-field"><label>Telefon</label><input id="ep-phone" type="text"></div>
+    <div class="ep-field"><label>Manzil</label><input id="ep-addr" type="text"></div>
+    <div class="ep-field"><label>Xizmatlar (har qatorda bitta)</label><textarea id="ep-svc" rows="6"></textarea></div>
+    <div class="ep-actions">
+      <button class="ep-cancel" onclick="closeEdit()">Bekor</button>
+      <button class="ep-save" onclick="saveEdit()">💾 Saqlash</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+const C = window.CFG;
+
+/* ─── Apply CSS vars ─── */
+document.documentElement.style.setProperty('--p', C.c1);
+document.documentElement.style.setProperty('--a', C.c2);
+
+/* ─── Merge localStorage edits ─── */
+try{const s=localStorage.getItem('sc_'+C.slug);if(s)Object.assign(C,JSON.parse(s))}catch(e){}
+
+const wa = 'https://wa.me/'+C.whatsapp.replace(/\D/g,'')+'?text='+encodeURIComponent('Salom! '+C.name+' haqida so\'rog\'im bor edi.');
+const tel = 'tel:'+C.phone.replace(/\s/g,'');
+
+/* ─── Render ─── */
+function render(){
+  document.title = C.name+' — '+C.niche;
+  document.getElementById('pg-title').textContent = document.title;
+  document.getElementById('pg-desc').content = C.desc||C.name+' — '+C.niche+' xizmatlari Toshkentda.';
+
+  const wa2='https://wa.me/'+C.whatsapp.replace(/\D/g,'')+'?text='+encodeURIComponent('Salom! '+C.name+' haqida so\'rog\'im bor edi.');
+  const tel2='tel:'+C.phone.replace(/\s/g,'');
+
+  el('nav-logo').textContent = C.name;
+  el('nav-pill').textContent = C.phone;
+
+  el('hero-tag').innerHTML = '<span style="width:7px;height:7px;border-radius:50%;background:var(--a);animation:pulse 2s infinite;display:inline-block"></span> '+C.niche+' — Toshkent';
+  const words = C.name.split(' ');
+  el('hero-h1').innerHTML = '<em>'+words[0]+'</em>'+(words.length>1?'<br>'+words.slice(1).join(' '):'');
+  el('hero-sub').textContent = C.tagline||'Sifatli xizmat, ishonchli hamkor';
+  el('h-call').href=tel2; el('h-wa').href=wa2;
+
+  // Marquee
+  const items = [...C.services, C.name, C.niche, 'Toshkent', 'Sifat', 'Ishonch'];
+  const mHTML = items.map(s=>`<span class="marquee-item">${s}</span><span class="marquee-dot">✦</span>`).join('');
+  el('mt1').innerHTML = mHTML+mHTML;
+  el('mt2').innerHTML = mHTML+mHTML;
+
+  // Services
+  const icons=['🎯','⚡','🏆','💎','🔥','✨','🚀','💡','🛡️','🌟'];
+  el('svc-grid').innerHTML = C.services.map((s,i)=>`
+    <div class="svc-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div class="svc-num">${String(i+1).padStart(2,'0')}</div>
+        <div class="svc-icon">${icons[i%icons.length]}</div>
+      </div>
+      <h3>${s}</h3>
+      <p>Professional ${s.toLowerCase()} — sifat va tezlik kafolatlanadi.</p>
+      <div class="svc-arrow">→</div>
+    </div>`).join('');
+  el('svc-sub').textContent = C.name+' — '+C.services.length+' asosiy yo\'nalish.';
+
+  // Stats
+  el('stats-grid').innerHTML = [
+    {v:'500<em>+</em>',l:'Mamnun mijoz'},
+    {v:'5<em>+</em>',l:'Yillik tajriba'},
+    {v:'100<em>%</em>',l:'Kafolat'},
+    {v:'24<em>/7</em>',l:'Qo\'llab-quvvatlash'}
+  ].map(s=>`<div class="stat-box"><div class="val">${s.v}</div><div class="lbl">${s.l}</div></div>`).join('');
+
+  // Why us
+  el('why-list').innerHTML = ['Tez va sifatli xizmat','Yashirin to\'lovlar yo\'q','Kafolatli natija','Professional jamoa'].map(w=>`
+    <div class="why-item"><div class="why-dot"></div><span>${w}</span></div>`).join('');
+
+  // Gallery
+  const labels=['Biz haqimizda','Xizmatlar','Jamoamiz','Ishlarimiz','Natijalar','Mijozlar'];
+  el('gal-grid').innerHTML = labels.map(l=>`
+    <div class="gal-cell"><div class="gal-inner"><span class="gal-label">${l}</span></div></div>`).join('');
+
+  // Reviews
+  el('rev-grid').innerHTML = C.reviews.map(r=>`
+    <div class="rev-card">
+      <div class="rev-stars">${'★'.repeat(r.stars)}</div>
+      <p class="rev-text">"${r.text}"</p>
+      <div class="rev-author">
+        <div class="rev-avatar">${r.name[0]}</div>
+        <div><div class="rev-name">${r.name}</div><div class="rev-role">${r.role}</div></div>
+      </div>
+    </div>`).join('');
+
+  // Contact
+  el('cinfo').innerHTML = [
+    {icon:'📞',label:'Telefon',val:C.phone},
+    {icon:'📍',label:'Manzil',val:C.address},
+    {icon:'⏰',label:'Ish vaqti',val:'Dush–Shan: 9:00–19:00'},
+  ].map(r=>`<div class="cinfo-row"><div class="cinfo-icon">${r.icon}</div><div><h4>${r.label}</h4><p>${r.val}</p></div></div>`).join('');
+  el('c-call').href=tel2; el('c-wa').href=wa2;
+
+  // Form service dropdown
+  el('form-svc').innerHTML='<option value="">Tanlang...</option>'+C.services.map(s=>`<option>${s}</option>`).join('');
+
+  // Footer
+  el('f-logo').textContent=C.name;
+  el('f-tagline').textContent=C.tagline||'Professional xizmat';
+  el('f-phone').href=tel2; el('f-phone').textContent=C.phone;
+  el('f-wa-link').href=wa2;
+  if(C.instagram){el('f-insta').href='https://instagram.com/'+C.instagram.replace('@','');el('f-insta').textContent='@'+C.instagram.replace('@','')}
+  el('f-copy').textContent='© '+new Date().getFullYear()+' '+C.name+'. Barcha huquqlar himoyalangan.';
+
+  el('wa-fb').href=wa2;
+}
+
+render();
+
+/* ─── Nav dark/light on scroll ─── */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{
+  const dark=window.scrollY<100;
+  nav.classList.toggle('dark-nav',dark);
+},{ passive:true });
+
+/* ─── Scroll reveal ─── */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}});
+},{threshold:.08});
+document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+
+/* ─── Form ─── */
+window.sendForm=function(e){
+  e.preventDefault();
+  const btn=el('form-btn');
+  btn.textContent='✅ Yuborildi!';btn.disabled=true;
+  const phone=el('form-tel').value;
+  const wa3='https://wa.me/'+C.whatsapp.replace(/\D/g,'')+'?text='+encodeURIComponent('Salom! Men yangi so\'rov qilmoqchiman. Tel: '+phone);
+  setTimeout(()=>window.open(wa3,'_blank'),400);
+};
+
+/* ─── Mobile menu ─── */
+window.openMenu=()=>document.getElementById('mob-menu').classList.add('open');
+window.closeMenu=()=>document.getElementById('mob-menu').classList.remove('open');
+
+/* ─── Edit panel (footer × 5) ─── */
+let fc=0,ft=0;
+document.querySelector('footer').addEventListener('click',()=>{
+  const now=Date.now();if(now-ft>3000)fc=0;ft=now;fc++;
+  if(fc>=5){fc=0;promptEdit();}
+});
+function promptEdit(){
+  const p=prompt('Tahrirlash paroli:');
+  if(p!==String(C.pin))return;
+  el('ep-name').value=C.name;el('ep-tag').value=C.tagline||'';
+  el('ep-phone').value=C.phone;el('ep-addr').value=C.address;
+  el('ep-svc').value=C.services.join('\n');
+  document.getElementById('edit-overlay').classList.add('open');
+}
+window.closeEdit=()=>document.getElementById('edit-overlay').classList.remove('open');
+window.saveEdit=function(){
+  C.name=el('ep-name').value;C.tagline=el('ep-tag').value;
+  C.phone=el('ep-phone').value;C.whatsapp=C.phone;
+  C.address=el('ep-addr').value;
+  C.services=el('ep-svc').value.split('\n').filter(Boolean);
+  localStorage.setItem('sc_'+C.slug,JSON.stringify({name:C.name,tagline:C.tagline,phone:C.phone,whatsapp:C.whatsapp,address:C.address,services:C.services}));
+  render();closeEdit();
+};
+
+function el(id){return document.getElementById(id)}
+})();
+</script>
+</body>
+</html>
