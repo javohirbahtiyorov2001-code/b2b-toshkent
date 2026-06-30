@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartDev.uz — Raqamli Kelajak</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#040810;
+  --bg2:#080f1e;
+  --blue:#00aaff;
+  --blue2:#0066cc;
+  --white:#f0f4ff;
+  --muted:#5a6a88;
+  --glass:rgba(0,170,255,0.06);
+  --border:rgba(0,170,255,0.12);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 6%;height:68px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(16px);background:rgba(4,8,16,0.8);border-bottom:1px solid var(--border)}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.25rem;letter-spacing:-.02em}
+.logo span{color:var(--blue)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{background:var(--blue);color:#040810;padding:.5rem 1.25rem;border-radius:6px;text-decoration:none;font-size:.875rem;font-weight:600;transition:opacity .2s}
+.nav-cta:hover{opacity:.85}
+
+/* HERO */
+.hero{min-height:100dvh;display:flex;align-items:center;padding:0 6%;position:relative;overflow:hidden}
+.hero-glow{position:absolute;top:-20%;left:-10%;width:700px;height:700px;background:radial-gradient(circle,rgba(0,170,255,0.12) 0%,transparent 70%);pointer-events:none}
+.hero-glow2{position:absolute;bottom:-20%;right:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(0,102,204,0.1) 0%,transparent 70%);pointer-events:none}
+.hero-content{max-width:760px;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--glass);border:1px solid var(--border);border-radius:999px;padding:.35rem 1rem;font-size:.75rem;color:var(--blue);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:2rem}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--blue);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:1.5rem}
+h1 span{color:var(--blue)}
+.hero-sub{font-size:1.1rem;color:var(--muted);line-height:1.7;max-width:520px;margin-bottom:2.5rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--blue);color:#040810;padding:.85rem 2rem;border-radius:8px;text-decoration:none;font-weight:700;font-size:.95rem;transition:transform .2s,opacity .2s}
+.btn-primary:hover{transform:translateY(-2px);opacity:.9}
+.btn-ghost{border:1px solid var(--border);color:var(--white);padding:.85rem 2rem;border-radius:8px;text-decoration:none;font-weight:500;font-size:.95rem;transition:border-color .2s,background .2s}
+.btn-ghost:hover{border-color:var(--blue);background:var(--glass)}
+.hero-stats{display:flex;gap:3rem;margin-top:4rem;padding-top:3rem;border-top:1px solid var(--border)}
+.stat-num{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--blue)}
+.stat-label{font-size:.8rem;color:var(--muted);margin-top:.2rem}
+
+/* SERVICES */
+.section{padding:100px 6%}
+.section-tag{font-size:.75rem;font-weight:700;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.02em;margin-bottom:1.5rem}
+.section-sub{color:var(--muted);font-size:1rem;line-height:1.7;max-width:480px;margin-bottom:4rem}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5px;background:var(--border);border-radius:16px;overflow:hidden}
+.service-card{background:var(--bg2);padding:2.5rem 2rem;position:relative;transition:background .3s;cursor:default}
+.service-card:hover{background:var(--glass)}
+.service-card::before{content:attr(data-num);position:absolute;top:1.5rem;right:1.5rem;font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:var(--border)}
+.service-icon{width:48px;height:48px;background:var(--glass);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;font-size:1.4rem}
+.service-title{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:.75rem}
+.service-desc{font-size:.875rem;color:var(--muted);line-height:1.65}
+
+/* PROCESS */
+.process-section{background:var(--bg2);padding:100px 6%}
+.process-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-top:4rem;position:relative}
+.process-steps::before{content:'';position:absolute;top:28px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
+.step{position:relative}
+.step-num{width:56px;height:56px;background:var(--bg);border:1px solid var(--blue);border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:var(--blue);margin-bottom:1.25rem;position:relative;z-index:1}
+.step-title{font-family:'Syne',sans-serif;font-weight:700;margin-bottom:.5rem}
+.step-desc{font-size:.85rem;color:var(--muted);line-height:1.6}
+
+/* WHY US */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.why-list{display:flex;flex-direction:column;gap:1.5rem;margin-top:2rem}
+.why-item{display:flex;gap:1rem;align-items:flex-start}
+.why-check{width:28px;height:28px;min-width:28px;background:var(--glass);border:1px solid var(--blue);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--blue);font-size:.9rem;margin-top:.1rem}
+.why-text strong{display:block;font-weight:600;margin-bottom:.3rem}
+.why-text span{font-size:.875rem;color:var(--muted);line-height:1.6}
+.why-visual{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:2.5rem;display:flex;flex-direction:column;gap:1rem}
+.metric-row{display:flex;justify-content:space-between;align-items:center;padding:1rem;background:var(--glass);border-radius:10px;border:1px solid var(--border)}
+.metric-label{font-size:.85rem;color:var(--muted)}
+.metric-val{font-family:'Syne',sans-serif;font-weight:800;color:var(--blue);font-size:1.1rem}
+
+/* CTA */
+.cta-section{padding:120px 6%;text-align:center;position:relative;overflow:hidden}
+.cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(0,170,255,0.1) 0%,transparent 70%);pointer-events:none}
+.cta-section h2{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,4rem);font-weight:800;letter-spacing:-.03em;margin-bottom:1rem;position:relative;z-index:1}
+.cta-section p{color:var(--muted);font-size:1.05rem;margin-bottom:2.5rem;position:relative;z-index:1}
+.cta-contacts{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;position:relative;z-index:1}
+.cta-phone{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--blue);text-decoration:none;display:block;margin-bottom:2rem;transition:opacity .2s}
+.cta-phone:hover{opacity:.8}
+
+/* FOOTER */
+footer{padding:40px 6%;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem}
+.footer-logo span{color:var(--blue)}
+footer p{font-size:.8rem;color:var(--muted)}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:none}
+
+@media(max-width:768px){
+  .hero-stats{gap:2rem;flex-wrap:wrap}
+  .why-grid{grid-template-columns:1fr}
+  .why-visual{display:none}
+  .nav-links{display:none}
+  .process-steps::before{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Smart<span>Dev</span>.uz</div>
+  <ul class="nav-links">
+    <li><a href="#services">Xizmatlar</a></li>
+    <li><a href="#process">Jarayon</a></li>
+    <li><a href="#why">Nima uchun biz</a></li>
+  </ul>
+  <a href="tel:+998909971776" class="nav-cta">Bog'lanish</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Toshkent · Raqamli agentlik</div>
+    <h1>Biznesingizni <span>raqamli</span> kuchga aylantiring</h1>
+    <p class="hero-sub">SmartDev.uz — sayt, ilova, CRM va AI avtomatlashtirish yechimlarini yaratuvchi zamonaviy agentlik. Tez. Arzon. Natijali.</p>
+    <div class="hero-btns">
+      <a href="tel:+998909971776" class="btn-primary">Bepul konsultatsiya</a>
+      <a href="#services" class="btn-ghost">Xizmatlar →</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">48h</div><div class="stat-label">Loyiha boshlash muddati</div></div>
+      <div><div class="stat-num">200+</div><div class="stat-label">Tayyor mijoz tahlili</div></div>
+      <div><div class="stat-num">6</div><div class="stat-label">Asosiy xizmat yo'nalishi</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-tag">Xizmatlar</div>
+  <h2 class="section-title fade-up">Biz nima qilamiz</h2>
+  <p class="section-sub fade-up">Har bir xizmat biznesingizning o'sishi uchun aniq maqsad bilan yaratilgan.</p>
+  <div class="services-grid">
+    <div class="service-card fade-up" data-num="01">
+      <div class="service-icon">📱</div>
+      <div class="service-title">Ilova yaratish</div>
+      <p class="service-desc">iOS va Android uchun zamonaviy mobil ilovalar. Foydalanuvchi qulay interfeys, tez ishlash va to'liq funksionallik.</p>
+    </div>
+    <div class="service-card fade-up" data-num="02">
+      <div class="service-icon">🌐</div>
+      <div class="service-title">Sayt yaratish</div>
+      <p class="service-desc">Landing page, korporativ sayt yoki internet-do'kon. AI yordamida tez generatsiya qilinadi, siz tasdiqlaysiz.</p>
+    </div>
+    <div class="service-card fade-up" data-num="03">
+      <div class="service-icon">🗂️</div>
+      <div class="service-title">CRM tizimi</div>
+      <p class="service-desc">Mijozlar bazasini boshqarish, sotuv hununi kuzatish va jamoangiz uchun qulay boshqaruv paneli.</p>
+    </div>
+    <div class="service-card fade-up" data-num="04">
+      <div class="service-icon">🤖</div>
+      <div class="service-title">Biznes AI avtomatlashtirish</div>
+      <p class="service-desc">Takroriy jarayonlarni avtomatlashtirish, AI agentlar va chatbotlar orqali vaqt va xarajatlarni tejash.</p>
+    </div>
+    <div class="service-card fade-up" data-num="05">
+      <div class="service-icon">🎨</div>
+      <div class="service-title">AI Vizuallar</div>
+      <p class="service-desc">Brendingiz uchun AI bilan yaratilgan professional rasmlar, logotiplar va marketing materiallari.</p>
+    </div>
+    <div class="service-card fade-up" data-num="06">
+      <div class="service-icon">🎯</div>
+      <div class="service-title">Targeting xizmatlari</div>
+      <p class="service-desc">Instagram, Telegram va Google targetingi. Aniq auditoriya, o'lchash mumkin bo'lgan natija.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section" id="process">
+  <div class="section-tag">Jarayon</div>
+  <h2 class="section-title fade-up">Qanday ishlаymiz</h2>
+  <div class="process-steps">
+    <div class="step fade-up">
+      <div class="step-num">01</div>
+      <div class="step-title">Muloqot</div>
+      <p class="step-desc">Biznesingiz, maqsadlaringiz va byudjetingizni tushunib olamiz.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">02</div>
+      <div class="step-title">Taklif</div>
+      <p class="step-desc">48 soat ichida texnik topshiriq va narx taklifini yubоramiz.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">03</div>
+      <div class="step-title">Ishlab chiqish</div>
+      <p class="step-desc">Jarayon davomida sizga progress ko'rsatib boramiz.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">04</div>
+      <div class="step-title">Topshirish</div>
+      <p class="step-desc">Tayyor mahsulot, o'qitish va 30 kunlik texnik qo'llab-quvvatlash.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section" id="why">
+  <div class="why-grid">
+    <div>
+      <div class="section-tag">Nima uchun SmartDev</div>
+      <h2 class="section-title fade-up">Farqimiz shunda</h2>
+      <div class="why-list">
+        <div class="why-item fade-up">
+          <div class="why-check">✓</div>
+          <div class="why-text">
+            <strong>AI bilan tezlashtirилgan</strong>
+            <span>Oddiy agentliklarga qaraganda 3x tezroq yetkazib beramiz.</span>
+          </div>
+        </div>
+        <div class="why-item fade-up">
+          <div class="why-check">✓</div>
+          <div class="why-text">
+            <strong>Arzon, lekin sifatli</strong>
+            <span>Xorijiy agentlik sifati, mahalliy narxlarda.</span>
+          </div>
+        </div>
+        <div class="why-item fade-up">
+          <div class="why-check">✓</div>
+          <div class="why-text">
+            <strong>Shaxsiy yondashuv</strong>
+            <span>Har bir mijoz bilan to'g'ridan-to'g'ri Javohir ishlaydi.</span>
+          </div>
+        </div>
+        <div class="why-item fade-up">
+          <div class="why-check">✓</div>
+          <div class="why-text">
+            <strong>Natijaga yo'naltirilgan</strong>
+            <span>Chiroyli dizayn emas — konversiya va o'sish uchun quriladi.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="why-visual fade-up">
+      <div class="metric-row"><span class="metric-label">O'rtacha yetkazib berish muddati</span><span class="metric-val">3–7 kun</span></div>
+      <div class="metric-row"><span class="metric-label">Mijoz qoniqishi</span><span class="metric-val">100%</span></div>
+      <div class="metric-row"><span class="metric-label">Texnik qo'llab-quvvatlash</span><span class="metric-val">30 kun bepul</span></div>
+      <div class="metric-row"><span class="metric-label">Tahlil qilingan bizneslar</span><span class="metric-val">200+</span></div>
+      <div class="metric-row"><span class="metric-label">Joylashuv</span><span class="metric-val">Toshkent, O'zbekiston</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-glow"></div>
+  <h2>Loyihangizni <span style="color:var(--blue)">boshlaylikmi?</span></h2>
+  <p>Bepul konsultatsiya uchun hoziroq bog'laning</p>
+  <a href="tel:+998909971776" class="cta-phone">+998 90 997 17 76</a>
+  <div class="cta-contacts">
+    <a href="tel:+998909971776" class="btn-primary">📞 Qo'ng'iroq</a>
+    <a href="https://t.me/JORJIE_B" class="btn-ghost">✈️ Telegram</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Smart<span>Dev</span>.uz</div>
+  <p>© 2025 SmartDev.uz — Barcha huquqlar himoyalangan</p>
+  <p style="color:var(--muted);font-size:.8rem">Toshkent, O'zbekiston</p>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') })
+}, {threshold: 0.1})
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el))
+</script>
+</body>
+</html>
