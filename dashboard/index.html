@@ -457,9 +457,9 @@ outreach/   → Telegram qualifier bot
     </div>
     <div class="c s3 cam">
       <div class="lbl">Потенциальный доход</div>
-      <div class="big sm">250M+</div>
-      <div class="sub">UZS (50 × 5M)</div>
-      <span class="tag ta">≈ $19,500</span>
+      <div class="big sm" id="income-big">250M+</div>
+      <div class="sub" id="income-sub">UZS (50 × 5M)</div>
+      <span class="tag ta" id="income-usd">≈ $19,500</span>
       <div class="ms">
         <div class="msi"><div class="msl">Landing</div><div class="msv">5M UZS</div></div>
         <div class="msi"><div class="msl">Web App</div><div class="msv">10M UZS</div></div>
@@ -723,17 +723,11 @@ const grid=document.getElementById('grid');
 
 function renderTable(leads) {
   tbody.innerHTML = '';
-  leads.slice(0,10).forEach((l,i)=>{
-    const sc=i<3?'#ef4444':i<6?'#f59e0b':'#64748b';
-    const st=i<3?'Горячий':i<6?'Тёплый':'Холодный';
-    tbody.innerHTML+=`<tr>
-      <td style="color:var(--mu);font-family:'Fira Code',monospace">${String(l.id).padStart(3,'0')}</td>
-      <td style="font-weight:600;color:#fff">${l.name}</td>
-      <td style="color:var(--mu);font-size:.72rem">${l.niche}</td>
-      <td><span style="color:${sc};font-size:.68rem;font-weight:700"><span class="sdot" style="background:${sc}"></span>${st}</span></td>
-      <td><a href="../generated_sites/${l.slug}.html" target="_blank" style="color:var(--bl);font-size:.68rem;font-family:'Fira Code',monospace;text-decoration:none" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='var(--bl)'">→ open</a></td>
-    </tr>`;
-  });
+  // Empty — no outreach started yet
+  tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;padding:2rem 0;color:var(--mu);font-size:.78rem">
+    <div style="font-size:1.4rem;margin-bottom:.4rem">📭</div>
+    Outreach hali boshlanmagan — birinchi xabar yuborganingizdan keyin bu yerda ko'rinadi
+  </td></tr>`;
 }
 
 function renderGrid(leads) {
@@ -771,6 +765,16 @@ loadAllLeads().then(leads => {
   const noSite = leads.filter(l => !l.has_website).length;
   if (bigs[0]) bigs[0].textContent = total;
   if (bigs[1]) bigs[1].textContent = leads.filter(l => l.slug).length;
+  // Sync potential income to real lead count
+  const pricePerLead = 5; // 5M UZS per lead
+  const totalM = total * pricePerLead;
+  const totalUSD = Math.round(totalM * 1000000 / 12500);
+  const incBig = document.getElementById('income-big');
+  const incSub = document.getElementById('income-sub');
+  const incUSD = document.getElementById('income-usd');
+  if(incBig) incBig.textContent = totalM + 'M+';
+  if(incSub) incSub.textContent = `UZS (${total} × 5M)`;
+  if(incUSD) incUSD.textContent = `≈ $${totalUSD.toLocaleString()}`;
   // Update pipeline numbers
   document.querySelectorAll('.pn').forEach(el => { if(el.textContent.trim()==='50') el.textContent=total; });
   // Update activity feed text
