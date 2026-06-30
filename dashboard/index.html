@@ -34,6 +34,25 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#07070d;color:#e2e8f0
   --bl:#3b82f6;--in:#6366f1;--pu:#a855f7;
   --gn:#22c55e;--am:#f59e0b;--rd:#ef4444;--cy:#06b6d4;
 }
+html.light{
+  --bg:#f1f5f9;--sf:#ffffff;--sf2:#f8fafc;
+  --bd:rgba(0,0,0,.08);--bd2:rgba(0,0,0,.14);
+  --tx:#0f172a;--mu:#64748b;
+  --bl:#2563eb;--in:#4f46e5;--pu:#7c3aed;
+  --gn:#16a34a;--am:#d97706;--rd:#dc2626;--cy:#0891b2;
+}
+html.light body{background:var(--bg);color:var(--tx)}
+html.light .cbl{background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(99,102,241,.03));border-color:rgba(59,130,246,.2)}
+html.light .cpu{background:linear-gradient(135deg,rgba(124,58,237,.08),rgba(99,102,241,.03));border-color:rgba(124,58,237,.2)}
+html.light .cgn{background:linear-gradient(135deg,rgba(22,163,74,.07),rgba(8,145,178,.03));border-color:rgba(22,163,74,.2)}
+html.light .cam{background:linear-gradient(135deg,rgba(217,119,6,.08),rgba(220,38,38,.03));border-color:rgba(217,119,6,.2)}
+html.light .cdk{background:#e2e8f0;border-color:rgba(0,0,0,.08)}
+html.light .tb h1{color:#0f172a}
+html.light .sb{background:var(--sf);border-right:1px solid var(--bd)}
+html.light .ni-tt{background:#1e293b;border-color:rgba(0,0,0,.15)}
+html.light html{scrollbar-color:#cbd5e1 #f1f5f9}
+html.light .lead-card{background:#fff;border-color:rgba(0,0,0,.09)}
+html.light .modal-bg .modal{background:#fff;border-color:rgba(0,0,0,.1)}
 
 /* SIDEBAR */
 .sb{position:fixed;top:0;left:0;width:68px;height:100vh;background:var(--sf);border-right:1px solid var(--bd);display:flex;flex-direction:column;align-items:center;padding:18px 0;gap:6px;z-index:200}
@@ -398,6 +417,9 @@ outreach/   → Telegram qualifier bot
       <p>Ташкент · <span id="clock"></span> · v1.0.0</p>
     </div>
     <div class="tb-r">
+      <button class="btn" id="theme-btn" onclick="toggleTheme()" title="Toggle theme">
+        <svg id="theme-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
       <div class="pill"><span class="dot"></span>Система активна</div>
       <button class="btn" onclick="window.open('/smartdev/index.html','_blank')" style="border-color:rgba(0,229,255,.4);color:#00e5ff">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -855,6 +877,22 @@ async function verifyPin(){
     }, 900);
   }
 }
+
+// Theme toggle
+const MOON_SVG = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+const SUN_SVG = '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+function toggleTheme(){
+  const isLight = document.documentElement.classList.toggle('light');
+  document.getElementById('theme-icon').innerHTML = isLight ? MOON_SVG : SUN_SVG;
+  localStorage.setItem('b2b_theme', isLight ? 'light' : 'dark');
+}
+(function(){
+  if(localStorage.getItem('b2b_theme')==='light'){
+    document.documentElement.classList.add('light');
+    const icon = document.getElementById('theme-icon');
+    if(icon) icon.innerHTML = MOON_SVG;
+  }
+})();
 
 // Keyboard support
 document.addEventListener('keydown', e=>{
