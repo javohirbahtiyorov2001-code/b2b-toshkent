@@ -89,6 +89,42 @@ td{padding:12px 14px;font-size:13px;vertical-align:middle}
 .dot-Dentistry{background:#00b4d8}
 .dot-Clinic{background:#7c3aed}
 
+/* OUTREACH QUEUE */
+.queue-section{padding:20px 28px 0}
+.queue-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.queue-title{font-size:15px;font-weight:700;color:#fff}
+.queue-title span{color:var(--cy)}
+.mode-tabs{display:flex;gap:6px}
+.mode-tab{background:var(--c);border:1px solid var(--b);color:var(--mu);border-radius:8px;padding:6px 16px;font-size:12px;font-weight:600;cursor:pointer;transition:.2s}
+.mode-tab.on{background:rgba(0,229,255,.12);border-color:var(--cy);color:var(--cy)}
+.mode-tab.vi-on{background:rgba(124,58,237,.12);border-color:#7c3aed;color:#a78bfa}
+.queue-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.queue-controls select{background:var(--c);border:1px solid var(--b);color:var(--tx);border-radius:8px;padding:6px 12px;font-size:12px;outline:none;cursor:pointer}
+.queue-controls select:focus{border-color:var(--cy)}
+.btn-add-queue{background:rgba(0,229,255,.1);border:1px solid var(--cy);color:var(--cy);border-radius:8px;padding:6px 16px;font-size:12px;font-weight:600;cursor:pointer;transition:.2s}
+.btn-add-queue:hover{background:rgba(0,229,255,.2)}
+.btn-clear-queue{background:transparent;border:1px solid var(--b);color:var(--mu);border-radius:8px;padding:6px 14px;font-size:12px;cursor:pointer;transition:.2s}
+.btn-clear-queue:hover{border-color:var(--rd);color:var(--rd)}
+.queue-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-bottom:6px}
+.queue-card{background:var(--c);border:1px solid var(--b);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:8px;position:relative;transition:.2s;cursor:pointer}
+.queue-card:hover{border-color:#333}
+.queue-card.selected{border-color:var(--cy);background:rgba(0,229,255,.04)}
+.queue-card .qc-num{font-size:10px;color:var(--mu);font-family:'Fira Code',monospace}
+.queue-card .qc-name{font-size:13px;font-weight:700;color:#fff;line-height:1.3}
+.queue-card .qc-phone{font-size:11px;font-family:'Fira Code',monospace;color:var(--cy)}
+.queue-card .qc-niche{font-size:10px;color:var(--mu);text-transform:uppercase;letter-spacing:.5px}
+.queue-card .qc-remove{position:absolute;top:8px;right:8px;width:20px;height:20px;border-radius:6px;background:transparent;border:none;color:var(--mu);cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;transition:.2s}
+.queue-card .qc-remove:hover{color:var(--rd)}
+.qc-actions{display:flex;gap:6px;margin-top:4px}
+.qc-btn{flex:1;padding:5px 0;border-radius:7px;font-size:11px;font-weight:600;cursor:pointer;border:none;transition:.2s}
+.qc-wa{background:rgba(37,211,102,.12);color:#25d366}
+.qc-wa:hover{background:rgba(37,211,102,.22)}
+.qc-call{background:rgba(0,229,255,.1);color:var(--cy)}
+.qc-call:hover{background:rgba(0,229,255,.2)}
+.queue-empty{text-align:center;padding:28px;color:var(--mu);font-size:13px;background:var(--c);border:1px dashed var(--b);border-radius:12px}
+.queue-empty .qe-icon{font-size:24px;margin-bottom:8px}
+.auto-badge{background:rgba(124,58,237,.12);border:1px solid #7c3aed;color:#a78bfa;border-radius:6px;padding:2px 8px;font-size:10px;font-weight:700;margin-left:6px}
+
 /* PAGINATION */
 .pagination{display:flex;justify-content:center;gap:6px;padding:0 28px 40px}
 .pg{background:var(--c);border:1px solid var(--b);color:var(--mu);border-radius:7px;padding:6px 12px;font-size:13px;cursor:pointer;transition:.2s}
@@ -174,6 +210,48 @@ td{padding:12px 14px;font-size:13px;vertical-align:middle}
   <div class="stat"><div class="lbl">Контакт</div><div class="val" id="sContacted">—</div></div>
   <div class="stat gn"><div class="lbl">Выиграно</div><div class="val" id="sWon">—</div></div>
   <div class="stat vi"><div class="lbl">Ниши</div><div class="val" id="sNiches">—</div></div>
+</div>
+
+<!-- OUTREACH QUEUE SECTION -->
+<div class="queue-section">
+  <div class="queue-header">
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      <div class="queue-title">Navbatdagi <span>outreach</span> guruh</div>
+      <div class="mode-tabs">
+        <button class="mode-tab on" id="tab-manual" onclick="setMode('manual')">✋ Manual</button>
+        <button class="mode-tab" id="tab-auto" onclick="setMode('auto')">⚡ Auto</button>
+      </div>
+    </div>
+    <div class="queue-controls" id="queue-controls">
+      <span id="auto-hint" style="display:none;font-size:12px;color:var(--mu)">Avtomatik tanlash:</span>
+      <select id="auto-count" style="display:none" onchange="autoSelect()">
+        <option value="5">5 ta</option>
+        <option value="10" selected>10 ta</option>
+        <option value="15">15 ta</option>
+        <option value="20">20 ta</option>
+      </select>
+      <select id="auto-niche" style="display:none" onchange="autoSelect()">
+        <option value="">Barcha nishalar</option>
+        <option value="Dentistry">🦷 Stomatologiya</option>
+        <option value="Clinic">🏥 Klinika</option>
+        <option value="Restaurant">🍽 Restoran</option>
+        <option value="Fitness">💪 Fitness</option>
+        <option value="Beauty">💅 Go'zallik</option>
+      </select>
+      <button class="btn-add-queue" id="btn-add-manual" onclick="addSelectedToQueue()">+ Tanlanganlani qo'shish</button>
+      <button class="btn-clear-queue" onclick="clearQueue()">✕ Tozalash</button>
+    </div>
+  </div>
+  <div class="queue-grid" id="queue-grid">
+    <div class="queue-empty"><div class="qe-icon">📭</div>Hali hech kim tanlanmagan.<br><span style="font-size:12px">Manual rejimda jadvaldan tanlang yoki Auto rejimni yoqing.</span></div>
+  </div>
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 0 16px;border-bottom:1px solid var(--b)">
+    <span id="queue-count-label" style="font-size:12px;color:var(--mu)">0 ta tanlangan</span>
+    <div style="display:flex;gap:6px">
+      <button onclick="waBlast()" style="background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.3);color:#25d366;border-radius:8px;padding:6px 16px;font-size:12px;font-weight:600;cursor:pointer;transition:.2s" onmouseover="this.style.background='rgba(37,211,102,.22)'" onmouseout="this.style.background='rgba(37,211,102,.12)'">💬 WA blast</button>
+      <button onclick="markAllContacted()" style="background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.2);color:var(--cy);border-radius:8px;padding:6px 16px;font-size:12px;font-weight:600;cursor:pointer;transition:.2s">✓ Contacted deb belgilash</button>
+    </div>
+  </div>
 </div>
 
 <div class="filters">
@@ -323,7 +401,7 @@ function render(){ renderMobileCards();
       ?'<span class="badge b-verif">✓ Реальный</span>'
       :'<span class="badge b-est">~ Прибл.</span>';
     const emoji=NICHE_EMOJI[l.niche]||'🏢';
-    return `<tr onclick="openLead(${l.id})">
+    return `<tr data-id="${l.id}" onclick="openLead(${l.id})">
       <td class="td-id">#${String(l.id).padStart(3,'0')}</td>
       <td class="td-name"><span class="dot dot-${l.niche}"></span>${emoji} ${l.name}</td>
       <td class="td-niche">${l.niche}</td>
@@ -385,6 +463,112 @@ function renderMobileCards(){
   }).join('');
 }
 
+
+// ── OUTREACH QUEUE ──
+let queueMode = 'manual';
+let queue = JSON.parse(localStorage.getItem('b2b_queue') || '[]');
+let selectedRows = new Set();
+
+function saveQueue(){ localStorage.setItem('b2b_queue', JSON.stringify(queue)); }
+
+function setMode(mode){
+  queueMode = mode;
+  document.getElementById('tab-manual').classList.toggle('on', mode==='manual');
+  document.getElementById('tab-auto').classList.toggle('vi-on', mode==='auto');
+  document.getElementById('tab-auto').classList.toggle('on', false);
+  document.getElementById('tab-manual').classList.toggle('vi-on', false);
+  document.getElementById('auto-hint').style.display = mode==='auto' ? '' : 'none';
+  document.getElementById('auto-count').style.display = mode==='auto' ? '' : 'none';
+  document.getElementById('auto-niche').style.display = mode==='auto' ? '' : 'none';
+  document.getElementById('btn-add-manual').style.display = mode==='manual' ? '' : 'none';
+  if(mode==='auto') autoSelect();
+}
+
+function autoSelect(){
+  const count = parseInt(document.getElementById('auto-count').value);
+  const niche = document.getElementById('auto-niche').value;
+  const alreadyQueued = new Set(queue.map(l=>l.id));
+  const pool = ALL.filter(l =>
+    !alreadyQueued.has(l.id) &&
+    (!niche || l.niche === niche) &&
+    l.status !== 'contacted' && l.status !== 'won'
+  ).slice(0, count);
+  queue = [...queue, ...pool.filter(l => !alreadyQueued.has(l.id))];
+  saveQueue();
+  renderQueue();
+}
+
+function addSelectedToQueue(){
+  const alreadyQueued = new Set(queue.map(l=>l.id));
+  selectedRows.forEach(id => {
+    const lead = ALL.find(l=>l.id===id);
+    if(lead && !alreadyQueued.has(id)) queue.push(lead);
+  });
+  selectedRows.clear();
+  document.querySelectorAll('tbody tr.sel-row').forEach(r=>r.classList.remove('sel-row'));
+  saveQueue();
+  renderQueue();
+}
+
+function removeFromQueue(id){
+  queue = queue.filter(l=>l.id!==id);
+  saveQueue();
+  renderQueue();
+}
+
+function clearQueue(){
+  queue = [];
+  saveQueue();
+  renderQueue();
+}
+
+function renderQueue(){
+  const grid = document.getElementById('queue-grid');
+  const label = document.getElementById('queue-count-label');
+  label.textContent = queue.length + ' ta tanlangan';
+  if(!queue.length){
+    grid.innerHTML = `<div class="queue-empty"><div class="qe-icon">📭</div>Hali hech kim tanlanmagan.<br><span style="font-size:12px">Manual rejimda jadvaldan tanlang yoki Auto rejimni yoqing.</span></div>`;
+    return;
+  }
+  grid.innerHTML = queue.map((l,i)=>`
+    <div class="queue-card" id="qc-${l.id}">
+      <button class="qc-remove" onclick="removeFromQueue(${l.id})">✕</button>
+      <div class="qc-num">${String(i+1).padStart(2,'0')}</div>
+      <div class="qc-name">${l.name}</div>
+      <div class="qc-phone">${l.phone||'—'}</div>
+      <div class="qc-niche">${l.niche||''}</div>
+      <div class="qc-actions">
+        <button class="qc-btn qc-wa" onclick="window.open('https://wa.me/${'${l.phone}'.replace(/\\D/g,'')}','_blank')">💬 WA</button>
+        <button class="qc-btn qc-call" onclick="window.open('tel:${l.phone}')">📞 Call</button>
+      </div>
+    </div>`).join('');
+}
+
+function waBlast(){
+  if(!queue.length) return alert('Queue bo\'sh!');
+  queue.forEach((l,i) => setTimeout(()=>window.open(`https://wa.me/${(l.phone||'').replace(/\D/g,'')}?text=Salom%2C+${encodeURIComponent(l.name)}!`,'_blank'), i*400));
+}
+
+function markAllContacted(){
+  queue.forEach(l=>{ const lead=ALL.find(x=>x.id===l.id); if(lead) lead.status='contacted'; });
+  queue=[];
+  saveQueue();
+  renderQueue();
+  applyFilters();
+}
+
+// Allow clicking table rows to select them for manual add
+document.addEventListener('click', e=>{
+  const row = e.target.closest('tbody tr');
+  if(!row || queueMode!=='manual') return;
+  const id = parseInt(row.dataset.id);
+  if(!id) return;
+  if(selectedRows.has(id)){ selectedRows.delete(id); row.style.outline=''; }
+  else { selectedRows.add(id); row.style.outline='1px solid var(--cy)'; }
+});
+
+renderQueue();
+setMode('manual');
 </script>
 
 <nav class="mob-bottom-nav" id="mobNav">
