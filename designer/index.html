@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Designer Agent</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#07090f;--bg2:#0d1117;--bg3:#141920;
+  --border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.12);
+  --text:#e2e8f0;--mu:#5a6a7e;--mu2:#8899aa;
+  --bl:#3b82f6;--gn:#22c55e;--rd:#ef4444;--am:#f59e0b;--cy:#00d4ff;--pu:#a78bfa;
+  --glass:rgba(255,255,255,.04);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;display:flex;flex-direction:column}
+
+/* NAV */
+nav{display:flex;align-items:center;gap:12px;padding:0 28px;height:56px;border-bottom:1px solid var(--border);background:var(--bg2);flex-shrink:0}
+.nav-back{color:var(--mu);text-decoration:none;font-size:.82rem;display:flex;align-items:center;gap:6px;transition:color .2s}
+.nav-back:hover{color:var(--text)}
+.nav-sep{color:var(--border2);font-size:.9rem}
+.nav-title{font-family:'Syne',sans-serif;font-weight:800;font-size:.95rem;color:#fff}
+.nav-title span{color:var(--cy)}
+.nav-badge{margin-left:auto;background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.25);color:var(--cy);font-size:.7rem;font-weight:600;padding:3px 10px;border-radius:100px;letter-spacing:.05em}
+
+/* MAIN LAYOUT */
+main{display:grid;grid-template-columns:380px 1fr;flex:1;overflow:hidden}
+
+/* LEFT PANEL */
+.panel-left{border-right:1px solid var(--border);display:flex;flex-direction:column;overflow-y:auto;background:var(--bg2)}
+.section-head{padding:20px 22px 12px;font-size:.7rem;font-weight:600;color:var(--mu);letter-spacing:.1em;text-transform:uppercase}
+
+/* LEAD SELECTOR */
+.lead-search-wrap{padding:0 16px 12px}
+.lead-search{width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:10px 14px;color:var(--text);font-size:.86rem;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s}
+.lead-search:focus{border-color:var(--bl)}
+.lead-list{flex:1;overflow-y:auto;padding:0 8px 12px}
+.lead-item{padding:12px 14px;border-radius:10px;cursor:pointer;transition:background .15s;border:1px solid transparent;margin-bottom:4px}
+.lead-item:hover{background:var(--glass);border-color:var(--border)}
+.lead-item.selected{background:rgba(59,130,246,.1);border-color:rgba(59,130,246,.35)}
+.lead-name{font-weight:600;font-size:.87rem;color:#fff;margin-bottom:3px}
+.lead-meta{font-size:.74rem;color:var(--mu);display:flex;gap:8px;align-items:center}
+.lead-niche{background:rgba(255,255,255,.06);border-radius:4px;padding:1px 6px;font-size:.68rem;color:var(--mu2)}
+.no-leads{padding:24px 16px;color:var(--mu);font-size:.84rem;text-align:center}
+
+/* RIGHT PANEL */
+.panel-right{display:flex;flex-direction:column;overflow:hidden}
+
+/* SELECTED LEAD CARD */
+.selected-card{padding:20px 28px;border-bottom:1px solid var(--border);background:var(--bg2);display:none}
+.selected-card.visible{display:block}
+.sc-label{font-size:.68rem;font-weight:600;color:var(--mu);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.sc-name{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;color:#fff;margin-bottom:4px}
+.sc-meta{display:flex;gap:12px;font-size:.78rem;color:var(--mu2)}
+.sc-color{width:10px;height:10px;border-radius:50%;display:inline-block}
+
+/* PROMPT AREA */
+.prompt-wrap{padding:20px 28px;border-bottom:1px solid var(--border);flex-shrink:0}
+.prompt-label{font-size:.7rem;font-weight:600;color:var(--mu);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.prompt-label span{font-weight:400;color:var(--mu);text-transform:none;letter-spacing:0;font-size:.7rem}
+textarea{width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:12px;padding:14px 16px;color:var(--text);font-family:'Inter',sans-serif;font-size:.86rem;line-height:1.6;resize:vertical;min-height:140px;max-height:280px;outline:none;transition:border-color .2s}
+textarea:focus{border-color:var(--bl)}
+textarea::placeholder{color:var(--mu)}
+.prompt-presets{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.preset{background:var(--glass);border:1px solid var(--border);border-radius:100px;padding:5px 12px;font-size:.72rem;color:var(--mu2);cursor:pointer;transition:all .2s;white-space:nowrap}
+.preset:hover{border-color:var(--cy);color:var(--cy)}
+
+/* ACTIONS */
+.actions{padding:16px 28px;border-bottom:1px solid var(--border);display:flex;gap:12px;align-items:center;flex-shrink:0}
+.btn-gen{background:linear-gradient(135deg,#1d4ed8,#3b82f6);color:#fff;font-weight:700;font-size:.88rem;padding:12px 28px;border-radius:10px;border:none;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:8px}
+.btn-gen:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 4px 20px rgba(59,130,246,.35)}
+.btn-gen:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.btn-preview{background:var(--glass);border:1px solid var(--border2);color:var(--mu2);font-size:.85rem;padding:11px 20px;border-radius:10px;cursor:pointer;transition:all .2s;text-decoration:none;display:flex;align-items:center;gap:6px}
+.btn-preview:hover{border-color:var(--text);color:var(--text)}
+.btn-preview.hidden{display:none}
+.status-pill{margin-left:auto;font-size:.75rem;font-weight:600;padding:5px 12px;border-radius:100px;display:none}
+.status-pill.running{display:flex;align-items:center;gap:6px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);color:var(--am)}
+.status-pill.done{display:flex;align-items:center;gap:6px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);color:var(--gn)}
+.status-pill.error{display:flex;align-items:center;gap:6px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:var(--rd)}
+.spin{width:8px;height:8px;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* CONSOLE */
+.console-wrap{flex:1;overflow:hidden;display:flex;flex-direction:column;padding:0 28px 20px}
+.console-head{padding:16px 0 10px;font-size:.7rem;font-weight:600;color:var(--mu);letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.console-head::after{content:'';flex:1;height:1px;background:var(--border)}
+.console{flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:16px;overflow-y:auto;font-family:'Fira Code',monospace;font-size:.78rem;line-height:1.7}
+.cl{color:var(--mu)}
+.cl.info{color:var(--text)}
+.cl.success{color:var(--gn)}
+.cl.error{color:var(--rd)}
+.cl.claude{color:var(--cy)}
+.cl.section{color:var(--am);font-weight:500}
+.console-empty{color:var(--mu);padding:8px 0;font-style:italic}
+
+/* EMPTY STATE */
+.empty-state{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--mu);gap:12px;padding:40px}
+.empty-icon{font-size:2.5rem;opacity:.4}
+.empty-text{font-size:.9rem;text-align:center;max-width:280px;line-height:1.6}
+
+/* SCROLL */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:10px}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/dashboard/index.html" class="nav-back">← Дашборд</a>
+  <span class="nav-sep">/</span>
+  <div class="nav-title">Designer <span>Agent</span></div>
+  <div class="nav-badge">Claude + Higgsfield</div>
+</nav>
+
+<main>
+  <!-- LEFT: Lead Selector -->
+  <div class="panel-left">
+    <div class="section-head">Выбрать лид</div>
+    <div class="lead-search-wrap">
+      <input class="lead-search" type="text" id="leadSearch" placeholder="Поиск по имени, нише...">
+    </div>
+    <div class="lead-list" id="leadList">
+      <div class="no-leads">Загрузка лидов...</div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Config + Console -->
+  <div class="panel-right">
+
+    <!-- Selected lead card -->
+    <div class="selected-card" id="selectedCard">
+      <div class="sc-label">Выбранный лид</div>
+      <div class="sc-name" id="scName">—</div>
+      <div class="sc-meta" id="scMeta"></div>
+    </div>
+
+    <!-- Prompt -->
+    <div class="prompt-wrap">
+      <div class="prompt-label">Инструкции дизайна <span>— необязательно, по умолчанию: motionsites.ai стиль</span></div>
+      <textarea id="promptText" placeholder="Например: сделай сайт в голубом минималистичном стиле, акцент на доверие и профессионализм. Добавь раздел с врачами. Используй шрифт Bebas Neue для заголовков..."></textarea>
+      <div class="prompt-presets">
+        <div class="preset" onclick="addPreset('Тёмный cinematic стиль, glassmorphism, Syne font, большие цифры')">🎬 Cinematic dark</div>
+        <div class="preset" onclick="addPreset('Светлый минимализм, белый фон, акцент на доверие и чистоту')">🤍 Light minimal</div>
+        <div class="preset" onclick="addPreset('Люксовый стиль, тёмный фон, золотые акценты, премиум эстетика')">✨ Luxury gold</div>
+        <div class="preset" onclick="addPreset('Корпоративный B2B стиль, синий и серый, строгость и профессионализм')">💼 Corporate blue</div>
+        <div class="preset" onclick="addPreset('Добавь раздел с командой врачей, FAQ и форму записи')">👨‍⚕️ + Врачи & FAQ</div>
+        <div class="preset" onclick="addPreset('Сделай акцент на ценах и скидках, добавь прайс-лист услуг')">💰 + Прайс-лист</div>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="actions">
+      <button class="btn-gen" id="genBtn" disabled onclick="generate()">
+        <span>✦</span> Генерировать сайт
+      </button>
+      <a class="btn-preview hidden" id="previewBtn" target="_blank">
+        <span>↗</span> Открыть сайт
+      </a>
+      <div class="status-pill" id="statusPill"></div>
+    </div>
+
+    <!-- Console -->
+    <div class="console-wrap">
+      <div class="console-head">Консоль</div>
+      <div class="console" id="console">
+        <div class="console-empty">Выберите лид и нажмите «Генерировать сайт»...</div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script>
+const API = 'http://localhost:5056';
+let allLeads = [], selectedLead = null, currentSlug = null;
+
+// ── Load leads ─────────────────────────────────────────────────────────────
+async function loadLeads() {
+  try {
+    const r = await fetch(`${API}/leads`);
+    allLeads = await r.json();
+    renderLeads(allLeads);
+  } catch(e) {
+    document.getElementById('leadList').innerHTML =
+      `<div class="no-leads" style="color:#ef4444">⚠ API недоступен. Запустите:<br><code style="font-size:.7rem">python3 designer_api.py</code></div>`;
+  }
+}
+
+function renderLeads(leads) {
+  const el = document.getElementById('leadList');
+  if (!leads.length) { el.innerHTML = '<div class="no-leads">Нет лидов</div>'; return; }
+  el.innerHTML = leads.map(l => `
+    <div class="lead-item ${selectedLead?.slug===l.slug?'selected':''}" onclick="selectLead(${JSON.stringify(JSON.stringify(l))})">
+      <div class="lead-name">${l.name}</div>
+      <div class="lead-meta">
+        <span class="lead-niche">${l.niche||'—'}</span>
+        <span>${l.phone||''}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function selectLead(jsonStr) {
+  const l = JSON.parse(jsonStr);
+  selectedLead = l;
+  renderLeads(allLeads.filter(x => !document.getElementById('leadSearch').value ||
+    matchLead(x, document.getElementById('leadSearch').value)));
+
+  // show card
+  const card = document.getElementById('selectedCard');
+  card.classList.add('visible');
+  document.getElementById('scName').textContent = l.name;
+  const accent = l.colors?.accent || '#00d4ff';
+  const primary = l.colors?.primary || '#060d1f';
+  document.getElementById('scMeta').innerHTML = `
+    <span>${l.niche||''}</span>
+    <span>·</span>
+    <span>${l.phone||''}</span>
+    <span>·</span>
+    <span>${l.address||''}</span>
+    <span style="margin-left:4px">
+      <span class="sc-color" style="background:${primary}"></span>
+      <span class="sc-color" style="background:${accent};margin-left:3px"></span>
+    </span>
+  `;
+
+  document.getElementById('genBtn').disabled = false;
+  document.getElementById('previewBtn').classList.add('hidden');
+  currentSlug = l.slug;
+}
+
+document.getElementById('leadSearch').addEventListener('input', e => {
+  const q = e.target.value.toLowerCase();
+  renderLeads(allLeads.filter(l => matchLead(l, q)));
+});
+
+function matchLead(l, q) {
+  if (!q) return true;
+  return (l.name+l.niche+l.phone+l.address).toLowerCase().includes(q);
+}
+
+// ── Prompt presets ─────────────────────────────────────────────────────────
+function addPreset(text) {
+  const ta = document.getElementById('promptText');
+  ta.value = ta.value ? ta.value + '\n' + text : text;
+  ta.focus();
+}
+
+// ── Generate ───────────────────────────────────────────────────────────────
+async function generate() {
+  if (!selectedLead) return;
+
+  const btn = document.getElementById('genBtn');
+  const pill = document.getElementById('statusPill');
+  const con = document.getElementById('console');
+
+  btn.disabled = true;
+  con.innerHTML = '';
+  setStatus('running', 'Генерация...');
+  document.getElementById('previewBtn').classList.add('hidden');
+
+  addLine('info', `▶ Запуск: ${selectedLead.name} (${selectedLead.slug})`);
+  addLine('cl', `  Нища: ${selectedLead.niche} | Accent: ${selectedLead.colors?.accent||'auto'}`);
+
+  const extra = document.getElementById('promptText').value.trim();
+  if (extra) addLine('cl', `  Доп. инструкции: "${extra.slice(0,60)}${extra.length>60?'…':''}"`);
+  addLine('cl', '  ─────────────────────────────────');
+
+  let res;
+  try {
+    res = await fetch(`${API}/generate`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({slug: selectedLead.slug, extra_prompt: extra})
+    });
+    const {job_id} = await res.json();
+    addLine('cl', `  Job ID: ${job_id}`);
+    await streamJob(job_id);
+  } catch(e) {
+    addLine('error', `  ✗ Ошибка запроса: ${e.message}`);
+    setStatus('error', 'Ошибка');
+    btn.disabled = false;
+  }
+}
+
+async function streamJob(jobId) {
+  const btn = document.getElementById('genBtn');
+  const sse = new EventSource(`${API}/stream/${jobId}`);
+  sse.onmessage = e => {
+    const {line, status, slug} = JSON.parse(e.data);
+    if (line !== null) {
+      const cls = line.includes('done') ? 'success' :
+                  line.includes('FAILED') || line.includes('Error') ? 'error' :
+                  line.includes('Claude designing') ? 'claude' :
+                  line.includes('===') ? 'section' : 'cl';
+      addLine(cls, line);
+    }
+    if (status === 'done') {
+      sse.close();
+      setStatus('done', 'Готово ✓');
+      btn.disabled = false;
+      const pBtn = document.getElementById('previewBtn');
+      pBtn.href = `/generated_sites/${currentSlug}.html`;
+      pBtn.classList.remove('hidden');
+      addLine('success', `\n  ✓ Сайт готов → /generated_sites/${currentSlug}.html`);
+    } else if (status === 'error') {
+      sse.close();
+      setStatus('error', 'Ошибка');
+      btn.disabled = false;
+    }
+  };
+  sse.onerror = () => {
+    sse.close();
+    addLine('error', '  ✗ Соединение потеряно');
+    setStatus('error', 'Ошибка');
+    btn.disabled = false;
+  };
+}
+
+function addLine(cls, text) {
+  const con = document.getElementById('console');
+  const d = document.createElement('div');
+  d.className = `cl ${cls}`;
+  d.textContent = text;
+  con.appendChild(d);
+  con.scrollTop = con.scrollHeight;
+}
+
+function setStatus(type, text) {
+  const pill = document.getElementById('statusPill');
+  pill.className = `status-pill ${type}`;
+  pill.innerHTML = type === 'running' ? `<div class="spin"></div>${text}` : text;
+}
+
+loadLeads();
+</script>
+</body>
+</html>

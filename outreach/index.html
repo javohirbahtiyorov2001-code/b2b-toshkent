@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Telegram Outreach</title>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#07090f;--bg2:#0d1117;--bg3:#141920;--bg4:#1a2130;
+  --border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.12);
+  --text:#e2e8f0;--mu:#5a6a7e;--mu2:#8899aa;
+  --bl:#3b82f6;--gn:#22c55e;--rd:#ef4444;--am:#f59e0b;--cy:#00d4ff;
+  --tg:#2AABEE;--glass:rgba(255,255,255,.04);
+}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;display:flex;flex-direction:column}
+
+/* NAV */
+nav{display:flex;align-items:center;gap:12px;padding:0 28px;height:56px;border-bottom:1px solid var(--border);background:var(--bg2);flex-shrink:0}
+.nav-back{color:var(--mu);text-decoration:none;font-size:.82rem;display:flex;align-items:center;gap:6px;transition:color .2s}
+.nav-back:hover{color:var(--text)}
+.nav-sep{color:var(--border2)}
+.nav-title{font-family:'Syne',sans-serif;font-weight:800;font-size:.95rem;color:#fff}
+.nav-title span{color:var(--tg)}
+.tg-status{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:.78rem}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--mu);flex-shrink:0}
+.dot.online{background:var(--gn);box-shadow:0 0 8px var(--gn)}
+.dot.pending{background:var(--am);animation:pulse .8s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.acc-name{color:var(--mu2)}
+.btn-disconnect{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);color:var(--rd);font-size:.72rem;padding:4px 10px;border-radius:6px;cursor:pointer;transition:.2s}
+.btn-disconnect:hover{background:rgba(239,68,68,.2)}
+
+/* MAIN */
+main{display:grid;grid-template-columns:1fr 360px;flex:1;overflow:hidden;height:calc(100vh - 56px)}
+
+/* LEFT */
+.left{display:flex;flex-direction:column;overflow:hidden;border-right:1px solid var(--border)}
+
+/* AUTH PANEL */
+.auth-panel{padding:24px 28px;border-bottom:1px solid var(--border);background:var(--bg2)}
+.auth-title{font-size:.7rem;font-weight:600;color:var(--mu);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+.auth-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.auth-grid.full{grid-template-columns:1fr}
+.inp-wrap{display:flex;flex-direction:column;gap:5px}
+.inp-label{font-size:.7rem;color:var(--mu);font-weight:500}
+input[type=text],input[type=password]{background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:9px 12px;color:var(--text);font-size:.85rem;font-family:'Inter',sans-serif;outline:none;width:100%;transition:border-color .2s}
+input:focus{border-color:var(--bl)}
+input::placeholder{color:var(--mu)}
+.auth-hint{font-size:.71rem;color:var(--mu);margin-top:8px;line-height:1.5}
+.auth-hint a{color:var(--cy);text-decoration:none}
+.auth-actions{display:flex;gap:10px;margin-top:12px}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:7px;font-size:.84rem;font-weight:600;padding:9px 18px;border-radius:8px;border:none;cursor:pointer;transition:all .2s;white-space:nowrap}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn-primary{background:var(--tg);color:#fff}
+.btn-primary:hover:not(:disabled){background:#1a9be0}
+.btn-danger{background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.3);color:var(--rd)}
+.btn-danger:hover:not(:disabled){background:rgba(239,68,68,.25)}
+.btn-ghost{background:var(--glass);border:1px solid var(--border2);color:var(--mu2)}
+.btn-ghost:hover:not(:disabled){border-color:var(--text);color:var(--text)}
+.btn-gn{background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.3);color:var(--gn)}
+.btn-gn:hover:not(:disabled){background:rgba(34,197,94,.25)}
+.btn-sm{padding:6px 12px;font-size:.78rem}
+
+/* LEAD SECTION */
+.lead-section{display:flex;flex-direction:column;flex:1;overflow:hidden}
+.lead-toolbar{padding:14px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;flex-shrink:0}
+.lead-search{flex:1;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:8px 12px;color:var(--text);font-size:.83rem;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s}
+.lead-search:focus{border-color:var(--bl)}
+.lead-search::placeholder{color:var(--mu)}
+.sel-count{font-size:.75rem;color:var(--mu2);white-space:nowrap}
+.niche-tabs{padding:0 22px 10px;display:flex;gap:6px;flex-wrap:wrap;flex-shrink:0}
+.ntab{background:var(--glass);border:1px solid var(--border);border-radius:100px;padding:4px 12px;font-size:.72rem;color:var(--mu2);cursor:pointer;transition:.15s;white-space:nowrap}
+.ntab:hover,.ntab.active{background:rgba(59,130,246,.1);border-color:rgba(59,130,246,.4);color:var(--bl)}
+.lead-list{flex:1;overflow-y:auto;padding:0 12px 16px}
+.lead-row{display:flex;align-items:center;gap:10px;padding:10px 10px;border-radius:8px;cursor:pointer;border:1px solid transparent;transition:.15s;margin-bottom:2px}
+.lead-row:hover{background:var(--glass);border-color:var(--border)}
+.lead-row.checked{background:rgba(42,171,238,.07);border-color:rgba(42,171,238,.25)}
+.cb{width:16px;height:16px;border:1.5px solid var(--border2);border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:.15s}
+.lead-row.checked .cb{background:var(--tg);border-color:var(--tg)}
+.cb-check{color:#fff;font-size:.65rem;display:none}
+.lead-row.checked .cb-check{display:block}
+.lead-info{flex:1;min-width:0}
+.lead-name{font-size:.86rem;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lead-sub{font-size:.72rem;color:var(--mu);display:flex;gap:6px}
+.lead-ph{font-family:'Fira Code',monospace;font-size:.7rem;color:var(--mu2)}
+
+/* RIGHT */
+.right{display:flex;flex-direction:column;overflow:hidden;background:var(--bg2)}
+.section-head{padding:18px 22px 10px;font-size:.7rem;font-weight:600;color:var(--mu);letter-spacing:.1em;text-transform:uppercase}
+
+/* TEMPLATE */
+.tpl-wrap{padding:0 18px;flex-shrink:0}
+textarea.tpl{width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:10px;padding:12px 14px;color:var(--text);font-family:'Inter',sans-serif;font-size:.84rem;line-height:1.6;resize:none;min-height:160px;outline:none;transition:border-color .2s}
+textarea.tpl:focus{border-color:var(--tg)}
+textarea.tpl::placeholder{color:var(--mu)}
+.vars{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.var{background:rgba(42,171,238,.1);border:1px solid rgba(42,171,238,.2);color:var(--tg);font-size:.68rem;font-family:'Fira Code',monospace;padding:2px 8px;border-radius:4px;cursor:pointer;transition:.15s}
+.var:hover{background:rgba(42,171,238,.2)}
+
+/* SETTINGS */
+.settings-row{padding:14px 18px;display:flex;align-items:center;gap:10px;border-top:1px solid var(--border);flex-shrink:0}
+.delay-label{font-size:.78rem;color:var(--mu);white-space:nowrap}
+input[type=number]{width:70px;background:var(--bg3);border:1px solid var(--border2);border-radius:6px;padding:6px 10px;color:var(--text);font-size:.84rem;font-family:'Fira Code',monospace;outline:none;text-align:center}
+
+/* SEND BTN */
+.send-wrap{padding:14px 18px;border-top:1px solid var(--border);flex-shrink:0}
+.btn-send{width:100%;justify-content:center;background:linear-gradient(135deg,#1a9be0,#2AABEE);color:#fff;font-size:.9rem;padding:12px}
+.btn-send:hover:not(:disabled){filter:brightness(1.1)}
+.campaign-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.cstat{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center}
+.cstat-val{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:#fff}
+.cstat-val.gn{color:var(--gn)}
+.cstat-val.rd{color:var(--rd)}
+.cstat-label{font-size:.65rem;color:var(--mu);margin-top:2px}
+
+/* LOG */
+.log-wrap{flex:1;overflow:hidden;display:flex;flex-direction:column;padding:0 18px 14px}
+.log{flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:10px;overflow-y:auto;padding:10px 12px;font-family:'Fira Code',monospace;font-size:.72rem;line-height:1.7}
+.ll{display:flex;gap:8px}
+.lt{color:var(--mu);flex-shrink:0}
+.lm{flex:1}
+.lm.ok{color:var(--gn)}
+.lm.fail{color:var(--rd)}
+.lm.info{color:var(--cy)}
+.lm.neutral{color:var(--mu2)}
+.log-empty{color:var(--mu);font-style:italic;padding:4px 0}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:10px}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/dashboard/index.html" class="nav-back">← Дашборд</a>
+  <span class="nav-sep">/</span>
+  <div class="nav-title">Telegram <span>Outreach</span></div>
+  <div class="tg-status" id="tgStatus">
+    <div class="dot" id="statusDot"></div>
+    <span class="acc-name" id="statusText">Не подключено</span>
+  </div>
+</nav>
+
+<main>
+  <!-- LEFT -->
+  <div class="left">
+
+    <!-- AUTH PANEL -->
+    <div class="auth-panel" id="authPanel">
+      <div class="auth-title" id="authTitle">Подключить Telegram аккаунт</div>
+
+      <!-- Step 1: credentials -->
+      <div id="step1">
+        <div class="auth-grid">
+          <div class="inp-wrap">
+            <div class="inp-label">API ID</div>
+            <input type="text" id="apiId" placeholder="12345678">
+          </div>
+          <div class="inp-wrap">
+            <div class="inp-label">API Hash</div>
+            <input type="text" id="apiHash" placeholder="abc123...">
+          </div>
+        </div>
+        <div class="auth-grid full" style="margin-top:10px">
+          <div class="inp-wrap">
+            <div class="inp-label">Номер телефона</div>
+            <input type="text" id="phone" placeholder="+998901234567">
+          </div>
+        </div>
+        <div class="auth-hint">
+          Получите API ID и Hash на <a href="https://my.telegram.org/apps" target="_blank">my.telegram.org/apps</a>
+          → «API development tools»
+        </div>
+        <div class="auth-actions">
+          <button class="btn btn-primary" onclick="connectStep1()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z"/></svg>
+            Отправить код
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2: OTP -->
+      <div id="step2" style="display:none">
+        <div class="auth-grid full">
+          <div class="inp-wrap">
+            <div class="inp-label">Код из Telegram</div>
+            <input type="text" id="otpCode" placeholder="12345" maxlength="10" style="font-family:'Fira Code',monospace;letter-spacing:.15em;font-size:1.1rem">
+          </div>
+        </div>
+        <div class="auth-actions">
+          <button class="btn btn-primary" onclick="connectStep2()">Подтвердить</button>
+          <button class="btn btn-ghost btn-sm" onclick="resetAuth()">← Назад</button>
+        </div>
+      </div>
+
+      <!-- Step 2FA -->
+      <div id="step2fa" style="display:none">
+        <div class="auth-grid full">
+          <div class="inp-wrap">
+            <div class="inp-label">Пароль двухфакторной аутентификации</div>
+            <input type="password" id="twoFaPass" placeholder="Введите пароль...">
+          </div>
+        </div>
+        <div class="auth-actions">
+          <button class="btn btn-primary" onclick="connectStep2fa()">Войти</button>
+        </div>
+      </div>
+
+      <!-- Connected state -->
+      <div id="stepConnected" style="display:none">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--tg),#1a9be0);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:#fff" id="accAvatar">J</div>
+          <div>
+            <div style="font-weight:600;color:#fff" id="accName">—</div>
+            <div style="font-size:.76rem;color:var(--mu)" id="accPhone">—</div>
+          </div>
+          <button class="btn btn-danger btn-sm" style="margin-left:auto" onclick="disconnect()">Отключить</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- LEAD LIST -->
+    <div class="lead-section">
+      <div class="lead-toolbar">
+        <input class="lead-search" id="leadSearch" type="text" placeholder="Поиск лидов...">
+        <button class="btn btn-ghost btn-sm" onclick="selectAll()">Все</button>
+        <button class="btn btn-ghost btn-sm" onclick="clearAll()">Снять</button>
+        <span class="sel-count" id="selCount">0 выбрано</span>
+      </div>
+      <div class="niche-tabs" id="nicheTabs"></div>
+      <div class="lead-list" id="leadList">
+        <div style="color:var(--mu);padding:16px;font-size:.83rem">Загрузка...</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+    <div class="section-head">Шаблон сообщения</div>
+    <div class="tpl-wrap">
+      <textarea class="tpl" id="tplText" placeholder="Здравствуйте! Меня зовут Javohir, я помогаю бизнесам в Ташкенте создавать сайты и привлекать клиентов онлайн.
+
+Заметил ваш бизнес «{name}» и хотел предложить профессиональный сайт специально для вашей ниши — {niche}.
+
+Готов сделать бесплатный аудит вашего онлайн-присутствия. Можем поговорить?"></textarea>
+      <div class="vars">
+        <span style="font-size:.68rem;color:var(--mu);align-self:center">Переменные:</span>
+        <div class="var" onclick="insertVar('{name}')">&#123;name&#125;</div>
+        <div class="var" onclick="insertVar('{niche}')">&#123;niche&#125;</div>
+        <div class="var" onclick="insertVar('{phone}')">&#123;phone&#125;</div>
+        <div class="var" onclick="insertVar('{address}')">&#123;address&#125;</div>
+      </div>
+    </div>
+
+    <div class="settings-row">
+      <span class="delay-label">Задержка между сообщениями:</span>
+      <input type="number" id="delay" value="7" min="3" max="60">
+      <span class="delay-label">сек</span>
+    </div>
+
+    <div class="send-wrap">
+      <div class="campaign-stats" id="campStats" style="display:none">
+        <div class="cstat"><div class="cstat-val" id="statTotal">0</div><div class="cstat-label">Всего</div></div>
+        <div class="cstat"><div class="cstat-val gn" id="statSent">0</div><div class="cstat-label">Отправлено</div></div>
+        <div class="cstat"><div class="cstat-val rd" id="statFailed">0</div><div class="cstat-label">Ошибок</div></div>
+      </div>
+      <button class="btn btn-send" id="sendBtn" onclick="startCampaign()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Отправить выбранным
+      </button>
+      <button class="btn btn-danger" id="stopBtn" style="width:100%;justify-content:center;margin-top:8px;display:none" onclick="stopCampaign()">⏹ Остановить</button>
+    </div>
+
+    <div class="section-head" style="border-top:1px solid var(--border)">Лог отправки</div>
+    <div class="log-wrap">
+      <div class="log" id="log">
+        <div class="log-empty">Лог будет отображаться здесь...</div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+const API = 'http://localhost:5057';
+let allLeads = [], selected = new Set(), activeNiche = '', sseConn = null;
+
+// ── Load ──────────────────────────────────────────────────────────────────────
+async function init() {
+  await Promise.all([loadStatus(), loadLeads()]);
+}
+
+async function loadStatus() {
+  try {
+    const r = await fetch(`${API}/status`);
+    const d = await r.json();
+    applyStatus(d);
+  } catch(e) {
+    setStatusDot('error', 'API недоступен — запустите python3 outreach_api.py');
+  }
+}
+
+function applyStatus(d) {
+  const dot = document.getElementById('statusDot');
+  const txt = document.getElementById('statusText');
+
+  if (d.status === 'connected' && d.me) {
+    dot.className = 'dot online';
+    txt.textContent = `@${d.me.username || d.me.name}`;
+    showConnected(d.me);
+  } else if (d.status === 'awaiting_code') {
+    dot.className = 'dot pending';
+    txt.textContent = 'Ожидание кода...';
+    showStep('step2');
+  } else if (d.status === 'awaiting_2fa') {
+    dot.className = 'dot pending';
+    txt.textContent = 'Нужен пароль 2FA';
+    showStep('step2fa');
+  } else {
+    dot.className = 'dot';
+    txt.textContent = 'Не подключено';
+    showStep('step1');
+  }
+}
+
+function setStatusDot(type, text) {
+  document.getElementById('statusDot').className = 'dot' + (type==='ok'?' online':type==='pending'?' pending':'');
+  document.getElementById('statusText').textContent = text;
+}
+
+async function loadLeads() {
+  try {
+    const r = await fetch(`${API}/leads`);
+    allLeads = await r.json();
+    buildNicheTabs();
+    renderLeads();
+  } catch(e) {}
+}
+
+function buildNicheTabs() {
+  const niches = [...new Set(allLeads.map(l => l.niche).filter(Boolean))].sort();
+  const el = document.getElementById('nicheTabs');
+  el.innerHTML = `<div class="ntab active" onclick="filterNiche('')">Все (${allLeads.length})</div>` +
+    niches.map(n => {
+      const c = allLeads.filter(l => l.niche===n).length;
+      return `<div class="ntab" onclick="filterNiche('${n}')">${n} (${c})</div>`;
+    }).join('');
+}
+
+function filterNiche(n) {
+  activeNiche = n;
+  document.querySelectorAll('.ntab').forEach(el => el.classList.remove('active'));
+  event.target.classList.add('active');
+  renderLeads();
+}
+
+function renderLeads() {
+  const q = document.getElementById('leadSearch').value.toLowerCase();
+  const filtered = allLeads.filter(l =>
+    (!activeNiche || l.niche === activeNiche) &&
+    (!q || (l.name+l.niche+l.phone).toLowerCase().includes(q))
+  );
+  const el = document.getElementById('leadList');
+  if (!filtered.length) { el.innerHTML = '<div style="color:var(--mu);padding:16px;font-size:.83rem">Нет лидов</div>'; return; }
+  el.innerHTML = filtered.map(l => {
+    const chk = selected.has(l.slug);
+    return `<div class="lead-row ${chk?'checked':''}" onclick="toggleLead('${l.slug}', this)">
+      <div class="cb"><span class="cb-check">✓</span></div>
+      <div class="lead-info">
+        <div class="lead-name">${l.name}</div>
+        <div class="lead-sub">
+          <span style="background:rgba(255,255,255,.06);border-radius:3px;padding:0 5px">${l.niche||'—'}</span>
+          <span class="lead-ph">${l.phone||''}</span>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  updateCount();
+}
+
+function toggleLead(slug, el) {
+  if (selected.has(slug)) { selected.delete(slug); el.classList.remove('checked'); }
+  else { selected.add(slug); el.classList.add('checked'); }
+  updateCount();
+}
+
+function selectAll() {
+  const q = document.getElementById('leadSearch').value.toLowerCase();
+  allLeads.filter(l => (!activeNiche || l.niche===activeNiche) && (!q || (l.name+l.niche+l.phone).toLowerCase().includes(q)))
+    .forEach(l => selected.add(l.slug));
+  renderLeads();
+}
+
+function clearAll() { selected.clear(); renderLeads(); }
+
+function updateCount() {
+  document.getElementById('selCount').textContent = `${selected.size} выбрано`;
+}
+
+document.getElementById('leadSearch').addEventListener('input', renderLeads);
+
+// ── Auth ──────────────────────────────────────────────────────────────────────
+function showStep(id) {
+  ['step1','step2','step2fa','stepConnected'].forEach(s =>
+    document.getElementById(s).style.display = s===id ? 'block' : 'none');
+}
+
+function showConnected(me) {
+  showStep('stepConnected');
+  document.getElementById('accName').textContent = `${me.name}${me.username ? ' (@'+me.username+')' : ''}`;
+  document.getElementById('accPhone').textContent = '+' + me.phone;
+  document.getElementById('accAvatar').textContent = (me.name||'?')[0].toUpperCase();
+}
+
+async function connectStep1() {
+  const api_id   = document.getElementById('apiId').value.trim();
+  const api_hash = document.getElementById('apiHash').value.trim();
+  const phone    = document.getElementById('phone').value.trim();
+  if (!api_id || !api_hash || !phone) return alert('Заполните все поля');
+  setStatusDot('pending', 'Отправка кода...');
+  try {
+    const r = await fetch(`${API}/connect`, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({api_id, api_hash, phone})
+    });
+    const d = await r.json();
+    if (d.ok && d.already_auth) { loadStatus(); }
+    else if (d.ok) { showStep('step2'); setStatusDot('pending', 'Ожидание кода'); }
+    else { alert('Ошибка: ' + d.error); setStatusDot('', 'Не подключено'); }
+  } catch(e) { alert('API недоступен'); }
+}
+
+async function connectStep2() {
+  const code = document.getElementById('otpCode').value.trim();
+  if (!code) return alert('Введите код');
+  setStatusDot('pending', 'Проверка кода...');
+  const r = await fetch(`${API}/verify`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({code})
+  });
+  const d = await r.json();
+  if (d.ok) { loadStatus(); }
+  else if (d.need_2fa) { showStep('step2fa'); setStatusDot('pending', 'Нужен пароль 2FA'); }
+  else { alert('Ошибка: ' + d.error); }
+}
+
+async function connectStep2fa() {
+  const password = document.getElementById('twoFaPass').value;
+  const code = document.getElementById('otpCode').value.trim();
+  const r = await fetch(`${API}/verify`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({code, password})
+  });
+  const d = await r.json();
+  if (d.ok) loadStatus();
+  else alert('Неверный пароль: ' + d.error);
+}
+
+async function disconnect() {
+  if (!confirm('Отключить Telegram аккаунт?')) return;
+  await fetch(`${API}/disconnect`, {method:'POST'});
+  loadStatus();
+}
+
+function resetAuth() { showStep('step1'); setStatusDot('', 'Не подключено'); }
+
+// ── Template ──────────────────────────────────────────────────────────────────
+function insertVar(v) {
+  const ta = document.getElementById('tplText');
+  const s = ta.selectionStart, e = ta.selectionEnd;
+  ta.value = ta.value.slice(0,s) + v + ta.value.slice(e);
+  ta.selectionStart = ta.selectionEnd = s + v.length;
+  ta.focus();
+}
+
+// ── Campaign ──────────────────────────────────────────────────────────────────
+async function startCampaign() {
+  const slugs = [...selected];
+  const template = document.getElementById('tplText').value.trim();
+  const delay = parseInt(document.getElementById('delay').value) || 7;
+
+  if (!slugs.length) return alert('Выберите хотя бы одного лида');
+  if (!template) return alert('Введите шаблон сообщения');
+
+  const statusEl = document.getElementById('statusText');
+  if (!statusEl.textContent.includes('@') && !statusEl.textContent.includes('+')) {
+    return alert('Сначала подключите Telegram аккаунт');
+  }
+
+  // Show stats
+  document.getElementById('campStats').style.display = 'grid';
+  document.getElementById('statTotal').textContent = slugs.length;
+  document.getElementById('statSent').textContent = '0';
+  document.getElementById('statFailed').textContent = '0';
+
+  document.getElementById('sendBtn').style.display = 'none';
+  document.getElementById('stopBtn').style.display = 'flex';
+  clearLog();
+  addLog('info', '▶', `Запуск кампании: ${slugs.length} лидов`);
+
+  const r = await fetch(`${API}/send`, {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({slugs, template, delay})
+  });
+  const d = await r.json();
+  if (!d.ok) { addLog('fail', '✗', d.error); resetSendUI(); return; }
+
+  // Stream log
+  if (sseConn) sseConn.close();
+  sseConn = new EventSource(`${API}/campaign/log`);
+  sseConn.onmessage = e => {
+    const d = JSON.parse(e.data);
+    if (d.done) {
+      sseConn.close();
+      resetSendUI();
+      return;
+    }
+    if (d.msg) {
+      const cls = d.ok === true ? 'ok' : d.ok === false ? 'fail' : 'neutral';
+      addLog(cls, d.t, d.msg);
+    }
+    if (d.sent !== undefined) {
+      document.getElementById('statSent').textContent = d.sent;
+      document.getElementById('statFailed').textContent = d.failed;
+    }
+  };
+}
+
+async function stopCampaign() {
+  await fetch(`${API}/stop`, {method:'POST'});
+  if (sseConn) { sseConn.close(); sseConn = null; }
+  addLog('neutral', now(), '⏹ Остановлено');
+  resetSendUI();
+}
+
+function resetSendUI() {
+  document.getElementById('sendBtn').style.display = 'flex';
+  document.getElementById('stopBtn').style.display = 'none';
+}
+
+function clearLog() { document.getElementById('log').innerHTML = ''; }
+
+function addLog(cls, t, msg) {
+  const log = document.getElementById('log');
+  const d = document.createElement('div');
+  d.className = 'll';
+  d.innerHTML = `<span class="lt">${t}</span><span class="lm ${cls}">${msg}</span>`;
+  log.appendChild(d);
+  log.scrollTop = log.scrollHeight;
+}
+
+function now() { return new Date().toLocaleTimeString('ru',{hour:'2-digit',minute:'2-digit',second:'2-digit'}); }
+
+init();
+</script>
+</body>
+</html>

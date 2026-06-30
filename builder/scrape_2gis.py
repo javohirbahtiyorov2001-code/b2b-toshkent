@@ -50,16 +50,15 @@ def slug(name):
 def fetch_page(query, rubric_id, page):
     params = {
         "q": query,
-        "city_id": "239",          # Tashkent city_id in 2GIS
+        "location": "69.2401,41.2995",   # Tashkent center lon,lat
+        "radius": 25000,                   # 25km radius covers all of Tashkent
         "type": "branch",
-        "fields": "items.contact_groups,items.address,items.rubrics,items.name_ex",
+        "fields": "items.contact_groups,items.address,items.name_ex",
         "page": page,
         "page_size": 50,
         "locale": "ru_UZ",
         "key": KEY,
     }
-    if rubric_id:
-        params["rubric_id"] = rubric_id
     r = requests.get("https://catalog.api.2gis.com/3.0/items", params=params, timeout=15)
     return r.json()
 

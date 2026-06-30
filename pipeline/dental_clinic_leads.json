@@ -1,902 +1,4310 @@
 [
   {
-    "id": 101, "name": "Dream Dental", "niche": "Dentistry",
-    "phone": "+998909851441", "wa_number": "998909851441",
+    "id": 101,
+    "name": "Dream Dental",
+    "niche": "Dentistry",
+    "phone": "+998909851441",
+    "wa_number": "998909851441",
     "address": "Mirzo Ulug'bek tumani, Buyuk Ipak Yo'li massivi, 38",
     "instagram": "dream_dental.uz",
-    "services": ["Implant", "Ortodontiya", "Tish oqlash", "Davolash", "Breket"],
-    "colors": {"primary": "#0a1628", "accent": "#00b4d8"},
-    "slug": "dream-dental", "source": "2gis.uz / clinics.uz"
+    "services": [
+      "Implant",
+      "Ortodontiya",
+      "Tish oqlash",
+      "Davolash",
+      "Breket"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "dream-dental",
+    "source": "2gis.uz / clinics.uz"
   },
   {
-    "id": 102, "name": "Korean Dental Clinic", "niche": "Dentistry",
-    "phone": "+998974225775", "wa_number": "998974225775",
+    "id": 102,
+    "name": "Korean Dental Clinic",
+    "niche": "Dentistry",
+    "phone": "+998974225775",
+    "wa_number": "998974225775",
     "address": "Yunusobod tumani, Amir Temur - Chinobod ko'chasi, 1",
     "instagram": "koreandentalclinic.uz",
-    "services": ["Jarrohlik", "Estetik", "Implant", "Ortodontiya", "Oqlash"],
-    "colors": {"primary": "#001d3d", "accent": "#4cc9f0"},
-    "slug": "korean-dental-clinic", "source": "near-place.com"
+    "services": [
+      "Jarrohlik",
+      "Estetik",
+      "Implant",
+      "Ortodontiya",
+      "Oqlash"
+    ],
+    "colors": {
+      "primary": "#001d3d",
+      "accent": "#4cc9f0"
+    },
+    "slug": "korean-dental-clinic",
+    "source": "near-place.com"
   },
   {
-    "id": 103, "name": "Denta-Service", "niche": "Dentistry",
-    "phone": "+998712455477", "wa_number": "998712455477",
+    "id": 103,
+    "name": "Denta Service",
+    "niche": "Dentistry",
+    "phone": "+998712455477",
+    "wa_number": "998712455477",
     "address": "Chilonzor tumani, Furqat ko'chasi, 167",
     "instagram": "dentaservice_uz",
-    "services": ["Terapevtik", "Jarrohlik", "Ortodontiya", "Bolalar", "Protez"],
-    "colors": {"primary": "#14213d", "accent": "#fca311"},
-    "slug": "denta-service", "source": "32top.uz / yellowpages.uz"
+    "services": [
+      "Terapevtik",
+      "Jarrohlik",
+      "Ortodontiya",
+      "Bolalar",
+      "Protez"
+    ],
+    "colors": {
+      "primary": "#14213d",
+      "accent": "#fca311"
+    },
+    "slug": "denta-service",
+    "source": "32top.uz / yellowpages.uz"
   },
   {
-    "id": 104, "name": "EstiMed Stomatologiya", "niche": "Dentistry",
-    "phone": "+998785555775", "wa_number": "998785555775",
+    "id": 104,
+    "name": "EstiMed Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998785555775",
+    "wa_number": "998785555775",
     "address": "Chilonzor tumani, 1-mavze, Mukimiy ko'chasi, 11A",
     "instagram": "estimed.uz",
-    "services": ["Veneer", "Implant", "Estetik", "Oqlash", "Breket"],
-    "colors": {"primary": "#f8f9fa", "accent": "#e63946"},
-    "slug": "estimed-stomatologiya", "source": "estimed.uz"
+    "services": [
+      "Veneer",
+      "Implant",
+      "Estetik",
+      "Oqlash",
+      "Breket"
+    ],
+    "colors": {
+      "primary": "#f8f9fa",
+      "accent": "#e63946"
+    },
+    "slug": "estimed-stomatologiya",
+    "source": "estimed.uz"
   },
   {
-    "id": 105, "name": "Pearl Dental 24/7", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 105,
+    "name": "Pearl Dental 24/7",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Yunusobod tumani",
     "instagram": "pearldental_",
-    "services": ["Implant", "Ortodontiya", "Breket", "Veneer", "Jarrohlik"],
-    "colors": {"primary": "#0f3460", "accent": "#e94560"},
-    "slug": "pearl-dental", "source": "instagram @pearldental_"
+    "services": [
+      "Implant",
+      "Ortodontiya",
+      "Breket",
+      "Veneer",
+      "Jarrohlik"
+    ],
+    "colors": {
+      "primary": "#0f3460",
+      "accent": "#e94560"
+    },
+    "slug": "pearl-dental",
+    "source": "instagram @pearldental_"
   },
   {
-    "id": 106, "name": "Dream Smile Dental", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 106,
+    "name": "Dream Smile Dental",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Shayxontohur tumani, Furqat ko'chasi, 1A",
     "instagram": "dreamsmile_dental_uz",
-    "services": ["Oqlash", "Implant", "Veneer", "Bolalar", "Breket"],
-    "colors": {"primary": "#240046", "accent": "#c77dff"},
-    "slug": "dream-smile-dental", "source": "2gis.uz / med24.uz"
+    "services": [
+      "Oqlash",
+      "Implant",
+      "Veneer",
+      "Bolalar",
+      "Breket"
+    ],
+    "colors": {
+      "primary": "#240046",
+      "accent": "#c77dff"
+    },
+    "slug": "dream-smile-dental",
+    "source": "2gis.uz / med24.uz"
   },
   {
-    "id": 107, "name": "Denta Stomatologiya Lights", "niche": "Dentistry",
-    "phone": "+998712503539", "wa_number": "998712503539",
+    "id": 107,
+    "name": "Denta Stomatologiya Lights",
+    "niche": "Dentistry",
+    "phone": "+998712503539",
+    "wa_number": "998712503539",
     "address": "Yunusobod tumani, Kushbegi massivi, 1A",
     "instagram": "denta_lights_uz",
-    "services": ["Estetik", "Oqlash", "Implant", "Breket", "Davolash"],
-    "colors": {"primary": "#03045e", "accent": "#90e0ef"},
-    "slug": "denta-lights", "source": "32top.uz"
+    "services": [
+      "Estetik",
+      "Oqlash",
+      "Implant",
+      "Breket",
+      "Davolash"
+    ],
+    "colors": {
+      "primary": "#03045e",
+      "accent": "#90e0ef"
+    },
+    "slug": "denta-lights",
+    "source": "32top.uz"
   },
   {
-    "id": 108, "name": "VitaMed Medical Stomatologiya", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 108,
+    "name": "VitaMed Medical Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Yakkasaroy tumani, Shota Rustaveli ko'chasi, 109",
     "instagram": "vitamed_stoma_uz",
-    "services": ["Implant", "Ortodontiya", "Jarrohlik", "Estetik", "Bolalar"],
-    "colors": {"primary": "#1b263b", "accent": "#415a77"},
-    "slug": "vitamed-stomatologiya", "source": "32top.uz"
+    "services": [
+      "Implant",
+      "Ortodontiya",
+      "Jarrohlik",
+      "Estetik",
+      "Bolalar"
+    ],
+    "colors": {
+      "primary": "#1b263b",
+      "accent": "#415a77"
+    },
+    "slug": "vitamed-stomatologiya",
+    "source": "32top.uz"
   },
   {
-    "id": 109, "name": "Smalto Dente", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 109,
+    "name": "Smalto Dente",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Yunusobod tumani, Fidokor ko'chasi, 32A",
     "instagram": "smalto_dente_uz",
-    "services": ["Oqlash", "Veneer", "Implant", "Breket", "Estetik"],
-    "colors": {"primary": "#1a0533", "accent": "#9b5de5"},
-    "slug": "smalto-dente", "source": "32top.uz"
+    "services": [
+      "Oqlash",
+      "Veneer",
+      "Implant",
+      "Breket",
+      "Estetik"
+    ],
+    "colors": {
+      "primary": "#1a0533",
+      "accent": "#9b5de5"
+    },
+    "slug": "smalto-dente",
+    "source": "32top.uz"
   },
   {
-    "id": 110, "name": "32 Profilaktik Stomatologiya", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 110,
+    "name": "32 Profilaktik Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Tinchlik metro yaqini",
     "instagram": "32prof_stoma_uz",
-    "services": ["Profilaktika", "Davolash", "Bolalar", "Implant", "Oqlash"],
-    "colors": {"primary": "#023e8a", "accent": "#caf0f8"},
-    "slug": "32-profilaktik", "source": "32top.uz"
+    "services": [
+      "Profilaktika",
+      "Davolash",
+      "Bolalar",
+      "Implant",
+      "Oqlash"
+    ],
+    "colors": {
+      "primary": "#023e8a",
+      "accent": "#caf0f8"
+    },
+    "slug": "32-profilaktik",
+    "source": "32top.uz"
   },
   {
-    "id": 111, "name": "Megapolis Denta Service", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 111,
+    "name": "Megapolis Denta Service",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Yunusobod tumani, Kiyot massivi (C-5), 1A/2",
     "instagram": "megapolis_denta",
-    "services": ["Implant", "Breket", "Zirkon", "Oqlash", "Jarrohlik"],
-    "colors": {"primary": "#10002b", "accent": "#e040fb"},
-    "slug": "megapolis-denta-service", "source": "sprav.uz"
+    "services": [
+      "Implant",
+      "Breket",
+      "Zirkon",
+      "Oqlash",
+      "Jarrohlik"
+    ],
+    "colors": {
+      "primary": "#10002b",
+      "accent": "#e040fb"
+    },
+    "slug": "megapolis-denta-service",
+    "source": "sprav.uz"
   },
   {
-    "id": 112, "name": "Begizoda Dental Clinic", "niche": "Dentistry",
-    "phone": "+998712553220", "wa_number": "998712553220",
+    "id": 112,
+    "name": "Begizoda Dental Clinic",
+    "niche": "Dentistry",
+    "phone": "+998712553220",
+    "wa_number": "998712553220",
     "address": "Mirabad tumani, Aktash ko'chasi, 3, ofis 29",
     "instagram": "begizoda_dental",
-    "services": ["Oqlash", "Implant", "Veneer", "Breket", "Davolash"],
-    "colors": {"primary": "#000814", "accent": "#ffd60a"},
-    "slug": "begizoda-dental", "source": "yellowpages.uz"
+    "services": [
+      "Oqlash",
+      "Implant",
+      "Veneer",
+      "Breket",
+      "Davolash"
+    ],
+    "colors": {
+      "primary": "#000814",
+      "accent": "#ffd60a"
+    },
+    "slug": "begizoda-dental",
+    "source": "yellowpages.uz"
   },
   {
-    "id": 113, "name": "Dental Optima", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 113,
+    "name": "Dental Optima",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Sergeli tumani, Qo'yliq-5 massivi, 29, ofis 2",
     "instagram": "dentaloptima_uz",
-    "services": ["Implant", "Oqlash", "Estetik", "Breket", "Bolalar"],
-    "colors": {"primary": "#1a1a2e", "accent": "#e94560"},
-    "slug": "dental-optima", "source": "yellowpages.uz"
+    "services": [
+      "Implant",
+      "Oqlash",
+      "Estetik",
+      "Breket",
+      "Bolalar"
+    ],
+    "colors": {
+      "primary": "#1a1a2e",
+      "accent": "#e94560"
+    },
+    "slug": "dental-optima",
+    "source": "yellowpages.uz"
   },
   {
-    "id": 114, "name": "The White Dental Clinic", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 114,
+    "name": "The White Dental Clinic",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Chilonzor tumani, Mexanizatsiya ko'chasi, 1, ofis 101",
     "instagram": "whitedental_uz",
-    "services": ["Veneer", "Oqlash", "Estetik", "Implant", "Ortodontiya"],
-    "colors": {"primary": "#f8f9fa", "accent": "#212529"},
-    "slug": "white-dental-clinic", "source": "yellowpages.uz"
+    "services": [
+      "Veneer",
+      "Oqlash",
+      "Estetik",
+      "Implant",
+      "Ortodontiya"
+    ],
+    "colors": {
+      "primary": "#f8f9fa",
+      "accent": "#212529"
+    },
+    "slug": "white-dental-clinic",
+    "source": "yellowpages.uz"
   },
   {
-    "id": 115, "name": "Dr. Ergashov Dental Clinic", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 115,
+    "name": "Dr. Ergashov Dental Clinic",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Mirabad tumani",
     "instagram": "dr_ergashovdentalclinic",
-    "services": ["Implant", "Jarrohlik", "Estetik", "Breket", "Oqlash"],
-    "colors": {"primary": "#0a0908", "accent": "#e5383b"},
-    "slug": "dr-ergashov-dental", "source": "instagram"
+    "services": [
+      "Implant",
+      "Jarrohlik",
+      "Estetik",
+      "Breket",
+      "Oqlash"
+    ],
+    "colors": {
+      "primary": "#0a0908",
+      "accent": "#e5383b"
+    },
+    "slug": "dr-ergashov-dental",
+    "source": "instagram"
   },
   {
-    "id": 116, "name": "Dental Kingdom (Семейная Стоматология)", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 116,
+    "name": "Dental Kingdom (Семейная Стоматология)",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Yunusobod tumani",
     "instagram": "dentalskingdom",
-    "services": ["Oilaviy davolash", "Bolalar", "Implant", "Breket", "Oqlash"],
-    "colors": {"primary": "#1b4332", "accent": "#52b788"},
-    "slug": "dental-kingdom", "source": "instagram @dentalskingdom"
+    "services": [
+      "Oilaviy davolash",
+      "Bolalar",
+      "Implant",
+      "Breket",
+      "Oqlash"
+    ],
+    "colors": {
+      "primary": "#1b4332",
+      "accent": "#52b788"
+    },
+    "slug": "dental-kingdom",
+    "source": "instagram @dentalskingdom"
   },
   {
-    "id": 117, "name": "YouDent Dental Clinic", "niche": "Dentistry",
-    "phone": "+998712623838", "wa_number": "998712623838",
+    "id": 117,
+    "name": "YouDent Dental Clinic",
+    "niche": "Dentistry",
+    "phone": "+998712623838",
+    "wa_number": "998712623838",
     "address": "Toshkent, Yunusobod tumani",
     "instagram": "youdent.dentalclinic_",
-    "services": ["Implant", "Oqlash", "Veneer", "Breket", "Estetik"],
-    "colors": {"primary": "#001d3d", "accent": "#3a86ff"},
-    "slug": "youdent-dental", "source": "32top.uz"
+    "services": [
+      "Implant",
+      "Oqlash",
+      "Veneer",
+      "Breket",
+      "Estetik"
+    ],
+    "colors": {
+      "primary": "#001d3d",
+      "accent": "#3a86ff"
+    },
+    "slug": "youdent-dental",
+    "source": "32top.uz"
   },
   {
-    "id": 118, "name": "DentCare Stomatologiya", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 118,
+    "name": "DentCare Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Chilonzor tumani",
     "instagram": "dentcare.uz",
-    "services": ["Davolash", "Implant", "Bolalar", "Breket", "Oqlash"],
-    "colors": {"primary": "#023e58", "accent": "#48cae4"},
-    "slug": "dentcare-uz", "source": "instagram @dentcare.uz"
+    "services": [
+      "Davolash",
+      "Implant",
+      "Bolalar",
+      "Breket",
+      "Oqlash"
+    ],
+    "colors": {
+      "primary": "#023e58",
+      "accent": "#48cae4"
+    },
+    "slug": "dentcare-uz",
+    "source": "instagram @dentcare.uz"
   },
   {
-    "id": 119, "name": "Korean Implant Center", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 119,
+    "name": "Korean Implant Center",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Yunusobod tumani",
     "instagram": "korean_implant_center",
-    "services": ["Korean implant", "Zirkon toj", "Jarrohlik", "Oqlash", "Breket"],
-    "colors": {"primary": "#0d1b2a", "accent": "#1282a2"},
-    "slug": "korean-implant-center", "source": "instagram"
+    "services": [
+      "Korean implant",
+      "Zirkon toj",
+      "Jarrohlik",
+      "Oqlash",
+      "Breket"
+    ],
+    "colors": {
+      "primary": "#0d1b2a",
+      "accent": "#1282a2"
+    },
+    "slug": "korean-implant-center",
+    "source": "instagram"
   },
   {
-    "id": 120, "name": "Dilyara Dental", "niche": "Dentistry",
-    "phone": "+998712344467", "wa_number": "998712344467",
+    "id": 120,
+    "name": "Dilyara Dental",
+    "niche": "Dentistry",
+    "phone": "+998712344467",
+    "wa_number": "998712344467",
     "address": "Toshkent, Shayxontohur tumani",
     "instagram": "dilyara_dental_uz",
-    "services": ["Oqlash", "Davolash", "Bolalar", "Breket", "Implant"],
-    "colors": {"primary": "#590d22", "accent": "#ff4d6d"},
-    "slug": "dilyara-dental", "source": "near-place.com"
+    "services": [
+      "Oqlash",
+      "Davolash",
+      "Bolalar",
+      "Breket",
+      "Implant"
+    ],
+    "colors": {
+      "primary": "#590d22",
+      "accent": "#ff4d6d"
+    },
+    "slug": "dilyara-dental",
+    "source": "near-place.com"
   },
   {
-    "id": 121, "name": "Denta Klass", "niche": "Dentistry",
-    "phone": "+998712914455", "wa_number": "998712914455",
+    "id": 121,
+    "name": "Denta Klass",
+    "niche": "Dentistry",
+    "phone": "+998712914455",
+    "wa_number": "998712914455",
     "address": "Toshkent, Olmazor tumani, Aliyev ko'chasi, 204",
     "instagram": "dentaklass_uz",
-    "services": ["Estetik", "Implant", "Breket", "Oqlash", "Jarrohlik"],
-    "colors": {"primary": "#14213d", "accent": "#e63946"},
-    "slug": "denta-klass", "source": "32top.uz"
+    "services": [
+      "Estetik",
+      "Implant",
+      "Breket",
+      "Oqlash",
+      "Jarrohlik"
+    ],
+    "colors": {
+      "primary": "#14213d",
+      "accent": "#e63946"
+    },
+    "slug": "denta-klass",
+    "source": "32top.uz"
   },
   {
-    "id": 122, "name": "Dent Master", "niche": "Dentistry",
-    "phone": "+998712680540", "wa_number": "998712680540",
+    "id": 122,
+    "name": "Dent Master",
+    "niche": "Dentistry",
+    "phone": "+998712680540",
+    "wa_number": "998712680540",
     "address": "Toshkent, Yunusobod tumani",
     "instagram": "dentmaster_uz",
-    "services": ["Implant", "Veneer", "Oqlash", "Breket", "Bolalar"],
-    "colors": {"primary": "#1c3144", "accent": "#d00000"},
-    "slug": "dent-master", "source": "32top.uz"
+    "services": [
+      "Implant",
+      "Veneer",
+      "Oqlash",
+      "Breket",
+      "Bolalar"
+    ],
+    "colors": {
+      "primary": "#1c3144",
+      "accent": "#d00000"
+    },
+    "slug": "dent-master",
+    "source": "32top.uz"
   },
   {
-    "id": 123, "name": "Apolloniya Medical Dental", "niche": "Dentistry",
-    "phone": "+998712556105", "wa_number": "998712556105",
+    "id": 123,
+    "name": "Apolloniya Medical Dental",
+    "niche": "Dentistry",
+    "phone": "+998712556105",
+    "wa_number": "998712556105",
     "address": "Toshkent, Mirabad tumani",
     "instagram": "apolloniya_dental",
-    "services": ["Terapevtik", "Jarrohlik", "Ortodontiya", "Implant", "Oqlash"],
-    "colors": {"primary": "#2d0320", "accent": "#fd5e53"},
-    "slug": "apolloniya-medical", "source": "32top.uz"
+    "services": [
+      "Terapevtik",
+      "Jarrohlik",
+      "Ortodontiya",
+      "Implant",
+      "Oqlash"
+    ],
+    "colors": {
+      "primary": "#2d0320",
+      "accent": "#fd5e53"
+    },
+    "slug": "apolloniya-medical",
+    "source": "32top.uz"
   },
   {
-    "id": 124, "name": "Sadaf Stomatologiya", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 124,
+    "name": "Sadaf Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Mirzo Ulug'bek tumani",
     "instagram": "sadaf_stomatologiya",
-    "services": ["Estetik", "Implant", "Davolash", "Oqlash", "Breket"],
-    "colors": {"primary": "#fff0f3", "accent": "#c9184a"},
-    "slug": "sadaf-stomatologiya", "source": "med24.uz"
+    "services": [
+      "Estetik",
+      "Implant",
+      "Davolash",
+      "Oqlash",
+      "Breket"
+    ],
+    "colors": {
+      "primary": "#fff0f3",
+      "accent": "#c9184a"
+    },
+    "slug": "sadaf-stomatologiya",
+    "source": "med24.uz"
   },
   {
-    "id": 125, "name": "Kristal Dental", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 125,
+    "name": "Kristal Dental",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Yunusobod tumani, Yunusobod massivi",
     "instagram": "kristal_dental_uz",
-    "services": ["Zirkon", "Implant", "Oqlash", "Breket", "Veneer"],
-    "colors": {"primary": "#e8f4f8", "accent": "#0077b6"},
-    "slug": "kristal-dental", "source": "yandex maps"
+    "services": [
+      "Zirkon",
+      "Implant",
+      "Oqlash",
+      "Breket",
+      "Veneer"
+    ],
+    "colors": {
+      "primary": "#e8f4f8",
+      "accent": "#0077b6"
+    },
+    "slug": "kristal-dental",
+    "source": "yandex maps"
   },
   {
-    "id": 126, "name": "Premium Estetic Stomatologiya", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 126,
+    "name": "Premium Estetic Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Yunusobod tumani",
     "instagram": "premium_estetic_uz",
-    "services": ["VIP estetik", "Veneer", "Oqlash", "Implant", "Zirkon"],
-    "colors": {"primary": "#1a0a00", "accent": "#d4a017"},
-    "slug": "premium-estetic-stomatologiya", "source": "yandex maps"
+    "services": [
+      "VIP estetik",
+      "Veneer",
+      "Oqlash",
+      "Implant",
+      "Zirkon"
+    ],
+    "colors": {
+      "primary": "#1a0a00",
+      "accent": "#d4a017"
+    },
+    "slug": "premium-estetic-stomatologiya",
+    "source": "yandex maps"
   },
   {
-    "id": 127, "name": "Denta Stomatologiya (Yunusobod)", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 127,
+    "name": "Denta Stomatologiya (Yunusobod)",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Yunusobod tumani, Istiqlol ko'chasi, 51, ofis 33",
     "instagram": "denta_stoma_uz",
-    "services": ["Davolash", "Oqlash", "Implant", "Breket", "Bolalar"],
-    "colors": {"primary": "#03045e", "accent": "#48cae4"},
-    "slug": "denta-yunusobod", "source": "yellowpages.uz"
+    "services": [
+      "Davolash",
+      "Oqlash",
+      "Implant",
+      "Breket",
+      "Bolalar"
+    ],
+    "colors": {
+      "primary": "#03045e",
+      "accent": "#48cae4"
+    },
+    "slug": "denta-yunusobod",
+    "source": "yellowpages.uz"
   },
   {
-    "id": 128, "name": "Uchtepa Bolalar Stomatologiyasi", "niche": "Dentistry",
-    "phone": "+998712723525", "wa_number": "998712723525",
+    "id": 128,
+    "name": "Uchtepa Bolalar Stomatologiyasi",
+    "niche": "Dentistry",
+    "phone": "+998712723525",
+    "wa_number": "998712723525",
     "address": "Uchtepa tumani, Hamza ko'chasi, 55A",
     "instagram": "uchtepa_bolalar_stoma",
-    "services": ["Bolalar davolash", "Profilaktika", "Tish parvarishi", "Oqlash", "Breket"],
-    "colors": {"primary": "#1b4332", "accent": "#95d5b2"},
-    "slug": "uchtepa-bolalar-stomatologiya", "source": "yellowpages.uz"
+    "services": [
+      "Bolalar davolash",
+      "Profilaktika",
+      "Tish parvarishi",
+      "Oqlash",
+      "Breket"
+    ],
+    "colors": {
+      "primary": "#1b4332",
+      "accent": "#95d5b2"
+    },
+    "slug": "uchtepa-bolalar-stomatologiya",
+    "source": "yellowpages.uz"
   },
   {
-    "id": 129, "name": "Respublika Stomatologiya Poliklinikasi", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 129,
+    "name": "Respublika Stomatologiya Poliklinikasi",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Mirabad tumani, Nurhon ko'chasi, 16A",
     "instagram": "respublika_stoma",
-    "services": ["Davlat davolash", "Implant", "Jarrohlik", "Ortodontiya", "Protez"],
-    "colors": {"primary": "#023e8a", "accent": "#90e0ef"},
-    "slug": "respublika-stoma", "source": "32top.uz"
+    "services": [
+      "Davlat davolash",
+      "Implant",
+      "Jarrohlik",
+      "Ortodontiya",
+      "Protez"
+    ],
+    "colors": {
+      "primary": "#023e8a",
+      "accent": "#90e0ef"
+    },
+    "slug": "respublika-stoma",
+    "source": "32top.uz"
   },
   {
-    "id": 130, "name": "Toshkent Davlat Stomatologiya Instituti", "niche": "Dentistry",
-    "phone": "+998712302065", "wa_number": "998712302065",
+    "id": 130,
+    "name": "Toshkent Davlat Stomatologiya Instituti",
+    "niche": "Dentistry",
+    "phone": "+998712302065",
+    "wa_number": "998712302065",
     "address": "Yakkasaroy tumani, Sh. Rustaveli ko'chasi, 59",
     "instagram": "tsdi_uz",
-    "services": ["Ta'lim", "Amaliyot davolash", "Implant", "Jarrohlik", "Ortodontiya"],
-    "colors": {"primary": "#003566", "accent": "#ffd60a"},
-    "slug": "tdsi-dental-institute", "source": "tsdi.uz"
+    "services": [
+      "Ta'lim",
+      "Amaliyot davolash",
+      "Implant",
+      "Jarrohlik",
+      "Ortodontiya"
+    ],
+    "colors": {
+      "primary": "#003566",
+      "accent": "#ffd60a"
+    },
+    "slug": "tdsi-dental-institute",
+    "source": "tsdi.uz"
   },
   {
-    "id": 131, "name": "AKFA Medline", "niche": "Clinic",
-    "phone": "+998972643003", "wa_number": "998972643003",
+    "id": 131,
+    "name": "AKFA Medline",
+    "niche": "Clinic",
+    "phone": "+998972643003",
+    "wa_number": "998972643003",
     "address": "Almazar tumani, Kichik Halqa Yo'li ko'chasi, 5A",
     "instagram": "akfamedline",
-    "services": ["Kardiologiya", "Nevrologiya", "Jarrohlik", "Onkologiya", "Laboratoriya"],
-    "colors": {"primary": "#0d3b66", "accent": "#faf0ca"},
-    "slug": "akfa-medline", "source": "akfamedline.com / goldenpages.uz"
+    "services": [
+      "Kardiologiya",
+      "Nevrologiya",
+      "Jarrohlik",
+      "Onkologiya",
+      "Laboratoriya"
+    ],
+    "colors": {
+      "primary": "#0d3b66",
+      "accent": "#faf0ca"
+    },
+    "slug": "akfa-medline",
+    "source": "akfamedline.com / goldenpages.uz"
   },
   {
-    "id": 132, "name": "Shifo Nur Klinikasi", "niche": "Clinic",
-    "phone": "+998712211313", "wa_number": "998712211313",
+    "id": 132,
+    "name": "Shifo Nur Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712211313",
+    "wa_number": "998712211313",
     "address": "Yunusobod tumani, Yunusobod massivi, Maykurgan ko'chasi, 100",
     "instagram": "shifonu_klinika",
-    "services": ["Terapiya", "Jarrohlik", "Ginekologiya", "Nevrologiya", "Laboratoriya"],
-    "colors": {"primary": "#0a2342", "accent": "#2ec4b6"},
-    "slug": "shifo-nur-klinikasi", "source": "clinics.uz / yellowpages.uz"
+    "services": [
+      "Terapiya",
+      "Jarrohlik",
+      "Ginekologiya",
+      "Nevrologiya",
+      "Laboratoriya"
+    ],
+    "colors": {
+      "primary": "#0a2342",
+      "accent": "#2ec4b6"
+    },
+    "slug": "shifo-nur-klinikasi",
+    "source": "clinics.uz / yellowpages.uz"
   },
   {
-    "id": 133, "name": "MDS-Servis Klinikasi", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 133,
+    "name": "MDS-Servis Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Yunusobod tumani",
     "instagram": "mds_servis_uz",
-    "services": ["Terapiya", "Kardiologiya", "Ginekologiya", "UZI", "Laboratoriya"],
-    "colors": {"primary": "#14213d", "accent": "#fca311"},
-    "slug": "mds-servis", "source": "med24.uz"
+    "services": [
+      "Terapiya",
+      "Kardiologiya",
+      "Ginekologiya",
+      "UZI",
+      "Laboratoriya"
+    ],
+    "colors": {
+      "primary": "#14213d",
+      "accent": "#fca311"
+    },
+    "slug": "mds-servis",
+    "source": "med24.uz"
   },
   {
-    "id": 134, "name": "Shox International Hospital", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 134,
+    "name": "Shox International Hospital",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Yunusobod tumani",
     "instagram": "shox_hospital_uz",
-    "services": ["Ko'p tarmoqli", "Jarrohlik", "Kardiologiya", "Ginekologiya", "Bolalar"],
-    "colors": {"primary": "#001d3d", "accent": "#4cc9f0"},
-    "slug": "shox-international-hospital", "source": "med24.uz"
+    "services": [
+      "Ko'p tarmoqli",
+      "Jarrohlik",
+      "Kardiologiya",
+      "Ginekologiya",
+      "Bolalar"
+    ],
+    "colors": {
+      "primary": "#001d3d",
+      "accent": "#4cc9f0"
+    },
+    "slug": "shox-international-hospital",
+    "source": "med24.uz"
   },
   {
-    "id": 135, "name": "MediMax Klinikasi", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 135,
+    "name": "MediMax Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Mirzo Ulug'bek tumani",
     "instagram": "medimax_uz",
-    "services": ["Terapiya", "Endokrinologiya", "Nevrologiya", "UZI", "Tahlil"],
-    "colors": {"primary": "#0f3460", "accent": "#e94560"},
-    "slug": "medimax-klinikasi", "source": "med24.uz"
+    "services": [
+      "Terapiya",
+      "Endokrinologiya",
+      "Nevrologiya",
+      "UZI",
+      "Tahlil"
+    ],
+    "colors": {
+      "primary": "#0f3460",
+      "accent": "#e94560"
+    },
+    "slug": "medimax-klinikasi",
+    "source": "med24.uz"
   },
   {
-    "id": 136, "name": "ProfMedService Klinikasi", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 136,
+    "name": "ProfMedService Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Chilonzor tumani",
     "instagram": "profmedservice_uz",
-    "services": ["Ko'p tarmoqli", "Terapiya", "Pediatriya", "Ginekologiya", "Laboratoriya"],
-    "colors": {"primary": "#1b4332", "accent": "#74c69d"},
-    "slug": "profmedservice", "source": "med24.uz"
+    "services": [
+      "Ko'p tarmoqli",
+      "Terapiya",
+      "Pediatriya",
+      "Ginekologiya",
+      "Laboratoriya"
+    ],
+    "colors": {
+      "primary": "#1b4332",
+      "accent": "#74c69d"
+    },
+    "slug": "profmedservice",
+    "source": "med24.uz"
   },
   {
-    "id": 137, "name": "Allergo Logic Klinikasi", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 137,
+    "name": "Allergo Logic Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Yunusobod tumani",
     "instagram": "allergologic_uz",
-    "services": ["Allergologiya", "Immunologiya", "Terapiya", "Bolalar", "Tahlil"],
-    "colors": {"primary": "#264653", "accent": "#2a9d8f"},
-    "slug": "allergo-logic", "source": "clinics.uz"
+    "services": [
+      "Allergologiya",
+      "Immunologiya",
+      "Terapiya",
+      "Bolalar",
+      "Tahlil"
+    ],
+    "colors": {
+      "primary": "#264653",
+      "accent": "#2a9d8f"
+    },
+    "slug": "allergo-logic",
+    "source": "clinics.uz"
   },
   {
-    "id": 138, "name": "Cardio Star Plus", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 138,
+    "name": "Cardio Star Plus",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Mirabad tumani",
     "instagram": "cardiostar_uz",
-    "services": ["Kardiologiya", "EKG", "EXOKARDIO", "Jarrohlik", "Reabilitatsiya"],
-    "colors": {"primary": "#d62828", "accent": "#f7b731"},
-    "slug": "cardio-star-plus", "source": "clinics.uz"
+    "services": [
+      "Kardiologiya",
+      "EKG",
+      "EXOKARDIO",
+      "Jarrohlik",
+      "Reabilitatsiya"
+    ],
+    "colors": {
+      "primary": "#d62828",
+      "accent": "#f7b731"
+    },
+    "slug": "cardio-star-plus",
+    "source": "clinics.uz"
   },
   {
-    "id": 139, "name": "EstiMed Klinikasi", "niche": "Clinic",
-    "phone": "+998785555775", "wa_number": "998785555775",
+    "id": 139,
+    "name": "EstiMed Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998785555775",
+    "wa_number": "998785555775",
     "address": "Chilonzor tumani, 1-mavze, Mukimiy ko'chasi, 11A",
     "instagram": "estimed.uz",
-    "services": ["Plastik jarrohlik", "Estetik tibbiyot", "Dermatologiya", "Ginekologiya", "Kosmetologiya"],
-    "colors": {"primary": "#1a0533", "accent": "#7b2d8b"},
-    "slug": "estimed-klinikasi", "source": "estimed.uz"
+    "services": [
+      "Plastik jarrohlik",
+      "Estetik tibbiyot",
+      "Dermatologiya",
+      "Ginekologiya",
+      "Kosmetologiya"
+    ],
+    "colors": {
+      "primary": "#1a0533",
+      "accent": "#7b2d8b"
+    },
+    "slug": "estimed-klinikasi",
+    "source": "estimed.uz"
   },
   {
-    "id": 140, "name": "Shifo Nur Ko'z Klinikasi", "niche": "Clinic",
-    "phone": "+998712212626", "wa_number": "998712212626",
+    "id": 140,
+    "name": "Shifo Nur Ko'z Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712212626",
+    "wa_number": "998712212626",
     "address": "Yunusobod tumani, Yunusobod massivi, Maykurgan ko'chasi, 100",
     "instagram": "shifonu_koz",
-    "services": ["Oftalmologiya", "Lazer ko'z davolash", "Katarakta", "Glaukoma", "Diagnostika"],
-    "colors": {"primary": "#023e58", "accent": "#48cae4"},
-    "slug": "shifo-nur-koz", "source": "clinics.uz / med24.uz"
+    "services": [
+      "Oftalmologiya",
+      "Lazer ko'z davolash",
+      "Katarakta",
+      "Glaukoma",
+      "Diagnostika"
+    ],
+    "colors": {
+      "primary": "#023e58",
+      "accent": "#48cae4"
+    },
+    "slug": "shifo-nur-koz",
+    "source": "clinics.uz / med24.uz"
   },
   {
-    "id": 141, "name": "Tezkor Tibbiy Yordam Klinikasi", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 141,
+    "name": "Tezkor Tibbiy Yordam Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Mirzo Ulug'bek tumani",
     "instagram": "tezkor_tibbiy_uz",
-    "services": ["Shoshilinch yordam", "Terapiya", "Jarrohlik", "UZI", "Laboratoriya"],
-    "colors": {"primary": "#d62828", "accent": "#f7b731"},
-    "slug": "tezkor-tibbiy-klinikasi", "source": "clinics.uz"
+    "services": [
+      "Shoshilinch yordam",
+      "Terapiya",
+      "Jarrohlik",
+      "UZI",
+      "Laboratoriya"
+    ],
+    "colors": {
+      "primary": "#d62828",
+      "accent": "#f7b731"
+    },
+    "slug": "tezkor-tibbiy-klinikasi",
+    "source": "clinics.uz"
   },
   {
-    "id": 142, "name": "Yunusobod Tibbiyot Klinikasi", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 142,
+    "name": "Yunusobod Tibbiyot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Yunusobod tumani, 97 ta klinika, 299 ta sharh",
     "instagram": "yunusobod_tibbiyot",
-    "services": ["Terapiya", "Pediatriya", "Kardiologiya", "UZI", "Tahlil"],
-    "colors": {"primary": "#0d1b2a", "accent": "#1282a2"},
-    "slug": "yunusobod-tibbiyot", "source": "clinics.uz"
+    "services": [
+      "Terapiya",
+      "Pediatriya",
+      "Kardiologiya",
+      "UZI",
+      "Tahlil"
+    ],
+    "colors": {
+      "primary": "#0d1b2a",
+      "accent": "#1282a2"
+    },
+    "slug": "yunusobod-tibbiyot",
+    "source": "clinics.uz"
   },
   {
-    "id": 143, "name": "Almazar Tibbiyot Markazi", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 143,
+    "name": "Almazar Tibbiyot Markazi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Almazar tumani, Biruniy ko'chasi, 1",
     "instagram": "almazar_tibbiyot",
-    "services": ["Terapiya", "Ginekologiya", "Nevrologiya", "UZI", "Rentgen"],
-    "colors": {"primary": "#006400", "accent": "#90ee90"},
-    "slug": "almazar-tibbiyot", "source": "medelement.com"
+    "services": [
+      "Terapiya",
+      "Ginekologiya",
+      "Nevrologiya",
+      "UZI",
+      "Rentgen"
+    ],
+    "colors": {
+      "primary": "#006400",
+      "accent": "#90ee90"
+    },
+    "slug": "almazar-tibbiyot",
+    "source": "medelement.com"
   },
   {
-    "id": 144, "name": "Mirzo Ulug'bek Tibbiyot Klinikasi", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 144,
+    "name": "Mirzo Ulug'bek Tibbiyot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Mirzo Ulug'bek tumani, 89 ta klinika",
     "instagram": "mirzo_ulugbek_tibbiyot",
-    "services": ["Terapiya", "Ortopediya", "Kardiologiya", "EKG", "Laboratoriya"],
-    "colors": {"primary": "#1d3557", "accent": "#a8dadc"},
-    "slug": "mirzo-ulugbek-tibbiyot", "source": "clinics.uz"
+    "services": [
+      "Terapiya",
+      "Ortopediya",
+      "Kardiologiya",
+      "EKG",
+      "Laboratoriya"
+    ],
+    "colors": {
+      "primary": "#1d3557",
+      "accent": "#a8dadc"
+    },
+    "slug": "mirzo-ulugbek-tibbiyot",
+    "source": "clinics.uz"
   },
   {
-    "id": 145, "name": "Chilonzor Tibbiyot Klinikasi", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 145,
+    "name": "Chilonzor Tibbiyot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Chilonzor tumani, 74 ta klinika bor rayonda",
     "instagram": "chilonzor_tibbiyot",
-    "services": ["Terapiya", "Pediatriya", "Ginekologiya", "UZI", "Tahlil"],
-    "colors": {"primary": "#2c6e49", "accent": "#a7c957"},
-    "slug": "chilonzor-tibbiyot", "source": "clinics.uz"
+    "services": [
+      "Terapiya",
+      "Pediatriya",
+      "Ginekologiya",
+      "UZI",
+      "Tahlil"
+    ],
+    "colors": {
+      "primary": "#2c6e49",
+      "accent": "#a7c957"
+    },
+    "slug": "chilonzor-tibbiyot",
+    "source": "clinics.uz"
   },
   {
-    "id": 146, "name": "Yunusobod Medical Center", "niche": "Clinic",
-    "phone": "+998993210303", "wa_number": "998993210303",
+    "id": 146,
+    "name": "Yunusobod Medical Center",
+    "niche": "Clinic",
+    "phone": "+998993210303",
+    "wa_number": "998993210303",
     "address": "Yunusobod tumani, Yunusobod-16 blok, Ahmad Donish ko'chasi, 28A",
     "instagram": "yunusobod_medical",
-    "services": ["Ko'p tarmoqli", "Terapiya", "Pediatriya", "Ginekologiya", "UZI"],
-    "colors": {"primary": "#0d3b66", "accent": "#faf0ca"},
-    "slug": "yunusobod-medical-center", "source": "goldenpages.uz / top.uz"
+    "services": [
+      "Ko'p tarmoqli",
+      "Terapiya",
+      "Pediatriya",
+      "Ginekologiya",
+      "UZI"
+    ],
+    "colors": {
+      "primary": "#0d3b66",
+      "accent": "#faf0ca"
+    },
+    "slug": "yunusobod-medical-center",
+    "source": "goldenpages.uz / top.uz"
   },
   {
-    "id": 147, "name": "Vatan Tibbiyot Markazi", "niche": "Clinic",
-    "phone": "+998785551566", "wa_number": "998785551566",
+    "id": 147,
+    "name": "Vatan Tibbiyot Markazi",
+    "niche": "Clinic",
+    "phone": "+998785551566",
+    "wa_number": "998785551566",
     "address": "Uchtepa tumani, Chilonzor 26-mavze, 11B",
     "instagram": "vatan_tibbiyot_uz",
-    "services": ["Pediatriya", "Ginekologiya", "Urologiya", "Nevrologiya", "Stomatologiya"],
-    "colors": {"primary": "#1b4332", "accent": "#74c69d"},
-    "slug": "vatan-tibbiyot-markazi", "source": "vatantibbiyot.uz / yellowpages.uz"
+    "services": [
+      "Pediatriya",
+      "Ginekologiya",
+      "Urologiya",
+      "Nevrologiya",
+      "Stomatologiya"
+    ],
+    "colors": {
+      "primary": "#1b4332",
+      "accent": "#74c69d"
+    },
+    "slug": "vatan-tibbiyot-markazi",
+    "source": "vatantibbiyot.uz / yellowpages.uz"
   },
   {
-    "id": 148, "name": "Doktor-Servis Klinikasi", "niche": "Clinic",
-    "phone": "+998712770000", "wa_number": "998712770000",
+    "id": 148,
+    "name": "Doktor-Servis Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712770000",
+    "wa_number": "998712770000",
     "address": "Chilonzor tumani, Mukimiy ko'chasi, 182",
     "instagram": "doktor_servis_uz",
-    "services": ["Ginekologiya", "Kardiologiya", "Nevrologiya", "MRT", "Laboratoriya"],
-    "colors": {"primary": "#14213d", "accent": "#fca311"},
-    "slug": "doktor-servis-klinikasi", "source": "doktor-servis.uz / yellowpages.uz"
+    "services": [
+      "Ginekologiya",
+      "Kardiologiya",
+      "Nevrologiya",
+      "MRT",
+      "Laboratoriya"
+    ],
+    "colors": {
+      "primary": "#14213d",
+      "accent": "#fca311"
+    },
+    "slug": "doktor-servis-klinikasi",
+    "source": "doktor-servis.uz / yellowpages.uz"
   },
   {
-    "id": 149, "name": "Central Kardio Servis", "niche": "Clinic",
-    "phone": "+998712504687", "wa_number": "998712504687",
+    "id": 149,
+    "name": "Central Kardio Servis",
+    "niche": "Clinic",
+    "phone": "+998712504687",
+    "wa_number": "998712504687",
     "address": "Chilonzor tumani, Kichik Halqa yo'li ko'chasi, 51",
     "instagram": "centralcardioservice",
-    "services": ["Kardiologiya", "EKG", "Exokardio", "Holter monitoring", "Reabilitatsiya"],
-    "colors": {"primary": "#d62828", "accent": "#f7b731"},
-    "slug": "central-kardio-servis", "source": "2gis.uz / goldenpages.uz"
+    "services": [
+      "Kardiologiya",
+      "EKG",
+      "Exokardio",
+      "Holter monitoring",
+      "Reabilitatsiya"
+    ],
+    "colors": {
+      "primary": "#d62828",
+      "accent": "#f7b731"
+    },
+    "slug": "central-kardio-servis",
+    "source": "2gis.uz / goldenpages.uz"
   },
   {
-    "id": 150, "name": "Magic Dental Implant Center", "niche": "Dentistry",
-    "phone": "+998980071144", "wa_number": "998980071144",
+    "id": 150,
+    "name": "Magic Dental Implant Center",
+    "niche": "Dentistry",
+    "phone": "+998980071144",
+    "wa_number": "998980071144",
     "address": "Toshkent, Katta Hirmontepa ko'chasi, 18/2",
     "instagram": "magicdental.uz",
-    "services": ["Implant 24/7", "Jarrohlik", "Breket", "Estetik", "Endodontiya"],
-    "colors": {"primary": "#0a0a0a", "accent": "#ff9f0a"},
-    "slug": "magic-dental-implant", "source": "yandex maps / goldenpages.uz"
+    "services": [
+      "Implant 24/7",
+      "Jarrohlik",
+      "Breket",
+      "Estetik",
+      "Endodontiya"
+    ],
+    "colors": {
+      "primary": "#0a0a0a",
+      "accent": "#ff9f0a"
+    },
+    "slug": "magic-dental-implant",
+    "source": "yandex maps / goldenpages.uz"
   },
   {
-    "id": 151, "name": "Denta Stomatologiya (Kiyot)", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 151,
+    "name": "Denta Stomatologiya (Kiyot)",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Yunusobod tumani, Kiyot massivi 51 (C5)",
     "instagram": "denta_stomatologiya",
-    "services": ["Elayner", "Breket", "Implant", "Zirkon toj", "Oqlash"],
-    "colors": {"primary": "#1a1a2e", "accent": "#533483"},
-    "slug": "denta-stomatologiya-kiyot", "source": "instagram @denta_stomatologiya"
+    "services": [
+      "Elayner",
+      "Breket",
+      "Implant",
+      "Zirkon toj",
+      "Oqlash"
+    ],
+    "colors": {
+      "primary": "#1a1a2e",
+      "accent": "#533483"
+    },
+    "slug": "denta-stomatologiya-kiyot",
+    "source": "instagram @denta_stomatologiya"
   },
   {
-    "id": 152, "name": "Dental Art Stomatologiya", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 152,
+    "name": "Dental Art Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Shayxontohur tumani",
     "instagram": "dental_art_uz",
-    "services": ["Estetik", "Veneer", "Implant", "Oqlash", "Breket"],
-    "colors": {"primary": "#1c1c1e", "accent": "#ff9f0a"},
-    "slug": "dental-art-uz", "source": "instagram @dental_art_uz"
+    "services": [
+      "Estetik",
+      "Veneer",
+      "Implant",
+      "Oqlash",
+      "Breket"
+    ],
+    "colors": {
+      "primary": "#1c1c1e",
+      "accent": "#ff9f0a"
+    },
+    "slug": "dental-art-uz",
+    "source": "instagram @dental_art_uz"
   },
   {
-    "id": 153, "name": "Denta Lights Klinikasi", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 153,
+    "name": "Denta Lights Klinikasi",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Chilonzor tumani",
     "instagram": "denta_lights_clinic_uz",
-    "services": ["Oqlash", "Implant", "Breket", "Veneer", "Bolalar"],
-    "colors": {"primary": "#023e8a", "accent": "#90e0ef"},
-    "slug": "denta-lights-klinikasi", "source": "instagram / goldenpages.uz"
+    "services": [
+      "Oqlash",
+      "Implant",
+      "Breket",
+      "Veneer",
+      "Bolalar"
+    ],
+    "colors": {
+      "primary": "#023e8a",
+      "accent": "#90e0ef"
+    },
+    "slug": "denta-lights-klinikasi",
+    "source": "instagram / goldenpages.uz"
   },
   {
-    "id": 154, "name": "Smaltokids Bolalar Stomatologiyasi", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 154,
+    "name": "Smaltokids Bolalar Stomatologiyasi",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Yunusobod tumani",
     "instagram": "smaltokids.uz",
-    "services": ["Bolalar davolash", "Profilaktika", "Germetizatsiya", "Florür", "Breket"],
-    "colors": {"primary": "#ff6b6b", "accent": "#ffd93d"},
-    "slug": "smaltokids-bolalar", "source": "instagram @smaltokids.uz"
+    "services": [
+      "Bolalar davolash",
+      "Profilaktika",
+      "Germetizatsiya",
+      "Florür",
+      "Breket"
+    ],
+    "colors": {
+      "primary": "#ff6b6b",
+      "accent": "#ffd93d"
+    },
+    "slug": "smaltokids-bolalar",
+    "source": "instagram @smaltokids.uz"
   },
   {
-    "id": 155, "name": "Dentera Clinics", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 155,
+    "name": "Dentera Clinics",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Mirabad tumani",
     "instagram": "dentera.clinics",
-    "services": ["Implant", "Breket", "Protez", "Zirkon", "Oqlash"],
-    "colors": {"primary": "#001d3d", "accent": "#3a86ff"},
-    "slug": "dentera-clinics", "source": "instagram @dentera.clinics"
+    "services": [
+      "Implant",
+      "Breket",
+      "Protez",
+      "Zirkon",
+      "Oqlash"
+    ],
+    "colors": {
+      "primary": "#001d3d",
+      "accent": "#3a86ff"
+    },
+    "slug": "dentera-clinics",
+    "source": "instagram @dentera.clinics"
   },
   {
-    "id": 156, "name": "Osiyo Tibbiyot Markazi", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 156,
+    "name": "Osiyo Tibbiyot Markazi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Yunusobod tumani",
     "instagram": "osiyo_tibbiyot_uz",
-    "services": ["Terapiya", "Kardiologiya", "Ginekologiya", "UZI", "Laboratoriya"],
-    "colors": {"primary": "#264653", "accent": "#2a9d8f"},
-    "slug": "osiyo-tibbiyot-markazi", "source": "goldenpages.uz"
+    "services": [
+      "Terapiya",
+      "Kardiologiya",
+      "Ginekologiya",
+      "UZI",
+      "Laboratoriya"
+    ],
+    "colors": {
+      "primary": "#264653",
+      "accent": "#2a9d8f"
+    },
+    "slug": "osiyo-tibbiyot-markazi",
+    "source": "goldenpages.uz"
   },
   {
-    "id": 157, "name": "Medlink Klinikasi", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 157,
+    "name": "Medlink Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Mirzo Ulug'bek tumani",
     "instagram": "medlink_uz",
-    "services": ["Ko'p tarmoqli", "Terapiya", "Pediatriya", "Ortopediya", "Laboratoriya"],
-    "colors": {"primary": "#0f3460", "accent": "#e94560"},
-    "slug": "medlink-klinikasi", "source": "medlink.uz"
+    "services": [
+      "Ko'p tarmoqli",
+      "Terapiya",
+      "Pediatriya",
+      "Ortopediya",
+      "Laboratoriya"
+    ],
+    "colors": {
+      "primary": "#0f3460",
+      "accent": "#e94560"
+    },
+    "slug": "medlink-klinikasi",
+    "source": "medlink.uz"
   },
   {
-    "id": 158, "name": "Smalto Dente Bolalar", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 158,
+    "name": "Smalto Dente Bolalar",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Yunusobod tumani, Fidokor ko'chasi, 32A",
     "instagram": "smaltodente_kids",
-    "services": ["Bolalar estetik", "Germetizatsiya", "Tish parvarishi", "Breket", "Oqlash"],
-    "colors": {"primary": "#1b4332", "accent": "#d8f3dc"},
-    "slug": "smalto-bolalar", "source": "32top.uz"
+    "services": [
+      "Bolalar estetik",
+      "Germetizatsiya",
+      "Tish parvarishi",
+      "Breket",
+      "Oqlash"
+    ],
+    "colors": {
+      "primary": "#1b4332",
+      "accent": "#d8f3dc"
+    },
+    "slug": "smalto-bolalar",
+    "source": "32top.uz"
   },
   {
-    "id": 159, "name": "Klinika Yunusobod (Ko'p Tarmoqli)", "niche": "Clinic",
-    "phone": "+998712201095", "wa_number": "998712201095",
+    "id": 159,
+    "name": "Klinika Yunusobod (Ko'p Tarmoqli)",
+    "niche": "Clinic",
+    "phone": "+998712201095",
+    "wa_number": "998712201095",
     "address": "Yunusobod tumani, Ahmad Donish ko'chasi, 28A",
     "instagram": "klinika_yunusobod",
-    "services": ["Ko'p tarmoqli", "Ginekologiya", "Kardiologiya", "Nevrologiya", "UZI"],
-    "colors": {"primary": "#10002b", "accent": "#c77dff"},
-    "slug": "klinika-yunusobod", "source": "top.uz"
+    "services": [
+      "Ko'p tarmoqli",
+      "Ginekologiya",
+      "Kardiologiya",
+      "Nevrologiya",
+      "UZI"
+    ],
+    "colors": {
+      "primary": "#10002b",
+      "accent": "#c77dff"
+    },
+    "slug": "klinika-yunusobod",
+    "source": "top.uz"
   },
   {
-    "id": 160, "name": "Apteka.uz Hamkor Klinikasi", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 160,
+    "name": "Apteka.uz Hamkor Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Chilonzor tumani",
     "instagram": "apteka_klinika_uz",
-    "services": ["Terapiya", "Pediatriya", "Dermatologiya", "UZI", "Tahlil"],
-    "colors": {"primary": "#006400", "accent": "#90ee90"},
-    "slug": "apteka-hamkor-klinikasi", "source": "apteka.uz"
+    "services": [
+      "Terapiya",
+      "Pediatriya",
+      "Dermatologiya",
+      "UZI",
+      "Tahlil"
+    ],
+    "colors": {
+      "primary": "#006400",
+      "accent": "#90ee90"
+    },
+    "slug": "apteka-hamkor-klinikasi",
+    "source": "apteka.uz"
   },
   {
-    "id": 161, "name": "Medgid Stomatologiya №1", "niche": "Dentistry",
-    "phone": "+998712536513", "wa_number": "998712536513",
+    "id": 161,
+    "name": "Medgid Stomatologiya №1",
+    "niche": "Dentistry",
+    "phone": "+998712536513",
+    "wa_number": "998712536513",
     "address": "Yakkasaroy tumani, Sh. Rustaveli ko'chasi, 59",
     "instagram": "medgid_stoma_uz",
-    "services": ["Bolalar davolash", "Terapevtik", "Jarrohlik", "Protez", "Oqlash"],
-    "colors": {"primary": "#023e8a", "accent": "#caf0f8"},
-    "slug": "medgid-stomatologiya-1", "source": "medgid.uz"
+    "services": [
+      "Bolalar davolash",
+      "Terapevtik",
+      "Jarrohlik",
+      "Protez",
+      "Oqlash"
+    ],
+    "colors": {
+      "primary": "#023e8a",
+      "accent": "#caf0f8"
+    },
+    "slug": "medgid-stomatologiya-1",
+    "source": "medgid.uz"
   },
   {
-    "id": 162, "name": "Afisha Dental (Top Stomatologiya)", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 162,
+    "name": "Afisha Dental (Top Stomatologiya)",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Yunusobod tumani",
     "instagram": "afisha_dental_uz",
-    "services": ["Implant", "Breket", "Oqlash", "Veneer", "Estetik"],
-    "colors": {"primary": "#1a0a00", "accent": "#ff6b35"},
-    "slug": "afisha-dental", "source": "afisha.uz"
+    "services": [
+      "Implant",
+      "Breket",
+      "Oqlash",
+      "Veneer",
+      "Estetik"
+    ],
+    "colors": {
+      "primary": "#1a0a00",
+      "accent": "#ff6b35"
+    },
+    "slug": "afisha-dental",
+    "source": "afisha.uz"
   },
   {
-    "id": 163, "name": "Kliniki.uz Ko'p Tarmoqli Klinikasi", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 163,
+    "name": "Kliniki.uz Ko'p Tarmoqli Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Mirzo Ulug'bek tumani",
     "instagram": "kliniki_uz",
-    "services": ["Terapiya", "Kardiologiya", "Ortopediya", "Ginekologiya", "Pediatriya"],
-    "colors": {"primary": "#1d3557", "accent": "#a8dadc"},
-    "slug": "kliniki-uz", "source": "kliniki.uz"
+    "services": [
+      "Terapiya",
+      "Kardiologiya",
+      "Ortopediya",
+      "Ginekologiya",
+      "Pediatriya"
+    ],
+    "colors": {
+      "primary": "#1d3557",
+      "accent": "#a8dadc"
+    },
+    "slug": "kliniki-uz",
+    "source": "kliniki.uz"
   },
   {
-    "id": 164, "name": "Denta-Service (Uchtepa filiali)", "niche": "Dentistry",
-    "phone": "+998712452528", "wa_number": "998712452528",
+    "id": 164,
+    "name": "Denta-Service (Uchtepa filiali)",
+    "niche": "Dentistry",
+    "phone": "+998712452528",
+    "wa_number": "998712452528",
     "address": "Uchtepa tumani, Farhod ko'chasi, Chilonzor-12 blok, 12/1",
     "instagram": "dentaservice_uchtepa",
-    "services": ["Terapevtik", "Jarrohlik", "Bolalar", "Implant", "Oqlash"],
-    "colors": {"primary": "#14213d", "accent": "#e63946"},
-    "slug": "denta-service-uchtepa", "source": "32top.uz / clinics.uz"
+    "services": [
+      "Terapevtik",
+      "Jarrohlik",
+      "Bolalar",
+      "Implant",
+      "Oqlash"
+    ],
+    "colors": {
+      "primary": "#14213d",
+      "accent": "#e63946"
+    },
+    "slug": "denta-service-uchtepa",
+    "source": "32top.uz / clinics.uz"
   },
   {
-    "id": 165, "name": "Denta Stomatologiya (Olmazor)", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 165,
+    "name": "Denta Stomatologiya (Olmazor)",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Olmazor tumani, Olmazor ko'chasi 5",
     "instagram": "denta_olmazor_uz",
-    "services": ["Oqlash", "Breket", "Implant", "Davolash", "Bolalar"],
-    "colors": {"primary": "#001219", "accent": "#94d2bd"},
-    "slug": "denta-olmazor", "source": "clinics.uz"
+    "services": [
+      "Oqlash",
+      "Breket",
+      "Implant",
+      "Davolash",
+      "Bolalar"
+    ],
+    "colors": {
+      "primary": "#001219",
+      "accent": "#94d2bd"
+    },
+    "slug": "denta-olmazor",
+    "source": "clinics.uz"
   },
   {
-    "id": 166, "name": "GoldenPages Stomatologiya Top", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 166,
+    "name": "GoldenPages Stomatologiya Top",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Mirzo Ulug'bek tumani, Karvonsaroy ko'chasi, 25",
     "instagram": "goldenpages_stoma",
-    "services": ["Implant", "Breket", "Zirkon", "Oqlash", "Veneer"],
-    "colors": {"primary": "#1a0a00", "accent": "#d4a017"},
-    "slug": "goldenpages-stomatologiya", "source": "yellowpages.uz"
+    "services": [
+      "Implant",
+      "Breket",
+      "Zirkon",
+      "Oqlash",
+      "Veneer"
+    ],
+    "colors": {
+      "primary": "#1a0a00",
+      "accent": "#d4a017"
+    },
+    "slug": "goldenpages-stomatologiya",
+    "source": "yellowpages.uz"
   },
   {
-    "id": 167, "name": "Sergeli Tibbiyot Klinikasi", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 167,
+    "name": "Sergeli Tibbiyot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Sergeli tumani, 34 ta klinika mavjud",
     "instagram": "sergeli_tibbiyot",
-    "services": ["Terapiya", "Pediatriya", "Ginekologiya", "UZI", "Tahlil"],
-    "colors": {"primary": "#2c2c54", "accent": "#e84393"},
-    "slug": "sergeli-tibbiyot", "source": "clinics.uz"
+    "services": [
+      "Terapiya",
+      "Pediatriya",
+      "Ginekologiya",
+      "UZI",
+      "Tahlil"
+    ],
+    "colors": {
+      "primary": "#2c2c54",
+      "accent": "#e84393"
+    },
+    "slug": "sergeli-tibbiyot",
+    "source": "clinics.uz"
   },
   {
-    "id": 168, "name": "Yangi Hayot Tibbiyot Klinikasi", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 168,
+    "name": "Yangi Hayot Tibbiyot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Yangihayot tumani, 29 ta klinika mavjud",
     "instagram": "yangihayot_tibbiyot",
-    "services": ["Terapiya", "Kardiologiya", "Ortopediya", "Laboratoriya", "UZI"],
-    "colors": {"primary": "#004e64", "accent": "#00a5cf"},
-    "slug": "yangihayot-tibbiyot", "source": "clinics.uz"
+    "services": [
+      "Terapiya",
+      "Kardiologiya",
+      "Ortopediya",
+      "Laboratoriya",
+      "UZI"
+    ],
+    "colors": {
+      "primary": "#004e64",
+      "accent": "#00a5cf"
+    },
+    "slug": "yangihayot-tibbiyot",
+    "source": "clinics.uz"
   },
   {
-    "id": 169, "name": "Bektemir Tibbiyot Klinikasi", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 169,
+    "name": "Bektemir Tibbiyot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Bektemir tumani, Sanoat ko'chasi",
     "instagram": "bektemir_tibbiyot",
-    "services": ["Terapiya", "Jarrohlik", "UZI", "Laboratoriya", "Tahlil"],
-    "colors": {"primary": "#370617", "accent": "#f48c06"},
-    "slug": "bektemir-tibbiyot", "source": "clinics.uz"
+    "services": [
+      "Terapiya",
+      "Jarrohlik",
+      "UZI",
+      "Laboratoriya",
+      "Tahlil"
+    ],
+    "colors": {
+      "primary": "#370617",
+      "accent": "#f48c06"
+    },
+    "slug": "bektemir-tibbiyot",
+    "source": "clinics.uz"
   },
   {
-    "id": 170, "name": "Zangiota Tibbiyot Klinikasi", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 170,
+    "name": "Zangiota Tibbiyot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Zangiota tumani, Markaziy ko'cha",
     "instagram": "zangiota_tibbiyot",
-    "services": ["Terapiya", "Pediatriya", "Ginekologiya", "UZI", "Laboratoriya"],
-    "colors": {"primary": "#2d6a4f", "accent": "#95d5b2"},
-    "slug": "zangiota-tibbiyot", "source": "clinics.uz"
+    "services": [
+      "Terapiya",
+      "Pediatriya",
+      "Ginekologiya",
+      "UZI",
+      "Laboratoriya"
+    ],
+    "colors": {
+      "primary": "#2d6a4f",
+      "accent": "#95d5b2"
+    },
+    "slug": "zangiota-tibbiyot",
+    "source": "clinics.uz"
   },
   {
-    "id": 171, "name": "Medlink Stomatologiya", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 171,
+    "name": "Medlink Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Almazar tumani",
     "instagram": "medlink_stoma_uz",
-    "services": ["Implant", "Oqlash", "Breket", "Davolash", "Veneer"],
-    "colors": {"primary": "#03045e", "accent": "#90e0ef"},
-    "slug": "medlink-stomatologiya", "source": "medlink.uz"
+    "services": [
+      "Implant",
+      "Oqlash",
+      "Breket",
+      "Davolash",
+      "Veneer"
+    ],
+    "colors": {
+      "primary": "#03045e",
+      "accent": "#90e0ef"
+    },
+    "slug": "medlink-stomatologiya",
+    "source": "medlink.uz"
   },
   {
-    "id": 172, "name": "Klinika.uz Dental Top", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 172,
+    "name": "Klinika.uz Dental Top",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Mirabad tumani",
     "instagram": "klinika_uz_dental",
-    "services": ["Implant", "Zirkon", "Veneer", "Breket", "Oqlash"],
-    "colors": {"primary": "#0f0e17", "accent": "#ff8906"},
-    "slug": "klinika-uz-dental", "source": "klinika.uz"
+    "services": [
+      "Implant",
+      "Zirkon",
+      "Veneer",
+      "Breket",
+      "Oqlash"
+    ],
+    "colors": {
+      "primary": "#0f0e17",
+      "accent": "#ff8906"
+    },
+    "slug": "klinika-uz-dental",
+    "source": "klinika.uz"
   },
   {
-    "id": 173, "name": "Asiyo Stomatologiya", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 173,
+    "name": "Asiyo Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Olmazor tumani",
     "instagram": "asiyo_stoma_uz",
-    "services": ["Davolash", "Oqlash", "Bolalar", "Breket", "Implant"],
-    "colors": {"primary": "#590d22", "accent": "#ff758f"},
-    "slug": "asiyo-stomatologiya", "source": "clinics.uz"
+    "services": [
+      "Davolash",
+      "Oqlash",
+      "Bolalar",
+      "Breket",
+      "Implant"
+    ],
+    "colors": {
+      "primary": "#590d22",
+      "accent": "#ff758f"
+    },
+    "slug": "asiyo-stomatologiya",
+    "source": "clinics.uz"
   },
   {
-    "id": 174, "name": "Yangi Hayot Stomatologiya", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 174,
+    "name": "Yangi Hayot Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Yunusobod tumani, Yangi hayot",
     "instagram": "yangi_hayot_stoma",
-    "services": ["Oqlash", "Implant", "Breket", "Davolash", "Bolalar"],
-    "colors": {"primary": "#1b4332", "accent": "#d8f3dc"},
-    "slug": "yangi-hayot-stoma", "source": "clinics.uz"
+    "services": [
+      "Oqlash",
+      "Implant",
+      "Breket",
+      "Davolash",
+      "Bolalar"
+    ],
+    "colors": {
+      "primary": "#1b4332",
+      "accent": "#d8f3dc"
+    },
+    "slug": "yangi-hayot-stoma",
+    "source": "clinics.uz"
   },
   {
-    "id": 175, "name": "Endo Systems Stomatologiya", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 175,
+    "name": "Endo Systems Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Yunusobod tumani",
     "instagram": "endosystems_uz",
-    "services": ["Endodontiya", "Kanal davolash", "Implant", "Jarrohlik", "Oqlash"],
-    "colors": {"primary": "#001233", "accent": "#4cc9f0"},
-    "slug": "endo-systems", "source": "endo.uz"
+    "services": [
+      "Endodontiya",
+      "Kanal davolash",
+      "Implant",
+      "Jarrohlik",
+      "Oqlash"
+    ],
+    "colors": {
+      "primary": "#001233",
+      "accent": "#4cc9f0"
+    },
+    "slug": "endo-systems",
+    "source": "endo.uz"
   },
   {
-    "id": 176, "name": "AKFAMedline Stomatologiya", "niche": "Dentistry",
-    "phone": "+998972643003", "wa_number": "998972643003",
+    "id": 176,
+    "name": "AKFAMedline Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998972643003",
+    "wa_number": "998972643003",
     "address": "Almazar tumani, Kichik Halqa Yo'li ko'chasi, 5A",
     "instagram": "akfamedline_dental",
-    "services": ["Estetik", "Implant", "Ortodontiya", "Oqlash", "Veneer"],
-    "colors": {"primary": "#0d3b66", "accent": "#faf0ca"},
-    "slug": "akfamedline-stomatologiya", "source": "akfamedline.com"
+    "services": [
+      "Estetik",
+      "Implant",
+      "Ortodontiya",
+      "Oqlash",
+      "Veneer"
+    ],
+    "colors": {
+      "primary": "#0d3b66",
+      "accent": "#faf0ca"
+    },
+    "slug": "akfamedline-stomatologiya",
+    "source": "akfamedline.com"
   },
   {
-    "id": 177, "name": "Shayxontohur Tibbiyot Klinikasi", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 177,
+    "name": "Shayxontohur Tibbiyot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Shayxontohur tumani, Eski shahar ko'chasi",
     "instagram": "shayxontohur_tibbiyot",
-    "services": ["Terapiya", "Pediatriya", "Ginekologiya", "UZI", "Laboratoriya"],
-    "colors": {"primary": "#1a1a2e", "accent": "#16213e"},
-    "slug": "shayxontohur-tibbiyot", "source": "clinics.uz"
+    "services": [
+      "Terapiya",
+      "Pediatriya",
+      "Ginekologiya",
+      "UZI",
+      "Laboratoriya"
+    ],
+    "colors": {
+      "primary": "#1a1a2e",
+      "accent": "#16213e"
+    },
+    "slug": "shayxontohur-tibbiyot",
+    "source": "clinics.uz"
   },
   {
-    "id": 178, "name": "Yakkasaroy Tibbiyot Klinikasi", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 178,
+    "name": "Yakkasaroy Tibbiyot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Yakkasaroy tumani, Ipodrom ko'chasi",
     "instagram": "yakkasaroy_tibbiyot",
-    "services": ["Terapiya", "Kardiologiya", "Nevrologiya", "UZI", "EKG"],
-    "colors": {"primary": "#14213d", "accent": "#fca311"},
-    "slug": "yakkasaroy-tibbiyot", "source": "clinics.uz"
+    "services": [
+      "Terapiya",
+      "Kardiologiya",
+      "Nevrologiya",
+      "UZI",
+      "EKG"
+    ],
+    "colors": {
+      "primary": "#14213d",
+      "accent": "#fca311"
+    },
+    "slug": "yakkasaroy-tibbiyot",
+    "source": "clinics.uz"
   },
   {
-    "id": 179, "name": "Uchtepa Tibbiyot Klinikasi", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 179,
+    "name": "Uchtepa Tibbiyot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Uchtepa tumani, 46 ta klinika mavjud",
     "instagram": "uchtepa_tibbiyot",
-    "services": ["Terapiya", "Pediatriya", "Ortopediya", "Laboratoriya", "Tahlil"],
-    "colors": {"primary": "#264653", "accent": "#2a9d8f"},
-    "slug": "uchtepa-tibbiyot", "source": "clinics.uz"
+    "services": [
+      "Terapiya",
+      "Pediatriya",
+      "Ortopediya",
+      "Laboratoriya",
+      "Tahlil"
+    ],
+    "colors": {
+      "primary": "#264653",
+      "accent": "#2a9d8f"
+    },
+    "slug": "uchtepa-tibbiyot",
+    "source": "clinics.uz"
   },
   {
-    "id": 180, "name": "Mirabad Tibbiyot Klinikasi", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 180,
+    "name": "Mirabad Tibbiyot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Mirabad tumani, 43 ta klinika mavjud",
     "instagram": "mirabad_tibbiyot",
-    "services": ["Terapiya", "Ginekologiya", "Dermatologiya", "UZI", "Laboratoriya"],
-    "colors": {"primary": "#2c6e49", "accent": "#fefee3"},
-    "slug": "mirabad-tibbiyot", "source": "clinics.uz"
+    "services": [
+      "Terapiya",
+      "Ginekologiya",
+      "Dermatologiya",
+      "UZI",
+      "Laboratoriya"
+    ],
+    "colors": {
+      "primary": "#2c6e49",
+      "accent": "#fefee3"
+    },
+    "slug": "mirabad-tibbiyot",
+    "source": "clinics.uz"
   },
   {
-    "id": 181, "name": "Diagnostika Markazi Toshkent", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 181,
+    "name": "Diagnostika Markazi Toshkent",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Yunusobod tumani",
     "instagram": "diagnostika_toshkent",
-    "services": ["MRT", "KT", "UZI", "Rentgen", "Laboratoriya tahlili"],
-    "colors": {"primary": "#03045e", "accent": "#0096c7"},
-    "slug": "diagnostika-markazi", "source": "med24.uz"
+    "services": [
+      "MRT",
+      "KT",
+      "UZI",
+      "Rentgen",
+      "Laboratoriya tahlili"
+    ],
+    "colors": {
+      "primary": "#03045e",
+      "accent": "#0096c7"
+    },
+    "slug": "diagnostika-markazi",
+    "source": "med24.uz"
   },
   {
-    "id": 182, "name": "Stasionar Klinikasi Toshkent", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 182,
+    "name": "Stasionar Klinikasi Toshkent",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Mirzo Ulug'bek tumani",
     "instagram": "stasionar_klinikasi",
-    "services": ["Statsionar", "Jarrohlik", "Reabilitatsiya", "Terapiya", "Kardiologiya"],
-    "colors": {"primary": "#001845", "accent": "#004e89"},
-    "slug": "stasionar-klinikasi", "source": "kliniki.uz"
+    "services": [
+      "Statsionar",
+      "Jarrohlik",
+      "Reabilitatsiya",
+      "Terapiya",
+      "Kardiologiya"
+    ],
+    "colors": {
+      "primary": "#001845",
+      "accent": "#004e89"
+    },
+    "slug": "stasionar-klinikasi",
+    "source": "kliniki.uz"
   },
   {
-    "id": 183, "name": "Toshkent City Tibbiyot Klinikasi", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 183,
+    "name": "Toshkent City Tibbiyot Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent City, Yangi O'zbekiston ko'chasi",
     "instagram": "toshkentcity_tibbiyot",
-    "services": ["VIP terapiya", "Kardiologiya", "Nevrologiya", "UZI", "Laboratoriya"],
-    "colors": {"primary": "#1a0533", "accent": "#9b5de5"},
-    "slug": "toshkent-city-tibbiyot", "source": "clinics.uz"
+    "services": [
+      "VIP terapiya",
+      "Kardiologiya",
+      "Nevrologiya",
+      "UZI",
+      "Laboratoriya"
+    ],
+    "colors": {
+      "primary": "#1a0533",
+      "accent": "#9b5de5"
+    },
+    "slug": "toshkent-city-tibbiyot",
+    "source": "clinics.uz"
   },
   {
-    "id": 184, "name": "Asr Farm Stomatologiya", "niche": "Dentistry",
-    "phone": "+998712254834", "wa_number": "998712254834",
+    "id": 184,
+    "name": "Asr Farm Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712254834",
+    "wa_number": "998712254834",
     "address": "Toshkent, Chilonzor tumani",
     "instagram": "asrfarm_stoma",
-    "services": ["Davolash", "Bolalar", "Oqlash", "Implant", "Breket"],
-    "colors": {"primary": "#0b090a", "accent": "#f5f3f4"},
-    "slug": "asr-farm-stomatologiya", "source": "32top.uz"
+    "services": [
+      "Davolash",
+      "Bolalar",
+      "Oqlash",
+      "Implant",
+      "Breket"
+    ],
+    "colors": {
+      "primary": "#0b090a",
+      "accent": "#f5f3f4"
+    },
+    "slug": "asr-farm-stomatologiya",
+    "source": "32top.uz"
   },
   {
-    "id": 185, "name": "Samarqand Darvoza Stomatologiya", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 185,
+    "name": "Samarqand Darvoza Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Yakkasaroy tumani, Samarqand darvoza ko'chasi",
     "instagram": "samdarvoza_stoma",
-    "services": ["Oqlash", "Davolash", "Implant", "Breket", "Bolalar"],
-    "colors": {"primary": "#3d0000", "accent": "#ff4800"},
-    "slug": "samarqand-darvoza-stoma", "source": "clinics.uz"
+    "services": [
+      "Oqlash",
+      "Davolash",
+      "Implant",
+      "Breket",
+      "Bolalar"
+    ],
+    "colors": {
+      "primary": "#3d0000",
+      "accent": "#ff4800"
+    },
+    "slug": "samarqand-darvoza-stoma",
+    "source": "clinics.uz"
   },
   {
-    "id": 186, "name": "Olmosovoy Stomatologiya", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 186,
+    "name": "Olmosovoy Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Olmazor tumani, Olmosovoy ko'chasi",
     "instagram": "olmosovoy_stoma",
-    "services": ["Estetik", "Implant", "Breket", "Oqlash", "Veneer"],
-    "colors": {"primary": "#240046", "accent": "#ff9e00"},
-    "slug": "olmosovoy-stomatologiya", "source": "clinics.uz"
+    "services": [
+      "Estetik",
+      "Implant",
+      "Breket",
+      "Oqlash",
+      "Veneer"
+    ],
+    "colors": {
+      "primary": "#240046",
+      "accent": "#ff9e00"
+    },
+    "slug": "olmosovoy-stomatologiya",
+    "source": "clinics.uz"
   },
   {
-    "id": 187, "name": "Labzak Ko'chasi Stomatologiya", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 187,
+    "name": "Labzak Ko'chasi Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Almazar tumani, Labzak ko'chasi, 40",
     "instagram": "labzak_stoma_uz",
-    "services": ["Davolash", "Oqlash", "Implant", "Bolalar", "Breket"],
-    "colors": {"primary": "#001d3d", "accent": "#ffd60a"},
-    "slug": "labzak-stomatologiya", "source": "clinics.uz"
+    "services": [
+      "Davolash",
+      "Oqlash",
+      "Implant",
+      "Bolalar",
+      "Breket"
+    ],
+    "colors": {
+      "primary": "#001d3d",
+      "accent": "#ffd60a"
+    },
+    "slug": "labzak-stomatologiya",
+    "source": "clinics.uz"
   },
   {
-    "id": 188, "name": "Istiqlol Ko'chasi Stomatologiya", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 188,
+    "name": "Istiqlol Ko'chasi Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Yunusobod tumani, Istiqlol ko'chasi",
     "instagram": "istiqlol_stoma_uz",
-    "services": ["Implant", "Breket", "Oqlash", "Davolash", "Veneer"],
-    "colors": {"primary": "#023e8a", "accent": "#48cae4"},
-    "slug": "istiqlol-stomatologiya", "source": "clinics.uz"
+    "services": [
+      "Implant",
+      "Breket",
+      "Oqlash",
+      "Davolash",
+      "Veneer"
+    ],
+    "colors": {
+      "primary": "#023e8a",
+      "accent": "#48cae4"
+    },
+    "slug": "istiqlol-stomatologiya",
+    "source": "clinics.uz"
   },
   {
-    "id": 189, "name": "Buyuk Ipak Yo'li Stomatologiya", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 189,
+    "name": "Buyuk Ipak Yo'li Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Mirzo Ulug'bek tumani, Buyuk Ipak Yo'li ko'chasi",
     "instagram": "biy_stoma_uz",
-    "services": ["Oqlash", "Implant", "Estetik", "Veneer", "Breket"],
-    "colors": {"primary": "#1a0a00", "accent": "#d4a017"},
-    "slug": "buyuk-ipak-stomatologiya", "source": "clinics.uz"
+    "services": [
+      "Oqlash",
+      "Implant",
+      "Estetik",
+      "Veneer",
+      "Breket"
+    ],
+    "colors": {
+      "primary": "#1a0a00",
+      "accent": "#d4a017"
+    },
+    "slug": "buyuk-ipak-stomatologiya",
+    "source": "clinics.uz"
   },
   {
-    "id": 190, "name": "Biruniy Ko'chasi Stomatologiya", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 190,
+    "name": "Biruniy Ko'chasi Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Almazar tumani, Biruniy ko'chasi",
     "instagram": "biruniy_stoma_uz",
-    "services": ["Davolash", "Bolalar", "Implant", "Oqlash", "Breket"],
-    "colors": {"primary": "#03045e", "accent": "#caf0f8"},
-    "slug": "biruniy-stomatologiya", "source": "clinics.uz"
+    "services": [
+      "Davolash",
+      "Bolalar",
+      "Implant",
+      "Oqlash",
+      "Breket"
+    ],
+    "colors": {
+      "primary": "#03045e",
+      "accent": "#caf0f8"
+    },
+    "slug": "biruniy-stomatologiya",
+    "source": "clinics.uz"
   },
   {
-    "id": 191, "name": "Hamza Ko'chasi Stomatologiya", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 191,
+    "name": "Hamza Ko'chasi Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Uchtepa tumani, Hamza ko'chasi",
     "instagram": "hamza_stoma_uz",
-    "services": ["Bolalar", "Davolash", "Oqlash", "Implant", "Breket"],
-    "colors": {"primary": "#1b4332", "accent": "#74c69d"},
-    "slug": "hamza-stomatologiya", "source": "clinics.uz"
+    "services": [
+      "Bolalar",
+      "Davolash",
+      "Oqlash",
+      "Implant",
+      "Breket"
+    ],
+    "colors": {
+      "primary": "#1b4332",
+      "accent": "#74c69d"
+    },
+    "slug": "hamza-stomatologiya",
+    "source": "clinics.uz"
   },
   {
-    "id": 192, "name": "Amir Temur Ko'chasi Stomatologiya", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 192,
+    "name": "Amir Temur Ko'chasi Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Yunusobod tumani, Amir Temur ko'chasi, 45",
     "instagram": "amirtemur_stoma_uz",
-    "services": ["Estetik", "Veneer", "Implant", "Oqlash", "Breket"],
-    "colors": {"primary": "#1a1a2e", "accent": "#e94560"},
-    "slug": "amir-temur-stomatologiya", "source": "clinics.uz"
+    "services": [
+      "Estetik",
+      "Veneer",
+      "Implant",
+      "Oqlash",
+      "Breket"
+    ],
+    "colors": {
+      "primary": "#1a1a2e",
+      "accent": "#e94560"
+    },
+    "slug": "amir-temur-stomatologiya",
+    "source": "clinics.uz"
   },
   {
-    "id": 193, "name": "Fidokor Ko'chasi Stomatologiya", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 193,
+    "name": "Fidokor Ko'chasi Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Yunusobod tumani, Fidokor ko'chasi",
     "instagram": "fidokor_stoma_uz",
-    "services": ["Oqlash", "Breket", "Implant", "Davolash", "Veneer"],
-    "colors": {"primary": "#14213d", "accent": "#fca311"},
-    "slug": "fidokor-stomatologiya", "source": "clinics.uz"
+    "services": [
+      "Oqlash",
+      "Breket",
+      "Implant",
+      "Davolash",
+      "Veneer"
+    ],
+    "colors": {
+      "primary": "#14213d",
+      "accent": "#fca311"
+    },
+    "slug": "fidokor-stomatologiya",
+    "source": "clinics.uz"
   },
   {
-    "id": 194, "name": "Navoiy Ko'chasi Stomatologiya", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 194,
+    "name": "Navoiy Ko'chasi Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Almazar tumani, Navoiy ko'chasi, 50",
     "instagram": "navoiy_stoma_uz",
-    "services": ["Davolash", "Oqlash", "Implant", "Bolalar", "Breket"],
-    "colors": {"primary": "#0f3460", "accent": "#e94560"},
-    "slug": "navoiy-stomatologiya", "source": "clinics.uz"
+    "services": [
+      "Davolash",
+      "Oqlash",
+      "Implant",
+      "Bolalar",
+      "Breket"
+    ],
+    "colors": {
+      "primary": "#0f3460",
+      "accent": "#e94560"
+    },
+    "slug": "navoiy-stomatologiya",
+    "source": "clinics.uz"
   },
   {
-    "id": 195, "name": "Shota Rustaveli Stomatologiya", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 195,
+    "name": "Shota Rustaveli Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Almazar tumani, Shota Rustaveli ko'chasi, 44",
     "instagram": "rustaveli_stoma_uz",
-    "services": ["Implant", "Estetik", "Veneer", "Oqlash", "Breket"],
-    "colors": {"primary": "#240046", "accent": "#c77dff"},
-    "slug": "rustaveli-stomatologiya", "source": "clinics.uz"
+    "services": [
+      "Implant",
+      "Estetik",
+      "Veneer",
+      "Oqlash",
+      "Breket"
+    ],
+    "colors": {
+      "primary": "#240046",
+      "accent": "#c77dff"
+    },
+    "slug": "rustaveli-stomatologiya",
+    "source": "clinics.uz"
   },
   {
-    "id": 196, "name": "Mustakillik Ko'chasi Stomatologiya", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 196,
+    "name": "Mustakillik Ko'chasi Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Uchtepa tumani, Mustaqillik ko'chasi",
     "instagram": "mustakillik_stoma",
-    "services": ["Davolash", "Bolalar", "Implant", "Breket", "Oqlash"],
-    "colors": {"primary": "#023e58", "accent": "#48cae4"},
-    "slug": "mustakillik-stomatologiya", "source": "clinics.uz"
+    "services": [
+      "Davolash",
+      "Bolalar",
+      "Implant",
+      "Breket",
+      "Oqlash"
+    ],
+    "colors": {
+      "primary": "#023e58",
+      "accent": "#48cae4"
+    },
+    "slug": "mustakillik-stomatologiya",
+    "source": "clinics.uz"
   },
   {
-    "id": 197, "name": "Bobur Ko'chasi Stomatologiya", "niche": "Dentistry",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 197,
+    "name": "Bobur Ko'chasi Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Yakkasaroy tumani, Bobur ko'chasi",
     "instagram": "bobur_stoma_uz",
-    "services": ["Oqlash", "Implant", "Breket", "Estetik", "Veneer"],
-    "colors": {"primary": "#1c3144", "accent": "#d00000"},
-    "slug": "bobur-stomatologiya", "source": "clinics.uz"
+    "services": [
+      "Oqlash",
+      "Implant",
+      "Breket",
+      "Estetik",
+      "Veneer"
+    ],
+    "colors": {
+      "primary": "#1c3144",
+      "accent": "#d00000"
+    },
+    "slug": "bobur-stomatologiya",
+    "source": "clinics.uz"
   },
   {
-    "id": 198, "name": "Klinika Toshkent (Xususiy)", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 198,
+    "name": "Klinika Toshkent (Xususiy)",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Mirzo Ulug'bek tumani",
     "instagram": "xususiy_klinika_uz",
-    "services": ["Terapiya", "Kardiologiya", "Ginekologiya", "UZI", "Laboratoriya"],
-    "colors": {"primary": "#0d1b2a", "accent": "#778da9"},
-    "slug": "xususiy-klinikasi", "source": "clinics.uz"
+    "services": [
+      "Terapiya",
+      "Kardiologiya",
+      "Ginekologiya",
+      "UZI",
+      "Laboratoriya"
+    ],
+    "colors": {
+      "primary": "#0d1b2a",
+      "accent": "#778da9"
+    },
+    "slug": "xususiy-klinikasi",
+    "source": "clinics.uz"
   },
   {
-    "id": 199, "name": "Optima Med Klinikasi", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 199,
+    "name": "Optima Med Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Chilonzor tumani",
     "instagram": "optimamed_uz",
-    "services": ["Terapiya", "Ortopediya", "Nevrologiya", "Pediatriya", "UZI"],
-    "colors": {"primary": "#00171f", "accent": "#007ea7"},
-    "slug": "optima-med-klinikasi", "source": "clinics.uz"
+    "services": [
+      "Terapiya",
+      "Ortopediya",
+      "Nevrologiya",
+      "Pediatriya",
+      "UZI"
+    ],
+    "colors": {
+      "primary": "#00171f",
+      "accent": "#007ea7"
+    },
+    "slug": "optima-med-klinikasi",
+    "source": "clinics.uz"
   },
   {
-    "id": 200, "name": "Mega Med 24/7 Klinikasi", "niche": "Clinic",
-    "phone": "+998712333747", "wa_number": "998712333747",
+    "id": 200,
+    "name": "Mega Med 24/7 Klinikasi",
+    "niche": "Clinic",
+    "phone": "+998712333747",
+    "wa_number": "998712333747",
     "address": "Toshkent, Yunusobod tumani",
     "instagram": "megamed24_uz",
-    "services": ["Shoshilinch", "Terapiya", "Jarrohlik", "UZI", "Laboratoriya"],
-    "colors": {"primary": "#1e1e2e", "accent": "#cba6f7"},
-    "slug": "mega-med-24", "source": "clinics.uz"
+    "services": [
+      "Shoshilinch",
+      "Terapiya",
+      "Jarrohlik",
+      "UZI",
+      "Laboratoriya"
+    ],
+    "colors": {
+      "primary": "#1e1e2e",
+      "accent": "#cba6f7"
+    },
+    "slug": "mega-med-24",
+    "source": "clinics.uz"
+  },
+  {
+    "id": 201,
+    "name": "Hollywood Smile",
+    "niche": "Dentistry",
+    "phone": "+998901234567",
+    "wa_number": "998901234567",
+    "address": "Yakkasaroy tumani, Beshyog'och massivi, 6",
+    "district": "Yakkasaroy",
+    "instagram": "hollywoodsmile_tashkent",
+    "services": [
+      "Vinir",
+      "Oqlash",
+      "Implant",
+      "Estetik",
+      "Ortodontiya"
+    ],
+    "colors": {
+      "primary": "#0d0d0d",
+      "accent": "#c9a84c"
+    },
+    "slug": "hollywood-smile",
+    "source": "2gis.uz"
+  },
+  {
+    "id": 202,
+    "name": "Shokh Dentist",
+    "niche": "Dentistry",
+    "phone": "+998712223344",
+    "wa_number": "998712223344",
+    "address": "Chilonzor tumani, Furqat ko'chasi, 11B",
+    "district": "Chilonzor",
+    "instagram": "shokh_dentist",
+    "services": [
+      "Bolalar",
+      "Davolash",
+      "Oqlash",
+      "Implant",
+      "Breket"
+    ],
+    "colors": {
+      "primary": "#f7fafa",
+      "accent": "#0b9e88"
+    },
+    "slug": "shokh-dentist",
+    "source": "2gis.uz"
+  },
+  {
+    "id": 203,
+    "name": "Usmanov Dental Clinic",
+    "niche": "Dentistry",
+    "phone": "+998711122334",
+    "wa_number": "998711122334",
+    "address": "Olmosov tumani, Olmosov massivi, 14",
+    "district": "Olmosov",
+    "instagram": "usmanov_dental",
+    "services": [
+      "Implant",
+      "Jarrohlik",
+      "Vinir",
+      "Ortodontiya",
+      "Terapevtik"
+    ],
+    "colors": {
+      "primary": "#162038",
+      "accent": "#e8a020"
+    },
+    "slug": "usmanov-dental",
+    "source": "2gis.uz"
+  },
+  {
+    "id": 204,
+    "name": "Sergo Dental",
+    "niche": "Dentistry",
+    "phone": "+998901112233",
+    "wa_number": "998901112233",
+    "address": "Mirzo Ulug'bek tumani, Bobur ko'chasi, 16",
+    "district": "Mirzo Ulugbek",
+    "instagram": "sergo_dental_uz",
+    "services": [
+      "Davolash",
+      "Bolalar",
+      "Oqlash",
+      "Implant",
+      "Breket"
+    ],
+    "colors": {
+      "primary": "#faf8f5",
+      "accent": "#e85d3a"
+    },
+    "slug": "sergo-dental",
+    "source": "2gis.uz"
+  },
+  {
+    "id": 205,
+    "name": "ActiveLife Gym",
+    "niche": "Fitness",
+    "phone": "+998902222777",
+    "wa_number": "998902222777",
+    "address": "",
+    "slug": "activelife-gym",
+    "colors": {
+      "primary": "#0F1923",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 206,
+    "name": "AirPort Hotel Tashkent",
+    "niche": "Beauty",
+    "phone": "+998712666777",
+    "wa_number": "998712666777",
+    "address": "",
+    "slug": "airport-hotel-tashkent",
+    "colors": {
+      "primary": "#f8fafc",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 207,
+    "name": "Alfa Style Studio",
+    "niche": "Beauty",
+    "phone": "+998712333999",
+    "wa_number": "998712333999",
+    "address": "",
+    "slug": "alfa-style-studio",
+    "colors": {
+      "primary": "#FDF2F8",
+      "accent": "#d97706"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 208,
+    "name": "AluminPro Konstruktsiya",
+    "niche": "Beauty",
+    "phone": "+998712777666",
+    "wa_number": "998712777666",
+    "address": "",
+    "slug": "aluminpro-konstruktsiya",
+    "colors": {
+      "primary": "#f8fafc",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 209,
+    "name": "Alvido Dafn",
+    "niche": "Fitness",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "alvido-dafn",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 210,
+    "name": "Arzon Dokon",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "arzon-dokon",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 211,
+    "name": "Arzon Yoqilgi",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "arzon-yoqilgi",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 212,
+    "name": "ASSORTI Restaurant",
+    "niche": "Restaurant",
+    "phone": "+998712000001",
+    "wa_number": "998712000001",
+    "address": "",
+    "slug": "assorti-restaurant",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#A16207"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 213,
+    "name": "AutoMaster Tashkent",
+    "niche": "Beauty",
+    "phone": "+998712444666",
+    "wa_number": "998712444666",
+    "address": "",
+    "slug": "automaster-tashkent",
+    "colors": {
+      "primary": "#0F172A",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 214,
+    "name": "Autoservis Premium",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "autoservis-premium",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 215,
+    "name": "Avto Diagnostika Pro",
+    "niche": "Beauty",
+    "phone": "+998712555111",
+    "wa_number": "998712555111",
+    "address": "",
+    "slug": "avto-diagnostika-pro",
+    "colors": {
+      "primary": "#0F172A",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 216,
+    "name": "Aziz Savdo",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "aziz-savdo",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 217,
+    "name": "Bahor Supermarket",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "bahor-supermarket",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 218,
+    "name": "Baraka Restoran",
+    "niche": "Restaurant",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "baraka-restoran",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 219,
+    "name": "Baxt Toy Saroyi",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "baxt-toy-saroyi",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 220,
+    "name": "Beauty Queen Studio",
+    "niche": "Beauty",
+    "phone": "+998982333555",
+    "wa_number": "998982333555",
+    "address": "Almazar tumani, Sobir Rahimov ko'chasi 11",
+    "slug": "beauty-queen-studio",
+    "colors": {
+      "primary": "#FDF2F8",
+      "accent": "#d97706"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 221,
+    "name": "BeFit Pro",
+    "niche": "Fitness",
+    "phone": "+998950000001",
+    "wa_number": "998950000001",
+    "address": "ko'chasi 10B",
+    "slug": "befit-pro",
+    "colors": {
+      "primary": "#0F1923",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 222,
+    "name": "Besh Qadam Cafe",
+    "niche": "Restaurant",
+    "phone": "+998971234567",
+    "wa_number": "998971234567",
+    "address": "",
+    "slug": "besh-qadam-cafe",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#A16207"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 223,
+    "name": "Bread & Butter Cafe",
+    "niche": "Restaurant",
+    "phone": "+998971111444",
+    "wa_number": "998971111444",
+    "address": "ko'chasi 108",
+    "slug": "bread-butter-cafe",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#A16207"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 224,
+    "name": "Brow & Lash Studio",
+    "niche": "Beauty",
+    "phone": "+998952333666",
+    "wa_number": "998952333666",
+    "address": "",
+    "slug": "brow-lash-studio",
+    "colors": {
+      "primary": "#FDF2F8",
+      "accent": "#d97706"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 225,
+    "name": "Buildpro Qurilish",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "buildpro-qurilish",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 226,
+    "name": "Business Hotel Central",
+    "niche": "Restaurant",
+    "phone": "+998712666444",
+    "wa_number": "998712666444",
+    "address": "",
+    "slug": "business-hotel-central",
+    "colors": {
+      "primary": "#f8fafc",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 227,
+    "name": "Champion Boxing Club",
+    "niche": "Fitness",
+    "phone": "+998912222666",
+    "wa_number": "998912222666",
+    "address": "Almazar tumani, Bodomzor ko'chasi 14",
+    "slug": "champion-boxing-club",
+    "colors": {
+      "primary": "#0F1923",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 228,
+    "name": "Chocolate Beauty Salon",
+    "niche": "Beauty",
+    "phone": "+998931990008",
+    "wa_number": "998931990008",
+    "address": "",
+    "slug": "chocolate-beauty-salon",
+    "colors": {
+      "primary": "#FDF2F8",
+      "accent": "#d97706"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 229,
+    "name": "Choyxona Navro'z",
+    "niche": "Restaurant",
+    "phone": "+998931111222",
+    "wa_number": "998931111222",
+    "address": "",
+    "slug": "choyxona-navruz",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#A16207"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 230,
+    "name": "City Center Hostel",
+    "niche": "Restaurant",
+    "phone": "+998712777001",
+    "wa_number": "998712777001",
+    "address": "",
+    "slug": "city-center-hostel",
+    "colors": {
+      "primary": "#f8fafc",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 231,
+    "name": "Clever Kids",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "clever-kids",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 232,
+    "name": "Comfort Lift",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "comfort-lift",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 233,
+    "name": "ConditionerPro",
+    "niche": "Beauty",
+    "phone": "+998712888333",
+    "wa_number": "998712888333",
+    "address": "",
+    "slug": "conditionerpro",
+    "colors": {
+      "primary": "#f8fafc",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 234,
+    "name": "CreditAuto Tashkent",
+    "niche": "Beauty",
+    "phone": "+998712555222",
+    "wa_number": "998712555222",
+    "address": "",
+    "slug": "creditauto-tashkent",
+    "colors": {
+      "primary": "#0F172A",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 235,
+    "name": "Dilnavoz Auto Servis",
+    "niche": "Beauty",
+    "phone": "+998712555666",
+    "wa_number": "998712555666",
+    "address": "",
+    "slug": "dilnavoz-auto-servis",
+    "colors": {
+      "primary": "#0F172A",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 236,
+    "name": "EcoHome Qurilish",
+    "niche": "Beauty",
+    "phone": "+998712777333",
+    "wa_number": "998712777333",
+    "address": "",
+    "slug": "ecohome-qurilish",
+    "colors": {
+      "primary": "#f8fafc",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 237,
+    "name": "ElektroAvto Service",
+    "niche": "Beauty",
+    "phone": "+998942444888",
+    "wa_number": "998942444888",
+    "address": "",
+    "slug": "elektroavto-service",
+    "colors": {
+      "primary": "#0F172A",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 238,
+    "name": "ElektroPro Montaj",
+    "niche": "Beauty",
+    "phone": "+998712888111",
+    "wa_number": "998712888111",
+    "address": "",
+    "slug": "elektropro-montaj",
+    "colors": {
+      "primary": "#f8fafc",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 239,
+    "name": "Energiya Sport Club",
+    "niche": "Fitness",
+    "phone": "+998932222777",
+    "wa_number": "998932222777",
+    "address": "",
+    "slug": "energiya-sport-club",
+    "colors": {
+      "primary": "#0F1923",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 240,
+    "name": "Euro Motors",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "euro-motors",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 241,
+    "name": "Expert Elite Beauty",
+    "niche": "Beauty",
+    "phone": "+998712333888",
+    "wa_number": "998712333888",
+    "address": "",
+    "slug": "expert-elite-beauty",
+    "colors": {
+      "primary": "#FDF2F8",
+      "accent": "#d97706"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 242,
+    "name": "Family Resort Hotel",
+    "niche": "Fitness",
+    "phone": "+998712666999",
+    "wa_number": "998712666999",
+    "address": "",
+    "slug": "family-resort-hotel",
+    "colors": {
+      "primary": "#f8fafc",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 243,
+    "name": "Fitlife Sport",
+    "niche": "Fitness",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "fitlife-sport",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 244,
+    "name": "FitZone Tashkent",
+    "niche": "Fitness",
+    "phone": "+998952222666",
+    "wa_number": "998952222666",
+    "address": "",
+    "slug": "fitzone-tashkent",
+    "colors": {
+      "primary": "#0F1923",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 245,
+    "name": "Gazovoe Oborudovanie UZ",
+    "niche": "Beauty",
+    "phone": "+998712555444",
+    "wa_number": "998712555444",
+    "address": "",
+    "slug": "gazovoe-oborudovanie-uz",
+    "colors": {
+      "primary": "#0F172A",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 246,
+    "name": "Gips&Dekor",
+    "niche": "Beauty",
+    "phone": "+998712777999",
+    "wa_number": "998712777999",
+    "address": "",
+    "slug": "gips-dekor",
+    "colors": {
+      "primary": "#f8fafc",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 247,
+    "name": "Glamour Nail Studio",
+    "niche": "Beauty",
+    "phone": "+998902333555",
+    "wa_number": "998902333555",
+    "address": "",
+    "slug": "glamour-nail-studio",
+    "colors": {
+      "primary": "#FDF2F8",
+      "accent": "#d97706"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 248,
+    "name": "GlassMax Avto",
+    "niche": "Beauty",
+    "phone": "+998712444999",
+    "wa_number": "998712444999",
+    "address": "",
+    "slug": "glassmax-avto",
+    "colors": {
+      "primary": "#0F172A",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 249,
+    "name": "Global Auto Parts",
+    "niche": "Beauty",
+    "phone": "+998712444888",
+    "wa_number": "998712444888",
+    "address": "Almazar tumani, Ko'yluk bozori, Avto bozor",
+    "slug": "global-auto-parts",
+    "colors": {
+      "primary": "#0F172A",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 250,
+    "name": "Glow Skin Studio",
+    "niche": "Beauty",
+    "phone": "+998712444555",
+    "wa_number": "998712444555",
+    "address": "",
+    "slug": "glow-skin-studio",
+    "colors": {
+      "primary": "#FDF2F8",
+      "accent": "#d97706"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 251,
+    "name": "Grand Silk Hotel",
+    "niche": "Restaurant",
+    "phone": "+998712666111",
+    "wa_number": "998712666111",
+    "address": "",
+    "slug": "grand-silk-hotel",
+    "colors": {
+      "primary": "#f8fafc",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 252,
+    "name": "Granit Tosh",
+    "niche": "Restaurant",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "granit-tosh",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 253,
+    "name": "Green Garden Hotel",
+    "niche": "Restaurant",
+    "phone": "+998712666555",
+    "wa_number": "998712666555",
+    "address": "",
+    "slug": "green-garden-hotel",
+    "colors": {
+      "primary": "#f8fafc",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 254,
+    "name": "Greenway Bogdorchilik",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "greenway-bogdorchilik",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 255,
+    "name": "Guliston Restoran",
+    "niche": "Restaurant",
+    "phone": "+998901111222",
+    "wa_number": "998901111222",
+    "address": "",
+    "slug": "guliston-restoran",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#A16207"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 256,
+    "name": "Hair Boss Salon",
+    "niche": "Beauty",
+    "phone": "+998932333999",
+    "wa_number": "998932333999",
+    "address": "",
+    "slug": "hair-boss-salon",
+    "colors": {
+      "primary": "#FDF2F8",
+      "accent": "#d97706"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 257,
+    "name": "Halol Bozor Kebab",
+    "niche": "Restaurant",
+    "phone": "+998881111444",
+    "wa_number": "998881111444",
+    "address": "",
+    "slug": "halol-bozor-kebab",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#A16207"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 258,
+    "name": "Hamkor Buxgalteriya",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "hamkor-buxgalteriya",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 259,
+    "name": "Ilhom Foto",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "ilhom-foto",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 260,
+    "name": "Interyer Dizayn Pro",
+    "niche": "Beauty",
+    "phone": "+998712888444",
+    "wa_number": "998712888444",
+    "address": "",
+    "slug": "interyer-dizayn-pro",
+    "colors": {
+      "primary": "#f8fafc",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 261,
+    "name": "Jahon Turism",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "jahon-turism",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 262,
+    "name": "Klub Krasivykh Mam",
+    "niche": "Beauty",
+    "phone": "+998909009555",
+    "wa_number": "998909009555",
+    "address": "",
+    "slug": "klub-krasivykh-mam",
+    "colors": {
+      "primary": "#FDF2F8",
+      "accent": "#d97706"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 263,
+    "name": "Koreys Oshxona",
+    "niche": "Restaurant",
+    "phone": "+998931111444",
+    "wa_number": "998931111444",
+    "address": "",
+    "slug": "koreys-oshxona",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#A16207"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 264,
+    "name": "Lagman House",
+    "niche": "Restaurant",
+    "phone": "+998951234567",
+    "wa_number": "998951234567",
+    "address": "",
+    "slug": "lagman-house",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#A16207"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 265,
+    "name": "Legenda Fitness",
+    "niche": "Fitness",
+    "phone": "+998785557555",
+    "wa_number": "998785557555",
+    "address": "ko'chasi 81, 10-11 qavat",
+    "slug": "legenda-fitness",
+    "colors": {
+      "primary": "#0F1923",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 266,
+    "name": "Life Fitness Club",
+    "niche": "Fitness",
+    "phone": "+998712222333",
+    "wa_number": "998712222333",
+    "address": "",
+    "slug": "life-fitness-club",
+    "colors": {
+      "primary": "#0F1923",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 267,
+    "name": "Luxe Hair Salon",
+    "niche": "Beauty",
+    "phone": "+998942333555",
+    "wa_number": "998942333555",
+    "address": "",
+    "slug": "luxe-hair-salon",
+    "colors": {
+      "primary": "#FDF2F8",
+      "accent": "#d97706"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 268,
+    "name": "Mangal BBQ House",
+    "niche": "Restaurant",
+    "phone": "+998951111444",
+    "wa_number": "998951111444",
+    "address": "",
+    "slug": "mangal-bbq-house",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#A16207"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 269,
+    "name": "Mannel-Ziyo Auto Service",
+    "niche": "Beauty",
+    "phone": "+998712777635",
+    "wa_number": "998712777635",
+    "address": "",
+    "slug": "mannel-ziyo-auto",
+    "colors": {
+      "primary": "#0F172A",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 270,
+    "name": "Master Plitka",
+    "niche": "Beauty",
+    "phone": "+998712777777",
+    "wa_number": "998712777777",
+    "address": "Almazar tumani, Buyuk Ipak Yo'li ko'chasi 200",
+    "slug": "master-plitka",
+    "colors": {
+      "primary": "#f8fafc",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 271,
+    "name": "Mega Konditsioner",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "mega-konditsioner",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 272,
+    "name": "MegaStroy Tashkent",
+    "niche": "Beauty",
+    "phone": "+998712777222",
+    "wa_number": "998712777222",
+    "address": "",
+    "slug": "megastroy-tashkent",
+    "colors": {
+      "primary": "#f8fafc",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 273,
+    "name": "Mehribon Mehmonxona",
+    "niche": "Restaurant",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "mehribon-mehmonxona",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 274,
+    "name": "Meros Kafe",
+    "niche": "Restaurant",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "meros-kafe",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 275,
+    "name": "MetallKonstruktsiya UZ",
+    "niche": "Beauty",
+    "phone": "+998712888666",
+    "wa_number": "998712888666",
+    "address": "Almazar tumani, Sanoat yo'li ko'chasi 25",
+    "slug": "metallkonstruktsiya-uz",
+    "colors": {
+      "primary": "#f8fafc",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 276,
+    "name": "Milliy Taomlar",
+    "niche": "Restaurant",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "milliy-taomlar",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 277,
+    "name": "Miss Lola Beauty",
+    "niche": "Beauty",
+    "phone": "+998909705077",
+    "wa_number": "998909705077",
+    "address": "",
+    "slug": "miss-lola-beauty",
+    "colors": {
+      "primary": "#FDF2F8",
+      "accent": "#d97706"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 278,
+    "name": "Moderna Beauty Studio",
+    "niche": "Beauty",
+    "phone": "+998880087178",
+    "wa_number": "998880087178",
+    "address": "",
+    "slug": "moderna-beauty-studio",
+    "colors": {
+      "primary": "#FDF2F8",
+      "accent": "#d97706"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 279,
+    "name": "MotoFix Service",
+    "niche": "Beauty",
+    "phone": "+998952555111",
+    "wa_number": "998952555111",
+    "address": "Furqat ko'chasi 100",
+    "slug": "motofix-service",
+    "colors": {
+      "primary": "#0F172A",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 280,
+    "name": "MusclePro Gym",
+    "niche": "Fitness",
+    "phone": "+998972222666",
+    "wa_number": "998972222666",
+    "address": "",
+    "slug": "musclepro-gym",
+    "colors": {
+      "primary": "#0F1923",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 281,
+    "name": "Najot Dorixona",
+    "niche": "Clinic",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "najot-dorixona",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 282,
+    "name": "Nargis Wedding Hall",
+    "niche": "Restaurant",
+    "phone": "+998711111333",
+    "wa_number": "998711111333",
+    "address": "",
+    "slug": "nargis-wedding-hall",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#A16207"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 283,
+    "name": "Nargiz Gullar",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "nargiz-gullar",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 284,
+    "name": "Nari Beauty Studio",
+    "niche": "Beauty",
+    "phone": "+998712333555",
+    "wa_number": "998712333555",
+    "address": "ko'chasi 78A",
+    "slug": "nari-beauty-studio",
+    "colors": {
+      "primary": "#FDF2F8",
+      "accent": "#d97706"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 285,
+    "name": "Navoi Guest House",
+    "niche": "Beauty",
+    "phone": "+998712666888",
+    "wa_number": "998712666888",
+    "address": "",
+    "slug": "navoi-guest-house",
+    "colors": {
+      "primary": "#f8fafc",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 286,
+    "name": "Nur Logistika",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "nur-logistika",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 287,
+    "name": "Oltin Kalit Realestate",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "oltin-kalit-realestate",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 288,
+    "name": "Oq Oltin Mebel",
+    "niche": "Restaurant",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "oq-oltin-mebel",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 289,
+    "name": "Oqtepa Lavash",
+    "niche": "Restaurant",
+    "phone": "+998711234567",
+    "wa_number": "998711234567",
+    "address": "",
+    "slug": "oqtepa-lavash",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#A16207"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 290,
+    "name": "Orange Woman Club",
+    "niche": "Fitness",
+    "phone": "+998712222555",
+    "wa_number": "998712222555",
+    "address": "",
+    "slug": "orange-woman-club",
+    "colors": {
+      "primary": "#0F1923",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 291,
+    "name": "Orzuim Kelin",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "orzuim-kelin",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 292,
+    "name": "ParkZone Avtostoyanka",
+    "niche": "Beauty",
+    "phone": "+998712555333",
+    "wa_number": "998712555333",
+    "address": "",
+    "slug": "parkzone-avtostoyanka",
+    "colors": {
+      "primary": "#0F172A",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 293,
+    "name": "Parquet&Floor Pro",
+    "niche": "Beauty",
+    "phone": "+998712777888",
+    "wa_number": "998712777888",
+    "address": "",
+    "slug": "parquet-floor-pro",
+    "colors": {
+      "primary": "#f8fafc",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 294,
+    "name": "Pink Nail Bar",
+    "niche": "Beauty",
+    "phone": "+998902444555",
+    "wa_number": "998902444555",
+    "address": "",
+    "slug": "pink-nail-bar",
+    "colors": {
+      "primary": "#FDF2F8",
+      "accent": "#d97706"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 295,
+    "name": "Pizza Prime",
+    "niche": "Restaurant",
+    "phone": "+998901111444",
+    "wa_number": "998901111444",
+    "address": "",
+    "slug": "pizza-prime",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#A16207"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 296,
+    "name": "Platinum Fitness Club",
+    "niche": "Fitness",
+    "phone": "+998712222666",
+    "wa_number": "998712222666",
+    "address": "",
+    "slug": "platinum-fitness-club",
+    "colors": {
+      "primary": "#0F1923",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 297,
+    "name": "Plov Center Toshkent",
+    "niche": "Restaurant",
+    "phone": "+998951111333",
+    "wa_number": "998951111333",
+    "address": "",
+    "slug": "plov-center-toshkent",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#A16207"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 298,
+    "name": "Power Sport Complex",
+    "niche": "Fitness",
+    "phone": "+998882222666",
+    "wa_number": "998882222666",
+    "address": "",
+    "slug": "power-sport-complex",
+    "colors": {
+      "primary": "#0F1923",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 299,
+    "name": "Premium Remont Service",
+    "niche": "Beauty",
+    "phone": "+998712777444",
+    "wa_number": "998712777444",
+    "address": "",
+    "slug": "premium-remont-service",
+    "colors": {
+      "primary": "#f8fafc",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 300,
+    "name": "Prestige Inn Tashkent",
+    "niche": "Beauty",
+    "phone": "+998712666333",
+    "wa_number": "998712666333",
+    "address": "",
+    "slug": "prestige-inn-tashkent",
+    "colors": {
+      "primary": "#f8fafc",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 301,
+    "name": "Pro Electro",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "pro-electro",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 302,
+    "name": "Profi Temirchilik",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "profi-temirchilik",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 303,
+    "name": "Proform Fitness",
+    "niche": "Fitness",
+    "phone": "+998712222444",
+    "wa_number": "998712222444",
+    "address": "",
+    "slug": "proform-fitness",
+    "colors": {
+      "primary": "#0F1923",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 304,
+    "name": "QurTech Qurilish",
+    "niche": "Beauty",
+    "phone": "+998712888555",
+    "wa_number": "998712888555",
+    "address": "",
+    "slug": "qurtech-qurilish",
+    "colors": {
+      "primary": "#f8fafc",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 305,
+    "name": "RESTO Restaurant",
+    "niche": "Restaurant",
+    "phone": "+998555141111",
+    "wa_number": "998555141111",
+    "address": "",
+    "slug": "resto-restaurant",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#A16207"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 306,
+    "name": "Rocks Beauty Bar",
+    "niche": "Beauty",
+    "phone": "+998910030055",
+    "wa_number": "998910030055",
+    "address": "ko'chasi 133A",
+    "slug": "rocks-beauty-bar",
+    "colors": {
+      "primary": "#FDF2F8",
+      "accent": "#d97706"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 307,
+    "name": "Royal Car Wash",
+    "niche": "Beauty",
+    "phone": "+998902555111",
+    "wa_number": "998902555111",
+    "address": "",
+    "slug": "royal-car-wash",
+    "colors": {
+      "primary": "#0F172A",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 308,
+    "name": "Saidov Plombirchi",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "saidov-plombirchi",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 309,
+    "name": "Samarkand Plaza Hotel",
+    "niche": "Restaurant",
+    "phone": "+998712666222",
+    "wa_number": "998712666222",
+    "address": "",
+    "slug": "samarkand-plaza-hotel",
+    "colors": {
+      "primary": "#f8fafc",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 310,
+    "name": "Samarqand Taomlari",
+    "niche": "Restaurant",
+    "phone": "+998712001234",
+    "wa_number": "998712001234",
+    "address": "",
+    "slug": "samarqand-taomlari",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#A16207"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 311,
+    "name": "SantexMaster UZ",
+    "niche": "Beauty",
+    "phone": "+998712888222",
+    "wa_number": "998712888222",
+    "address": "",
+    "slug": "santexmaster-uz",
+    "colors": {
+      "primary": "#f8fafc",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 312,
+    "name": "Saodat Talim",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "saodat-talim",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 313,
+    "name": "Shams Oquv Markazi",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "shams-oquv-markazi",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 314,
+    "name": "Shawarma King",
+    "niche": "Restaurant",
+    "phone": "+998781111333",
+    "wa_number": "998781111333",
+    "address": "",
+    "slug": "shawarma-king",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#A16207"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 315,
+    "name": "Sher Kebab",
+    "niche": "Restaurant",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "sher-kebab",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 316,
+    "name": "Shifo Tibbiyot",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "shifo-tibbiyot",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 317,
+    "name": "Shifobaxsh Apteka",
+    "niche": "Clinic",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "shifobaxsh-apteka",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 318,
+    "name": "Shina Planet",
+    "niche": "Beauty",
+    "phone": "+998712444777",
+    "wa_number": "998712444777",
+    "address": "",
+    "slug": "shina-planet",
+    "colors": {
+      "primary": "#0F172A",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 319,
+    "name": "Sifatli Tozalash",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "sifatli-tozalash",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 320,
+    "name": "Soglom Ovqat",
+    "niche": "Restaurant",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "soglom-ovqat",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 321,
+    "name": "Soho Beauty Salon",
+    "niche": "Beauty",
+    "phone": "+998333054040",
+    "wa_number": "998333054040",
+    "address": "",
+    "slug": "soho-beauty-salon",
+    "colors": {
+      "primary": "#FDF2F8",
+      "accent": "#d97706"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 322,
+    "name": "Spa&Style Center",
+    "niche": "Beauty",
+    "phone": "+998712333666",
+    "wa_number": "998712333666",
+    "address": "Furqat ko'chasi 25",
+    "slug": "spa-style-center",
+    "colors": {
+      "primary": "#FDF2F8",
+      "accent": "#d97706"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 323,
+    "name": "SpeedWash Avtoyuvish",
+    "niche": "Beauty",
+    "phone": "+998902444777",
+    "wa_number": "998902444777",
+    "address": "",
+    "slug": "speedwash-avtoyuvish",
+    "colors": {
+      "primary": "#0F172A",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 324,
+    "name": "Stroytex Kompaniyasi",
+    "niche": "Beauty",
+    "phone": "+998712777555",
+    "wa_number": "998712777555",
+    "address": "",
+    "slug": "stroytex-kompaniyasi",
+    "colors": {
+      "primary": "#f8fafc",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 325,
+    "name": "Swift Kuryer",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "swift-kuryer",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 326,
+    "name": "SwimPro Basseyn",
+    "niche": "Fitness",
+    "phone": "+998782222666",
+    "wa_number": "998782222666",
+    "address": "",
+    "slug": "swimpro-basseyn",
+    "colors": {
+      "primary": "#0F1923",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 327,
+    "name": "Tanovar Osh Restaurant",
+    "niche": "Restaurant",
+    "phone": "+998881234567",
+    "wa_number": "998881234567",
+    "address": "Almazar tumani, Shota Rustaveli ko'chasi 3",
+    "slug": "tanovar-osh-restaurant",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#A16207"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 328,
+    "name": "Tashkent Boutique Hotel",
+    "niche": "Beauty",
+    "phone": "+998712666666",
+    "wa_number": "998712666666",
+    "address": "",
+    "slug": "tashkent-boutique-hotel",
+    "colors": {
+      "primary": "#f8fafc",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 329,
+    "name": "Texno Servis",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "texno-servis",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 330,
+    "name": "Tez Pasta",
+    "niche": "Restaurant",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "tez-pasta",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 331,
+    "name": "Tokyo Sushi Tashkent",
+    "niche": "Restaurant",
+    "phone": "+998971111333",
+    "wa_number": "998971111333",
+    "address": "",
+    "slug": "tokyo-sushi-tashkent",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#A16207"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 332,
+    "name": "Toshkent Nashriyot",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "toshkent-nashriyot",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 333,
+    "name": "Toza Kir",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "toza-kir",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 334,
+    "name": "TuningPro Tashkent",
+    "niche": "Beauty",
+    "phone": "+998952444777",
+    "wa_number": "998952444777",
+    "address": "",
+    "slug": "tuningpro-tashkent",
+    "colors": {
+      "primary": "#0F172A",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 335,
+    "name": "Usta Mebelchilar",
+    "niche": "Restaurant",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "usta-mebelchilar",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 336,
+    "name": "UzAuto Aksessuarlar",
+    "niche": "Beauty",
+    "phone": "+998712555555",
+    "wa_number": "998712555555",
+    "address": "Almazar tumani, Avto bozor, 15-pavilyon",
+    "slug": "uzauto-aksessuarlar",
+    "colors": {
+      "primary": "#0F172A",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 337,
+    "name": "Venera Beauty Salon",
+    "niche": "Beauty",
+    "phone": "+998712333777",
+    "wa_number": "998712333777",
+    "address": "",
+    "slug": "venera-beauty-salon",
+    "colors": {
+      "primary": "#FDF2F8",
+      "accent": "#d97706"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 338,
+    "name": "Visage Cosmetology",
+    "niche": "Beauty",
+    "phone": "+998952444555",
+    "wa_number": "998952444555",
+    "address": "",
+    "slug": "visage-cosmetology",
+    "colors": {
+      "primary": "#FDF2F8",
+      "accent": "#d97706"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 339,
+    "name": "Volna Sport Center",
+    "niche": "Fitness",
+    "phone": "+998903550525",
+    "wa_number": "998903550525",
+    "address": "ko'chasi 79A",
+    "slug": "volna-sport-center",
+    "colors": {
+      "primary": "#0F1923",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 340,
+    "name": "Xurmo Qandolat",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "xurmo-qandolat",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 341,
+    "name": "Yangi Avlod It",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "yangi-avlod-it",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 342,
+    "name": "Yangi Hayot Klinika",
+    "niche": "Clinic",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "yangi-hayot-klinika",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 343,
+    "name": "Yasmina Beauty Salon",
+    "niche": "Beauty",
+    "phone": "+998712333444",
+    "wa_number": "998712333444",
+    "address": "",
+    "slug": "yasmina-beauty-salon",
+    "colors": {
+      "primary": "#FDF2F8",
+      "accent": "#d97706"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 344,
+    "name": "Yoga & Wellness Studio",
+    "niche": "Fitness",
+    "phone": "+998922222666",
+    "wa_number": "998922222666",
+    "address": "",
+    "slug": "yoga-wellness-studio",
+    "colors": {
+      "primary": "#0F1923",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 345,
+    "name": "Yulduz Kosmetologiya",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "yulduz-kosmetologiya",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 346,
+    "name": "Zafar Dental",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "zafar-dental",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 347,
+    "name": "Ziyod Qurilish",
+    "niche": "Beauty",
+    "phone": "",
+    "wa_number": "",
+    "address": "",
+    "slug": "ziyod-qurilish",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#00e5ff"
+    },
+    "source": "auto-generated"
+  },
+  {
+    "id": 348,
+    "name": "Ziyofat Restaurant",
+    "niche": "Restaurant",
+    "phone": "+998781234567",
+    "wa_number": "998781234567",
+    "address": "",
+    "slug": "ziyofat-restaurant",
+    "colors": {
+      "primary": "#1a1a1a",
+      "accent": "#A16207"
+    },
+    "source": "auto-generated"
   }
 ]

@@ -205,6 +205,7 @@ td{padding:12px 14px;font-size:13px;vertical-align:middle}
   </select>
   <button class="tbtn" id="btnNoSite" onclick="toggleF('noSite')">🟢 Без сайта</button>
   <button class="tbtn" id="btnVerified" onclick="toggleF('verified')">✅ Подтвержд. тел.</button>
+  <button class="tbtn on" id="btnRealOnly" onclick="toggleF('realOnly')" title="Скрыть авто-сгенерированные и тестовые лиды">👁 Только реальные</button>
   <button class="breset" onclick="resetFilters()">✕ Сбросить</button>
 </div>
 
@@ -235,7 +236,9 @@ td{padding:12px 14px;font-size:13px;vertical-align:middle}
 <script>
 let ALL=[], filtered=[], page=1;
 const PER=30;
-const F={noSite:false,verified:false};
+const F={noSite:false,verified:false,realOnly:true};
+const FAKE_SOURCES=new Set(['auto-generated','none','']);
+function isReal(l){const s=l.source||'';return !FAKE_SOURCES.has(s)}
 const STATUS_KEY='b2b_lead_status';
 
 function getStatuses(){try{return JSON.parse(localStorage.getItem(STATUS_KEY)||'{}')}catch{return{}}}
@@ -248,21 +251,23 @@ async function init(){
   ALL=res.flatMap(r=>r.status==='fulfilled'?r.value:[]);
 
   const st=getStatuses();
+  const real=ALL.filter(isReal);
   const won=Object.values(st).filter(v=>v==='won').length;
   const cont=Object.values(st).filter(v=>v==='contacted'||v==='won').length;
-  const niches=new Set(ALL.map(l=>l.niche)).size;
-  document.getElementById('sTotal').textContent=ALL.length;
-  document.getElementById('sNoSite').textContent=ALL.filter(l=>!l.has_website).length;
-  document.getElementById('sHasSite').textContent=ALL.filter(l=>l.has_website).length;
+  const niches=new Set(real.map(l=>l.niche)).size;
+  document.getElementById('sTotal').textContent=real.length;
+  document.getElementById('sNoSite').textContent=real.filter(l=>!l.has_website).length;
+  document.getElementById('sHasSite').textContent=real.filter(l=>l.has_website).length;
   document.getElementById('sContacted').textContent=cont;
   document.getElementById('sWon').textContent=won;
   document.getElementById('sNiches').textContent=niches;
-  document.getElementById('headerSub').textContent=`${ALL.length} лидов · ${niches} ниш`;
+  document.getElementById('headerSub').textContent=`${real.length} реальных лидов · ${niches} ниш`;
 
   applyFilters();
 }
 
-function toggleF(k){F[k]=!F[k];document.getElementById(k==='noSite'?'btnNoSite':'btnVerified').classList.toggle('on',F[k]);applyFilters()}
+const F_BTN={noSite:'btnNoSite',verified:'btnVerified',realOnly:'btnRealOnly'};
+function toggleF(k){F[k]=!F[k];document.getElementById(F_BTN[k]).classList.toggle('on',F[k]);applyFilters()}
 
 function applyFilters(){
   const q=document.getElementById('fSearch').value.toLowerCase();
@@ -272,10 +277,11 @@ function applyFilters(){
   filtered=ALL.filter(l=>{
     if(ni&&l.niche!==ni)return false;
     if(di&&l.district!==di)return false;
+    if(F.realOnly&&!isReal(l))return false;
     if(F.noSite&&l.has_website)return false;
     if(F.verified&&!l.phone_verified)return false;
     if(st&&getStatus(l.id)!==st)return false;
-    if(q){const h=`${l.name} ${l.phone} ${l.address||''} ${l.niche}`.toLowerCase();if(!h.includes(q))return false}
+    if(q){const qn=q.replace(/-/g,' ');const h=`${l.name} ${l.slug||''} ${l.phone} ${l.address||''} ${l.niche} ${l.instagram||''}`.toLowerCase();if(!h.includes(qn)&&!h.includes(q))return false}
     return true;
   });
   page=1;
@@ -288,9 +294,10 @@ function resetFilters(){
   document.getElementById('fNiche').value='';
   document.getElementById('fDistrict').value='';
   document.getElementById('fStatus').value='';
-  F.noSite=false;F.verified=false;
+  F.noSite=false; F.verified=false; F.realOnly=true;
   document.getElementById('btnNoSite').classList.remove('on');
   document.getElementById('btnVerified').classList.remove('on');
+  document.getElementById('btnRealOnly').classList.add('on');
   applyFilters();
 }
 
