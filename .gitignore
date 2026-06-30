@@ -12,3 +12,8 @@ crm/nextjs/node_modules/
 
 # Local Netlify folder
 .netlify
+.tg_creds.json
+.tg_session*
+.env
+*.session
+*.session-journal
