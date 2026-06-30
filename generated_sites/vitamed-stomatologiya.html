@@ -1,344 +1,1341 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VitaMed Medical Stomatologiya — Toshkent</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--primary:#1b263b;--accent:#415a77;--accent2:#778da9;--white:#e0e1dd;--glass:rgba(65,90,119,0.12);--glow:rgba(65,90,119,0.35)}
-html{scroll-behavior:smooth}
-body{background:#0d1321;color:var(--white);font-family:'Inter',sans-serif;overflow-x:hidden}
-h1,h2,h3,.display{font-family:'Syne',sans-serif}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VitaMed Medical Stomatologiya — Toshkent</title>
+  <meta name="description" content="VitaMed Medical Stomatologiya — Toshkentdagi zamonaviy stomatologiya klinikasi. Implant, ortodontiya, estetik stomatologiya va boshqa xizmatlar." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-/* NAV */
-nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:1.2rem 4rem;display:flex;align-items:center;justify-content:space-between;background:rgba(13,19,33,0.7);backdrop-filter:blur(18px);border-bottom:1px solid rgba(65,90,119,0.2)}
-.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.04em;color:#fff}
-.logo span{color:var(--accent2)}
-.nav-phone{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;padding:.55rem 1.4rem;border-radius:50px;font-size:.85rem;font-weight:600;text-decoration:none;letter-spacing:.03em;transition:opacity .3s}
-.nav-phone:hover{opacity:.85}
+    :root {
+      --white: #ffffff;
+      --black: #0a0a0a;
+      --heading: #1a1a1a;
+      --red: #e30613;
+      --surface: #f4f4f4;
+      --border: #e0e0e0;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'IBM Plex Sans', sans-serif;
+    }
 
-/* HERO */
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;padding-top:80px}
-.hero-left{display:flex;flex-direction:column;justify-content:center;padding:5rem 4rem 5rem 4rem;position:relative;z-index:2}
-.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(65,90,119,0.25);border:1px solid rgba(119,141,169,0.4);padding:.45rem 1.1rem;border-radius:50px;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent2);margin-bottom:2rem;width:fit-content}
-.hero-badge::before{content:'';width:7px;height:7px;background:var(--accent2);border-radius:50%;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
-.hero h1{font-size:clamp(2.8rem,5.5vw,5.8rem);font-weight:800;line-height:1.04;letter-spacing:-.02em;color:#fff;margin-bottom:1.5rem}
-.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent2),#a8c5da);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-sub{font-size:1rem;color:rgba(224,225,221,.65);line-height:1.7;max-width:420px;margin-bottom:2.5rem}
-.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3.5rem}
-.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;padding:.85rem 2rem;border-radius:50px;font-weight:700;font-size:.95rem;text-decoration:none;transition:transform .3s,box-shadow .3s;box-shadow:0 0 30px rgba(65,90,119,0.5)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(65,90,119,0.7)}
-.btn-secondary{border:1px solid rgba(119,141,169,0.5);color:var(--white);padding:.85rem 2rem;border-radius:50px;font-weight:600;font-size:.95rem;text-decoration:none;transition:all .3s;backdrop-filter:blur(8px)}
-.btn-secondary:hover{background:rgba(65,90,119,0.2);border-color:var(--accent2)}
-.hero-stats{display:flex;gap:2.5rem}
-.stat-item{display:flex;flex-direction:column}
-.stat-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:#fff}
-.stat-label{font-size:.75rem;color:rgba(224,225,221,.5);text-transform:uppercase;letter-spacing:.1em}
-.hero-right{position:relative;overflow:hidden}
-.hero-right img{width:100%;height:100%;object-fit:cover;display:block}
-.hero-right::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,#0d1321 0%,rgba(13,19,33,.3) 50%,transparent 100%);z-index:1}
-.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,#0d1321 0%,transparent 40%);z-index:1}
+    html { scroll-behavior: smooth; }
 
-/* BLOBS */
-.blob{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+    body {
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--black);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-/* SECTIONS COMMON */
-section{padding:7rem 4rem;position:relative}
-.section-tag{font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent2);margin-bottom:.8rem}
-.section-num{font-family:'Syne',sans-serif;font-size:clamp(5rem,10vw,9rem);font-weight:800;color:rgba(65,90,119,0.12);line-height:1;position:absolute;top:3rem;left:4rem;pointer-events:none;letter-spacing:-.05em}
-.section-title{font-size:clamp(2rem,3.5vw,3.2rem);font-weight:800;color:#fff;line-height:1.1;margin-bottom:1rem}
+    a { text-decoration: none; color: inherit; }
 
-/* SERVICES */
-.services{background:#0d1321}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3.5rem}
-.service-card{background:var(--glass);backdrop-filter:blur(12px);border:1px solid rgba(65,90,119,0.25);border-radius:20px;padding:2rem;transition:transform .4s,box-shadow .4s,border-color .4s;position:relative;overflow:hidden}
-.service-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(65,90,119,0.08),transparent);border-radius:20px}
-.service-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(65,90,119,0.25);border-color:rgba(119,141,169,0.5)}
-.card-num{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;color:rgba(65,90,119,0.3);line-height:1;margin-bottom:1rem}
-.card-title{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:.7rem}
-.card-desc{font-size:.88rem;color:rgba(224,225,221,.6);line-height:1.65}
-.card-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:1.2rem}
+    /* UTILITY */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
 
-/* PHOTO BREAK */
-.photo-break{padding:0;height:70vh;position:relative;overflow:hidden}
-.photo-break img{width:100%;height:100%;object-fit:cover;display:block}
-.photo-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,19,33,.85),rgba(27,38,59,.7));display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:2rem}
-.photo-overlay h2{font-size:clamp(2rem,4vw,4rem);font-weight:800;color:#fff;max-width:700px;line-height:1.1;margin-bottom:1rem}
-.photo-overlay p{color:rgba(224,225,221,.7);font-size:1.05rem;max-width:500px}
+    /* ═══ NAV ══════════════════════════════════════════ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid #e8e8e8;
+      transition: box-shadow 0.2s;
+    }
 
-/* WHY US */
-.whyus{background:linear-gradient(180deg,#0d1321 0%,#111827 100%)}
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:4rem}
-.big-stat{text-align:center;padding:2.5rem 1rem;background:var(--glass);backdrop-filter:blur(10px);border:1px solid rgba(65,90,119,0.2);border-radius:20px}
-.big-stat-num{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,4vw,4rem);font-weight:800;background:linear-gradient(135deg,#fff,var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem}
-.big-stat-label{font-size:.85rem;color:rgba(224,225,221,.6);line-height:1.5}
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
 
-/* TESTIMONIALS */
-.testimonials{background:#0d1321}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:3.5rem}
-.testi-card{background:rgba(27,38,59,0.6);backdrop-filter:blur(12px);border:1px solid rgba(65,90,119,0.25);border-radius:20px;padding:2rem;transition:transform .3s}
-.testi-card:hover{transform:translateY(-4px)}
-.stars{color:#f4a261;font-size:1rem;margin-bottom:1rem;letter-spacing:.1em}
-.testi-text{font-size:.9rem;color:rgba(224,225,221,.75);line-height:1.7;margin-bottom:1.5rem;font-style:italic}
-.testi-author{display:flex;align-items:center;gap:.8rem}
-.author-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:#fff}
-.author-name{font-weight:700;font-size:.9rem;color:#fff}
-.author-date{font-size:.75rem;color:rgba(224,225,221,.4)}
+    .nav-logo {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--black);
+      letter-spacing: -0.3px;
+      line-height: 1.15;
+    }
 
-/* CTA */
-.cta-section{min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 4rem;position:relative;overflow:hidden;background:#0a0f1a}
-.cta-section h2{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;color:rgba(224,225,221,.7);margin-bottom:.5rem}
-.cta-phone{display:block;font-family:'Syne',sans-serif;font-size:clamp(2.5rem,6vw,6rem);font-weight:800;color:#fff;text-decoration:none;letter-spacing:-.02em;margin:1rem 0 2.5rem;transition:color .3s}
-.cta-phone:hover{color:var(--accent2)}
-.cta-btns{display:flex;gap:1.2rem;flex-wrap:wrap;justify-content:center}
-.btn-tg{background:#229ED9;color:#fff;padding:.9rem 2.2rem;border-radius:50px;font-weight:700;font-size:.95rem;text-decoration:none;display:flex;align-items:center;gap:.6rem;transition:opacity .3s}
-.btn-tg:hover{opacity:.85}
-.cta-address{margin-top:2.5rem;color:rgba(224,225,221,.45);font-size:.88rem;display:flex;align-items:center;gap:.5rem}
+    .nav-logo span {
+      display: block;
+      font-weight: 400;
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 2px;
+    }
 
-/* FOOTER */
-footer{background:#080c14;padding:2.5rem 4rem;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(65,90,119,0.15)}
-.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:rgba(224,225,221,.6)}
-.footer-copy{font-size:.8rem;color:rgba(224,225,221,.3)}
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
 
-/* ANIMATIONS */
-.fade-up{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}
-.fade-up.visible{opacity:1;transform:translateY(0)}
+    .nav-links a {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--black);
+      transition: color 0.15s;
+    }
 
-@media(max-width:900px){
-  .hero{grid-template-columns:1fr;min-height:auto}
-  .hero-right{height:50vw}
-  .hero-left{padding:5rem 2rem 3rem}
-  .services-grid,.testi-grid{grid-template-columns:1fr 1fr}
-  .stats-row{grid-template-columns:1fr 1fr}
-  section{padding:5rem 2rem}
-  nav{padding:1rem 2rem}
-  footer{flex-direction:column;gap:1rem;padding:2rem;text-align:center}
-}
-@media(max-width:600px){
-  .services-grid,.testi-grid{grid-template-columns:1fr}
-  .stats-row{grid-template-columns:1fr 1fr}
-  .hero-stats{gap:1.5rem}
-  .section-num{font-size:4rem}
-}
-</style>
+    .nav-links a:hover { color: var(--red); }
+
+    .nav-cta {
+      display: inline-block;
+      background: var(--red) !important;
+      color: var(--white) !important;
+      padding: 10px 22px !important;
+      border-radius: 0 !important;
+      font-weight: 600 !important;
+      transition: background 0.15s !important;
+    }
+
+    .nav-cta:hover { background: var(--black) !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 6px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--black);
+    }
+
+    /* ═══ MOBILE MENU ══════════════════════════════════ */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px; left: 0; right: 0; bottom: 0;
+      background: var(--white);
+      z-index: 99;
+      flex-direction: column;
+      padding: 48px 40px;
+      gap: 0;
+      overflow-y: auto;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-size: 44px;
+      color: var(--black);
+      letter-spacing: 1px;
+      border-bottom: 1px solid #eee;
+      padding: 14px 0;
+      display: block;
+    }
+
+    .mobile-menu a:hover { color: var(--red); }
+
+    /* ═══ HERO ═════════════════════════════════════════ */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 64px;
+    }
+
+    .hero-left {
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 64px 80px 40px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 28px;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(60px, 6.5vw, 96px);
+      line-height: 0.93;
+      color: var(--heading);
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+    }
+
+    .hero-divider {
+      width: 80px;
+      height: 3px;
+      background: var(--red);
+      margin-bottom: 32px;
+    }
+
+    .hero-body {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.75;
+      max-width: 400px;
+      margin-bottom: 44px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 15px 34px;
+      border-radius: 0;
+      border: 2px solid var(--black);
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .btn-primary:hover { background: var(--red); border-color: var(--red); }
+
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      color: var(--black);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 15px 34px;
+      border: 2px solid var(--black);
+      border-radius: 0;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .btn-outline:hover { background: var(--black); color: var(--white); }
+
+    .hero-right {
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      min-height: 480px;
+    }
+
+    /* CSS medical cross */
+    .medical-cross {
+      position: relative;
+      width: 140px;
+      height: 140px;
+    }
+
+    .medical-cross::before,
+    .medical-cross::after {
+      content: '';
+      position: absolute;
+      background: var(--white);
+    }
+
+    .medical-cross::before {
+      width: 44px;
+      height: 140px;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .medical-cross::after {
+      width: 140px;
+      height: 44px;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+
+    .hero-right-tag {
+      position: absolute;
+      bottom: 44px;
+      left: 0; right: 0;
+      text-align: center;
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .hero-right-vertical {
+      position: absolute;
+      top: 48px;
+      right: 36px;
+      font-family: var(--font-body);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+      writing-mode: vertical-lr;
+    }
+
+    /* ═══ SERVICES ═════════════════════════════════════ */
+    #services {
+      background: var(--white);
+      padding: 100px 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 56px;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 4vw, 64px);
+      line-height: 1;
+      color: var(--heading);
+    }
+
+    .section-count {
+      font-family: var(--font-display);
+      font-size: 96px;
+      color: #f0f0f0;
+      line-height: 1;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .service-card {
+      border: 1px solid var(--border);
+      padding: 48px 40px 80px;
+      position: relative;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .service-card:hover {
+      border-color: var(--black);
+      background: var(--surface);
+    }
+
+    /* Collapse double borders */
+    .service-card:nth-child(2) { border-left: none; }
+    .service-card:nth-child(3) { border-top: none; }
+    .service-card:nth-child(4) { border-left: none; border-top: none; }
+    .service-card:nth-child(5) { border-top: none; grid-column: 1 / -1; }
+
+    .service-num {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--red);
+      margin-bottom: 20px;
+    }
+
+    .service-name {
+      font-family: var(--font-display);
+      font-size: 38px;
+      color: var(--heading);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .service-desc {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.65;
+      max-width: 460px;
+    }
+
+    .service-arrow {
+      position: absolute;
+      bottom: 40px;
+      right: 40px;
+      width: 40px;
+      height: 40px;
+      border: 1.5px solid var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+
+    .service-card:hover .service-arrow { background: var(--red); }
+
+    .service-arrow svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--red);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke 0.15s;
+    }
+
+    .service-card:hover .service-arrow svg { stroke: var(--white); }
+
+    /* ═══ STATS ════════════════════════════════════════ */
+    #stats {
+      background: var(--black);
+      padding: 80px 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat-item {
+      padding: 48px 40px;
+      border-right: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-bar {
+      width: 24px;
+      height: 3px;
+      background: var(--red);
+      margin-bottom: 20px;
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: clamp(56px, 5vw, 80px);
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .stat-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+    }
+
+    /* ═══ COMMITMENT ═══════════════════════════════════ */
+    #commitment {
+      background: var(--surface);
+      padding: 100px 0;
+    }
+
+    .commitment-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .commitment-title {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 4vw, 60px);
+      color: var(--heading);
+      line-height: 1;
+      margin-bottom: 28px;
+    }
+
+    .commitment-body {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.75;
+    }
+
+    .checklist { display: flex; flex-direction: column; }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 28px 0;
+      border-bottom: 1px solid #d8d8d8;
+    }
+
+    .check-item:first-child { border-top: 1px solid #d8d8d8; }
+
+    .check-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      margin-top: 3px;
+    }
+
+    .check-icon svg { width: 22px; height: 22px; }
+
+    .check-title {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--heading);
+      margin-bottom: 5px;
+    }
+
+    .check-sub {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.55;
+    }
+
+    /* ═══ LOCATIONS ════════════════════════════════════ */
+    #locations {
+      background: var(--white);
+      padding: 100px 0;
+    }
+
+    .locations-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 56px;
+    }
+
+    .location-card {
+      border: 1px solid var(--border);
+      padding: 40px 32px;
+      position: relative;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .location-card:hover {
+      border-color: var(--black);
+      background: var(--surface);
+    }
+
+    /* Collapse double borders */
+    .location-card:nth-child(2) { border-left: none; }
+    .location-card:nth-child(3) { border-left: none; }
+    .location-card:nth-child(4) { border-top: none; }
+    .location-card:nth-child(5) { border-top: none; border-left: none; }
+
+    .loc-pin { width: 30px; height: 30px; margin-bottom: 20px; }
+    .loc-pin svg { width: 30px; height: 30px; }
+
+    .loc-badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: var(--red);
+      color: var(--white);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 9px;
+    }
+
+    .loc-name {
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--heading);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .loc-address {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.55;
+    }
+
+    /* ═══ CTA ══════════════════════════════════════════ */
+    #cta {
+      background: var(--black);
+      padding: 100px 0;
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .cta-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 16px;
+    }
+
+    .cta-headline {
+      font-family: var(--font-display);
+      font-size: clamp(52px, 6vw, 88px);
+      color: var(--white);
+      line-height: 0.93;
+      letter-spacing: 1px;
+    }
+
+    .cta-right {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--red);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 16px 32px;
+      border-radius: 0;
+      transition: background 0.15s;
+    }
+
+    .btn-whatsapp:hover { background: #c0000f; color: var(--white); }
+
+    .btn-whatsapp svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--white);
+      flex-shrink: 0;
+    }
+
+    .cta-phone {
+      font-family: var(--font-display);
+      font-size: 44px;
+      color: var(--white);
+      letter-spacing: 1px;
+      line-height: 1;
+    }
+
+    .cta-phone a { color: var(--white); transition: color 0.15s; }
+    .cta-phone a:hover { color: var(--red); }
+
+    .cta-hours {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.5px;
+    }
+
+    /* ═══ FOOTER ═══════════════════════════════════════ */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 64px 0 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 56px;
+    }
+
+    .footer-logo {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--white);
+      letter-spacing: -0.3px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .footer-logo span {
+      display: block;
+      font-weight: 400;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-top: 4px;
+    }
+
+    .footer-tagline {
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.65;
+      max-width: 280px;
+      margin-bottom: 28px;
+    }
+
+    .footer-red-line {
+      width: 40px;
+      height: 2px;
+      background: var(--red);
+    }
+
+    .footer-heading {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 24px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover { color: var(--red); }
+
+    .f-contact-block { margin-bottom: 20px; }
+
+    .f-contact-label {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 6px;
+    }
+
+    .f-contact-value {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.5;
+    }
+
+    .f-contact-value a { color: rgba(255,255,255,0.65); transition: color 0.15s; }
+    .f-contact-value a:hover { color: var(--white); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); }
+
+    .footer-credit { font-size: 12px; color: rgba(255,255,255,0.25); }
+    .footer-credit a { color: var(--red); font-weight: 500; }
+
+    /* ═══ RESPONSIVE ═══════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .container { padding: 0 24px; }
+      .nav-inner { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      #hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 60px 24px; }
+      .hero-right { min-height: 300px; }
+
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card:nth-child(n) {
+        border: 1px solid var(--border);
+        border-top: none;
+        grid-column: auto;
+      }
+      .service-card:first-child { border-top: 1px solid var(--border); }
+
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .stat-item:nth-child(2) { border-right: none; }
+      .stat-item:nth-child(3) { border-top: 1px solid rgba(255,255,255,0.07); }
+      .stat-item:nth-child(4) { border-right: none; border-top: 1px solid rgba(255,255,255,0.07); }
+
+      .commitment-grid { grid-template-columns: 1fr; gap: 48px; }
+
+      .locations-grid { grid-template-columns: 1fr 1fr; }
+      .location-card:nth-child(n) { border: 1px solid var(--border); border-top: none; }
+      .location-card:nth-child(1) { border-top: 1px solid var(--border); }
+      .location-card:nth-child(2) { border-left: none; border-top: 1px solid var(--border); }
+      .location-card:nth-child(3) { border-left: none; }
+      .location-card:nth-child(5) { grid-column: 1 / -1; border-left: 1px solid var(--border); }
+
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .footer-grid > :first-child { grid-column: 1 / -1; }
+
+      .cta-inner { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 640px) {
+      .hero-left { padding: 48px 20px; }
+      .container { padding: 0 20px; }
+
+      .stats-grid { grid-template-columns: 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .stat-item:last-child { border-bottom: none; }
+
+      .locations-grid { grid-template-columns: 1fr; }
+      .location-card:nth-child(n) { border: 1px solid var(--border); border-top: none; }
+      .location-card:first-child { border-top: 1px solid var(--border); }
+      .location-card:nth-child(5) { grid-column: auto; }
+
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-grid > :first-child { grid-column: auto; }
+
+      .section-count { display: none; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+      .section-header { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="logo">VitaMed <span>Medical</span></div>
-  <a href="tel:+998712333747" class="nav-phone">+998 71 233 37 47</a>
+<!-- ═══════════ NAV ═══════════════════════════════════════════════ -->
+<nav aria-label="Asosiy navigatsiya">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="VitaMed bosh sahifa">
+      VitaMed
+      <span>Medical Stomatologiya</span>
+    </a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#services">Xizmatlar</a></li>
+      <li><a href="#stats">Biz haqimizda</a></li>
+      <li><a href="#commitment">Standartlar</a></li>
+      <li><a href="#locations">Manzillar</a></li>
+      <li><a href="tel:+998712333747">+998 71 233 37 47</a></li>
+      <li><a href="#cta" class="nav-cta">Qabul</a></li>
+    </ul>
+
+    <button
+      class="hamburger"
+      id="hamburger-btn"
+      aria-label="Menyuni ochish"
+      aria-expanded="false"
+      onclick="toggleMenu()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobil navigatsiya">
+  <a href="#services" onclick="toggleMenu()">Xizmatlar</a>
+  <a href="#stats" onclick="toggleMenu()">Biz haqimizda</a>
+  <a href="#commitment" onclick="toggleMenu()">Standartlar</a>
+  <a href="#locations" onclick="toggleMenu()">Manzillar</a>
+  <a href="tel:+998712333747" onclick="toggleMenu()">+998 71 233 37 47</a>
+  <a href="#cta" onclick="toggleMenu()" style="color:var(--red)">Qabul olish &rarr;</a>
+</div>
+
+<!-- ═══════════ HERO ═══════════════════════════════════════════════ -->
+<section id="hero" aria-label="Bosh sahifa">
   <div class="hero-left">
-    <div class="blob" style="width:400px;height:400px;background:radial-gradient(circle,rgba(65,90,119,0.25),transparent);top:-100px;left:-100px"></div>
-    <div class="hero-badge">
-      <span></span>Toshkentning Yetakchi Klinikasi
-    </div>
-    <h1>Sog'lom <em>Tabassum</em> —<br>Yangi Hayot</h1>
-    <p class="hero-sub">VitaMed Medical Stomatologiya — zamonaviy uskunalar va tajribali mutaxassislar bilan sizning jilmayishingizni go'zallashtiradi. Har bir bemor uchun individual yondashuv.</p>
-    <div class="hero-ctas">
-      <a href="tel:+998712333747" class="btn-primary">Qo'ng'iroq qilish</a>
-      <a href="#services" class="btn-secondary">Xizmatlarimiz</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat-item">
-        <span class="stat-num">12+</span>
-        <span class="stat-label">Yillik tajriba</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">8000+</span>
-        <span class="stat-label">Baxtli bemor</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">98%</span>
-        <span class="stat-label">Muvaffaqiyat</span>
-      </div>
+    <p class="hero-eyebrow">Toshkent &middot; 2013 yildan</p>
+    <h1 class="hero-headline">
+      VitaMed<br>
+      Medical<br>
+      Stomatologiya
+    </h1>
+    <div class="hero-divider" aria-hidden="true"></div>
+    <p class="hero-body">
+      Zamonaviy stomatologiya xizmatlari. Sifat, ishonch va professional yondashuv bilan sizning sog&lsquo;lig&lsquo;ingiz va tabassumingizni asraymiz.
+    </p>
+    <div class="hero-actions">
+      <a href="#cta" class="btn-primary">Qabul olish</a>
+      <a href="#services" class="btn-outline">Xizmatlar</a>
     </div>
   </div>
-  <div class="hero-right">
-    <img src="assets/vitamed-stomatologiya/hero.png" alt="VitaMed Medical Stomatologiya">
+
+  <div class="hero-right" aria-hidden="true">
+    <div class="medical-cross"></div>
+    <p class="hero-right-tag">Sifat — birinchi o&lsquo;rinda</p>
+    <span class="hero-right-vertical">Medical &middot; Dental &middot; 2013</span>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="services" id="services">
-  <div class="blob" style="width:500px;height:500px;background:radial-gradient(circle,rgba(65,90,119,0.18),transparent);top:50%;right:-150px;transform:translateY(-50%)"></div>
-  <div class="section-num">01</div>
-  <p class="section-tag">Bizning Xizmatlar</p>
-  <h2 class="section-title">Kompleks Stomatologik<br>Yordam</h2>
-  <div class="services-grid">
-    <div class="service-card fade-up">
-      <div class="card-icon">🦷</div>
-      <div class="card-num">01</div>
-      <h3 class="card-title">Terapevtik Davolash</h3>
-      <p class="card-desc">Kariyes, pulpit va periodontit kabi kasalliklarni zamonaviy kompozit materiallar yordamida og'riqsiz davolash. Doimiy sihatlanish kafolatlangan.</p>
+<!-- ═══════════ SERVICES ═══════════════════════════════════════════ -->
+<section id="services" aria-label="Xizmatlar">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <p class="section-label">Xizmatlarimiz</p>
+        <h2 class="section-title">Nima qilamiz</h2>
+      </div>
+      <span class="section-count" aria-hidden="true">05</span>
     </div>
-    <div class="service-card fade-up" style="transition-delay:.1s">
-      <div class="card-icon">✨</div>
-      <div class="card-num">02</div>
-      <h3 class="card-title">Estetik Stomatologiya</h3>
-      <p class="card-desc">Luminer, vinir va ceramic qoplama orqali tabassumin to'liq o'zgartiramiz. Hollywood sifatida porloq va tabiiy ko'rinish.</p>
-    </div>
-    <div class="service-card fade-up" style="transition-delay:.2s">
-      <div class="card-icon">🔩</div>
-      <div class="card-num">03</div>
-      <h3 class="card-title">Implantatsiya</h3>
-      <p class="card-desc">Titanium implantlar yordamida tishlarni butunlay tiklash. Nobel Biocare va Straumann implantlari bilan ishlashda keng tajribaga egamiz.</p>
-    </div>
-    <div class="service-card fade-up" style="transition-delay:.05s">
-      <div class="card-icon">📐</div>
-      <div class="card-num">04</div>
-      <h3 class="card-title">Ortodontiya</h3>
-      <p class="card-desc">Breket tizimlar va shaffof kappalar orqali tish qatorini to'g'rilash. Bolalar va kattalarga mo'ljallangan maxsus dasturlar mavjud.</p>
-    </div>
-    <div class="service-card fade-up" style="transition-delay:.15s">
-      <div class="card-icon">🛡️</div>
-      <div class="card-num">05</div>
-      <h3 class="card-title">Xirurgiya</h3>
-      <p class="card-desc">Murakkab tish olib tashlash, suyak plastikasi va sinus-lifting amaliyotlari yuqori aniqlik va sterillik sharoitida amalga oshiriladi.</p>
-    </div>
-    <div class="service-card fade-up" style="transition-delay:.25s">
-      <div class="card-icon">💎</div>
-      <div class="card-num">06</div>
-      <h3 class="card-title">Tish Oqartirish</h3>
-      <p class="card-desc">Professional Zoom va laser texnologiyalari yordamida tishlarni bir seans davomida 8 ton oqartirish. Og'riqsiz va tez natijaviy.</p>
-    </div>
-  </div>
-</section>
 
-<!-- PHOTO BREAK -->
-<div class="photo-break">
-  <img src="assets/vitamed-stomatologiya/interior.png" alt="Dentistry">
-  <div class="photo-overlay">
-    <h2>Zamonaviy Klinika — Qulay Muhit</h2>
-    <p>Yuqori texnologiyali jihozlar va steril sharoit — salomatligingiz uchun eng yaxshi shart-sharoit.</p>
-  </div>
-</div>
+    <div class="services-grid" role="list">
 
-<!-- WHY US -->
-<section class="whyus">
-  <div class="section-num">02</div>
-  <div class="blob" style="width:450px;height:450px;background:radial-gradient(circle,rgba(65,90,119,0.2),transparent);bottom:-100px;left:-100px"></div>
-  <p class="section-tag fade-up">Nima uchun biz?</p>
-  <h2 class="section-title fade-up">Raqamlarda<br>Ishonchimiz</h2>
-  <div class="stats-row">
-    <div class="big-stat fade-up">
-      <div class="big-stat-num">12+</div>
-      <div class="big-stat-label">Yillik muvaffaqiyatli<br>faoliyat</div>
-    </div>
-    <div class="big-stat fade-up" style="transition-delay:.1s">
-      <div class="big-stat-num">8 000+</div>
-      <div class="big-stat-label">Davolangan<br>bemorlar</div>
-    </div>
-    <div class="big-stat fade-up" style="transition-delay:.2s">
-      <div class="big-stat-num">15+</div>
-      <div class="big-stat-label">Malakali<br>mutaxassislar</div>
-    </div>
-    <div class="big-stat fade-up" style="transition-delay:.3s">
-      <div class="big-stat-num">98%</div>
-      <div class="big-stat-label">Bemor<br>mamnuniyati</div>
+      <article class="service-card" role="listitem">
+        <p class="service-num">01</p>
+        <h3 class="service-name">Implant</h3>
+        <p class="service-desc">
+          Tish implantatsiyasi — yo&lsquo;qolgan tishlarni tiklashning eng samarali va uzoq muddatli usuli. Zamonaviy titanium implantlar bilan tabiiy ko&lsquo;rinish va funksiya tiklash.
+        </p>
+        <a href="#cta" class="service-arrow" aria-label="Implant bo'yicha qabul">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <article class="service-card" role="listitem">
+        <p class="service-num">02</p>
+        <h3 class="service-name">Ortodontiya</h3>
+        <p class="service-desc">
+          Tishlarni to&lsquo;g&lsquo;rilash va jag&lsquo; deformatsiyalarini bartaraf etish. Breket tizimlari va invisalign texnologiyalari yordamida ideal tabassum shakllantirish.
+        </p>
+        <a href="#cta" class="service-arrow" aria-label="Ortodontiya bo'yicha qabul">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <article class="service-card" role="listitem">
+        <p class="service-num">03</p>
+        <h3 class="service-name">Jarrohlik</h3>
+        <p class="service-desc">
+          Stomatologik jarrohlik amaliyotlari: tish chiqarish, kist olib tashlash, suyak plastikasi va boshqa murakkab jarrohlik muolajalar minimal travma bilan amalga oshiriladi.
+        </p>
+        <a href="#cta" class="service-arrow" aria-label="Jarrohlik bo'yicha qabul">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <article class="service-card" role="listitem">
+        <p class="service-num">04</p>
+        <h3 class="service-name">Estetik Stomatologiya</h3>
+        <p class="service-desc">
+          Tabassumingizni yangi bosqichga olib chiqing. Vinirlar, oqartirish, kompozit restavratsiya va to&lsquo;liq tabassum dizayni bilan ideal natijaga erishing.
+        </p>
+        <a href="#cta" class="service-arrow" aria-label="Estetik stomatologiya bo'yicha qabul">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+
+      <article class="service-card" role="listitem" style="grid-column: 1 / -1;">
+        <p class="service-num">05</p>
+        <h3 class="service-name">Bolalar Stomatologiyasi</h3>
+        <p class="service-desc">
+          Bolalar uchun maxsus muhit va yondashuv. Pediatrik stomatologlar bolalar tishlarini davolash, profilaktika va sog&lsquo;lom odatlarni shakllantirish bo&lsquo;yicha mutaxassis. Muolajalar og&lsquo;riqsiz va stresssiz o&lsquo;tkaziladi.
+        </p>
+        <a href="#cta" class="service-arrow" aria-label="Bolalar stomatologiyasi bo'yicha qabul">
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </article>
+
     </div>
   </div>
 </section>
 
-<!-- DETAIL IMAGE BREAK -->
-<div class="photo-break" style="height:50vh">
-  <img src="assets/vitamed-stomatologiya/detail.png" alt="detail">
-  <div class="photo-overlay">
-    <h2>Har Bir Tafsilot Muhim</h2>
-    <p>Biz har bir bemorga alohida e'tibor beramiz — sog'ligingiz bizning ustuvorligimiz.</p>
-  </div>
-</div>
+<!-- ═══════════ STATS ══════════════════════════════════════════════ -->
+<section id="stats" aria-label="Raqamlarda VitaMed">
+  <div class="container">
+    <div class="stats-grid" role="list">
 
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-  <div class="section-num">03</div>
-  <p class="section-tag">Fikrlar</p>
-  <h2 class="section-title">Bemorlarimiz<br>Nima Deydi?</h2>
-  <div class="testi-grid">
-    <div class="testi-card fade-up">
-      <div class="stars">★★★★★</div>
-      <p class="testi-text">"VitaMedda implantatsiya qildirdim. Jarayon butunlay og'riqsiz bo'ldi, natija esa kutganimdan ham yaxshi chiqdi. Tabassumim butunlay o'zgardi!"</p>
-      <div class="testi-author">
-        <div class="author-avatar">D</div>
-        <div>
-          <div class="author-name">Dilnoza Yusupova</div>
-          <div class="author-date">2024 yil, Noyabr</div>
+      <div class="stat-item" role="listitem">
+        <div class="stat-bar" aria-hidden="true"></div>
+        <div class="stat-number">12</div>
+        <div class="stat-label">Yil tajriba</div>
+      </div>
+
+      <div class="stat-item" role="listitem">
+        <div class="stat-bar" aria-hidden="true"></div>
+        <div class="stat-number">7000<span style="font-size:.55em">+</span></div>
+        <div class="stat-label">Mamnun bemor</div>
+      </div>
+
+      <div class="stat-item" role="listitem">
+        <div class="stat-bar" aria-hidden="true"></div>
+        <div class="stat-number">99<span style="font-size:.55em">%</span></div>
+        <div class="stat-label">Muvaffaqiyat ko&lsquo;rsatkichi</div>
+      </div>
+
+      <div class="stat-item" role="listitem">
+        <div class="stat-bar" aria-hidden="true"></div>
+        <div class="stat-number">5</div>
+        <div class="stat-label">Filial · Toshkent</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ COMMITMENT ════════════════════════════════════════ -->
+<section id="commitment" aria-label="Sifat standarti">
+  <div class="container">
+    <div class="commitment-grid">
+
+      <div>
+        <p class="section-label">Bizning yondashuv</p>
+        <h2 class="commitment-title">Sifat<br>standarti</h2>
+        <p class="commitment-body">
+          VitaMed Medical Stomatologiyada har bir bemor individual yondashuv bilan qabul qilinadi. Biz xalqaro tibbiy standartlardan kelib chiqqan holda eng zamonaviy uskunalar va materiallardan foydalanamiz. Maqsadimiz — har bir bemor klinikadan sog&lsquo;lom tabassumi va to&lsquo;liq qoniqish hissi bilan ketishidir.
+        </p>
+      </div>
+
+      <ul class="checklist" role="list">
+
+        <li class="check-item" role="listitem">
+          <span class="check-icon" aria-hidden="true">
+            <svg viewBox="0 0 22 22" fill="none">
+              <circle cx="11" cy="11" r="10" stroke="#e30613" stroke-width="1.5"/>
+              <path d="M6 11.5l3.5 3.5 6.5-7" stroke="#e30613" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <div>
+            <p class="check-title">Xalqaro sertifikatlangan materiallar</p>
+            <p class="check-sub">FDA va CE sertifikatiga ega implantlar va materiallardan foydalaniladi.</p>
+          </div>
+        </li>
+
+        <li class="check-item" role="listitem">
+          <span class="check-icon" aria-hidden="true">
+            <svg viewBox="0 0 22 22" fill="none">
+              <circle cx="11" cy="11" r="10" stroke="#e30613" stroke-width="1.5"/>
+              <path d="M6 11.5l3.5 3.5 6.5-7" stroke="#e30613" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <div>
+            <p class="check-title">Og&lsquo;riqsiz muolaja texnologiyasi</p>
+            <p class="check-sub">Zamonaviy anesteziya va sedatsiya usullari bilan bemorga maksimal qulaylik.</p>
+          </div>
+        </li>
+
+        <li class="check-item" role="listitem">
+          <span class="check-icon" aria-hidden="true">
+            <svg viewBox="0 0 22 22" fill="none">
+              <circle cx="11" cy="11" r="10" stroke="#e30613" stroke-width="1.5"/>
+              <path d="M6 11.5l3.5 3.5 6.5-7" stroke="#e30613" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <div>
+            <p class="check-title">Mutaxassis shifokorlar jamosi</p>
+            <p class="check-sub">Har bir yo&lsquo;nalish bo&lsquo;yicha maxsus tayyorgarlikdan o&lsquo;tgan tajribali shifokorlar.</p>
+          </div>
+        </li>
+
+        <li class="check-item" role="listitem">
+          <span class="check-icon" aria-hidden="true">
+            <svg viewBox="0 0 22 22" fill="none">
+              <circle cx="11" cy="11" r="10" stroke="#e30613" stroke-width="1.5"/>
+              <path d="M6 11.5l3.5 3.5 6.5-7" stroke="#e30613" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <div>
+            <p class="check-title">Muolajadan keyingi kuzatuv</p>
+            <p class="check-sub">Har bir bemor muolajadan so&lsquo;ng bepul kuzatuv va maslahatga ega.</p>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ LOCATIONS ══════════════════════════════════════════ -->
+<section id="locations" aria-label="Manzillarimiz">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <p class="section-label">Bizni toping</p>
+        <h2 class="section-title">5 filialimiz</h2>
+      </div>
+      <span class="section-count" aria-hidden="true">05</span>
+    </div>
+
+    <div class="locations-grid" role="list">
+
+      <article class="location-card" role="listitem">
+        <span class="loc-badge">Asosiy</span>
+        <div class="loc-pin" aria-hidden="true">
+          <svg viewBox="0 0 30 30" fill="none">
+            <path d="M15 2C10.582 2 7 5.582 7 10c0 6.5 8 18 8 18s8-11.5 8-18c0-4.418-3.582-8-8-8z" fill="#e30613"/>
+            <circle cx="15" cy="10" r="3" fill="#fff"/>
+          </svg>
         </div>
-      </div>
-    </div>
-    <div class="testi-card fade-up" style="transition-delay:.12s">
-      <div class="stars">★★★★★</div>
-      <p class="testi-text">"Bolalarimning tishlarini davolatgani keldim. Shifokorlar juda mehribon va professionallar. Bolalar qo'rqmasdan muolajaga kirdi. Albatta tavsiya etaman!"</p>
-      <div class="testi-author">
-        <div class="author-avatar">S</div>
-        <div>
-          <div class="author-name">Sarvinoz Qodirov</div>
-          <div class="author-date">2024 yil, Oktyabr</div>
+        <h3 class="loc-name">Yakkasaroy</h3>
+        <p class="loc-address">Shota Rustaveli ko&lsquo;chasi, 109<br>+998 71 233 37 47</p>
+      </article>
+
+      <article class="location-card" role="listitem">
+        <div class="loc-pin" aria-hidden="true">
+          <svg viewBox="0 0 30 30" fill="none">
+            <path d="M15 2C10.582 2 7 5.582 7 10c0 6.5 8 18 8 18s8-11.5 8-18c0-4.418-3.582-8-8-8z" fill="#e30613"/>
+            <circle cx="15" cy="10" r="3" fill="#fff"/>
+          </svg>
         </div>
-      </div>
-    </div>
-    <div class="testi-card fade-up" style="transition-delay:.24s">
-      <div class="stars">★★★★★</div>
-      <p class="testi-text">"Vinir o'rnatishni so'radim. Natija ajoyib — tishlarim tabiiy va porloq ko'rinadi. Klinika jihozlari eng zamonaviy ekan. Rahmat VitaMed!"</p>
-      <div class="testi-author">
-        <div class="author-avatar">J</div>
-        <div>
-          <div class="author-name">Jasur Raximov</div>
-          <div class="author-date">2024 yil, Sentyabr</div>
+        <h3 class="loc-name">Chilonzor</h3>
+        <p class="loc-address">Chilonzor tumani<br>+998 71 233 37 47</p>
+      </article>
+
+      <article class="location-card" role="listitem">
+        <div class="loc-pin" aria-hidden="true">
+          <svg viewBox="0 0 30 30" fill="none">
+            <path d="M15 2C10.582 2 7 5.582 7 10c0 6.5 8 18 8 18s8-11.5 8-18c0-4.418-3.582-8-8-8z" fill="#e30613"/>
+            <circle cx="15" cy="10" r="3" fill="#fff"/>
+          </svg>
         </div>
-      </div>
+        <h3 class="loc-name">Yunusobod</h3>
+        <p class="loc-address">Yunusobod tumani<br>+998 71 233 37 47</p>
+      </article>
+
+      <article class="location-card" role="listitem">
+        <div class="loc-pin" aria-hidden="true">
+          <svg viewBox="0 0 30 30" fill="none">
+            <path d="M15 2C10.582 2 7 5.582 7 10c0 6.5 8 18 8 18s8-11.5 8-18c0-4.418-3.582-8-8-8z" fill="#e30613"/>
+            <circle cx="15" cy="10" r="3" fill="#fff"/>
+          </svg>
+        </div>
+        <h3 class="loc-name">Mirzo Ulug&lsquo;bek</h3>
+        <p class="loc-address">Mirzo Ulug&lsquo;bek tumani<br>+998 71 233 37 47</p>
+      </article>
+
+      <article class="location-card" role="listitem">
+        <div class="loc-pin" aria-hidden="true">
+          <svg viewBox="0 0 30 30" fill="none">
+            <path d="M15 2C10.582 2 7 5.582 7 10c0 6.5 8 18 8 18s8-11.5 8-18c0-4.418-3.582-8-8-8z" fill="#e30613"/>
+            <circle cx="15" cy="10" r="3" fill="#fff"/>
+          </svg>
+        </div>
+        <h3 class="loc-name">Sergeli</h3>
+        <p class="loc-address">Sergeli tumani<br>+998 71 233 37 47</p>
+      </article>
+
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section">
-  <div class="blob" style="width:600px;height:600px;background:radial-gradient(circle,rgba(65,90,119,0.22),transparent);top:50%;left:50%;transform:translate(-50%,-50%)"></div>
-  <p class="section-tag" style="position:relative;z-index:2">Biz bilan bog'laning</p>
-  <h2 style="position:relative;z-index:2">Bugun qo'ng'iroq qiling —</h2>
-  <a href="tel:+998712333747" class="cta-phone" style="position:relative;z-index:2">+998 71 233 37 47</a>
-  <div class="cta-btns" style="position:relative;z-index:2">
-    <a href="tel:+998712333747" class="btn-primary">📞 Qo'ng'iroq qilish</a>
-    <a href="https://t.me/vitamed" class="btn-tg" target="_blank">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.04 9.613c-.147.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.28 14.49l-2.95-.924c-.64-.203-.654-.64.136-.948l11.526-4.445c.535-.19 1.003.13.57.075z"/></svg>
-      Telegram
-    </a>
-  </div>
-  <div class="cta-address" style="position:relative;z-index:2">
-    <span>📍</span>
-    <span>Yakkasaroy tumani, Shota Rustaveli ko'chasi, 109, Toshkent</span>
+<!-- ═══════════ CTA ════════════════════════════════════════════════ -->
+<section id="cta" aria-label="Qabul oling">
+  <div class="container">
+    <div class="cta-inner">
+
+      <div>
+        <p class="cta-label">Hozir bog&lsquo;laning</p>
+        <h2 class="cta-headline">
+          Bugun<br>Qabul<br>Oling
+        </h2>
+      </div>
+
+      <div class="cta-right">
+        <a
+          href="https://wa.me/998712333747"
+          class="btn-whatsapp"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp orqali qabul olish"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          WhatsApp orqali yozing
+        </a>
+
+        <div class="cta-phone">
+          <a href="tel:+998712333747">+998 71 233 37 47</a>
+        </div>
+
+        <p class="cta-hours">Dushanba–Shanba &middot; 09:00 – 20:00</p>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">VitaMed Medical Stomatologiya</div>
-  <div class="footer-copy">© 2025 VitaMed. Barcha huquqlar himoyalangan.</div>
+<!-- ═══════════ FOOTER ════════════════════════════════════════════ -->
+<footer aria-label="Sahifa oxiri">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div>
+        <div class="footer-logo">
+          VitaMed
+          <span>Medical Stomatologiya</span>
+        </div>
+        <p class="footer-tagline">
+          Toshkentdagi zamonaviy stomatologiya klinikasi. 12 yildan ortiq tajriba, 7000+ mamnun bemor.
+        </p>
+        <div class="footer-red-line" aria-hidden="true"></div>
+      </div>
+
+      <div>
+        <p class="footer-heading">Xizmatlar</p>
+        <ul class="footer-links" role="list">
+          <li><a href="#services">Implant</a></li>
+          <li><a href="#services">Ortodontiya</a></li>
+          <li><a href="#services">Jarrohlik</a></li>
+          <li><a href="#services">Estetik stomatologiya</a></li>
+          <li><a href="#services">Bolalar stomatologiyasi</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer-heading">Bog&lsquo;lanish</p>
+
+        <div class="f-contact-block">
+          <p class="f-contact-label">Telefon</p>
+          <p class="f-contact-value"><a href="tel:+998712333747">+998 71 233 37 47</a></p>
+        </div>
+
+        <div class="f-contact-block">
+          <p class="f-contact-label">Manzil</p>
+          <p class="f-contact-value">
+            Yakkasaroy tumani,<br>
+            Shota Rustaveli ko&lsquo;chasi, 109
+          </p>
+        </div>
+
+        <div class="f-contact-block">
+          <p class="f-contact-label">Ish vaqti</p>
+          <p class="f-contact-value">
+            Du–Shan: 09:00 – 20:00<br>
+            Yakshanba: Yopiq
+          </p>
+        </div>
+
+        <a
+          href="https://wa.me/998712333747"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="display:inline-block;background:var(--red);color:var(--white);font-family:var(--font-body);font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:10px 20px;border-radius:0;transition:background 0.15s;"
+          aria-label="WhatsApp"
+        >WhatsApp</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2024 VitaMed Medical Stomatologiya. Barcha huquqlar himoyalangan.</p>
+      <p class="footer-credit">Sayt yaratdi: <a href="https://smartdev.uz" target="_blank" rel="noopener noreferrer">SmartDev.uz</a></p>
+    </div>
+  </div>
 </footer>
 
+<!-- ═══════════ JS ═════════════════════════════════════════════════ -->
 <script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      observer.unobserve(e.target);
+  /* ── Mobile menu ── */
+  function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const btn  = document.getElementById('hamburger-btn');
+    const open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1024) {
+      const menu = document.getElementById('mobile-menu');
+      const btn  = document.getElementById('hamburger-btn');
+      menu.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
     }
   });
-}, { threshold: 0.12 });
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      const menu = document.getElementById('mobile-menu');
+      if (menu.classList.contains('open')) toggleMenu();
+    }
+  });
+
+  /* ── Nav shadow on scroll ── */
+  const navEl = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    navEl.style.boxShadow = window.scrollY > 8
+      ? '0 2px 20px rgba(0,0,0,0.07)'
+      : 'none';
+  }, { passive: true });
+
+  /* ── Scroll-in animations (respect reduced-motion) ── */
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReduced) {
+    const fadeTargets = document.querySelectorAll(
+      '.service-card, .location-card, .check-item, .stat-number'
+    );
+
+    fadeTargets.forEach((el, i) => {
+      el.style.opacity  = '0';
+      el.style.transform = 'translateY(18px)';
+      el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
+    });
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const idx = parseInt(el.dataset.fadeIdx || '0', 10);
+        setTimeout(() => {
+          el.style.opacity  = '1';
+          el.style.transform = 'translateY(0)';
+        }, idx * 55);
+        io.unobserve(el);
+      });
+    }, { threshold: 0.12 });
+
+    fadeTargets.forEach((el, i) => {
+      el.dataset.fadeIdx = String(i % 5);
+      io.observe(el);
+    });
+  }
 </script>
 
-<section style="padding:50px 6%;background:#060d1f;text-align:center;border-top:1px solid rgba(255,255,255,0.08)">
-  <p style="color:#8899aa;font-size:.85rem;margin-bottom:1rem">Saytga QR orqali kiring</p>
-  <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A//javohirbahtiyorov2001-code.github.io/b2b-toshkent/generated_sites/vitamed-stomatologiya.html" alt="QR Code" style="width:160px;height:160px;border-radius:12px;border:4px solid rgba(255,255,255,0.1)">
-</section>
 </body>
 </html>
