@@ -92,6 +92,15 @@ footer p{font-size:.8rem;color:var(--muted)}
 .fade-up{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
 .fade-up.visible{opacity:1;transform:none}
 
+/* CONTACT POPUP */
+.nav-right{position:relative}
+.contact-popup{position:absolute;top:calc(100% + 10px);right:0;background:#0d1426;border:1px solid var(--border);border-radius:12px;padding:.5rem;display:flex;flex-direction:column;gap:4px;min-width:200px;opacity:0;pointer-events:none;transform:translateY(-8px);transition:all .2s;z-index:999}
+.contact-popup.open{opacity:1;pointer-events:all;transform:translateY(0)}
+.contact-popup a{display:flex;align-items:center;gap:.6rem;padding:.7rem 1rem;border-radius:8px;color:var(--white);text-decoration:none;font-size:.875rem;font-weight:500;transition:background .15s}
+.contact-popup a:hover{background:var(--glass)}
+#contactPopup2{position:absolute;top:calc(100% + 10px);left:0;background:#0d1426;border:1px solid var(--border);border-radius:12px;padding:.5rem;display:flex;flex-direction:column;gap:4px;min-width:200px;opacity:0;pointer-events:none;transform:translateY(-8px);transition:all .2s;z-index:999}
+#contactPopup2.open{opacity:1;pointer-events:all;transform:translateY(0)}
+
 @media(max-width:768px){
   .hero-stats{gap:2rem;flex-wrap:wrap}
   .why-grid{grid-template-columns:1fr}
@@ -116,7 +125,11 @@ footer p{font-size:.8rem;color:var(--muted)}
       <button class="lang-btn" onclick="setLang('ru')">RU</button>
       <button class="lang-btn" onclick="setLang('en')">EN</button>
     </div>
-    <a href="tel:+998909971776" class="nav-cta" data-i="nav_cta">Bog'lanish</a>
+    <button class="nav-cta" onclick="toggleContact(event)" data-i="nav_cta">Bog'lanish</button>
+    <div class="contact-popup" id="contactPopup">
+      <a href="tel:+998909971776">📞 +998 90 997 17 76</a>
+      <a href="https://t.me/JORJIE_B" target="_blank">✈️ Telegram</a>
+    </div>
   </div>
 </nav>
 
@@ -128,7 +141,13 @@ footer p{font-size:.8rem;color:var(--muted)}
     <h1 data-i="h1_1"></h1>
     <p class="hero-sub" data-i="hero_sub"></p>
     <div class="hero-btns">
-      <a href="tel:+998909971776" class="btn-primary" data-i="cta_call"></a>
+      <div style="position:relative">
+        <button class="btn-primary" onclick="toggleContact2(event)" data-i="cta_call"></button>
+        <div class="contact-popup" id="contactPopup2">
+          <a href="tel:+998909971776">📞 +998 90 997 17 76</a>
+          <a href="https://t.me/JORJIE_B" target="_blank">✈️ Telegram</a>
+        </div>
+      </div>
       <a href="#services" class="btn-ghost" data-i="cta_services"></a>
     </div>
     <div class="hero-stats">
@@ -375,6 +394,21 @@ function setLang(lang) {
 }
 
 setLang(currentLang);
+
+function toggleContact(e){
+  e.stopPropagation();
+  document.getElementById('contactPopup').classList.toggle('open');
+  document.getElementById('contactPopup2')?.classList.remove('open');
+}
+function toggleContact2(e){
+  e.stopPropagation();
+  document.getElementById('contactPopup2').classList.toggle('open');
+  document.getElementById('contactPopup')?.classList.remove('open');
+}
+document.addEventListener('click', ()=>{
+  document.getElementById('contactPopup')?.classList.remove('open');
+  document.getElementById('contactPopup2')?.classList.remove('open');
+});
 
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
