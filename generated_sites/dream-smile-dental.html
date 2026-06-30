@@ -3,129 +3,196 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dream Smile Dental — Toshkent</title>
+<title>Dream Smile Dental — Zamonaviy Stomatologiya</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--primary:#240046;--accent:#c77dff;--dark:#0a000f;--glass:rgba(255,255,255,0.04);--glass-border:rgba(199,125,255,0.18)}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --teal:#0fb890;
+  --teal-dark:#0a9a78;
+  --teal-light:#e6f9f4;
+  --dark:#0d1117;
+  --dark2:#1a1f2e;
+  --white:#ffffff;
+  --grey:#f7f9fc;
+  --text:#1a2332;
+  --muted:#6b7a8d;
+  --border:#e8ecf0;
+}
 html{scroll-behavior:smooth}
-body{background:var(--dark);color:#fff;font-family:'Inter',sans-serif;overflow-x:hidden}
-h1,h2,h3,.display{font-family:'Syne',sans-serif}
+body{background:#fff;color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 4rem;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(16px);background:rgba(10,0,15,0.6);border-bottom:1px solid var(--glass-border)}
-.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;letter-spacing:-0.02em}
-.nav-logo span{color:var(--accent)}
-.nav-phone{background:linear-gradient(135deg,var(--accent),#7b2ff7);padding:.6rem 1.4rem;border-radius:50px;font-size:.85rem;font-weight:600;color:#fff;text-decoration:none;transition:.3s}
-.nav-phone:hover{opacity:.85;transform:translateY(-1px)}
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:.6rem;font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--dark);text-decoration:none}
+.nav-logo-icon{width:34px;height:34px;background:var(--teal);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--dark)}
+.nav-cta{background:var(--teal);color:#fff;padding:.6rem 1.5rem;border-radius:999px;text-decoration:none;font-size:.875rem;font-weight:600;transition:background .2s;display:flex;align-items:center;gap:.5rem}
+.nav-cta:hover{background:var(--teal-dark)}
+.nav-cta svg{width:16px;height:16px}
 
-/* HERO */
-.hero{height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
-.hero-left{display:flex;flex-direction:column;justify-content:center;padding:0 4rem 0 4rem;position:relative;z-index:2}
-.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--glass);border:1px solid var(--glass-border);border-radius:50px;padding:.4rem 1rem;font-size:.78rem;font-weight:500;color:var(--accent);margin-bottom:1.8rem;width:fit-content}
-.hero-badge::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 1.5s infinite}
+/* ── HERO ── */
+.hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:120px 5% 80px;gap:4rem;background:var(--white)}
+.hero-left{display:flex;flex-direction:column;gap:1.5rem}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--teal-light);color:var(--teal-dark);font-size:.75rem;font-weight:700;padding:.4rem 1rem;border-radius:999px;width:fit-content;letter-spacing:.04em}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.hero h1{font-size:clamp(3rem,5.5vw,6rem);font-weight:800;line-height:1.0;letter-spacing:-0.03em;margin-bottom:1.4rem}
-.hero h1 span{color:var(--accent)}
-.hero-sub{font-size:1rem;color:rgba(255,255,255,0.55);line-height:1.7;max-width:400px;margin-bottom:2.2rem}
-.hero-btns{display:flex;gap:1rem;margin-bottom:3rem}
-.btn-primary{background:linear-gradient(135deg,var(--accent),#7b2ff7);color:#fff;padding:.85rem 2rem;border-radius:50px;text-decoration:none;font-weight:600;font-size:.9rem;transition:.3s}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(199,125,255,0.35)}
-.btn-ghost{border:1px solid var(--glass-border);color:#fff;padding:.85rem 2rem;border-radius:50px;text-decoration:none;font-weight:500;font-size:.9rem;backdrop-filter:blur(8px);transition:.3s}
-.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
-.hero-kpis{display:flex;gap:2.5rem}
-.kpi-val{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--accent)}
-.kpi-label{font-size:.75rem;color:rgba(255,255,255,0.45);margin-top:.15rem}
-.hero-right{position:relative;overflow:hidden}
-.hero-right img{width:100%;height:100%;object-fit:cover;display:block}
-.hero-right::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--dark) 0%,transparent 50%);z-index:1}
-.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,0,15,0.4) 0%,transparent 40%);z-index:1}
-.glow-blob{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
-.blob1{width:500px;height:500px;background:radial-gradient(circle,rgba(199,125,255,0.22),transparent 70%);top:-100px;left:-100px}
-.blob2{width:400px;height:400px;background:radial-gradient(circle,rgba(123,47,247,0.18),transparent 70%);bottom:0;left:200px}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;color:var(--dark)}
+.hero h1 span{color:var(--teal)}
+.hero-sub{font-size:1rem;color:var(--muted);line-height:1.7;max-width:420px}
+.hero-btns{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.btn-teal{background:var(--teal);color:#fff;padding:.85rem 2rem;border-radius:999px;text-decoration:none;font-weight:600;font-size:.9rem;transition:all .2s;display:inline-flex;align-items:center;gap:.5rem}
+.btn-teal:hover{background:var(--teal-dark);transform:translateY(-1px)}
+.btn-teal svg{width:16px;height:16px}
+.btn-ghost-dark{color:var(--dark);text-decoration:none;font-weight:500;font-size:.9rem;display:inline-flex;align-items:center;gap:.4rem;transition:gap .2s}
+.btn-ghost-dark:hover{gap:.7rem}
+.hero-trust{display:flex;align-items:center;gap:1rem;padding-top:.5rem}
+.trust-avatars{display:flex}
+.trust-avatars span{width:34px;height:34px;border-radius:50%;border:2px solid #fff;background:linear-gradient(135deg,#c8f5ea,#a8edda);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:var(--teal-dark);margin-left:-8px}
+.trust-avatars span:first-child{margin-left:0}
+.trust-text{font-size:.8rem;color:var(--muted)}
+.trust-text strong{color:var(--dark);font-weight:600}
+.trust-stars{color:#f59e0b;font-size:.8rem}
 
-/* SECTIONS */
-section{padding:7rem 4rem}
-.section-label{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
-.section-num{font-family:'Syne',sans-serif;font-size:5rem;font-weight:800;color:var(--accent);opacity:.2;line-height:1}
-.section-tag{font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--accent)}
-.section-title{font-size:clamp(2rem,4vw,3.5rem);font-weight:800;letter-spacing:-0.02em;margin-bottom:1rem}
-.section-sub{color:rgba(255,255,255,0.5);font-size:.95rem;line-height:1.7;max-width:500px}
+/* hero right */
+.hero-right{position:relative}
+.hero-img-wrap{position:relative;border-radius:24px;overflow:hidden;height:520px}
+.hero-img-wrap img{width:100%;height:100%;object-fit:cover}
+.hero-img-placeholder{width:100%;height:100%;background:linear-gradient(135deg,#c8f5ea 0%,#7de8cc 40%,#0fb890 100%);display:flex;align-items:center;justify-content:center;font-size:4rem}
+.hero-badge-float{position:absolute;top:1.5rem;left:1.5rem;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-radius:12px;padding:.7rem 1rem;display:flex;align-items:center;gap:.6rem;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.badge-float-icon{width:32px;height:32px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:1rem}
+.badge-float-text{font-size:.7rem;font-weight:600;color:var(--dark)}
+.badge-float-sub{font-size:.65rem;color:var(--muted)}
+.hero-card-float{position:absolute;bottom:1.5rem;right:1.5rem;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-radius:16px;padding:1rem 1.2rem;box-shadow:0 8px 32px rgba(0,0,0,.12);min-width:200px}
+.card-float-label{font-size:.65rem;color:var(--muted);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.4rem}
+.card-float-name{font-size:.9rem;font-weight:700;color:var(--dark);margin-bottom:.15rem}
+.card-float-role{font-size:.75rem;color:var(--muted);margin-bottom:.5rem}
+.card-float-rating{display:flex;align-items:center;gap:.4rem;font-size:.75rem}
+.stars{color:#f59e0b}
+.rating-text{color:var(--muted)}
 
-/* SERVICES */
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3.5rem}
-.service-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;padding:2rem;backdrop-filter:blur(12px);position:relative;overflow:hidden;transition:.4s}
-.service-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 20px 50px rgba(199,125,255,0.12)}
-.service-card::before{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;background:radial-gradient(circle,rgba(199,125,255,0.12),transparent 70%);border-radius:50%}
-.s-num{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;color:var(--accent);opacity:.25;line-height:1;margin-bottom:.5rem}
-.s-title{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:.6rem}
-.s-desc{font-size:.85rem;color:rgba(255,255,255,0.5);line-height:1.6}
+/* ── STATS BAR ── */
+.stats-bar{background:var(--dark2);padding:2.5rem 5%;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.stat-item{display:flex;align-items:flex-start;gap:1rem;padding-right:2rem;border-right:1px solid rgba(255,255,255,.08)}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:#fff;line-height:1}
+.stat-sub{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.4;margin-top:.3rem}
+.stat-icon{width:40px;height:40px;min-width:40px;background:rgba(15,184,144,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:1.1rem}
 
-/* PHOTO BREAK */
-.photo-break{position:relative;height:60vh;overflow:hidden;padding:0}
-.photo-break img{width:100%;height:100%;object-fit:cover;display:block}
-.photo-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,0,15,0.85) 0%,rgba(36,0,70,0.7) 100%);display:flex;align-items:center;justify-content:center;text-align:center}
-.photo-overlay h2{font-size:clamp(2rem,5vw,4rem);font-weight:800;letter-spacing:-0.02em;max-width:700px;line-height:1.1}
-.photo-overlay h2 span{color:var(--accent)}
+/* ── SERVICES ── */
+.section{padding:100px 5%}
+.section-label{font-size:.75rem;font-weight:700;color:var(--teal);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.8rem}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-bottom:1rem;color:var(--dark)}
+.section-sub{color:var(--muted);font-size:.95rem;line-height:1.7;max-width:480px}
+.section-head{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3.5rem}
+.section-head-right{color:var(--muted);font-size:.9rem;line-height:1.7}
 
-/* WHY US */
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3.5rem}
-.stat-box{background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;padding:2.5rem 2rem;backdrop-filter:blur(12px);text-align:center;transition:.3s}
-.stat-box:hover{border-color:var(--accent);transform:translateY(-3px)}
-.stat-val{font-family:'Syne',sans-serif;font-size:3.2rem;font-weight:800;color:var(--accent);line-height:1}
-.stat-lbl{font-size:.85rem;color:rgba(255,255,255,0.5);margin-top:.5rem;line-height:1.4}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.srv-card{background:var(--grey);border:1px solid var(--border);border-radius:20px;padding:2rem;position:relative;overflow:hidden;transition:all .3s;cursor:default}
+.srv-card:hover{background:#fff;border-color:var(--teal);box-shadow:0 12px 40px rgba(15,184,144,.12);transform:translateY(-4px)}
+.srv-card-num{position:absolute;top:1.5rem;right:1.5rem;font-family:'Syne',sans-serif;font-size:.75rem;font-weight:800;color:var(--border)}
+.srv-card-plus{width:32px;height:32px;border:1.5px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:1.1rem;margin-bottom:1.5rem;transition:all .3s}
+.srv-card:hover .srv-card-plus{border-color:var(--teal);color:var(--teal);background:var(--teal-light)}
+.srv-card-title{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:700;margin-bottom:.6rem;color:var(--dark)}
+.srv-card-desc{font-size:.85rem;color:var(--muted);line-height:1.65}
 
-/* TESTIMONIALS */
-.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3.5rem}
-.test-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;padding:2rem;backdrop-filter:blur(12px);transition:.3s}
-.test-card:hover{border-color:var(--accent);transform:translateY(-3px)}
-.stars{color:var(--accent);font-size:1rem;margin-bottom:1rem;letter-spacing:.1em}
-.test-text{font-size:.9rem;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:1.5rem}
-.test-author{display:flex;align-items:center;gap:.8rem}
-.test-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#7b2ff7);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:1rem}
-.test-name{font-weight:600;font-size:.9rem}
-.test-meta{font-size:.75rem;color:rgba(255,255,255,0.4);margin-top:.1rem}
+/* ── ABOUT / SPLIT ── */
+.about-section{background:var(--dark);padding:100px 5%;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-img-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.about-img{border-radius:16px;overflow:hidden;height:220px}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.about-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2rem}
+.about-img.tall{grid-row:span 2;height:456px}
+.about-img.bg-teal .about-img-placeholder{background:var(--teal)}
+.about-img.bg-dark .about-img-placeholder{background:#1a2e28}
+.about-right .section-label{color:var(--teal)}
+.about-right .section-title{color:#fff}
+.about-right .section-sub{color:rgba(255,255,255,.6);margin-bottom:2.5rem}
+.about-features{display:flex;flex-direction:column;gap:1.2rem}
+.about-feat{display:flex;align-items:center;gap:.8rem;color:rgba(255,255,255,.8);font-size:.875rem}
+.feat-check{width:24px;height:24px;min-width:24px;background:rgba(15,184,144,.15);border:1px solid rgba(15,184,144,.3);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:.75rem}
+.about-cta{margin-top:2.5rem}
 
-/* CTA */
-.cta-section{position:relative;padding:9rem 4rem;text-align:center;overflow:hidden}
-.cta-blob1{position:absolute;width:600px;height:600px;background:radial-gradient(circle,rgba(199,125,255,0.18),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;filter:blur(60px)}
-.cta-section .tag{font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem}
-.cta-section h2{font-size:clamp(1.8rem,4vw,3.2rem);font-weight:800;margin-bottom:.8rem;letter-spacing:-0.02em}
-.cta-section p{color:rgba(255,255,255,0.5);margin-bottom:2.5rem;font-size:.95rem}
-.cta-phone{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,6vw,5.5rem);font-weight:800;color:#fff;text-decoration:none;display:block;margin-bottom:2rem;transition:.3s;letter-spacing:-0.02em}
-.cta-phone:hover{color:var(--accent)}
-.cta-btns{display:flex;gap:1rem;justify-content:center}
-.tg-btn{background:linear-gradient(135deg,#229ED9,#1a7fb5);color:#fff;padding:.85rem 2rem;border-radius:50px;text-decoration:none;font-weight:600;font-size:.9rem;transition:.3s}
-.tg-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(34,158,217,0.3)}
+/* ── TESTIMONIALS ── */
+.testi-section{padding:100px 5%;background:var(--grey)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
+.testi-card{background:#fff;border-radius:20px;padding:2rem;border:1px solid var(--border)}
+.testi-stars{color:#f59e0b;font-size:.9rem;margin-bottom:1rem;letter-spacing:.05em}
+.testi-text{font-size:.9rem;color:var(--text);line-height:1.7;margin-bottom:1.5rem;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:.8rem}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--teal-light),var(--teal));display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:.85rem}
+.testi-name{font-weight:600;font-size:.875rem;color:var(--dark)}
+.testi-role{font-size:.75rem;color:var(--muted)}
 
-/* DETAIL SECTION */
-.detail-section{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.detail-img{border-radius:24px;overflow:hidden;border:1px solid var(--glass-border)}
-.detail-img img{width:100%;height:400px;object-fit:cover;display:block}
+/* ── TEAM ── */
+.team-section{padding:100px 5%}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3.5rem}
+.team-card{text-align:center}
+.team-photo{width:100%;aspect-ratio:3/4;border-radius:20px;background:linear-gradient(135deg,#c8f5ea,#7de8cc);margin-bottom:1rem;display:flex;align-items:center;justify-content:center;font-size:2.5rem;overflow:hidden}
+.team-photo img{width:100%;height:100%;object-fit:cover}
+.team-name{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--dark);margin-bottom:.25rem}
+.team-role{font-size:.8rem;color:var(--teal);font-weight:600}
+.team-exp{font-size:.75rem;color:var(--muted);margin-top:.25rem}
 
-/* FOOTER */
-footer{background:rgba(0,0,0,0.5);border-top:1px solid var(--glass-border);padding:2.5rem 4rem;display:flex;align-items:center;justify-content:space-between}
-.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem}
-.footer-logo span{color:var(--accent)}
-.footer-copy{font-size:.78rem;color:rgba(255,255,255,0.35)}
-.footer-address{font-size:.78rem;color:rgba(255,255,255,0.4);text-align:right;line-height:1.5}
+/* ── CTA SECTION ── */
+.cta-section{background:linear-gradient(135deg,#0d1117 0%,#0a2a20 50%,#0d1117 100%);padding:100px 5%;text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(15,184,144,.2) 0%,transparent 70%);pointer-events:none}
+.cta-section h2{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:1rem;position:relative;z-index:1}
+.cta-section h2 span{color:var(--teal)}
+.cta-section p{color:rgba(255,255,255,.6);font-size:1rem;margin-bottom:2.5rem;position:relative;z-index:1}
+.cta-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;position:relative;z-index:1}
+.btn-white{background:#fff;color:var(--dark);padding:.85rem 2rem;border-radius:999px;text-decoration:none;font-weight:700;font-size:.9rem;transition:all .2s}
+.btn-white:hover{background:var(--teal-light);transform:translateY(-1px)}
+.btn-teal-outline{border:1px solid rgba(15,184,144,.4);color:var(--teal);padding:.85rem 2rem;border-radius:999px;text-decoration:none;font-weight:600;font-size:.9rem;transition:all .2s}
+.btn-teal-outline:hover{background:rgba(15,184,144,.1);border-color:var(--teal)}
+.cta-contact{margin-top:2rem;display:flex;justify-content:center;gap:3rem;color:rgba(255,255,255,.5);font-size:.85rem;position:relative;z-index:1}
+.cta-contact a{color:rgba(255,255,255,.7);text-decoration:none;font-weight:500;transition:color .2s}
+.cta-contact a:hover{color:var(--teal)}
 
-/* ANIMATIONS */
-.fade-up{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}
-.fade-up.visible{opacity:1;transform:translateY(0)}
+/* ── FOOTER ── */
+footer{padding:50px 5% 30px;border-top:1px solid var(--border);display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem}
+.footer-brand{display:flex;flex-direction:column;gap:1rem}
+.footer-desc{font-size:.85rem;color:var(--muted);line-height:1.7;max-width:260px}
+.footer-col h4{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;color:var(--dark);margin-bottom:1rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.footer-col ul li a{font-size:.85rem;color:var(--muted);text-decoration:none;transition:color .2s}
+.footer-col ul li a:hover{color:var(--teal)}
+.footer-bottom{padding:1.5rem 5% 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--muted)}
+.footer-bottom a{color:var(--teal);text-decoration:none}
 
-@media(max-width:900px){
-  nav{padding:1rem 1.5rem}
-  .hero{grid-template-columns:1fr;height:auto;padding-top:5rem}
-  .hero-left{padding:3rem 1.5rem}
-  .hero-right{height:50vh}
-  section{padding:5rem 1.5rem}
-  .services-grid,.stats-grid,.test-grid{grid-template-columns:1fr}
-  .detail-section{grid-template-columns:1fr}
-  footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
-  .footer-address{text-align:center}
-  .cta-section{padding:6rem 1.5rem}
+/* scroll logo strip */
+.logo-strip{padding:1.5rem 0;background:var(--teal);overflow:hidden;display:flex;gap:0}
+.strip-inner{display:flex;gap:3rem;animation:scrollstrip 20s linear infinite;white-space:nowrap;align-items:center}
+@keyframes scrollstrip{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.strip-item{font-family:'Syne',sans-serif;font-weight:800;font-size:.875rem;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.06em;display:flex;align-items:center;gap:.5rem}
+.strip-dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.4)}
+
+/* fade in */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:none}
+
+@media(max-width:1024px){
+  .hero{grid-template-columns:1fr;padding-top:100px;gap:2.5rem}
+  .hero-right{display:none}
+  .stats-bar{grid-template-columns:repeat(2,1fr)}
+  .section-head{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .about-section{grid-template-columns:1fr;gap:3rem}
+  .about-img-grid{display:none}
+  .testi-grid{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  footer{grid-template-columns:1fr 1fr;gap:2rem}
+}
+@media(max-width:600px){
+  .nav-links{display:none}
+  .stats-bar{grid-template-columns:1fr 1fr}
+  .services-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+  footer{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -133,223 +200,336 @@ footer{background:rgba(0,0,0,0.5);border-top:1px solid var(--glass-border);paddi
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">Dream<span>Smile</span> Dental</div>
-  <a href="tel:+998712333747" class="nav-phone">+998 71 233 37 47</a>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">🦷</div>
+    <span id="clinic-name">Dream Smile Dental</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Xizmatlar</a></li>
+    <li><a href="#about">Biz haqimizda</a></li>
+    <li><a href="#team">Shifokorlar</a></li>
+    <li><a href="#contact">Aloqa</a></li>
+  </ul>
+  <a href="tel:+998712333747" class="nav-cta">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+    Qabulga yozilish
+  </a>
 </nav>
 
 <!-- HERO -->
-<section class="hero" style="padding:0">
-  <div class="glow-blob blob1"></div>
-  <div class="glow-blob blob2"></div>
+<section class="hero">
   <div class="hero-left">
-    <div class="hero-badge">✦ Toshkentdagi №1 Stomatologiya</div>
-    <h1>Mukammal<br><span>Tabassum</span><br>Sizniki</h1>
-    <p class="hero-sub">Dream Smile Dental — zamonaviy uskunalar va tajribali shifokorlar bilan siz orqali jilmayishni qayta kashf etamiz.</p>
+    <div class="hero-badge">✦ Ishonchli Stomatologiya</div>
+    <h1>Sog'lom tish —<br><span>baxtli hayot</span> boshlanishi.</h1>
+    <p class="hero-sub">Zamonaviy uskunalar va tajribali shifokorlar bilan sizga eng yaxshi tish parvarishi xizmatini taqdim etamiz.</p>
     <div class="hero-btns">
-      <a href="tel:+998712333747" class="btn-primary">Qo'ng'iroq qilish</a>
-      <a href="#xizmatlar" class="btn-ghost">Xizmatlarni ko'rish</a>
+      <a href="tel:+998712333747" class="btn-teal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        Qo'ng'iroq qilish
+      </a>
+      <a href="#services" class="btn-ghost-dark">Xizmatlarni ko'rish →</a>
     </div>
-    <div class="hero-kpis">
-      <div>
-        <div class="kpi-val">8+</div>
-        <div class="kpi-label">Yillik tajriba</div>
+    <div class="hero-trust">
+      <div class="trust-avatars">
+        <span>AK</span><span>MR</span><span>ZB</span><span>+</span>
       </div>
       <div>
-        <div class="kpi-val">5K+</div>
-        <div class="kpi-label">Mamnun bemor</div>
-      </div>
-      <div>
-        <div class="kpi-val">12</div>
-        <div class="kpi-label">Mutaxassis shifokor</div>
+        <div class="trust-stars">★★★★★</div>
+        <div class="trust-text"><strong>5000+ mijoz</strong> ishonch bildirdi</div>
       </div>
     </div>
   </div>
   <div class="hero-right">
-    <img src="assets/dream-smile-dental/hero.png" alt="Dream Smile Dental">
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="xizmatlar">
-  <div class="section-label fade-up">
-    <span class="section-num">01</span>
-    <span class="section-tag">Xizmatlar</span>
-  </div>
-  <h2 class="section-title fade-up">Biz taklif etamiz</h2>
-  <p class="section-sub fade-up">Har bir xizmatimiz zamonaviy tibbiy standartlar asosida, bemorning qulayligini birinchi o'ringa qo'yib taqdim etiladi.</p>
-  <div class="services-grid">
-    <div class="service-card fade-up">
-      <div class="s-num">01</div>
-      <div class="s-title">Tish oqartirish</div>
-      <div class="s-desc">Professional laser va kimyoviy oqartirish usullari yordamida tishlarni bir necha ton yorqinlashtirish. Natija bir seansda ko'rinadi.</div>
-    </div>
-    <div class="service-card fade-up">
-      <div class="s-num">02</div>
-      <div class="s-title">Implantatsiya</div>
-      <div class="s-desc">Yo'qolgan tishni titanium implant bilan almashtirish. Umr bo'yi davom etuvchi, tabiiy ko'rinishdagi yechim.</div>
-    </div>
-    <div class="service-card fade-up">
-      <div class="s-num">03</div>
-      <div class="s-title">Ortodontiya</div>
-      <div class="s-desc">Tishlarni to'g'rilash uchun zamonaviy breketlar va shaffof korrektorlar. Bolalar va kattalarga mo'ljallangan dasturlar.</div>
-    </div>
-    <div class="service-card fade-up">
-      <div class="s-num">04</div>
-      <div class="s-title">Estetik tish tabobati</div>
-      <div class="s-desc">Vinirlar, kompozit restavratsiya va toj qo'yish orqali tabassum estetikasini to'liq o'zgartirish.</div>
-    </div>
-    <div class="service-card fade-up">
-      <div class="s-num">05</div>
-      <div class="s-title">Tish davolash</div>
-      <div class="s-desc">Kariyes, pulpit va parodontit kasalliklarini og'riqsiz va zamonaviy usullar bilan davolash. Kafolat bilan.</div>
-    </div>
-    <div class="service-card fade-up">
-      <div class="s-num">06</div>
-      <div class="s-title">Bolalar stomatologiyasi</div>
-      <div class="s-desc">Kichik bemorlar uchun maxsus yondashuv, o'yin tarzida muolaja va qo'rquvni kamaytiruvchi muhit.</div>
+    <div class="hero-img-wrap">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_37fWuWE8Y80V9jcpZM0iw0pzTmC/hf_20260630_122234_75d9d9f2-ca69-4ab1-993b-de860c88e7b1.png" alt="Dental clinic" style="width:100%;height:100%;object-fit:cover">
+      <div class="hero-badge-float">
+        <div class="badge-float-icon">📅</div>
+        <div>
+          <div class="badge-float-text">Bugun ochiq</div>
+          <div class="badge-float-sub">09:00 – 19:00</div>
+        </div>
+      </div>
+      <div class="hero-card-float">
+        <div class="card-float-label">Bosh shifokor</div>
+        <div class="card-float-name">Dr. Akbar Nazarov</div>
+        <div class="card-float-role">Implantologiya · 12 yil tajriba</div>
+        <div class="card-float-rating">
+          <span class="stars">★★★★★</span>
+          <span class="rating-text">4.9 reyting</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- PHOTO BREAK -->
-<div class="photo-break fade-up">
-  <img src="assets/dream-smile-dental/interior.png" alt="Dentistry">
-  <div class="photo-overlay">
-    <h2>Har bir tabassum — bu bizning <span>san'atimiz</span></h2>
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-icon">🦷</div>
+    <div>
+      <div class="stat-num">5000+</div>
+      <div class="stat-sub">Mamnun bemorlar</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">⭐</div>
+    <div>
+      <div class="stat-num">98%</div>
+      <div class="stat-sub">Muvaffaqiyat darajasi</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">👨‍⚕️</div>
+    <div>
+      <div class="stat-num">12+</div>
+      <div class="stat-sub">Mutaxassis shifokorlar</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">🏆</div>
+    <div>
+      <div class="stat-num">10Y+</div>
+      <div class="stat-sub">Tajriba yili</div>
+    </div>
   </div>
 </div>
 
-<!-- WHY US -->
-<section>
-  <div class="section-label fade-up">
-    <span class="section-num">02</span>
-    <span class="section-tag">Nima uchun biz?</span>
+<!-- LOGO STRIP -->
+<div class="logo-strip">
+  <div class="strip-inner">
+    <div class="strip-item"><span class="strip-dot"></span>Implantatsiya</div>
+    <div class="strip-item"><span class="strip-dot"></span>Tish oqartirish</div>
+    <div class="strip-item"><span class="strip-dot"></span>Breket tizimi</div>
+    <div class="strip-item"><span class="strip-dot"></span>Bolalar stomatologiyasi</div>
+    <div class="strip-item"><span class="strip-dot"></span>Estetik tish davolash</div>
+    <div class="strip-item"><span class="strip-dot"></span>Tish protezi</div>
+    <div class="strip-item"><span class="strip-dot"></span>Implantatsiya</div>
+    <div class="strip-item"><span class="strip-dot"></span>Tish oqartirish</div>
+    <div class="strip-item"><span class="strip-dot"></span>Breket tizimi</div>
+    <div class="strip-item"><span class="strip-dot"></span>Bolalar stomatologiyasi</div>
+    <div class="strip-item"><span class="strip-dot"></span>Estetik tish davolash</div>
+    <div class="strip-item"><span class="strip-dot"></span>Tish protezi</div>
   </div>
-  <h2 class="section-title fade-up">Raqamlar o'z-o'zidan gapiradi</h2>
-  <div class="stats-grid">
-    <div class="stat-box fade-up">
-      <div class="stat-val">98%</div>
-      <div class="stat-lbl">Bemorlarning mamnunlik darajasi</div>
+</div>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-head fade-up">
+    <div>
+      <div class="section-label">Bizning xizmatlar</div>
+      <h2 class="section-title">Har bir ehtiyojingiz<br>uchun yechim</h2>
     </div>
-    <div class="stat-box fade-up">
-      <div class="stat-val">5000+</div>
-      <div class="stat-lbl">Muvaffaqiyatli muolaja amalga oshirildi</div>
+    <div class="section-head-right">
+      Zamonaviy uskunalar va individual yondashuv bilan har bir bemorga eng yaxshi natijani taqdim etamiz. Birinchi tashrif bepul konsultatsiya.
     </div>
-    <div class="stat-box fade-up">
-      <div class="stat-val">8+</div>
-      <div class="stat-lbl">Yillik klinika tajribasi</div>
+  </div>
+  <div class="services-grid">
+    <div class="srv-card fade-up">
+      <div class="srv-card-num">001</div>
+      <div class="srv-card-plus">+</div>
+      <div class="srv-card-title">Umumiy stomatologiya</div>
+      <p class="srv-card-desc">Profilaktik tekshiruv, plomba va tozalash — sog'lom tishlar uchun asos.</p>
     </div>
-    <div class="stat-box fade-up">
-      <div class="stat-val">12</div>
-      <div class="stat-lbl">Sertifikatlangan mutaxassis shifokor</div>
+    <div class="srv-card fade-up">
+      <div class="srv-card-num">002</div>
+      <div class="srv-card-plus">+</div>
+      <div class="srv-card-title">Estetik stomatologiya</div>
+      <p class="srv-card-desc">Tish oqartirish, vinir va ulmaydigan kuron bilan mukammal tabassum.</p>
+    </div>
+    <div class="srv-card fade-up">
+      <div class="srv-card-num">003</div>
+      <div class="srv-card-plus">+</div>
+      <div class="srv-card-title">Implantatsiya</div>
+      <p class="srv-card-desc">Yo'qolgan tishlarni qayta tiklash — umrbod mustahkam natija.</p>
+    </div>
+    <div class="srv-card fade-up">
+      <div class="srv-card-num">004</div>
+      <div class="srv-card-plus">+</div>
+      <div class="srv-card-title">Bolalar stomatologiyasi</div>
+      <p class="srv-card-desc">Bolalar uchun qulay va qo'rqinchsiz muhitda g'amxo'rlik.</p>
+    </div>
+    <div class="srv-card fade-up">
+      <div class="srv-card-num">005</div>
+      <div class="srv-card-plus">+</div>
+      <div class="srv-card-title">Ortodontiya (Breket)</div>
+      <p class="srv-card-desc">Metal va shaffof breket tizimlari bilan to'g'ri tish qatori.</p>
+    </div>
+    <div class="srv-card fade-up">
+      <div class="srv-card-num">006</div>
+      <div class="srv-card-plus">+</div>
+      <div class="srv-card-title">Tish protezi</div>
+      <p class="srv-card-desc">Zamonaviy materiallar bilan olib qo'yiladigan va qattiq protezlar.</p>
     </div>
   </div>
 </section>
 
-<!-- DETAIL SECTION -->
-<section>
-  <div class="detail-section">
-    <div class="detail-img fade-up">
-      <img src="assets/dream-smile-dental/detail.png" alt="detail">
+<!-- ABOUT -->
+<div class="about-section" id="about">
+  <div class="about-img-grid">
+    <div class="about-img tall bg-teal">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_37fWuWE8Y80V9jcpZM0iw0pzTmC/hf_20260630_122217_a48a4f78-7c1b-4aea-9b18-e0d995be7b1d.png" alt="Clinic interior" style="width:100%;height:100%;object-fit:cover">
     </div>
-    <div class="fade-up">
-      <div class="section-label">
-        <span class="section-num">03</span>
-        <span class="section-tag">Muhit</span>
+    <div style="display:flex;flex-direction:column;gap:1rem">
+      <div class="about-img bg-dark">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_37fWuWE8Y80V9jcpZM0iw0pzTmC/hf_20260630_122202_334fe5d7-0779-4d1c-8866-9e0640102c1b.png" alt="Dentist" style="width:100%;height:100%;object-fit:cover">
       </div>
-      <h2 class="section-title">Zamonaviy<br>Klinika Muhiti</h2>
-      <p style="color:rgba(255,255,255,0.55);line-height:1.8;margin-top:1rem;font-size:.95rem">Dream Smile Dental da siz faqat davolanmaysiz — siz to'liq dam olish va ishonch muhitida qabul qilinasiz. Klinikamiz eng yangi Yevropa uskunalari bilan jihozlangan. Har bir xona steril, yorug' va qulay qilib yaratilgan.</p>
-      <div style="display:flex;flex-direction:column;gap:.8rem;margin-top:2rem">
-        <div style="display:flex;align-items:center;gap:.8rem;font-size:.9rem;color:rgba(255,255,255,0.7)"><span style="color:var(--accent);font-size:1.2rem">✦</span> Yevropa sertifikatli tibbiy uskunalar</div>
-        <div style="display:flex;align-items:center;gap:.8rem;font-size:.9rem;color:rgba(255,255,255,0.7)"><span style="color:var(--accent);font-size:1.2rem">✦</span> Har bir xona uchun alohida sterilizatsiya tizimi</div>
-        <div style="display:flex;align-items:center;gap:.8rem;font-size:.9rem;color:rgba(255,255,255,0.7)"><span style="color:var(--accent);font-size:1.2rem">✦</span> Og'riqsiz anesteziya metodlari</div>
-        <div style="display:flex;align-items:center;gap:.8rem;font-size:.9rem;color:rgba(255,255,255,0.7)"><span style="color:var(--accent);font-size:1.2rem">✦</span> Qulay narx va to'lov imkoniyatlari</div>
+      <div class="about-img" style="background:#0a2a20">
+        <div class="about-img-placeholder">⭐</div>
       </div>
     </div>
   </div>
-</section>
+  <div class="about-right fade-up">
+    <div class="section-label">Biz haqimizda</div>
+    <h2 class="section-title">Sizning tabassumingiz —<br>bizning maqsadimiz</h2>
+    <p class="section-sub">10 yildan ortiq tajriba bilan biz har bir bemorga individual yondashamiz. Zamonaviy klinikamiz sizga eng qulay va xavfsiz davolash sharoitini taqdim etadi.</p>
+    <div class="about-features">
+      <div class="about-feat"><div class="feat-check">✓</div>Sertifikat olgan mutaxassislar</div>
+      <div class="about-feat"><div class="feat-check">✓</div>Zamonaviy Yevropa uskunalari</div>
+      <div class="about-feat"><div class="feat-check">✓</div>Og'riqsiz anesteziya texnologiyasi</div>
+      <div class="about-feat"><div class="feat-check">✓</div>Yil davomida 7/7 xizmat</div>
+      <div class="about-feat"><div class="feat-check">✓</div>Moslashuvchan to'lov rejalari</div>
+    </div>
+    <div class="about-cta">
+      <a href="tel:+998712333747" class="btn-teal">Bepul konsultatsiya →</a>
+    </div>
+  </div>
+</div>
 
 <!-- TESTIMONIALS -->
-<section>
-  <div class="section-label fade-up">
-    <span class="section-num">04</span>
-    <span class="section-tag">Fikrlar</span>
-  </div>
+<section class="testi-section" id="reviews">
+  <div class="section-label fade-up">Mijozlar fikri</div>
   <h2 class="section-title fade-up">Bemorlarimiz nima deydi</h2>
-  <div class="test-grid">
-    <div class="test-card fade-up">
-      <div class="stars">★★★★★</div>
-      <p class="test-text">"Dream Smile Dental da implant qo'ydirdim. Jarayon mutlaqo og'riqsiz, natija esa hayratlanarli darajada yaxshi. Shifokorlar juda professional va mehribon. Har doim bu klinikani maslahat beraman!"</p>
-      <div class="test-author">
-        <div class="test-avatar">A</div>
+  <div class="testi-grid">
+    <div class="testi-card fade-up">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Umrimda bunday professional klinika ko'rmaganman. Shifokorlar juda mehribon va professionallar. Implant o'rnatish og'riqsiz bo'ldi!"</p>
+      <div class="testi-author">
+        <div class="testi-avatar">AK</div>
         <div>
-          <div class="test-name">Aziz Karimov</div>
-          <div class="test-meta">Implant davolash · 2024</div>
+          <div class="testi-name">Aziza Karimova</div>
+          <div class="testi-role">Doimiy bemor · 3 yil</div>
         </div>
       </div>
     </div>
-    <div class="test-card fade-up">
-      <div class="stars">★★★★★</div>
-      <p class="test-text">"Tish oqartirish xizmatidan foydalandim va natijadan juda mamnunman. Bir seansda tishlarim 5 ton oqardi! Klinika juda toza va zamonaviy. Kuting, bu joy rostdan ham maxsus."</p>
-      <div class="test-author">
-        <div class="test-avatar">N</div>
+    <div class="testi-card fade-up">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Bolam tishidan qo'rqardi, lekin bu yerda hamma narsa o'zgardi. Bolalar kabinetidagi muhit ajoyib. Rahmat butun jamoaga!"</p>
+      <div class="testi-author">
+        <div class="testi-avatar">MR</div>
         <div>
-          <div class="test-name">Nilufar Rashidova</div>
-          <div class="test-meta">Oqartirish · 2024</div>
+          <div class="testi-name">Malika Rahimova</div>
+          <div class="testi-role">Bemor onasi</div>
         </div>
       </div>
     </div>
-    <div class="test-card fade-up">
-      <div class="stars">★★★★★</div>
-      <p class="test-text">"Farzandimni bolalar bo'limiga olib bordim. Shifokor uni shunday iliq kutib oldiki, bola umuman qo'rqmadi. Kariyes davolash jarayoni juda tez va og'riqsiz bo'ldi. Rahmat Dream Smile!"</p>
-      <div class="test-author">
-        <div class="test-avatar">M</div>
+    <div class="testi-card fade-up">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Tish oqartirish natijasidan juda mamnunman. Atigi 1 soatda tabassumim butunlay o'zgardi. Narx-navo ham adolatli."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">JS</div>
         <div>
-          <div class="test-name">Malika Yusupova</div>
-          <div class="test-meta">Bolalar davolash · 2025</div>
+          <div class="testi-name">Jahongir Salimov</div>
+          <div class="testi-role">Estetik tish davolash</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-section" id="team">
+  <div class="section-label fade-up">Bizning jamoa</div>
+  <h2 class="section-title fade-up">Tajribali shifokorlarimiz</h2>
+  <div class="team-grid">
+    <div class="team-card fade-up">
+      <div class="team-photo">👨‍⚕️</div>
+      <div class="team-name">Dr. Akbar Nazarov</div>
+      <div class="team-role">Implantolog</div>
+      <div class="team-exp">12 yil tajriba</div>
+    </div>
+    <div class="team-card fade-up">
+      <div class="team-photo">👩‍⚕️</div>
+      <div class="team-name">Dr. Nilufar Yusupova</div>
+      <div class="team-role">Ortodont</div>
+      <div class="team-exp">8 yil tajriba</div>
+    </div>
+    <div class="team-card fade-up">
+      <div class="team-photo">👨‍⚕️</div>
+      <div class="team-name">Dr. Rustam Aliev</div>
+      <div class="team-role">Estetik stomatolog</div>
+      <div class="team-exp">10 yil tajriba</div>
+    </div>
+    <div class="team-card fade-up">
+      <div class="team-photo">👩‍⚕️</div>
+      <div class="team-name">Dr. Zulfiya Mirzaeva</div>
+      <div class="team-role">Bolalar shifokori</div>
+      <div class="team-exp">6 yil tajriba</div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="cta-section">
-  <div class="cta-blob1"></div>
-  <div style="position:relative;z-index:2">
-    <p class="tag">Bugun Boshlang</p>
-    <h2>Mukammal tabassumingiz<br>bir qo'ng'iroq naridа</h2>
-    <p>Bepul konsultatsiya uchun hoziroq bog'laning. Shifokorlarimiz siz uchun eng yaxshi yechimni taklif etadi.</p>
-    <a href="tel:+998712333747" class="cta-phone">+998 71 233 37 47</a>
-    <div class="cta-btns">
-      <a href="tel:+998712333747" class="btn-primary">Qo'ng'iroq qilish</a>
-      <a href="https://t.me/dreamsmiledentaluz" class="tg-btn">✈ Telegram orqali yozish</a>
-    </div>
-    <p style="margin-top:2rem;font-size:.8rem;color:rgba(255,255,255,0.3)">📍 Shayxontohur tumani, Furqat ko'chasi, 1A · Toshkent</p>
+<section class="cta-section" id="contact">
+  <h2>Bugun <span>qabulga</span> yozilib,<br>sog'lom tabassumga ega bo'ling.</h2>
+  <p>Birinchi konsultatsiya — bepul. Sizni kutib qolamiz.</p>
+  <div class="cta-btns">
+    <a href="tel:+998712333747" class="btn-white">📞 Qo'ng'iroq qilish</a>
+    <a href="https://t.me/" class="btn-teal-outline">✈️ Telegram orqali yozish</a>
+  </div>
+  <div class="cta-contact">
+    <span>🕐 Dushanba – Shanba: 09:00 – 19:00</span>
+    <a href="https://maps.google.com">📍 Manzilni ko'rish →</a>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Dream<span>Smile</span> Dental</div>
-  <div class="footer-copy">© 2025 Dream Smile Dental. Barcha huquqlar himoyalangan.</div>
-  <div class="footer-address">Furqat ko'chasi, 1A, Shayxontohur<br>Toshkent, O'zbekiston</div>
+  <div class="footer-brand">
+    <a href="#" class="nav-logo" style="text-decoration:none">
+      <div class="nav-logo-icon">🦷</div>
+      <span id="footer-clinic-name">Dream Smile Dental</span>
+    </a>
+    <p class="footer-desc">Zamonaviy stomatologiya — sizning tabassumingiz uchun. Professional xizmat, qulay muhit.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Xizmatlar</h4>
+    <ul>
+      <li><a href="#">Implantatsiya</a></li>
+      <li><a href="#">Estetik stomatologiya</a></li>
+      <li><a href="#">Breket tizimi</a></li>
+      <li><a href="#">Bolalar bo'limi</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Klinika</h4>
+    <ul>
+      <li><a href="#">Biz haqimizda</a></li>
+      <li><a href="#">Shifokorlar</a></li>
+      <li><a href="#">Narxlar</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Aloqa</h4>
+    <ul>
+      <li><a href="tel:+998712333747">+998 71 233 37 47</a></li>
+      <li><a href="#">Telegram</a></li>
+      <li><a href="#">Instagram</a></li>
+      <li><a href="#">Manzil</a></li>
+    </ul>
+  </div>
 </footer>
+<div class="footer-bottom">
+  <span>© 2025 Dream Smile Dental. Barcha huquqlar himoyalangan.</span>
+  <span>Sayt yaratdi: <a href="https://smartdev.uz">SmartDev.uz</a></span>
+</div>
 
 <script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if(e.isIntersecting) {
-      e.target.classList.add('visible');
-    }
-  });
-}, {threshold: 0.12});
+// Scroll animations
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold:.1});
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
-
-<section style="padding:50px 6%;background:#060d1f;text-align:center;border-top:1px solid rgba(255,255,255,0.08)">
-  <p style="color:#8899aa;font-size:.85rem;margin-bottom:1rem">Saytga QR orqali kiring</p>
-  <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A//javohirbahtiyorov2001-code.github.io/b2b-toshkent/generated_sites/dream-smile-dental.html" alt="QR Code" style="width:160px;height:160px;border-radius:12px;border:4px solid rgba(255,255,255,0.1)">
-</section>
 </body>
 </html>

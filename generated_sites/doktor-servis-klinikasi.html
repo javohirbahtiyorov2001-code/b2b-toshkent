@@ -1,136 +1,535 @@
-<!DOCTYPE html><html lang="uz"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Doktor-Servis Klinikasi</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doktor-Servis Klinikasi — Zamonaviy Stomatologiya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--primary:#14213d;--accent:#fca311;--bg:#f8fafc;--dark:#0f172a}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:#1e293b}
-nav{position:fixed;top:0;width:100%;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid #e2e8f0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;box-shadow:0 1px 20px rgba(0,0,0,.06)}
-.logo{font-weight:800;color:var(--primary);font-size:1.2rem}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{color:#64748b;text-decoration:none;font-size:.9rem;transition:.2s}
-.nav-links a:hover{color:var(--accent)}
-.hero{min-height:100vh;background:linear-gradient(135deg,var(--primary) 0%,#fca31133 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem}
-.hero-content .tag{display:inline-block;background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);padding:.4rem 1.2rem;border-radius:50px;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.5rem;border:1px solid rgba(255,255,255,.2)}
-.hero-content h1{font-size:clamp(2rem,5vw,4rem);color:#fff;font-weight:800;line-height:1.15;margin-bottom:1.5rem;text-shadow:0 2px 20px rgba(0,0,0,.3)}
-.hero-content p{color:rgba(255,255,255,.85);font-size:1.1rem;max-width:600px;margin:0 auto 2.5rem;line-height:1.7}
-.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-block;background:#fff;color:var(--primary);padding:.9rem 2.2rem;border-radius:8px;text-decoration:none;font-weight:700;font-size:.95rem;transition:.3s}
-.btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.2)}
-.btn-outline{background:transparent;border:2px solid rgba(255,255,255,.6);color:#fff}
-.btn-outline:hover{background:rgba(255,255,255,.1)}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:600px;margin:3rem auto 0;padding:2rem;background:rgba(255,255,255,.1);border-radius:12px;border:1px solid rgba(255,255,255,.15)}
-.stat-num{font-size:2rem;font-weight:800;color:#fff}
-.stat-label{font-size:.8rem;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:1px}
-section{padding:5rem 2rem}
-.container{max-width:1100px;margin:0 auto}
-.section-title{font-size:2rem;font-weight:800;color:var(--dark);text-align:center;margin-bottom:3rem}
-.section-title span{color:var(--accent)}
-.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem}
-.svc-card{background:#fff;padding:2rem;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.06);transition:.3s;border:1px solid #f1f5f9;text-align:center}
-.svc-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,.1);border-color:var(--accent)}
-.svc-icon{font-size:2.5rem;margin-bottom:1rem;display:block}
-.svc-card h3{font-weight:700;margin-bottom:.5rem;color:var(--dark)}
-.svc-card p{color:#64748b;font-size:.9rem;line-height:1.6}
-.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
-.why-item{text-align:center;padding:1.5rem}
-.why-icon{width:60px;height:60px;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 1rem}
-.why-item h3{font-weight:700;margin-bottom:.5rem}
-.why-item p{color:#64748b;font-size:.9rem}
-.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
-.review{background:#fff;padding:2rem;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.06)}
-.stars{color:#f59e0b;margin-bottom:.8rem}
-.review p{color:#475569;font-style:italic;line-height:1.7;margin-bottom:1rem}
-.review-author{font-weight:700;color:var(--dark)}
-.cta-section{background:linear-gradient(135deg,var(--primary),#fca311);text-align:center;padding:5rem 2rem}
-.cta-section h2{font-size:2.2rem;color:#fff;font-weight:800;margin-bottom:1rem}
-.cta-section p{color:rgba(255,255,255,.85);margin-bottom:2.5rem;font-size:1.1rem}
-footer{background:var(--dark);color:#94a3b8;padding:3rem 2rem;text-align:center}
-footer .logo{color:#fff;font-size:1.4rem;margin-bottom:1rem;display:block}
-footer a{color:var(--accent);text-decoration:none}
-.wa-btn{position:fixed;bottom:2rem;right:2rem;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.5);z-index:1000;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.5)}50%{box-shadow:0 4px 40px rgba(37,211,102,.8)}}
-.wa-btn svg{width:32px;height:32px;fill:#fff}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:.5rem}
-.hamburger span{width:25px;height:2px;background:var(--primary);display:block}
-@media(max-width:768px){.stats{grid-template-columns:repeat(3,1fr)}.nav-links{display:none;position:fixed;top:60px;left:0;right:0;background:#fff;flex-direction:column;padding:2rem;gap:1.5rem;border-bottom:1px solid #e2e8f0}.nav-links.open{display:flex}.hamburger{display:flex}}
-.reveal{opacity:0;transform:translateY(30px);transition:.6s ease}
-.reveal.visible{opacity:1;transform:none}
-</style></head><body>
+:root{
+  --teal:#0fb890;
+  --teal-dark:#0a9a78;
+  --teal-light:#e6f9f4;
+  --dark:#0d1117;
+  --dark2:#1a1f2e;
+  --white:#ffffff;
+  --grey:#f7f9fc;
+  --text:#1a2332;
+  --muted:#6b7a8d;
+  --border:#e8ecf0;
+}
+html{scroll-behavior:smooth}
+body{background:#fff;color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:.6rem;font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--dark);text-decoration:none}
+.nav-logo-icon{width:34px;height:34px;background:var(--teal);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--dark)}
+.nav-cta{background:var(--teal);color:#fff;padding:.6rem 1.5rem;border-radius:999px;text-decoration:none;font-size:.875rem;font-weight:600;transition:background .2s;display:flex;align-items:center;gap:.5rem}
+.nav-cta:hover{background:var(--teal-dark)}
+.nav-cta svg{width:16px;height:16px}
+
+/* ── HERO ── */
+.hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:120px 5% 80px;gap:4rem;background:var(--white)}
+.hero-left{display:flex;flex-direction:column;gap:1.5rem}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--teal-light);color:var(--teal-dark);font-size:.75rem;font-weight:700;padding:.4rem 1rem;border-radius:999px;width:fit-content;letter-spacing:.04em}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;color:var(--dark)}
+.hero h1 span{color:var(--teal)}
+.hero-sub{font-size:1rem;color:var(--muted);line-height:1.7;max-width:420px}
+.hero-btns{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.btn-teal{background:var(--teal);color:#fff;padding:.85rem 2rem;border-radius:999px;text-decoration:none;font-weight:600;font-size:.9rem;transition:all .2s;display:inline-flex;align-items:center;gap:.5rem}
+.btn-teal:hover{background:var(--teal-dark);transform:translateY(-1px)}
+.btn-teal svg{width:16px;height:16px}
+.btn-ghost-dark{color:var(--dark);text-decoration:none;font-weight:500;font-size:.9rem;display:inline-flex;align-items:center;gap:.4rem;transition:gap .2s}
+.btn-ghost-dark:hover{gap:.7rem}
+.hero-trust{display:flex;align-items:center;gap:1rem;padding-top:.5rem}
+.trust-avatars{display:flex}
+.trust-avatars span{width:34px;height:34px;border-radius:50%;border:2px solid #fff;background:linear-gradient(135deg,#c8f5ea,#a8edda);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:var(--teal-dark);margin-left:-8px}
+.trust-avatars span:first-child{margin-left:0}
+.trust-text{font-size:.8rem;color:var(--muted)}
+.trust-text strong{color:var(--dark);font-weight:600}
+.trust-stars{color:#f59e0b;font-size:.8rem}
+
+/* hero right */
+.hero-right{position:relative}
+.hero-img-wrap{position:relative;border-radius:24px;overflow:hidden;height:520px}
+.hero-img-wrap img{width:100%;height:100%;object-fit:cover}
+.hero-img-placeholder{width:100%;height:100%;background:linear-gradient(135deg,#c8f5ea 0%,#7de8cc 40%,#0fb890 100%);display:flex;align-items:center;justify-content:center;font-size:4rem}
+.hero-badge-float{position:absolute;top:1.5rem;left:1.5rem;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-radius:12px;padding:.7rem 1rem;display:flex;align-items:center;gap:.6rem;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.badge-float-icon{width:32px;height:32px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:1rem}
+.badge-float-text{font-size:.7rem;font-weight:600;color:var(--dark)}
+.badge-float-sub{font-size:.65rem;color:var(--muted)}
+.hero-card-float{position:absolute;bottom:1.5rem;right:1.5rem;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-radius:16px;padding:1rem 1.2rem;box-shadow:0 8px 32px rgba(0,0,0,.12);min-width:200px}
+.card-float-label{font-size:.65rem;color:var(--muted);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.4rem}
+.card-float-name{font-size:.9rem;font-weight:700;color:var(--dark);margin-bottom:.15rem}
+.card-float-role{font-size:.75rem;color:var(--muted);margin-bottom:.5rem}
+.card-float-rating{display:flex;align-items:center;gap:.4rem;font-size:.75rem}
+.stars{color:#f59e0b}
+.rating-text{color:var(--muted)}
+
+/* ── STATS BAR ── */
+.stats-bar{background:var(--dark2);padding:2.5rem 5%;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.stat-item{display:flex;align-items:flex-start;gap:1rem;padding-right:2rem;border-right:1px solid rgba(255,255,255,.08)}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:#fff;line-height:1}
+.stat-sub{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.4;margin-top:.3rem}
+.stat-icon{width:40px;height:40px;min-width:40px;background:rgba(15,184,144,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:1.1rem}
+
+/* ── SERVICES ── */
+.section{padding:100px 5%}
+.section-label{font-size:.75rem;font-weight:700;color:var(--teal);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.8rem}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-bottom:1rem;color:var(--dark)}
+.section-sub{color:var(--muted);font-size:.95rem;line-height:1.7;max-width:480px}
+.section-head{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3.5rem}
+.section-head-right{color:var(--muted);font-size:.9rem;line-height:1.7}
+
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.srv-card{background:var(--grey);border:1px solid var(--border);border-radius:20px;padding:2rem;position:relative;overflow:hidden;transition:all .3s;cursor:default}
+.srv-card:hover{background:#fff;border-color:var(--teal);box-shadow:0 12px 40px rgba(15,184,144,.12);transform:translateY(-4px)}
+.srv-card-num{position:absolute;top:1.5rem;right:1.5rem;font-family:'Syne',sans-serif;font-size:.75rem;font-weight:800;color:var(--border)}
+.srv-card-plus{width:32px;height:32px;border:1.5px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:1.1rem;margin-bottom:1.5rem;transition:all .3s}
+.srv-card:hover .srv-card-plus{border-color:var(--teal);color:var(--teal);background:var(--teal-light)}
+.srv-card-title{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:700;margin-bottom:.6rem;color:var(--dark)}
+.srv-card-desc{font-size:.85rem;color:var(--muted);line-height:1.65}
+
+/* ── ABOUT / SPLIT ── */
+.about-section{background:var(--dark);padding:100px 5%;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-img-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.about-img{border-radius:16px;overflow:hidden;height:220px}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.about-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2rem}
+.about-img.tall{grid-row:span 2;height:456px}
+.about-img.bg-teal .about-img-placeholder{background:var(--teal)}
+.about-img.bg-dark .about-img-placeholder{background:#1a2e28}
+.about-right .section-label{color:var(--teal)}
+.about-right .section-title{color:#fff}
+.about-right .section-sub{color:rgba(255,255,255,.6);margin-bottom:2.5rem}
+.about-features{display:flex;flex-direction:column;gap:1.2rem}
+.about-feat{display:flex;align-items:center;gap:.8rem;color:rgba(255,255,255,.8);font-size:.875rem}
+.feat-check{width:24px;height:24px;min-width:24px;background:rgba(15,184,144,.15);border:1px solid rgba(15,184,144,.3);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:.75rem}
+.about-cta{margin-top:2.5rem}
+
+/* ── TESTIMONIALS ── */
+.testi-section{padding:100px 5%;background:var(--grey)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
+.testi-card{background:#fff;border-radius:20px;padding:2rem;border:1px solid var(--border)}
+.testi-stars{color:#f59e0b;font-size:.9rem;margin-bottom:1rem;letter-spacing:.05em}
+.testi-text{font-size:.9rem;color:var(--text);line-height:1.7;margin-bottom:1.5rem;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:.8rem}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--teal-light),var(--teal));display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:.85rem}
+.testi-name{font-weight:600;font-size:.875rem;color:var(--dark)}
+.testi-role{font-size:.75rem;color:var(--muted)}
+
+/* ── TEAM ── */
+.team-section{padding:100px 5%}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3.5rem}
+.team-card{text-align:center}
+.team-photo{width:100%;aspect-ratio:3/4;border-radius:20px;background:linear-gradient(135deg,#c8f5ea,#7de8cc);margin-bottom:1rem;display:flex;align-items:center;justify-content:center;font-size:2.5rem;overflow:hidden}
+.team-photo img{width:100%;height:100%;object-fit:cover}
+.team-name{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--dark);margin-bottom:.25rem}
+.team-role{font-size:.8rem;color:var(--teal);font-weight:600}
+.team-exp{font-size:.75rem;color:var(--muted);margin-top:.25rem}
+
+/* ── CTA SECTION ── */
+.cta-section{background:linear-gradient(135deg,#0d1117 0%,#0a2a20 50%,#0d1117 100%);padding:100px 5%;text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(15,184,144,.2) 0%,transparent 70%);pointer-events:none}
+.cta-section h2{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:1rem;position:relative;z-index:1}
+.cta-section h2 span{color:var(--teal)}
+.cta-section p{color:rgba(255,255,255,.6);font-size:1rem;margin-bottom:2.5rem;position:relative;z-index:1}
+.cta-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;position:relative;z-index:1}
+.btn-white{background:#fff;color:var(--dark);padding:.85rem 2rem;border-radius:999px;text-decoration:none;font-weight:700;font-size:.9rem;transition:all .2s}
+.btn-white:hover{background:var(--teal-light);transform:translateY(-1px)}
+.btn-teal-outline{border:1px solid rgba(15,184,144,.4);color:var(--teal);padding:.85rem 2rem;border-radius:999px;text-decoration:none;font-weight:600;font-size:.9rem;transition:all .2s}
+.btn-teal-outline:hover{background:rgba(15,184,144,.1);border-color:var(--teal)}
+.cta-contact{margin-top:2rem;display:flex;justify-content:center;gap:3rem;color:rgba(255,255,255,.5);font-size:.85rem;position:relative;z-index:1}
+.cta-contact a{color:rgba(255,255,255,.7);text-decoration:none;font-weight:500;transition:color .2s}
+.cta-contact a:hover{color:var(--teal)}
+
+/* ── FOOTER ── */
+footer{padding:50px 5% 30px;border-top:1px solid var(--border);display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem}
+.footer-brand{display:flex;flex-direction:column;gap:1rem}
+.footer-desc{font-size:.85rem;color:var(--muted);line-height:1.7;max-width:260px}
+.footer-col h4{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;color:var(--dark);margin-bottom:1rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.footer-col ul li a{font-size:.85rem;color:var(--muted);text-decoration:none;transition:color .2s}
+.footer-col ul li a:hover{color:var(--teal)}
+.footer-bottom{padding:1.5rem 5% 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--muted)}
+.footer-bottom a{color:var(--teal);text-decoration:none}
+
+/* scroll logo strip */
+.logo-strip{padding:1.5rem 0;background:var(--teal);overflow:hidden;display:flex;gap:0}
+.strip-inner{display:flex;gap:3rem;animation:scrollstrip 20s linear infinite;white-space:nowrap;align-items:center}
+@keyframes scrollstrip{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.strip-item{font-family:'Syne',sans-serif;font-weight:800;font-size:.875rem;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.06em;display:flex;align-items:center;gap:.5rem}
+.strip-dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.4)}
+
+/* fade in */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:none}
+
+@media(max-width:1024px){
+  .hero{grid-template-columns:1fr;padding-top:100px;gap:2.5rem}
+  .hero-right{display:none}
+  .stats-bar{grid-template-columns:repeat(2,1fr)}
+  .section-head{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .about-section{grid-template-columns:1fr;gap:3rem}
+  .about-img-grid{display:none}
+  .testi-grid{grid-template-columns:1fr 1fr}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  footer{grid-template-columns:1fr 1fr;gap:2rem}
+}
+@media(max-width:600px){
+  .nav-links{display:none}
+  .stats-bar{grid-template-columns:1fr 1fr}
+  .services-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+  footer{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
 <nav>
-  <span class="logo">Doktor-Servis Klinikasi</span>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#xizmatlar">Xizmatlar</a></li>
-    <li><a href="#nega-biz">Nega Biz?</a></li>
-    <li><a href="#sharhlar">Sharhlar</a></li>
-    <li><a href="#bog-lanish">Bog'lanish</a></li>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">🦷</div>
+    <span id="clinic-name">Doktor-Servis Klinikasi</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Xizmatlar</a></li>
+    <li><a href="#about">Biz haqimizda</a></li>
+    <li><a href="#team">Shifokorlar</a></li>
+    <li><a href="#contact">Aloqa</a></li>
   </ul>
-  <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></button>
+  <a href="tel:+998712770000" class="nav-cta">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+    Qabulga yozilish
+  </a>
 </nav>
+
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
-    <span class="tag">Clinic · Toshkent</span>
-    <h1>Doktor-Servis Klinikasi</h1>
-    <p>Sifatli xizmat va professional yondashuv bilan sizning ehtiyojlaringizni qondiramiz.</p>
+  <div class="hero-left">
+    <div class="hero-badge">✦ Ishonchli Stomatologiya</div>
+    <h1>Sog'lom tish —<br><span>baxtli hayot</span> boshlanishi.</h1>
+    <p class="hero-sub">Zamonaviy uskunalar va tajribali shifokorlar bilan sizga eng yaxshi tish parvarishi xizmatini taqdim etamiz.</p>
     <div class="hero-btns">
-      <a href="https://wa.me/998712770000?text=Salom%2C%20Doktor-Servis%20Klinikasi%20bilan%20bog%27lanmoqchiman" class="btn">WhatsApp orqali Yozish</a>
-      <a href="tel:+998712770000" class="btn btn-outline">📞 Qo'ng'iroq</a>
+      <a href="tel:+998712770000" class="btn-teal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        Qo'ng'iroq qilish
+      </a>
+      <a href="#services" class="btn-ghost-dark">Xizmatlarni ko'rish →</a>
     </div>
-    <div class="stats">
-      <div><div class="stat-num">5+</div><div class="stat-label">Yil tajriba</div></div>
-      <div><div class="stat-num">1K+</div><div class="stat-label">Mijozlar</div></div>
-      <div><div class="stat-num">100%</div><div class="stat-label">Kafolat</div></div>
-    </div>
-  </div>
-</section>
-<section id="xizmatlar">
-  <div class="container">
-    <h2 class="section-title">Bizning <span>Xizmatlarimiz</span></h2>
-    <div class="svc-grid"><div class="svc-card reveal"><div class="svc-icon">🏥</div><h3>Ginekologiya</h3><p>Professional xizmat kafolati bilan</p></div><div class="svc-card reveal"><div class="svc-icon">🏥</div><h3>Kardiologiya</h3><p>Professional xizmat kafolati bilan</p></div><div class="svc-card reveal"><div class="svc-icon">🏥</div><h3>Nevrologiya</h3><p>Professional xizmat kafolati bilan</p></div><div class="svc-card reveal"><div class="svc-icon">🏥</div><h3>MRT</h3><p>Professional xizmat kafolati bilan</p></div><div class="svc-card reveal"><div class="svc-icon">🏥</div><h3>Laboratoriya</h3><p>Professional xizmat kafolati bilan</p></div></div>
-  </div>
-</section>
-<section id="nega-biz" style="background:#f1f5f9">
-  <div class="container">
-    <h2 class="section-title">Nega <span>Bizni</span> Tanlashadi?</h2>
-    <div class="why-grid">
-      <div class="why-item reveal"><div class="why-icon">⚡</div><h3>Tez Xizmat</h3><p>Sizning vaqtingizni qadrlashimiz</p></div>
-      <div class="why-item reveal"><div class="why-icon">✅</div><h3>Sifat Kafolati</h3><p>Har bir xizmatga kafolat beramiz</p></div>
-      <div class="why-item reveal"><div class="why-icon">💰</div><h3>Qulay Narxlar</h3><p>Sifatni arzon narxda taklif qilamiz</p></div>
-      <div class="why-item reveal"><div class="why-icon">🤝</div><h3>Ishonch</h3><p>1000+ mamnun mijozlarimiz bor</p></div>
+    <div class="hero-trust">
+      <div class="trust-avatars">
+        <span>AK</span><span>MR</span><span>ZB</span><span>+</span>
+      </div>
+      <div>
+        <div class="trust-stars">★★★★★</div>
+        <div class="trust-text"><strong>5000+ mijoz</strong> ishonch bildirdi</div>
+      </div>
     </div>
   </div>
-</section>
-<section id="sharhlar">
-  <div class="container">
-    <h2 class="section-title">Mijozlar <span>Fikri</span></h2>
-    <div class="reviews-grid">
-      <div class="review reveal"><div class="stars">★★★★★</div><p>"Juda yaxshi xizmat, professional munosabat. Hammaga tavsiya qilaman!"</p><span class="review-author">— Aziz T.</span></div>
-      <div class="review reveal"><div class="stars">★★★★★</div><p>"Narx-navo adolatli, xizmat sifati zo'r. Mamnun qoldim!"</p><span class="review-author">— Malika R.</span></div>
-      <div class="review reveal"><div class="stars">★★★★★</div><p>"Tez va sifatli. Bu yerga har doim murojaat qilaman."</p><span class="review-author">— Jahon S.</span></div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_37fWuWE8Y80V9jcpZM0iw0pzTmC/hf_20260630_122234_75d9d9f2-ca69-4ab1-993b-de860c88e7b1.png" alt="Dental clinic" style="width:100%;height:100%;object-fit:cover">
+      <div class="hero-badge-float">
+        <div class="badge-float-icon">📅</div>
+        <div>
+          <div class="badge-float-text">Bugun ochiq</div>
+          <div class="badge-float-sub">09:00 – 19:00</div>
+        </div>
+      </div>
+      <div class="hero-card-float">
+        <div class="card-float-label">Bosh shifokor</div>
+        <div class="card-float-name">Dr. Akbar Nazarov</div>
+        <div class="card-float-role">Implantologiya · 12 yil tajriba</div>
+        <div class="card-float-rating">
+          <span class="stars">★★★★★</span>
+          <span class="rating-text">4.9 reyting</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-<section class="cta-section" id="bog-lanish">
-  <h2>Bugun Bog'laning!</h2>
-  <p>📍 Chilonzor tumani, Mukimiy ko'chasi, 182<br>Ish vaqti: Du–Yak, 09:00 – 19:00</p>
-  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-    <a href="https://wa.me/998712770000?text=Salom%2C%20Doktor-Servis%20Klinikasi%20bilan%20bog%27lanmoqchiman" class="btn">WhatsApp</a>
-    <a href="tel:+998712770000" class="btn btn-outline">📞 +998712770000</a>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-icon">🦷</div>
+    <div>
+      <div class="stat-num">5000+</div>
+      <div class="stat-sub">Mamnun bemorlar</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">⭐</div>
+    <div>
+      <div class="stat-num">98%</div>
+      <div class="stat-sub">Muvaffaqiyat darajasi</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">👨‍⚕️</div>
+    <div>
+      <div class="stat-num">12+</div>
+      <div class="stat-sub">Mutaxassis shifokorlar</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon">🏆</div>
+    <div>
+      <div class="stat-num">10Y+</div>
+      <div class="stat-sub">Tajriba yili</div>
+    </div>
+  </div>
+</div>
+
+<!-- LOGO STRIP -->
+<div class="logo-strip">
+  <div class="strip-inner">
+    <div class="strip-item"><span class="strip-dot"></span>Implantatsiya</div>
+    <div class="strip-item"><span class="strip-dot"></span>Tish oqartirish</div>
+    <div class="strip-item"><span class="strip-dot"></span>Breket tizimi</div>
+    <div class="strip-item"><span class="strip-dot"></span>Bolalar stomatologiyasi</div>
+    <div class="strip-item"><span class="strip-dot"></span>Estetik tish davolash</div>
+    <div class="strip-item"><span class="strip-dot"></span>Tish protezi</div>
+    <div class="strip-item"><span class="strip-dot"></span>Implantatsiya</div>
+    <div class="strip-item"><span class="strip-dot"></span>Tish oqartirish</div>
+    <div class="strip-item"><span class="strip-dot"></span>Breket tizimi</div>
+    <div class="strip-item"><span class="strip-dot"></span>Bolalar stomatologiyasi</div>
+    <div class="strip-item"><span class="strip-dot"></span>Estetik tish davolash</div>
+    <div class="strip-item"><span class="strip-dot"></span>Tish protezi</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-head fade-up">
+    <div>
+      <div class="section-label">Bizning xizmatlar</div>
+      <h2 class="section-title">Har bir ehtiyojingiz<br>uchun yechim</h2>
+    </div>
+    <div class="section-head-right">
+      Zamonaviy uskunalar va individual yondashuv bilan har bir bemorga eng yaxshi natijani taqdim etamiz. Birinchi tashrif bepul konsultatsiya.
+    </div>
+  </div>
+  <div class="services-grid">
+    <div class="srv-card fade-up">
+      <div class="srv-card-num">001</div>
+      <div class="srv-card-plus">+</div>
+      <div class="srv-card-title">Umumiy stomatologiya</div>
+      <p class="srv-card-desc">Profilaktik tekshiruv, plomba va tozalash — sog'lom tishlar uchun asos.</p>
+    </div>
+    <div class="srv-card fade-up">
+      <div class="srv-card-num">002</div>
+      <div class="srv-card-plus">+</div>
+      <div class="srv-card-title">Estetik stomatologiya</div>
+      <p class="srv-card-desc">Tish oqartirish, vinir va ulmaydigan kuron bilan mukammal tabassum.</p>
+    </div>
+    <div class="srv-card fade-up">
+      <div class="srv-card-num">003</div>
+      <div class="srv-card-plus">+</div>
+      <div class="srv-card-title">Implantatsiya</div>
+      <p class="srv-card-desc">Yo'qolgan tishlarni qayta tiklash — umrbod mustahkam natija.</p>
+    </div>
+    <div class="srv-card fade-up">
+      <div class="srv-card-num">004</div>
+      <div class="srv-card-plus">+</div>
+      <div class="srv-card-title">Bolalar stomatologiyasi</div>
+      <p class="srv-card-desc">Bolalar uchun qulay va qo'rqinchsiz muhitda g'amxo'rlik.</p>
+    </div>
+    <div class="srv-card fade-up">
+      <div class="srv-card-num">005</div>
+      <div class="srv-card-plus">+</div>
+      <div class="srv-card-title">Ortodontiya (Breket)</div>
+      <p class="srv-card-desc">Metal va shaffof breket tizimlari bilan to'g'ri tish qatori.</p>
+    </div>
+    <div class="srv-card fade-up">
+      <div class="srv-card-num">006</div>
+      <div class="srv-card-plus">+</div>
+      <div class="srv-card-title">Tish protezi</div>
+      <p class="srv-card-desc">Zamonaviy materiallar bilan olib qo'yiladigan va qattiq protezlar.</p>
+    </div>
   </div>
 </section>
+
+<!-- ABOUT -->
+<div class="about-section" id="about">
+  <div class="about-img-grid">
+    <div class="about-img tall bg-teal">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_37fWuWE8Y80V9jcpZM0iw0pzTmC/hf_20260630_122217_a48a4f78-7c1b-4aea-9b18-e0d995be7b1d.png" alt="Clinic interior" style="width:100%;height:100%;object-fit:cover">
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1rem">
+      <div class="about-img bg-dark">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_37fWuWE8Y80V9jcpZM0iw0pzTmC/hf_20260630_122202_334fe5d7-0779-4d1c-8866-9e0640102c1b.png" alt="Dentist" style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <div class="about-img" style="background:#0a2a20">
+        <div class="about-img-placeholder">⭐</div>
+      </div>
+    </div>
+  </div>
+  <div class="about-right fade-up">
+    <div class="section-label">Biz haqimizda</div>
+    <h2 class="section-title">Sizning tabassumingiz —<br>bizning maqsadimiz</h2>
+    <p class="section-sub">10 yildan ortiq tajriba bilan biz har bir bemorga individual yondashamiz. Zamonaviy klinikamiz sizga eng qulay va xavfsiz davolash sharoitini taqdim etadi.</p>
+    <div class="about-features">
+      <div class="about-feat"><div class="feat-check">✓</div>Sertifikat olgan mutaxassislar</div>
+      <div class="about-feat"><div class="feat-check">✓</div>Zamonaviy Yevropa uskunalari</div>
+      <div class="about-feat"><div class="feat-check">✓</div>Og'riqsiz anesteziya texnologiyasi</div>
+      <div class="about-feat"><div class="feat-check">✓</div>Yil davomida 7/7 xizmat</div>
+      <div class="about-feat"><div class="feat-check">✓</div>Moslashuvchan to'lov rejalari</div>
+    </div>
+    <div class="about-cta">
+      <a href="tel:+998712770000" class="btn-teal">Bepul konsultatsiya →</a>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section" id="reviews">
+  <div class="section-label fade-up">Mijozlar fikri</div>
+  <h2 class="section-title fade-up">Bemorlarimiz nima deydi</h2>
+  <div class="testi-grid">
+    <div class="testi-card fade-up">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Umrimda bunday professional klinika ko'rmaganman. Shifokorlar juda mehribon va professionallar. Implant o'rnatish og'riqsiz bo'ldi!"</p>
+      <div class="testi-author">
+        <div class="testi-avatar">AK</div>
+        <div>
+          <div class="testi-name">Aziza Karimova</div>
+          <div class="testi-role">Doimiy bemor · 3 yil</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card fade-up">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Bolam tishidan qo'rqardi, lekin bu yerda hamma narsa o'zgardi. Bolalar kabinetidagi muhit ajoyib. Rahmat butun jamoaga!"</p>
+      <div class="testi-author">
+        <div class="testi-avatar">MR</div>
+        <div>
+          <div class="testi-name">Malika Rahimova</div>
+          <div class="testi-role">Bemor onasi</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card fade-up">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Tish oqartirish natijasidan juda mamnunman. Atigi 1 soatda tabassumim butunlay o'zgardi. Narx-navo ham adolatli."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">JS</div>
+        <div>
+          <div class="testi-name">Jahongir Salimov</div>
+          <div class="testi-role">Estetik tish davolash</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-section" id="team">
+  <div class="section-label fade-up">Bizning jamoa</div>
+  <h2 class="section-title fade-up">Tajribali shifokorlarimiz</h2>
+  <div class="team-grid">
+    <div class="team-card fade-up">
+      <div class="team-photo">👨‍⚕️</div>
+      <div class="team-name">Dr. Akbar Nazarov</div>
+      <div class="team-role">Implantolog</div>
+      <div class="team-exp">12 yil tajriba</div>
+    </div>
+    <div class="team-card fade-up">
+      <div class="team-photo">👩‍⚕️</div>
+      <div class="team-name">Dr. Nilufar Yusupova</div>
+      <div class="team-role">Ortodont</div>
+      <div class="team-exp">8 yil tajriba</div>
+    </div>
+    <div class="team-card fade-up">
+      <div class="team-photo">👨‍⚕️</div>
+      <div class="team-name">Dr. Rustam Aliev</div>
+      <div class="team-role">Estetik stomatolog</div>
+      <div class="team-exp">10 yil tajriba</div>
+    </div>
+    <div class="team-card fade-up">
+      <div class="team-photo">👩‍⚕️</div>
+      <div class="team-name">Dr. Zulfiya Mirzaeva</div>
+      <div class="team-role">Bolalar shifokori</div>
+      <div class="team-exp">6 yil tajriba</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <h2>Bugun <span>qabulga</span> yozilib,<br>sog'lom tabassumga ega bo'ling.</h2>
+  <p>Birinchi konsultatsiya — bepul. Sizni kutib qolamiz.</p>
+  <div class="cta-btns">
+    <a href="tel:+998712770000" class="btn-white">📞 Qo'ng'iroq qilish</a>
+    <a href="https://t.me/" class="btn-teal-outline">✈️ Telegram orqali yozish</a>
+  </div>
+  <div class="cta-contact">
+    <span>🕐 Dushanba – Shanba: 09:00 – 19:00</span>
+    <a href="https://maps.google.com">📍 Manzilni ko'rish →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <span class="logo">Doktor-Servis Klinikasi</span>
-  <p>📍 Chilonzor tumani, Mukimiy ko'chasi, 182</p>
-  <p>📞 <a href="tel:+998712770000">+998712770000</a></p>
-  <p style="margin-top:1rem;color:#334155">© 2025 Doktor-Servis Klinikasi. Barcha huquqlar himoyalangan.</p>
+  <div class="footer-brand">
+    <a href="#" class="nav-logo" style="text-decoration:none">
+      <div class="nav-logo-icon">🦷</div>
+      <span id="footer-clinic-name">Doktor-Servis Klinikasi</span>
+    </a>
+    <p class="footer-desc">Zamonaviy stomatologiya — sizning tabassumingiz uchun. Professional xizmat, qulay muhit.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Xizmatlar</h4>
+    <ul>
+      <li><a href="#">Implantatsiya</a></li>
+      <li><a href="#">Estetik stomatologiya</a></li>
+      <li><a href="#">Breket tizimi</a></li>
+      <li><a href="#">Bolalar bo'limi</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Klinika</h4>
+    <ul>
+      <li><a href="#">Biz haqimizda</a></li>
+      <li><a href="#">Shifokorlar</a></li>
+      <li><a href="#">Narxlar</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Aloqa</h4>
+    <ul>
+      <li><a href="tel:+998712770000">+998 71 277 00 00</a></li>
+      <li><a href="#">Telegram</a></li>
+      <li><a href="#">Instagram</a></li>
+      <li><a href="#">Manzil</a></li>
+    </ul>
+  </div>
 </footer>
-<a href="https://wa.me/998712770000?text=Salom%2C%20Doktor-Servis%20Klinikasi%20bilan%20bog%27lanmoqchiman" class="wa-btn" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<div class="footer-bottom">
+  <span>© 2025 Doktor-Servis Klinikasi. Barcha huquqlar himoyalangan.</span>
+  <span>Sayt yaratdi: <a href="https://smartdev.uz">SmartDev.uz</a></span>
+</div>
+
 <script>
-document.querySelectorAll('.reveal').forEach(el=>new IntersectionObserver(([e])=>{if(e.isIntersecting)el.classList.add('visible')},{threshold:.2}).observe(el))
-document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'})}))
+// Scroll animations
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold:.1});
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
-<section style="padding:50px 6%;background:#060d1f;text-align:center;border-top:1px solid rgba(255,255,255,0.08)">
-  <p style="color:#8899aa;font-size:.85rem;margin-bottom:1rem">Saytga QR orqali kiring</p>
-  <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A//javohirbahtiyorov2001-code.github.io/b2b-toshkent/generated_sites/doktor-servis-klinikasi.html" alt="QR Code" style="width:160px;height:160px;border-radius:12px;border:4px solid rgba(255,255,255,0.1)">
-</section>
-</body></html>
+</body>
+</html>
