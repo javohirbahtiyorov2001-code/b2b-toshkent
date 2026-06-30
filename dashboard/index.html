@@ -10,6 +10,23 @@
 html{-webkit-font-smoothing:antialiased;scrollbar-width:thin;scrollbar-color:#333 #07070d}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:#07070d;color:#e2e8f0;min-height:100vh;overflow-x:hidden}
 
+/* PIN LOCK */
+#pin-screen{position:fixed;inset:0;background:#07070d;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2rem}
+#pin-screen.hidden{display:none}
+.pin-logo{font-family:'Syne',sans-serif;font-weight:900;font-size:1.4rem;color:#fff;letter-spacing:-.02em}
+.pin-logo span{color:#6366f1}
+.pin-title{font-size:.8rem;color:#64748b;text-align:center;margin-top:-.5rem}
+.pin-dots{display:flex;gap:14px;margin:.5rem 0}
+.pin-dot{width:14px;height:14px;border-radius:50%;border:2px solid #2d2d45;transition:all .2s}
+.pin-dot.filled{background:#6366f1;border-color:#6366f1;box-shadow:0 0 10px rgba(99,102,241,.5)}
+.pin-dot.error{background:#ef4444;border-color:#ef4444}
+.pin-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:220px}
+.pin-btn{height:62px;border-radius:14px;background:#0f0f1a;border:1px solid rgba(255,255,255,.07);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;font-weight:700;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.pin-btn:hover{background:#1a1a2e;border-color:rgba(99,102,241,.4)}
+.pin-btn:active{transform:scale(.94);background:#13132a}
+.pin-btn.del{font-size:.9rem;color:#64748b}
+.pin-error{font-size:.75rem;color:#ef4444;height:1rem;text-align:center}
+
 :root{
   --bg:#07070d;--sf:#0f0f1a;--sf2:#13131f;
   --bd:rgba(255,255,255,.06);--bd2:rgba(255,255,255,.11);
@@ -246,6 +263,31 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#07070d;color:#e2e8f0
 </style>
 </head>
 <body>
+<!-- PIN LOCK SCREEN -->
+<div id="pin-screen">
+  <div class="pin-logo">Smart<span>Dev</span>.uz</div>
+  <div class="pin-title">Введите PIN для входа</div>
+  <div class="pin-dots">
+    <div class="pin-dot" id="d0"></div>
+    <div class="pin-dot" id="d1"></div>
+    <div class="pin-dot" id="d2"></div>
+    <div class="pin-dot" id="d3"></div>
+  </div>
+  <div class="pin-grid">
+    <button class="pin-btn" onclick="pinPress('1')">1</button>
+    <button class="pin-btn" onclick="pinPress('2')">2</button>
+    <button class="pin-btn" onclick="pinPress('3')">3</button>
+    <button class="pin-btn" onclick="pinPress('4')">4</button>
+    <button class="pin-btn" onclick="pinPress('5')">5</button>
+    <button class="pin-btn" onclick="pinPress('6')">6</button>
+    <button class="pin-btn" onclick="pinPress('7')">7</button>
+    <button class="pin-btn" onclick="pinPress('8')">8</button>
+    <button class="pin-btn" onclick="pinPress('9')">9</button>
+    <button class="pin-btn" onclick="pinPress('0')" style="grid-column:2">0</button>
+    <button class="pin-btn del" onclick="pinDel()">⌫</button>
+  </div>
+  <div class="pin-error" id="pin-error"></div>
+</div>
 
 <!-- SIDEBAR -->
 <aside class="sb">
@@ -751,6 +793,79 @@ setTimeout(()=>{
     setTimeout(()=>{el.style.width=w},80);
   });
 },200);
+</script>
+
+<script>
+// PIN LOCK — PIN stored as SHA-256 hash only, never in plaintext
+const PIN_HASH = "6a96c5a26a4338d879ace4f5bbf9e8b8b9682eb1e59f7c8aef01ec02ce3e9a2a";
+const SESSION_KEY = "sd_auth";
+const SESSION_HOURS = 8;
+
+async function sha256(msg){
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(msg));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+let pinEntry = "";
+
+function checkSession(){
+  const s = localStorage.getItem(SESSION_KEY);
+  if(!s) return false;
+  const {ts} = JSON.parse(s);
+  return (Date.now() - ts) < SESSION_HOURS * 3600000;
+}
+
+function unlock(){
+  localStorage.setItem(SESSION_KEY, JSON.stringify({ts: Date.now()}));
+  document.getElementById('pin-screen').classList.add('hidden');
+}
+
+function pinPress(d){
+  if(pinEntry.length >= 4) return;
+  pinEntry += d;
+  updateDots();
+  if(pinEntry.length === 4) verifyPin();
+}
+
+function pinDel(){
+  pinEntry = pinEntry.slice(0,-1);
+  updateDots();
+  document.getElementById('pin-error').textContent = '';
+  document.querySelectorAll('.pin-dot').forEach(d=>d.classList.remove('error'));
+}
+
+function updateDots(){
+  for(let i=0;i<4;i++){
+    document.getElementById('d'+i).classList.toggle('filled', i < pinEntry.length);
+  }
+}
+
+async function verifyPin(){
+  const hash = await sha256(pinEntry);
+  if(hash === PIN_HASH){
+    unlock();
+  } else {
+    document.querySelectorAll('.pin-dot').forEach(d=>{d.classList.add('error');d.classList.remove('filled')});
+    document.getElementById('pin-error').textContent = 'Неверный PIN';
+    setTimeout(()=>{
+      pinEntry = '';
+      updateDots();
+      document.querySelectorAll('.pin-dot').forEach(d=>d.classList.remove('error'));
+      document.getElementById('pin-error').textContent = '';
+    }, 900);
+  }
+}
+
+// Keyboard support
+document.addEventListener('keydown', e=>{
+  if(document.getElementById('pin-screen').classList.contains('hidden')) return;
+  if(e.key>='0'&&e.key<='9') pinPress(e.key);
+  if(e.key==='Backspace') pinDel();
+});
+
+if(checkSession()){
+  document.getElementById('pin-screen').classList.add('hidden');
+}
 </script>
 
 <nav class="mob-bottom-nav" id="mobNav">
