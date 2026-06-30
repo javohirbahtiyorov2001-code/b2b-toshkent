@@ -2290,5 +2290,1136 @@
     },
     "slug": "sergo-dental",
     "source": "2gis.uz"
+  },
+  {
+    "id": 205,
+    "name": "ABDULAZIZ STOM",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Chilonzor tumani, Chilonzor-19 massivi",
+    "district": "Chilonzor",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Implant",
+      "Ortodontiya"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "abdulaziz-stom",
+    "website": "",
+    "has_website": false,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 206,
+    "name": "ABDULBORIY STOM",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Yunusobod tumani, Yunusobod-10 massivi",
+    "district": "Yunusobod",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Terapevtik"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "abdulboriy-stom",
+    "website": "",
+    "has_website": false,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 207,
+    "name": "Aesthetic & Implant Clinic",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Chilonzor tumani, Zargarlik ko'chasi, 41/1",
+    "district": "Chilonzor",
+    "instagram": "",
+    "services": [
+      "Implant",
+      "Estetik",
+      "Jarrohlik"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#c9a84c"
+    },
+    "slug": "aesthetic-implant-clinic",
+    "website": "",
+    "has_website": false,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 208,
+    "name": "Aider Med",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Sergeli tumani, Sergeli-6A massivi",
+    "district": "Sergeli",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Implant"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "aider-med",
+    "website": "",
+    "has_website": false,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 209,
+    "name": "AKMAL DENTA LYUKS",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Yunusobod tumani, Yunusobod-9 massivi",
+    "district": "Yunusobod",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Estetik",
+      "Oqlash"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#c9a84c"
+    },
+    "slug": "akmal-denta-lyuks",
+    "website": "",
+    "has_website": false,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 210,
+    "name": "AKMAL STOM",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Chilonzor tumani, Shark ko'chasi, 25/83",
+    "district": "Chilonzor",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Terapevtik"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "akmal-stom",
+    "website": "",
+    "has_website": false,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 211,
+    "name": "AKROM STOM",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Uchtepa tumani, Chilonzor-11 massivi",
+    "district": "Uchtepa",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Implant"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "akrom-stom",
+    "website": "",
+    "has_website": false,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 212,
+    "name": "ALEYA DENT",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Chilonzor tumani, Gagarin ko'chasi, 65",
+    "district": "Chilonzor",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Estetik"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#c9a84c"
+    },
+    "slug": "aleya-dent",
+    "website": "",
+    "has_website": false,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 213,
+    "name": "ALFA-DENT",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Mirobod tumani, Nukus ko'chasi",
+    "district": "Mirobod",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Implant",
+      "Oqlash"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "alfa-dent",
+    "website": "",
+    "has_website": false,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 214,
+    "name": "ALI-DENT",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Yunusobod tumani, Yunusobod-13 massivi",
+    "district": "Yunusobod",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Terapevtik"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "ali-dent",
+    "website": "",
+    "has_website": false,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 215,
+    "name": "ALISHER STOM",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Chilonzor tumani, Chilonzor-6 massivi",
+    "district": "Chilonzor",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Implant"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "alisher-stom",
+    "website": "",
+    "has_website": false,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 216,
+    "name": "ALPHA MED",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Chilonzor tumani, Kattartal ko'chasi, 48/1",
+    "district": "Chilonzor",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Jarrohlik"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "alpha-med",
+    "website": "",
+    "has_website": false,
+    "source": "32top.uz"
+  },
+  {
+    "id": 217,
+    "name": "ASMUS DENTAL CLINIC",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Sergeli tumani, Sergeli-8A massivi",
+    "district": "Sergeli",
+    "instagram": "",
+    "services": [
+      "Implant",
+      "Ortodontiya",
+      "Oqlash"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#c9a84c"
+    },
+    "slug": "asmus-dental",
+    "website": "",
+    "has_website": false,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 218,
+    "name": "AFZALBEK STOM",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Sergeli tumani, Sergeli-V massivi",
+    "district": "Sergeli",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Terapevtik"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "afzalbek-stom",
+    "website": "",
+    "has_website": false,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 219,
+    "name": "BIOSTOM PLUS",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Chilonzor tumani, 3-kvartal",
+    "district": "Chilonzor",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Implant"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "biostom-plus",
+    "website": "",
+    "has_website": false,
+    "source": "32top.uz"
+  },
+  {
+    "id": 220,
+    "name": "CITY MED",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Mirzo Ulug'bek tumani, Forobiy ko'chasi, 415",
+    "district": "Mirzo Ulugbek",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Jarrohlik",
+      "Implant"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "city-med",
+    "website": "",
+    "has_website": false,
+    "source": "32top.uz"
+  },
+  {
+    "id": 221,
+    "name": "DANTIST EKSKLYUZIV",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Mirzo Ulug'bek tumani, Ahmad Donish ko'chasi, 60/28",
+    "district": "Mirzo Ulugbek",
+    "instagram": "",
+    "services": [
+      "Estetik",
+      "Vinir",
+      "Implant"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#c9a84c"
+    },
+    "slug": "dantist-eksklyuziv",
+    "website": "",
+    "has_website": false,
+    "source": "32top.uz"
+  },
+  {
+    "id": 222,
+    "name": "DARMON DENTAL",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Yunusobod tumani, Chapanat ko'chasi, 2A",
+    "district": "Yunusobod",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Implant"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "darmon-dental",
+    "website": "",
+    "has_website": false,
+    "source": "32top.uz"
+  },
+  {
+    "id": 223,
+    "name": "DARMON SERVIS",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Yunusobod tumani, Chapanat ko'chasi, 19/18",
+    "district": "Yunusobod",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Terapevtik"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "darmon-servis",
+    "website": "",
+    "has_website": false,
+    "source": "32top.uz"
+  },
+  {
+    "id": 224,
+    "name": "DENTAL CITY",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Mirobod tumani, Mirobod ko'chasi, 5",
+    "district": "Mirobod",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Implant",
+      "Oqlash"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "dental-city",
+    "website": "",
+    "has_website": false,
+    "source": "32top.uz"
+  },
+  {
+    "id": 225,
+    "name": "DENTAL LUX",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Uchtepa tumani",
+    "district": "Uchtepa",
+    "instagram": "",
+    "services": [
+      "Estetik",
+      "Vinir",
+      "Oqlash"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#c9a84c"
+    },
+    "slug": "dental-lux",
+    "website": "",
+    "has_website": false,
+    "source": "32top.uz"
+  },
+  {
+    "id": 226,
+    "name": "DENTA LIGHTS",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Shayxontohur tumani, Ko'shbegi massivi, 1A",
+    "district": "Shayxontohur",
+    "instagram": "",
+    "services": [
+      "Estetik",
+      "Oqlash",
+      "Implant"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#c9a84c"
+    },
+    "slug": "denta-lights",
+    "website": "",
+    "has_website": false,
+    "source": "32top.uz"
+  },
+  {
+    "id": 227,
+    "name": "DENTCARE",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Uchtepa tumani, 3-o'tish Aviasozlar, 50",
+    "district": "Uchtepa",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Implant"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "dentcare",
+    "website": "",
+    "has_website": false,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 228,
+    "name": "DENTOS MEDICAL",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Chilonzor tumani, Mukimiy ko'chasi, 19A",
+    "district": "Chilonzor",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Jarrohlik"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "dentos-medical",
+    "website": "",
+    "has_website": false,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 229,
+    "name": "IBROHIM DENTA",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Sergeli tumani, Sergeli-2 massivi, 13",
+    "district": "Sergeli",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Terapevtik"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "ibrohim-denta",
+    "website": "",
+    "has_website": false,
+    "source": "32top.uz"
+  },
+  {
+    "id": 230,
+    "name": "INWHITE",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Shayxontohur tumani, Ko'kcha Darvoza ko'chasi, 350",
+    "district": "Shayxontohur",
+    "instagram": "",
+    "services": [
+      "Oqlash",
+      "Estetik",
+      "Vinir"
+    ],
+    "colors": {
+      "primary": "#f8f8f8",
+      "accent": "#2563eb"
+    },
+    "slug": "inwhite",
+    "website": "",
+    "has_website": false,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 231,
+    "name": "IXMED CLINIC",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Yakkasaroy tumani, Ismoilata ko'chasi, 41",
+    "district": "Yakkasaroy",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Jarrohlik",
+      "Implant"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "ixmed-clinic",
+    "website": "",
+    "has_website": false,
+    "source": "32top.uz"
+  },
+  {
+    "id": 232,
+    "name": "KAN DENTAL CLINIC",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Mirzo Ulug'bek tumani, Mirzo Ulug'bek ko'chasi, 51B",
+    "district": "Mirzo Ulugbek",
+    "instagram": "",
+    "services": [
+      "Implant",
+      "Ortodontiya",
+      "Estetik"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#c9a84c"
+    },
+    "slug": "kan-dental-clinic",
+    "website": "",
+    "has_website": false,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 233,
+    "name": "MAGIC DENTAL",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Yakkasaroy tumani",
+    "district": "Yakkasaroy",
+    "instagram": "",
+    "services": [
+      "Estetik",
+      "Implant",
+      "Oqlash"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#c9a84c"
+    },
+    "slug": "magic-dental",
+    "website": "",
+    "has_website": false,
+    "source": "32top.uz"
+  },
+  {
+    "id": 234,
+    "name": "MEDIOSTOM DENTAL CLINIC",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Mirzo Ulug'bek tumani, Mirzo Ulug'bek ko'chasi, 95/17",
+    "district": "Mirzo Ulugbek",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Jarrohlik",
+      "Implant"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "mediostom-dental",
+    "website": "",
+    "has_website": false,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 235,
+    "name": "MEDIVA",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Mirobod tumani, Asakiy ko'chasi, 26B",
+    "district": "Mirobod",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Implant"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "mediva",
+    "website": "",
+    "has_website": false,
+    "source": "32top.uz"
+  },
+  {
+    "id": 236,
+    "name": "MISTER DENT",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Chilonzor tumani, 2-kvartal, 12B",
+    "district": "Chilonzor",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Estetik"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "mister-dent",
+    "website": "",
+    "has_website": false,
+    "source": "32top.uz"
+  },
+  {
+    "id": 237,
+    "name": "MY DENTAL",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Chilonzor tumani, 1-Chilonzor massivi, 25",
+    "district": "Chilonzor",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Oqlash",
+      "Implant"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#c9a84c"
+    },
+    "slug": "my-dental",
+    "website": "",
+    "has_website": false,
+    "source": "32top.uz"
+  },
+  {
+    "id": 238,
+    "name": "NAJOD SHIFO",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Yunusobod tumani, Bunyodkor ko'chasi, 24/1",
+    "district": "Yunusobod",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Jarrohlik"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "najod-shifo",
+    "website": "",
+    "has_website": false,
+    "source": "32top.uz"
+  },
+  {
+    "id": 239,
+    "name": "PEARL DENTAL",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Yakkasaroy tumani",
+    "district": "Yakkasaroy",
+    "instagram": "",
+    "services": [
+      "Estetik",
+      "Vinir",
+      "Oqlash"
+    ],
+    "colors": {
+      "primary": "#f8f9fa",
+      "accent": "#d4af37"
+    },
+    "slug": "pearl-dental",
+    "website": "",
+    "has_website": false,
+    "source": "32top.uz"
+  },
+  {
+    "id": 240,
+    "name": "PERSONA DENTAL CLINIC",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Chilonzor tumani, 5-kvartal, 25",
+    "district": "Chilonzor",
+    "instagram": "",
+    "services": [
+      "Implant",
+      "Estetik",
+      "Ortodontiya"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#c9a84c"
+    },
+    "slug": "persona-dental",
+    "website": "",
+    "has_website": false,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 241,
+    "name": "PROF STOM",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Mirzo Ulug'bek tumani, Mirzo Ulug'bek ko'chasi, 57",
+    "district": "Mirzo Ulugbek",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Implant",
+      "Terapevtik"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "prof-stom",
+    "website": "",
+    "has_website": false,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 242,
+    "name": "32 PROFILAKTIK",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Mirzo Ulug'bek tumani",
+    "district": "Mirzo Ulugbek",
+    "instagram": "",
+    "services": [
+      "Profilaktika",
+      "Davolash",
+      "Bolalar"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "32-profilaktik",
+    "website": "",
+    "has_website": false,
+    "source": "32top.uz"
+  },
+  {
+    "id": 243,
+    "name": "RUSCLINIC",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Chilonzor tumani, 5-kvartal, 28",
+    "district": "Chilonzor",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Implant",
+      "Jarrohlik"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "rusclinic",
+    "website": "",
+    "has_website": false,
+    "source": "32top.uz"
+  },
+  {
+    "id": 244,
+    "name": "SARDAR STOM",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Chilonzor tumani, Chilonzor-24 massivi",
+    "district": "Chilonzor",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Terapevtik"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "sardar-stom",
+    "website": "",
+    "has_website": false,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 245,
+    "name": "SHAHIO DENT",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Yunusobod tumani, Shahjalon ko'chasi, 1A",
+    "district": "Yunusobod",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Estetik"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "shahio-dent",
+    "website": "",
+    "has_website": false,
+    "source": "32top.uz"
+  },
+  {
+    "id": 246,
+    "name": "STAR MED CENTER",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Chilonzor tumani, 6-kvartal, 6/1",
+    "district": "Chilonzor",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Jarrohlik",
+      "Implant"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#c9a84c"
+    },
+    "slug": "star-med-center",
+    "website": "",
+    "has_website": false,
+    "source": "32top.uz"
+  },
+  {
+    "id": 247,
+    "name": "STUDIO DENT",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Yunusobod tumani, Badomzor ko'chasi, 1",
+    "district": "Yunusobod",
+    "instagram": "",
+    "services": [
+      "Estetik",
+      "Vinir",
+      "Oqlash"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#c9a84c"
+    },
+    "slug": "studio-dent",
+    "website": "",
+    "has_website": false,
+    "source": "32top.uz"
+  },
+  {
+    "id": 248,
+    "name": "MARKAZ IMPLANTATSIYA TISH",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Yakkasaroy tumani, Iftixor ko'chasi, 1",
+    "district": "Yakkasaroy",
+    "instagram": "",
+    "services": [
+      "Implant",
+      "Jarrohlik"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#c9a84c"
+    },
+    "slug": "markaz-implantatsiya",
+    "website": "",
+    "has_website": false,
+    "source": "32top.uz"
+  },
+  {
+    "id": 249,
+    "name": "ZUBBOLIT",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Mirzo Ulug'bek tumani, Toshgres ko'chasi, 22",
+    "district": "Mirzo Ulugbek",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Terapevtik"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "zubbolit",
+    "website": "",
+    "has_website": false,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 250,
+    "name": "DREAM SMILE DENTAL",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Mirobod tumani",
+    "district": "Mirobod",
+    "instagram": "",
+    "services": [
+      "Estetik",
+      "Oqlash",
+      "Vinir"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#c9a84c"
+    },
+    "slug": "dream-smile-dental",
+    "website": "",
+    "has_website": false,
+    "source": "32top.uz"
+  },
+  {
+    "id": 251,
+    "name": "DYNASTY",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Mirzo Ulug'bek tumani, Asaka ko'chasi, 35",
+    "district": "Mirzo Ulugbek",
+    "instagram": "dynasty.dental",
+    "services": [
+      "Implant",
+      "Ortodontiya",
+      "Estetik",
+      "Vinir"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#c9a84c"
+    },
+    "slug": "dynasty",
+    "website": "https://dynasty.dental",
+    "has_website": true,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 252,
+    "name": "ESTIMED",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Chilonzor tumani, 3-kvartal, 43/1",
+    "district": "Chilonzor",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Implant",
+      "Ortodontiya"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#00b4d8"
+    },
+    "slug": "estimed",
+    "website": "https://estimed.uz",
+    "has_website": true,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 253,
+    "name": "Iftixor Dental Clinic",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Mirzo Ulug'bek tumani, Oltintepa ko'chasi, 247",
+    "district": "Mirzo Ulugbek",
+    "instagram": "",
+    "services": [
+      "Implant",
+      "Ortodontiya",
+      "Estetik",
+      "Davolash"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#c9a84c"
+    },
+    "slug": "iftixor-dental",
+    "website": "https://iftixordental.uz",
+    "has_website": true,
+    "source": "yellowpages.uz"
+  },
+  {
+    "id": 254,
+    "name": "VitaMed Medical Stomatologiya",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Yakkasaroy tumani",
+    "district": "Yakkasaroy",
+    "instagram": "",
+    "services": [
+      "Stomatologiya",
+      "Terapevtik",
+      "Jarrohlik",
+      "Implant"
+    ],
+    "colors": {
+      "primary": "#006241",
+      "accent": "#00b4d8"
+    },
+    "slug": "vitamed",
+    "website": "https://vitamed.uz",
+    "has_website": true,
+    "source": "yellowpages.uz"
   }
 ]
