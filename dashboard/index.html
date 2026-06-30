@@ -267,7 +267,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#07070d;color:#e2e8f0
     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
     <span class="ni-tt">50 Сайтов</span>
   </div>
-  <div class="ni" onclick="openModal('deploy')">
+  <div class="ni" onclick="window.location.href='../outreach/index.html'">
     <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
     <span class="ni-tt">Рассылка</span>
   </div>
@@ -282,6 +282,10 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#07070d;color:#e2e8f0
   <div class="ni" onclick="window.location.href='../agent/index.html'">
     <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/></svg>
     <span class="ni-tt">ПМ Агент</span>
+  </div>
+  <div class="ni" onclick="window.location.href='../designer/index.html'">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+    <span class="ni-tt">Designer Agent</span>
   </div>
   <div class="ni" onclick="window.location.href='../audit/index.html'">
     <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
@@ -353,7 +357,7 @@ outreach/   → Telegram qualifier bot
     </div>
     <div class="tb-r">
       <div class="pill"><span class="dot"></span>Система активна</div>
-      <button class="btn" onclick="window.open('/website/index.html','_blank')" style="border-color:rgba(0,229,255,.4);color:#00e5ff">
+      <button class="btn" onclick="window.open('/smartdev/index.html','_blank')" style="border-color:rgba(0,229,255,.4);color:#00e5ff">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         Наш сайт
       </button>
@@ -411,13 +415,8 @@ outreach/   → Telegram qualifier bot
       </div>
       <div style="margin-top:1.4rem">
         <div class="lbl">По нишам</div>
-        <div class="prg">
-          <div class="pri"><div class="ph"><span class="pname">Restaurant</span><span class="pval">7/50</span></div><div class="ptrack"><div class="pfil" style="width:14%;background:var(--rd)"></div></div></div>
-          <div class="pri"><div class="ph"><span class="pname">Клиника / Стоматол.</span><span class="pval">7/50</span></div><div class="ptrack"><div class="pfil" style="width:14%;background:var(--cy)"></div></div></div>
-          <div class="pri"><div class="ph"><span class="pname">Аптека</span><span class="pval">2/50</span></div><div class="ptrack"><div class="pfil" style="width:4%;background:var(--gn)"></div></div></div>
-          <div class="pri"><div class="ph"><span class="pname">Строительство</span><span class="pval">4/50</span></div><div class="ptrack"><div class="pfil" style="width:8%;background:var(--am)"></div></div></div>
-          <div class="pri"><div class="ph"><span class="pname">Образование</span><span class="pval">2/50</span></div><div class="ptrack"><div class="pfil" style="width:4%;background:var(--pu)"></div></div></div>
-          <div class="pri"><div class="ph"><span class="pname">Прочие (34 ниши)</span><span class="pval">28/50</span></div><div class="ptrack"><div class="pfil" style="width:56%;background:var(--in)"></div></div></div>
+        <div class="prg" id="niche-prg">
+          <div class="pri"><div class="ph"><span class="pname" style="color:var(--mu)">загрузка…</span></div></div>
         </div>
       </div>
     </div>
@@ -516,6 +515,16 @@ function closeModal(id){document.getElementById('modal-'+id).classList.remove('s
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modal-overlay.show').forEach(m=>m.classList.remove('show'))});
 function copyCmd(){navigator.clipboard.writeText('export NETLIFY_TOKEN="your_token_here"\ncd /Users/macbookpro/Applications/b2b-automation\npython3 pipeline/run_pipeline.py')}
 
+// ── COUNT ACTUAL HTML FILES IN generated_sites/ (auto-syncs on every load)
+async function countGeneratedSites() {
+  try {
+    const res = await fetch('/generated_sites/');
+    const html = await res.text();
+    const matches = html.match(/href="[^"]+\.html"/g) || [];
+    return matches.length;
+  } catch { return null; }
+}
+
 // ── LOAD ALL LEADS DYNAMICALLY
 async function loadAllLeads() {
   const files = [
@@ -526,23 +535,29 @@ async function loadAllLeads() {
   const results = await Promise.allSettled(files.map(f => fetch(f).then(r => r.json())));
   const all = results.flatMap(r => r.status === 'fulfilled' ? r.value : []);
 
-  // Update KPI stats
-  const total = all.length;
-  document.querySelectorAll('.big').forEach((el, i) => {
-    if (i === 0) el.textContent = total;
-  });
-  document.querySelectorAll('.sub').forEach(el => {
-    if (el.textContent.includes('UZS (50')) el.textContent = `UZS (${total} × 5M)`;
-    if (el.textContent.includes('50 ×')) el.textContent = `UZS (${total} × 5M)`;
-  });
-  // Update all hardcoded "50" stat values in KPI cards
-  const kpiCards = document.querySelectorAll('.c .big');
-  if (kpiCards[0]) kpiCards[0].textContent = total;
+  // Lead count from JSON files
+  const leadTotal = all.length;
+  // Site count from actual files on disk — always accurate
+  const siteTotal = (await countGeneratedSites()) ?? leadTotal;
 
-  // Update pipeline numbers
-  document.querySelectorAll('.pn').forEach(el => {
-    if (el.textContent === '50') el.textContent = total;
+  // KPI card 0 = Всего лидов, KPI card 1 = Сайтов создано
+  const kpiCards = document.querySelectorAll('.c .big');
+  if (kpiCards[0]) kpiCards[0].textContent = leadTotal;
+  if (kpiCards[1]) kpiCards[1].textContent = siteTotal;
+
+  // Revenue sub-label
+  document.querySelectorAll('.sub').forEach(el => {
+    if (el.textContent.match(/UZS \(\d+ [×x]/)) el.textContent = `UZS (${siteTotal} × 5M)`;
   });
+
+  // Pipeline funnel numbers
+  document.querySelectorAll('.pn').forEach(el => {
+    const v = parseInt(el.textContent);
+    if (v === 50 || v === 246) el.textContent = siteTotal;
+  });
+
+  // Niche breakdown uses raw data (source field needed for real/fake filter)
+  renderNiches(all);
 
   // Normalize leads for display
   return all.map((l, i) => ({
@@ -609,6 +624,34 @@ const LEADS=[
   {id:49,name:"Mega Konditsioner",niche:"HVAC",slug:"mega-konditsioner",phone:"+998901234549",c1:"#001d3d",c2:"#00b4d8"},
   {id:50,name:"Ilhom Foto Studio",niche:"Photography",slug:"ilhom-foto",phone:"+998901234550",c1:"#0a0a0a",c2:"#e040fb"},
 ];
+
+// ── NICHE BREAKDOWN
+const NICHE_COLORS = ['var(--rd)','var(--cy)','var(--gn)','var(--am)','var(--pu)','var(--in)'];
+const FAKE_SOURCES_DB = new Set(['auto-generated','none','']);
+function isRealLead(l){return !FAKE_SOURCES_DB.has(l.source||'');}
+function renderNiches(all) {
+  const real = all.filter(isRealLead);
+  const total = real.length;
+  const counts = {};
+  real.forEach(l => { const n = l.niche||'Прочие'; counts[n] = (counts[n]||0)+1; });
+  const sorted = Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+  const top = sorted.slice(0,5);
+  const otherCount = sorted.slice(5).reduce((s,[,c])=>s+c,0);
+  const otherNiches = sorted.slice(5).length;
+  const maxCount = top[0]?.[1] || 1;
+  const el = document.getElementById('niche-prg');
+  if (!el) return;
+  let html = '';
+  top.forEach(([name, count], i) => {
+    const pct = Math.round(count/maxCount*100);
+    html += `<div class="pri"><div class="ph"><span class="pname">${name}</span><span class="pval">${count}/${total}</span></div><div class="ptrack"><div class="pfil" style="width:${pct}%;background:${NICHE_COLORS[i]}"></div></div></div>`;
+  });
+  if (otherCount > 0) {
+    const pct = Math.round(otherCount/maxCount*100);
+    html += `<div class="pri"><div class="ph"><span class="pname">Прочие (${otherNiches} ниш)</span><span class="pval">${otherCount}/${total}</span></div><div class="ptrack"><div class="pfil" style="width:${pct}%;background:${NICHE_COLORS[5]}"></div></div></div>`;
+  }
+  el.innerHTML = html;
+}
 
 // ── TABLE + GRID (populated after async load)
 const tbody=document.getElementById('tbody');
