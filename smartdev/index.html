@@ -26,24 +26,70 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 6%;height:68px;dis
 .nav-cta{background:var(--blue);color:#040810;padding:.5rem 1.25rem;border-radius:6px;text-decoration:none;font-size:.875rem;font-weight:600;transition:opacity .2s}
 .nav-cta:hover{opacity:.85}
 
-.hero{min-height:100dvh;display:flex;align-items:center;padding:0 6%;position:relative;overflow:hidden}
-.hero-glow{position:absolute;top:-20%;left:-10%;width:700px;height:700px;background:radial-gradient(circle,rgba(0,170,255,0.12) 0%,transparent 70%);pointer-events:none}
-.hero-glow2{position:absolute;bottom:-20%;right:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(0,102,204,0.1) 0%,transparent 70%);pointer-events:none}
-.hero-content{max-width:760px;position:relative;z-index:1}
-.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--glass);border:1px solid var(--border);border-radius:999px;padding:.35rem 1rem;font-size:.75rem;color:var(--blue);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:2rem}
+/* ── HERO ── */
+.hero{min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:120px 6% 0;position:relative;overflow:hidden;text-align:center}
+
+/* stars canvas bg */
+.hero-stars{position:absolute;inset:0;z-index:0;pointer-events:none}
+
+/* top ambient glow */
+.hero-glow{position:absolute;top:5%;left:50%;transform:translateX(-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(0,120,255,0.15) 0%,transparent 70%);pointer-events:none;z-index:0}
+.hero-glow2{display:none}
+
+/* content above sphere */
+.hero-content{position:relative;z-index:5;display:flex;flex-direction:column;align-items:center;max-width:900px}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,170,255,0.08);border:1px solid rgba(0,170,255,0.25);border-radius:999px;padding:.35rem 1.1rem;font-size:.75rem;color:var(--blue);font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.8rem}
 .hero-badge::before{content:'';width:6px;height:6px;background:var(--blue);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-h1{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:1.5rem}
+
+h1{font-family:'Syne',sans-serif;font-size:clamp(2.4rem,5.5vw,4.2rem);font-weight:800;line-height:1.08;letter-spacing:-.03em;margin-bottom:1.2rem;color:#f0f6ff}
 h1 span{color:var(--blue)}
-.hero-sub{font-size:1.1rem;color:var(--muted);line-height:1.7;max-width:520px;margin-bottom:2.5rem}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
-.btn-primary{background:var(--blue);color:#040810;padding:.85rem 2rem;border-radius:8px;text-decoration:none;font-weight:700;font-size:.95rem;transition:transform .2s,opacity .2s}
+.hero-sub{font-size:1.05rem;color:#6b7a99;line-height:1.7;max-width:520px;margin-bottom:2rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.btn-primary{background:var(--blue);color:#040810;padding:.8rem 1.8rem;border-radius:8px;text-decoration:none;font-weight:700;font-size:.9rem;transition:transform .2s,opacity .2s;border:none;cursor:pointer}
 .btn-primary:hover{transform:translateY(-2px);opacity:.9}
-.btn-ghost{border:1px solid var(--border);color:var(--white);padding:.85rem 2rem;border-radius:8px;text-decoration:none;font-weight:500;font-size:.95rem;transition:border-color .2s,background .2s}
-.btn-ghost:hover{border-color:var(--blue);background:var(--glass)}
-.hero-stats{display:flex;gap:3rem;margin-top:4rem;padding-top:3rem;border-top:1px solid var(--border)}
-.stat-num{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--blue)}
-.stat-label{font-size:.8rem;color:var(--muted);margin-top:.2rem}
+.btn-ghost{border:1px solid rgba(0,170,255,0.2);color:var(--white);padding:.8rem 1.8rem;border-radius:8px;text-decoration:none;font-weight:500;font-size:.9rem;transition:border-color .2s,background .2s}
+.btn-ghost:hover{border-color:var(--blue);background:rgba(0,170,255,0.06)}
+
+/* floating dashboard mockup */
+.hero-screen-wrap{position:relative;z-index:4;margin-top:2.5rem;width:100%;max-width:780px}
+.hero-screen{background:#0a1628;border:1px solid rgba(0,170,255,0.2);border-radius:12px;overflow:hidden;box-shadow:0 0 80px rgba(0,120,255,0.25),0 0 200px rgba(0,80,200,0.15)}
+.screen-topbar{background:#060e1c;border-bottom:1px solid rgba(0,170,255,0.1);padding:.55rem 1rem;display:flex;align-items:center;justify-content:space-between}
+.screen-dots{display:flex;gap:5px}
+.screen-dots span{width:8px;height:8px;border-radius:50%}
+.screen-title{font-size:.7rem;font-weight:600;color:#3b82f6;letter-spacing:.05em}
+.screen-user{font-size:.65rem;color:#3a4a66}
+.screen-body{display:grid;grid-template-columns:140px 1fr;min-height:200px}
+.screen-sidebar{background:#06101f;border-right:1px solid rgba(0,170,255,0.08);padding:.8rem}
+.s-item{padding:6px 10px;border-radius:6px;font-size:.65rem;color:#3a4a66;margin-bottom:3px;display:flex;align-items:center;gap:6px}
+.s-item.active{background:rgba(0,170,255,0.1);color:#60a5fa}
+.screen-main{padding:1rem;display:flex;flex-direction:column;gap:.8rem}
+.sm-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.sm-card{background:#060e1c;border:1px solid rgba(0,170,255,0.08);border-radius:8px;padding:.7rem}
+.sm-card-title{font-size:.6rem;color:#3a4a66;margin-bottom:.4rem}
+.sm-chart{display:flex;align-items:flex-end;gap:3px;height:50px}
+.sm-bar{background:linear-gradient(to top,#1d4ed8,#3b82f6);border-radius:2px 2px 0 0;flex:1}
+.sm-donut{width:44px;height:44px;border-radius:50%;background:conic-gradient(#3b82f6 280deg,#1e3a8a 0);display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;color:#60a5fa;margin:0 auto}
+.sm-stats{display:flex;gap:.5rem;font-size:.6rem;color:#3a4a66;margin-top:.3rem}
+.sm-stats b{color:#60a5fa}
+.sm-code{background:#030b15;border-radius:6px;padding:.5rem;font-family:monospace;font-size:.55rem;color:#2563eb;line-height:1.5}
+.sm-code .c-green{color:#10b981}
+.sm-code .c-gray{color:#2a3a55}
+.sm-analytics{display:flex;flex-direction:column;gap:4px}
+.sm-bar-row{display:flex;align-items:center;gap:.4rem;font-size:.55rem;color:#3a4a66}
+.sm-bar-track{flex:1;height:3px;background:#0d1f35;border-radius:2px}
+.sm-bar-fill{height:100%;border-radius:2px;background:#3b82f6}
+
+/* EARTH SPHERE */
+.hero-earth-wrap{position:absolute;bottom:-50px;left:50%;transform:translateX(-50%);z-index:2;pointer-events:none;width:900px;height:520px}
+.hero-earth{position:absolute;bottom:-340px;left:50%;transform:translateX(-50%);width:780px;height:780px;border-radius:50%;background:radial-gradient(ellipse at 35% 28%,#1e40af 0%,#1d4ed8 18%,#1e3a8a 40%,#0f1f45 65%,#060c1e 100%);box-shadow:0 0 100px 30px rgba(29,78,216,0.4),0 0 300px 80px rgba(29,78,216,0.2),inset 0 -40px 100px rgba(0,0,20,0.6)}
+.hero-earth::before{content:'';position:absolute;top:10%;left:18%;width:32%;height:22%;background:radial-gradient(ellipse,rgba(147,197,253,0.2) 0%,transparent 70%);border-radius:50%}
+.hero-earth::after{content:'';position:absolute;inset:0;border-radius:50%;background:linear-gradient(135deg,rgba(96,165,250,0.12) 0%,transparent 50%,rgba(29,78,216,0.1) 100%);border:1px solid rgba(59,130,246,0.15)}
+.hero-earth-glow{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:900px;height:120px;background:radial-gradient(ellipse,rgba(29,78,216,0.5) 0%,transparent 70%);filter:blur(20px)}
+
+.hero-stats{display:flex;gap:3rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(0,170,255,0.12);position:relative;z-index:5;justify-content:center}
+.stat-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--blue)}
+.stat-label{font-size:.75rem;color:#4b5a73;margin-top:.2rem}
 
 .section{padding:100px 6%}
 .section-tag{font-size:.75rem;font-weight:700;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem}
@@ -134,8 +180,9 @@ footer p{font-size:.8rem;color:var(--muted)}
 </nav>
 
 <section class="hero">
+  <canvas class="hero-stars" id="starsCanvas"></canvas>
   <div class="hero-glow"></div>
-  <div class="hero-glow2"></div>
+
   <div class="hero-content">
     <div class="hero-badge" data-i="badge"></div>
     <h1 data-i="h1_1"></h1>
@@ -150,11 +197,81 @@ footer p{font-size:.8rem;color:var(--muted)}
       </div>
       <a href="#services" class="btn-ghost" data-i="cta_services"></a>
     </div>
-    <div class="hero-stats">
-      <div><div class="stat-num">48h</div><div class="stat-label" data-i="stat1"></div></div>
-      <div><div class="stat-num">200+</div><div class="stat-label" data-i="stat2"></div></div>
-      <div><div class="stat-num">6</div><div class="stat-label" data-i="stat3"></div></div>
+  </div>
+
+  <!-- Floating dashboard mockup -->
+  <div class="hero-screen-wrap">
+    <div class="hero-screen">
+      <div class="screen-topbar">
+        <div style="display:flex;align-items:center;gap:.5rem">
+          <div class="screen-dots"><span style="background:#ff5f57"></span><span style="background:#ffbd2e"></span><span style="background:#28c840"></span></div>
+          <span style="font-size:.65rem;color:#2a3a55;margin-left:.5rem">SmartDev.uz</span>
+        </div>
+        <span class="screen-title">AI Dashboard</span>
+        <span class="screen-user">javohirbahtiyorov2001</span>
+      </div>
+      <div class="screen-body">
+        <div class="screen-sidebar">
+          <div class="s-item active">📊 Dashboard</div>
+          <div class="s-item">👥 Biz haqimizda</div>
+          <div class="s-item">🛠 Elementlar</div>
+          <div class="s-item">📋 Loyihalar</div>
+          <div class="s-item">📈 Analytics</div>
+          <div class="s-item">⚙️ Sozlamalar</div>
+        </div>
+        <div class="screen-main">
+          <div class="sm-row">
+            <div class="sm-card">
+              <div class="sm-card-title">Real Time</div>
+              <div class="sm-chart">
+                <div class="sm-bar" style="height:40%"></div><div class="sm-bar" style="height:65%"></div>
+                <div class="sm-bar" style="height:50%"></div><div class="sm-bar" style="height:80%"></div>
+                <div class="sm-bar" style="height:55%"></div><div class="sm-bar" style="height:90%"></div>
+                <div class="sm-bar" style="height:70%"></div><div class="sm-bar" style="height:60%"></div>
+              </div>
+              <div class="sm-stats"><span>Mijozlar: <b>248</b></span><span>O'sish: <b>+12x</b></span></div>
+            </div>
+            <div class="sm-card">
+              <div class="sm-card-title">App Analytics</div>
+              <div class="sm-donut">78%</div>
+              <div class="sm-stats" style="justify-content:center"><span>Natija: <b>94%</b></span><span>Muvaffaqiyat</span></div>
+            </div>
+          </div>
+          <div class="sm-row">
+            <div class="sm-card">
+              <div class="sm-card-title">Code</div>
+              <div class="sm-code">
+                <span class="c-green">function</span> SmartDev() {<br>
+                &nbsp;&nbsp;<span class="c-gray">// AI avtomatlashtirish</span><br>
+                &nbsp;&nbsp;<span class="c-green">return</span> buildFuture();<br>
+                }
+              </div>
+            </div>
+            <div class="sm-card">
+              <div class="sm-card-title">Analytics</div>
+              <div class="sm-analytics">
+                <div class="sm-bar-row">Ilova<div class="sm-bar-track"><div class="sm-bar-fill" style="width:85%"></div></div><span>85%</span></div>
+                <div class="sm-bar-row">Sayt<div class="sm-bar-track"><div class="sm-bar-fill" style="width:70%"></div></div><span>70%</span></div>
+                <div class="sm-bar-row">CRM<div class="sm-bar-track"><div class="sm-bar-fill" style="width:60%"></div></div><span>60%</span></div>
+                <div class="sm-bar-row">AI<div class="sm-bar-track"><div class="sm-bar-fill" style="width:90%"></div></div><span>90%</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <!-- Earth sphere -->
+  <div class="hero-earth-wrap">
+    <div class="hero-earth"></div>
+    <div class="hero-earth-glow"></div>
+  </div>
+
+  <div class="hero-stats">
+    <div><div class="stat-num">48h</div><div class="stat-label" data-i="stat1"></div></div>
+    <div><div class="stat-num">200+</div><div class="stat-label" data-i="stat2"></div></div>
+    <div><div class="stat-num">6</div><div class="stat-label" data-i="stat3"></div></div>
   </div>
 </section>
 
@@ -394,6 +511,34 @@ function setLang(lang) {
 }
 
 setLang(currentLang);
+
+// Stars canvas
+(function(){
+  const c = document.getElementById('starsCanvas');
+  if(!c) return;
+  const ctx = c.getContext('2d');
+  let stars = [];
+  function resize(){ c.width=window.innerWidth; c.height=window.innerHeight; }
+  function init(){
+    stars=[];
+    for(let i=0;i<180;i++) stars.push({
+      x:Math.random()*c.width, y:Math.random()*c.height,
+      r:Math.random()*1.2+0.2, a:Math.random(), speed:Math.random()*0.003+0.001
+    });
+  }
+  function draw(){
+    ctx.clearRect(0,0,c.width,c.height);
+    stars.forEach(s=>{
+      s.a += s.speed; if(s.a>1) s.a=0;
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(180,210,255,${Math.sin(s.a*Math.PI)*0.8})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  resize(); init(); draw();
+  window.addEventListener('resize',()=>{ resize(); init(); });
+})();
 
 function toggleContact(e){
   e.stopPropagation();
