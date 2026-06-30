@@ -506,7 +506,7 @@ outreach/   → Telegram qualifier bot
           <div style="font-size:.78rem;font-weight:700;color:var(--gn);margin-bottom:.2rem">✅ Деплой активен</div>
           <div style="font-size:.7rem;color:var(--mu);line-height:1.5"><a href="https://javohirbahtiyorov2001-code.github.io/b2b-toshkent" target="_blank" style="color:#00e5ff;text-decoration:none">javohirbahtiyorov2001-code.github.io/b2b-toshkent</a><br>git push → авто-деплой</div>
           <div style="margin-top:.65rem;display:flex;gap:5px;justify-content:center">
-            <span class="tag tb2" style="margin-top:0;cursor:pointer" onclick="openModal('deploy')">50 сайтов</span>
+            <span class="tag tb2" style="margin-top:0;cursor:pointer" onclick="openModal('deploy')" id="deploy-site-count">104 сайтов</span>
             <span class="tag" style="margin-top:0;background:rgba(0,230,118,.1);color:var(--gn);border-radius:6px;padding:.18rem .55rem;font-size:.62rem;font-weight:700">Live ✓</span>
           </div>
         </div>
@@ -608,6 +608,17 @@ async function loadAllLeads() {
   const kpiCards = document.querySelectorAll('.c .big');
   if (kpiCards[0]) kpiCards[0].textContent = leadTotal;
   if (kpiCards[1]) kpiCards[1].textContent = siteTotal;
+  // Update all hardcoded count references
+  const feedSites = document.getElementById('feed-sites');
+  const feedLeads = document.getElementById('feed-leads');
+  const deployCount = document.getElementById('deploy-site-count');
+  if(feedSites) feedSites.textContent = siteTotal + ' сайтов';
+  if(feedLeads) feedLeads.textContent = leadTotal + ' реальных лидов';
+  if(deployCount) deployCount.textContent = siteTotal + ' сайтов';
+  // Fix pipeline funnel — scrape & site stages = real count
+  const pns = document.querySelectorAll('.pn');
+  if(pns[0]) pns[0].textContent = leadTotal;
+  if(pns[1]) pns[1].textContent = siteTotal;
 
   // Revenue sub-label
   document.querySelectorAll('.sub').forEach(el => {
@@ -617,7 +628,7 @@ async function loadAllLeads() {
   // Pipeline funnel numbers
   document.querySelectorAll('.pn').forEach(el => {
     const v = parseInt(el.textContent);
-    if (v === 50 || v === 246) el.textContent = siteTotal;
+    if (v === 50 || v === 246 || v === 394 || v === 200) el.textContent = siteTotal;
   });
 
   // Niche breakdown uses raw data (source field needed for real/fake filter)
@@ -798,10 +809,9 @@ function openSiteModal(l){
 
 // ── ACTIVITY FEED
 const EVENTS=[
-  {bg:'rgba(34,197,94,.14)',tc:'var(--gn)',ico:'<polyline points="20 6 9 17 4 12"/>',txt:'<strong>50 сайтов</strong> успешно создано',t:'Сейчас'},
-  {bg:'rgba(99,102,241,.14)',tc:'var(--in)',ico:'<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',txt:'<strong>50 QR-кодов</strong> сгенерировано',t:'2 мин. назад'},
-  {bg:'rgba(59,130,246,.14)',tc:'var(--bl)',ico:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>',txt:'<strong>seed_leads.json</strong> загружен — 50 лидов',t:'5 мин. назад'},
-  {bg:'rgba(245,158,11,.14)',tc:'var(--am)',ico:'<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>',txt:'Пайплайн запущен — обработано <strong>50</strong> лидов',t:'7 мин. назад'},
+  {bg:'rgba(34,197,94,.14)',tc:'var(--gn)',ico:'<polyline points="20 6 9 17 4 12"/>',txt:'<strong id="feed-sites">104 сайтов</strong> успешно создано',t:'Сейчас'},
+  {bg:'rgba(59,130,246,.14)',tc:'var(--bl)',ico:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>',txt:'<strong id="feed-leads">200 реальных лидов</strong> загружено',t:'Сейчас'},
+  {bg:'rgba(0,229,255,.14)',tc:'var(--cy)',ico:'<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>',txt:'Fake лиды удалены — только реальные данные',t:'Сегодня'},
   {bg:'rgba(168,85,247,.14)',tc:'var(--pu)',ico:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>',txt:'Dashboard <strong>обновлён</strong>',t:'10 мин. назад'},
 ];
 const feed=document.getElementById('feed');
