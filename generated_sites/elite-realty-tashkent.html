@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite Realty — Ko'chmas mulk Toshkentda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0d1b2e;
+    --navy-mid: #162844;
+    --navy-light: #1e3a5f;
+    --gold: #c9a84c;
+    --gold-light: #e2c47a;
+    --white: #ffffff;
+    --off-white: #f7f8fa;
+    --gray-100: #f0f2f5;
+    --gray-200: #e2e6eb;
+    --gray-400: #9ba3af;
+    --gray-700: #374151;
+    --text-dark: #0d1b2e;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+    --shadow-md: 0 8px 32px rgba(0,0,0,0.12);
+    --shadow-lg: 0 20px 60px rgba(0,0,0,0.18);
+    --radius: 16px;
+    --radius-sm: 10px;
+    --transition: 0.25s cubic-bezier(.4,0,.2,1);
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Josefin Sans', sans-serif; color: var(--text-dark); background: var(--white); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 72px;
+    transition: background var(--transition), backdrop-filter var(--transition), box-shadow var(--transition);
+  }
+  nav.scrolled {
+    background: rgba(13,27,46,0.92);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 2px 24px rgba(0,0,0,0.3);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Cinzel', serif; font-weight: 700; font-size: 18px;
+    color: var(--white); text-decoration: none; letter-spacing: 0.04em;
+  }
+  .nav-logo svg { width: 28px; height: 28px; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(255,255,255,0.82); text-decoration: none;
+    transition: color var(--transition);
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-cta {
+    background: transparent; border: 1.5px solid rgba(255,255,255,0.5);
+    color: var(--white); padding: 10px 24px; border-radius: 50px;
+    font-family: 'Josefin Sans', sans-serif; font-size: 13px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer;
+    transition: all var(--transition);
+  }
+  .nav-cta:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+
+  /* HERO */
+  .hero {
+    position: relative; min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url('https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1800&q=80') center/cover no-repeat;
+  }
+  .hero-bg::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(160deg, rgba(13,27,46,0.7) 0%, rgba(13,27,46,0.45) 50%, rgba(13,27,46,0.8) 100%);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    padding: 0 48px 100px;
+    max-width: 680px;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold-light); padding: 6px 16px; border-radius: 50px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .hero-badge span { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; display: inline-block; }
+  .hero-title {
+    font-family: 'Cinzel', serif; font-weight: 700;
+    font-size: clamp(36px, 5.5vw, 72px);
+    line-height: 1.08; letter-spacing: -0.01em;
+    color: var(--white); margin-bottom: 20px;
+  }
+  .hero-title em { font-style: normal; color: var(--gold-light); }
+  .hero-subtitle {
+    font-size: 15px; font-weight: 300; line-height: 1.7;
+    color: rgba(255,255,255,0.72); margin-bottom: 40px;
+    max-width: 480px;
+  }
+  .hero-actions { display: flex; align-items: center; gap: 16px; }
+  .hero-search-btn {
+    display: flex; align-items: center; gap: 12px;
+    background: rgba(255,255,255,0.12); border: 1.5px solid rgba(255,255,255,0.25);
+    backdrop-filter: blur(12px); border-radius: 50px;
+    padding: 14px 28px; color: var(--white);
+    font-family: 'Josefin Sans', sans-serif; font-size: 14px; font-weight: 500;
+    cursor: pointer; transition: all var(--transition);
+    min-width: 200px;
+  }
+  .hero-search-btn:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.5); }
+  .hero-search-btn svg { width: 18px; height: 18px; opacity: 0.7; }
+  .hero-search-btn span { flex: 1; text-align: left; }
+  .hero-search-arrow {
+    width: 36px; height: 36px; background: var(--gold);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; transition: transform var(--transition);
+  }
+  .hero-search-btn:hover .hero-search-arrow { transform: translateX(3px); }
+  .hero-link {
+    color: rgba(255,255,255,0.65); font-size: 13px; font-weight: 500;
+    text-decoration: none; letter-spacing: 0.06em;
+    display: flex; align-items: center; gap: 6px;
+    transition: color var(--transition);
+  }
+  .hero-link:hover { color: var(--gold-light); }
+  .hero-stats {
+    position: absolute; right: 48px; bottom: 100px; z-index: 2;
+    display: flex; gap: 40px;
+  }
+  .hero-stat { text-align: right; }
+  .hero-stat-num {
+    font-family: 'Cinzel', serif; font-size: 32px; font-weight: 700;
+    color: var(--white); line-height: 1;
+  }
+  .hero-stat-num span { color: var(--gold); }
+  .hero-stat-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: 4px; }
+
+  /* SEARCH BAR */
+  .search-bar-wrap {
+    position: relative; z-index: 10;
+    display: flex; justify-content: center;
+    margin-top: -36px;
+  }
+  .search-bar {
+    background: var(--white); border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    display: flex; align-items: stretch; overflow: hidden;
+    width: min(900px, calc(100% - 96px));
+  }
+  .search-field {
+    flex: 1; padding: 22px 28px; border: none; outline: none;
+    border-right: 1px solid var(--gray-200);
+    cursor: pointer; transition: background var(--transition);
+  }
+  .search-field:hover { background: var(--gray-100); }
+  .search-field-label {
+    display: block; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gray-400); margin-bottom: 4px;
+  }
+  .search-field-value {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 15px; font-weight: 600; color: var(--text-dark);
+  }
+  .search-field-value svg { width: 14px; height: 14px; color: var(--gray-400); }
+  .search-btn {
+    background: var(--navy); color: var(--white);
+    border: none; cursor: pointer; padding: 0 32px;
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Josefin Sans', sans-serif; font-size: 14px;
+    font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    transition: background var(--transition); min-width: 140px;
+  }
+  .search-btn:hover { background: var(--gold); color: var(--navy); }
+  .search-btn svg { width: 18px; height: 18px; }
+
+  /* SECTIONS */
+  section { padding: 96px 48px; }
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 12px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::before { content: ''; display: block; width: 32px; height: 2px; background: var(--gold); }
+  .section-title {
+    font-family: 'Cinzel', serif; font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 700; color: var(--text-dark); line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 15px; font-weight: 300; line-height: 1.7;
+    color: var(--gray-400); max-width: 520px;
+  }
+
+  /* FEATURED */
+  .featured { background: var(--off-white); }
+  .featured-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 52px; }
+  .view-all {
+    display: flex; align-items: center; gap: 6px;
+    color: var(--navy); font-size: 13px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+    border-bottom: 1.5px solid var(--navy); padding-bottom: 2px;
+    transition: color var(--transition), border-color var(--transition);
+  }
+  .view-all:hover { color: var(--gold); border-color: var(--gold); }
+
+  .tabs { display: flex; gap: 4px; margin-bottom: 40px; }
+  .tab {
+    padding: 10px 22px; border-radius: 50px; border: none;
+    font-family: 'Josefin Sans', sans-serif; font-size: 13px; font-weight: 600;
+    letter-spacing: 0.06em; cursor: pointer; transition: all var(--transition);
+    background: transparent; color: var(--gray-400);
+  }
+  .tab.active { background: var(--navy); color: var(--white); }
+  .tab:not(.active):hover { background: var(--gray-200); color: var(--text-dark); }
+
+  .property-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+
+  .property-card {
+    background: var(--white); border-radius: var(--radius);
+    overflow: hidden; cursor: pointer;
+    transition: transform var(--transition), box-shadow var(--transition);
+    box-shadow: var(--shadow-sm);
+  }
+  .property-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+  .card-img-wrap { position: relative; overflow: hidden; aspect-ratio: 4/3; }
+  .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+  .property-card:hover .card-img-wrap img { transform: scale(1.05); }
+  .card-badge {
+    position: absolute; top: 14px; left: 14px;
+    background: var(--navy); color: var(--white);
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 50px;
+  }
+  .card-badge.sale { background: var(--gold); color: var(--navy); }
+  .card-fav {
+    position: absolute; top: 14px; right: 14px;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(255,255,255,0.9); backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center;
+    border: none; cursor: pointer; transition: all var(--transition);
+  }
+  .card-fav:hover { background: var(--gold); }
+  .card-fav:hover svg { stroke: var(--white); }
+  .card-fav svg { width: 16px; height: 16px; stroke: var(--gray-700); fill: none; stroke-width: 2; transition: stroke var(--transition); }
+  .card-body { padding: 20px 22px 24px; }
+  .card-address { font-size: 11px; color: var(--gray-400); letter-spacing: 0.04em; margin-bottom: 6px; }
+  .card-name { font-family: 'Cinzel', serif; font-size: 17px; font-weight: 600; color: var(--text-dark); margin-bottom: 14px; line-height: 1.3; }
+  .card-meta { display: flex; gap: 18px; margin-bottom: 16px; }
+  .card-meta-item { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--gray-400); font-weight: 500; }
+  .card-meta-item svg { width: 14px; height: 14px; stroke: var(--gray-400); fill: none; stroke-width: 1.8; }
+  .card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--gray-200); }
+  .card-price { font-family: 'Cinzel', serif; font-size: 19px; font-weight: 700; color: var(--text-dark); }
+  .card-price span { font-family: 'Josefin Sans', sans-serif; font-size: 12px; color: var(--gray-400); font-weight: 400; }
+  .card-btn {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: var(--navy); border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background var(--transition), transform var(--transition);
+  }
+  .card-btn:hover { background: var(--gold); transform: scale(1.08); }
+  .card-btn svg { width: 16px; height: 16px; stroke: var(--white); fill: none; stroke-width: 2.5; }
+
+  /* HOW IT WORKS */
+  .how { background: var(--navy); color: var(--white); }
+  .how .section-title { color: var(--white); }
+  .how .section-sub { color: rgba(255,255,255,0.55); }
+  .how .section-label { color: var(--gold); }
+  .how-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .how-img { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/5; }
+  .how-img img { width: 100%; height: 100%; object-fit: cover; }
+  .how-steps { display: flex; flex-direction: column; gap: 36px; margin-top: 48px; }
+  .step { display: flex; gap: 24px; }
+  .step-num {
+    flex-shrink: 0; width: 52px; height: 52px; border-radius: 14px;
+    background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-size: 18px; font-weight: 700; color: var(--gold);
+  }
+  .step-body {}
+  .step-title { font-size: 16px; font-weight: 600; color: var(--white); margin-bottom: 6px; }
+  .step-desc { font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--off-white); }
+  .testimonials-header { text-align: center; margin-bottom: 56px; }
+  .testimonials-header .section-label { justify-content: center; }
+  .testimonials-header .section-label::before { display: none; }
+  .testimonials-header .section-sub { margin: 0 auto; text-align: center; }
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .testi-card {
+    background: var(--white); border-radius: var(--radius); padding: 32px;
+    box-shadow: var(--shadow-sm); transition: box-shadow var(--transition);
+  }
+  .testi-card:hover { box-shadow: var(--shadow-md); }
+  .stars { display: flex; gap: 3px; margin-bottom: 16px; }
+  .stars svg { width: 16px; height: 16px; fill: var(--gold); }
+  .testi-text { font-size: 14px; line-height: 1.75; color: var(--gray-700); font-weight: 300; margin-bottom: 24px; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar {
+    width: 44px; height: 44px; border-radius: 50%; overflow: hidden;
+    background: var(--gray-200);
+  }
+  .testi-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .testi-name { font-size: 14px; font-weight: 600; color: var(--text-dark); }
+  .testi-role { font-size: 12px; color: var(--gray-400); }
+
+  /* CTA BANNER */
+  .cta-banner {
+    margin: 0 48px 96px; border-radius: 24px; overflow: hidden;
+    position: relative; background: var(--navy-mid);
+    padding: 72px 80px; display: flex; align-items: center; justify-content: space-between;
+  }
+  .cta-banner::before {
+    content: ''; position: absolute; inset: 0;
+    background: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=70') center/cover no-repeat;
+    opacity: 0.15;
+  }
+  .cta-content { position: relative; z-index: 1; }
+  .cta-title { font-family: 'Cinzel', serif; font-size: clamp(24px, 3vw, 40px); font-weight: 700; color: var(--white); margin-bottom: 12px; }
+  .cta-sub { font-size: 15px; color: rgba(255,255,255,0.6); font-weight: 300; }
+  .cta-actions { position: relative; z-index: 1; display: flex; gap: 12px; }
+  .btn-primary {
+    background: var(--gold); color: var(--navy); border: none;
+    padding: 16px 36px; border-radius: 50px; cursor: pointer;
+    font-family: 'Josefin Sans', sans-serif; font-size: 14px; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    transition: all var(--transition);
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.4); }
+  .btn-outline-white {
+    background: transparent; color: var(--white);
+    border: 1.5px solid rgba(255,255,255,0.4);
+    padding: 16px 36px; border-radius: 50px; cursor: pointer;
+    font-family: 'Josefin Sans', sans-serif; font-size: 14px; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    transition: all var(--transition);
+  }
+  .btn-outline-white:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+
+  /* FOOTER */
+  footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 64px 48px 40px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+  .footer-brand { font-family: 'Cinzel', serif; font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+  .footer-desc { font-size: 13px; line-height: 1.7; max-width: 260px; }
+  .footer-col h4 { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); margin-bottom: 18px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col a { font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color var(--transition); }
+  .footer-col a:hover { color: var(--gold-light); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
+  .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    nav { padding: 0 24px; }
+    section { padding: 72px 24px; }
+    .hero-content { padding: 0 24px 100px; }
+    .hero-stats { right: 24px; bottom: 100px; }
+    .property-grid { grid-template-columns: repeat(2, 1fr); }
+    .how-grid { grid-template-columns: 1fr; }
+    .how-img { aspect-ratio: 16/9; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .cta-banner { margin: 0 24px 72px; flex-direction: column; gap: 32px; }
+    .search-bar-wrap { margin-top: -28px; }
+    .search-bar { width: calc(100% - 48px); flex-wrap: wrap; }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero-stats { display: none; }
+    .property-grid { grid-template-columns: 1fr; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .hero-content { max-width: 100%; }
+    .featured-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .search-bar { flex-direction: column; border-radius: 16px; }
+    .search-field { border-right: none; border-bottom: 1px solid var(--gray-200); }
+    .search-btn { padding: 18px 24px; min-width: auto; justify-content: center; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .cta-banner { padding: 48px 32px; }
+    .cta-actions { flex-direction: column; }
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { opacity: 0; animation: fadeUp 0.6s ease forwards; }
+  .fade-up:nth-child(1) { animation-delay: 0.1s; }
+  .fade-up:nth-child(2) { animation-delay: 0.2s; }
+  .fade-up:nth-child(3) { animation-delay: 0.3s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, .property-card, .fade-up { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo" aria-label="Elite Realty bosh sahifasi">
+    <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M14 3L26 12V26H18V18H10V26H2V12L14 3Z" fill="#c9a84c" opacity="0.9"/>
+      <path d="M14 3L26 12V26H18V18H10V26H2V12L14 3Z" stroke="white" stroke-width="1.2" fill="none"/>
+    </svg>
+    Elite Realty
+  </a>
+  <ul class="nav-links" role="navigation" aria-label="Asosiy navigatsiya">
+    <li><a href="#featured">Ko'chmas mulk</a></li>
+    <li><a href="#how">Qanday ishlaydi</a></li>
+    <li><a href="#testimonials">Mijozlar</a></li>
+    <li><a href="#contact">Aloqa</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Murojaat qiling</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" aria-label="Bosh sahifa">
+  <div class="hero-bg" role="img" aria-label="Zamonaviy premium uy"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span></span> Toshkentning #1 ko'chmas mulk agentligi</div>
+    <h1 class="hero-title fade-up">Yangi uyingizni<br><em>topish oson</em></h1>
+    <p class="hero-subtitle fade-up">Elite Realty — Toshkentdagi premium ko'chmas mulk bozorida 10 yillik tajriba. Siz orzu qilgan uyni biz topamiz.</p>
+    <div class="hero-actions fade-up">
+      <button class="hero-search-btn" onclick="document.getElementById('featured').scrollIntoView({behavior:'smooth'})" aria-label="Mulkni qidirish">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span>Mulkni qidirish</span>
+        <div class="hero-search-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </button>
+      <a href="#how" class="hero-link">
+        Qanday ishlaydi?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="hero-stats" aria-label="Statistika">
+    <div class="hero-stat"><div class="hero-stat-num">840<span>+</span></div><div class="hero-stat-label">Sotilgan obyekt</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">1.2<span>K</span></div><div class="hero-stat-label">Mamnun mijoz</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">10<span>+</span></div><div class="hero-stat-label">Yil tajriba</div></div>
+  </div>
+</section>
+
+<!-- SEARCH BAR -->
+<div class="search-bar-wrap" role="search" aria-label="Ko'chmas mulk qidirish">
+  <div class="search-bar">
+    <div class="search-field" role="button" tabindex="0" aria-label="Tuman tanlash">
+      <span class="search-field-label">Tuman</span>
+      <div class="search-field-value">
+        Yunusobod
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+    <div class="search-field" role="button" tabindex="0" aria-label="Mulk turi tanlash">
+      <span class="search-field-label">Mulk turi</span>
+      <div class="search-field-value">
+        Penthouse
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+    <div class="search-field" role="button" tabindex="0" aria-label="Narx oralig'ini tanlash">
+      <span class="search-field-label">Narx</span>
+      <div class="search-field-value">
+        $50,000 — $300,000
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+    <button class="search-btn" aria-label="Qidirish">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      Qidirish
+    </button>
+  </div>
+</div>
+
+<!-- FEATURED PROPERTIES -->
+<section class="featured" id="featured">
+  <div class="featured-header">
+    <div>
+      <div class="section-label">Ko'p ko'rilgan</div>
+      <h2 class="section-title">Premium mulklar</h2>
+      <p class="section-sub">Toshkentning eng prestijli hududlaridagi tanlab olingan ko'chmas mulklar</p>
+    </div>
+    <a href="#" class="view-all" aria-label="Barcha mulklarni ko'rish">
+      Barchasini ko'rish
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <div class="tabs" role="tablist" aria-label="Mulk kategoriyalari">
+    <button class="tab active" role="tab" aria-selected="true">Barchasi</button>
+    <button class="tab" role="tab" aria-selected="false">Sotish uchun</button>
+    <button class="tab" role="tab" aria-selected="false">Ijara</button>
+    <button class="tab" role="tab" aria-selected="false">Yangi bino</button>
+  </div>
+
+  <div class="property-grid" role="list">
+
+    <!-- Card 1 -->
+    <article class="property-card" role="listitem" tabindex="0" aria-label="Ocean Villa, $285,000">
+      <div class="card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?w=600&q=80" alt="Zamonaviy villa Yunusobodda" loading="lazy" width="600" height="450">
+        <span class="card-badge">Yangi</span>
+        <button class="card-fav" aria-label="Sevimlilarga qo'shish">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+      </div>
+      <div class="card-body">
+        <p class="card-address">Yunusobod tumani, Amir Temur ko'chasi 45</p>
+        <h3 class="card-name">Prestige Villa</h3>
+        <div class="card-meta">
+          <span class="card-meta-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            4 xona
+          </span>
+          <span class="card-meta-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><path d="M10 5 20 15M15 5h5v5"/></svg>
+            3 hammom
+          </span>
+          <span class="card-meta-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            320 m²
+          </span>
+        </div>
+        <div class="card-footer">
+          <div class="card-price">$285,000 <span>/ sotib olish</span></div>
+          <button class="card-btn" aria-label="Batafsil ko'rish">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="property-card" role="listitem" tabindex="0" aria-label="Mirobod Penthouse, $410,000">
+      <div class="card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Hashamatli penthouse Miroboddа" loading="lazy" width="600" height="450">
+        <span class="card-badge sale">Premium</span>
+        <button class="card-fav" aria-label="Sevimlilarga qo'shish">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+      </div>
+      <div class="card-body">
+        <p class="card-address">Mirobod tumani, Navoiy ko'chasi 12</p>
+        <h3 class="card-name">Sky Penthouse</h3>
+        <div class="card-meta">
+          <span class="card-meta-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            5 xona
+          </span>
+          <span class="card-meta-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><path d="M10 5 20 15M15 5h5v5"/></svg>
+            4 hammom
+          </span>
+          <span class="card-meta-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            480 m²
+          </span>
+        </div>
+        <div class="card-footer">
+          <div class="card-price">$410,000 <span>/ sotib olish</span></div>
+          <button class="card-btn" aria-label="Batafsil ko'rish">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="property-card" role="listitem" tabindex="0" aria-label="Cottage Chilonzor, $165,000">
+      <div class="card-img-wrap">
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Qulay cottage Chilonzorda" loading="lazy" width="600" height="450">
+        <span class="card-badge">Ijara</span>
+        <button class="card-fav" aria-label="Sevimlilarga qo'shish">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+      </div>
+      <div class="card-body">
+        <p class="card-address">Chilonzor tumani, Bunyodkor ko'chasi 88</p>
+        <h3 class="card-name">Garden Cottage</h3>
+        <div class="card-meta">
+          <span class="card-meta-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            3 xona
+          </span>
+          <span class="card-meta-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><path d="M10 5 20 15M15 5h5v5"/></svg>
+            2 hammom
+          </span>
+          <span class="card-meta-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            190 m²
+          </span>
+        </div>
+        <div class="card-footer">
+          <div class="card-price">$2,400 <span>/ oyiga ijara</span></div>
+          <button class="card-btn" aria-label="Batafsil ko'rish">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="how-grid">
+    <div>
+      <div class="section-label">Jarayon</div>
+      <h2 class="section-title">Uyingizni<br>topishning eng<br>qulay yo'li</h2>
+      <p class="section-sub">Biz jarayonni iloji boricha sodda qildik — siz faqat tanlovingizni bildiring, qolganini biz qilamiz.</p>
+      <div class="how-steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-body">
+            <div class="step-title">Mezonlarni belgilang</div>
+            <div class="step-desc">Tuman, xona soni, byudjet va istaklaringizni bizga yuboring. Qidiruv 5 daqiqa davom etadi.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-body">
+            <div class="step-title">Tanlovni ko'ring</div>
+            <div class="step-desc">Ekspertimiz mezonlaringizga mos eng yaxshi variantlarni 24 soat ichida tayyorlaydi.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-body">
+            <div class="step-title">Ko'rib chiqing</div>
+            <div class="step-desc">Sizga qulay vaqtda ob'ektni ko'rib chiqamiz — virtual yoki jonli tashrif.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div class="step-body">
+            <div class="step-title">Bitimni yoping</div>
+            <div class="step-desc">Barcha hujjatlarni biz tayyorlaymiz. Siz shunchaki imzolaysiz va kalitni olasiz.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="how-img">
+      <img src="https://images.unsplash.com/photo-1560184897-ae75f418493e?w=600&q=80" alt="Elite Realty agenti mijoz bilan ishlayapti" loading="lazy" width="600" height="750">
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="testimonials-header">
+    <div class="section-label">Mijozlar fikri</div>
+    <h2 class="section-title">Nima deyishadi?</h2>
+    <p class="section-sub">1200+ mamnun mijozimiz bor. Bu — ularning bir qismi.</p>
+  </div>
+  <div class="testi-grid">
+    <article class="testi-card">
+      <div class="stars" aria-label="5 yulduz">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="testi-text">"Elite Realty bilan ishlash juda qulay bo'ldi. Bir haftada Yunusobodda 4 xonali hashamatli uy topdik. Hujjat ishlari ham juda tez bitdi."</p>
+      <div class="testi-author">
+        <div class="testi-avatar"><img src="https://i.pravatar.cc/44?img=11" alt="Jasur Xolmatov" loading="lazy" width="44" height="44"></div>
+        <div>
+          <div class="testi-name">Jasur Xolmatov</div>
+          <div class="testi-role">IT kompaniya direktori</div>
+        </div>
+      </div>
+    </article>
+    <article class="testi-card">
+      <div class="stars" aria-label="5 yulduz">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="testi-text">"Miroboddagi penthouseni olishda Elite Realty katta yordam berdi. Narx muzokaralari, kredit rasmiyatchiligi — barchasini ular hal qildi."</p>
+      <div class="testi-author">
+        <div class="testi-avatar"><img src="https://i.pravatar.cc/44?img=22" alt="Malika Yusupova" loading="lazy" width="44" height="44"></div>
+        <div>
+          <div class="testi-name">Malika Yusupova</div>
+          <div class="testi-role">Tadbirkor</div>
+        </div>
+      </div>
+    </article>
+    <article class="testi-card">
+      <div class="stars" aria-label="5 yulduz">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="testi-text">"Birinchi marta ko'chmas mulk sotib olayotgan edim va umuman tajribam yo'q edi. Elite Realty jarayonning har qadamini tushuntirdi."</p>
+      <div class="testi-author">
+        <div class="testi-avatar"><img src="https://i.pravatar.cc/44?img=33" alt="Bobur Rahimov" loading="lazy" width="44" height="44"></div>
+        <div>
+          <div class="testi-name">Bobur Rahimov</div>
+          <div class="testi-role">Muhandis</div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner" id="contact" role="complementary" aria-label="Aloqa">
+  <div class="cta-content">
+    <h2 class="cta-title">Orzuingizdagi uyni<br>bugun toping</h2>
+    <p class="cta-sub">Bepul konsultatsiya — 30 daqiqa, hech qanday majburiyatsiz</p>
+  </div>
+  <div class="cta-actions">
+    <button class="btn-primary">Bepul konsultatsiya</button>
+    <button class="btn-outline-white">+998 90 123 45 67</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Elite Realty</div>
+      <p class="footer-desc">Toshkentdagi premium ko'chmas mulk agentligi. 10 yillik tajriba, 1200+ mamnun mijoz.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Mulklar</h4>
+      <ul>
+        <li><a href="#">Sotish uchun</a></li>
+        <li><a href="#">Ijara</a></li>
+        <li><a href="#">Yangi binolar</a></li>
+        <li><a href="#">Premium</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kompaniya</h4>
+      <ul>
+        <li><a href="#">Biz haqimizda</a></li>
+        <li><a href="#">Agentlar</a></li>
+        <li><a href="#">Yangiliklar</a></li>
+        <li><a href="#">Aloqa</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Aloqa</h4>
+      <ul>
+        <li><a href="tel:+998901234567">+998 90 123 45 67</a></li>
+        <li><a href="mailto:info@eliterealty.uz">info@eliterealty.uz</a></li>
+        <li><a href="#">Toshkent, Amir Temur 108</a></li>
+        <li><a href="#">Telegram: @eliterealty_uz</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Elite Realty. Barcha huquqlar himoyalangan.</span>
+    <span>Ishlab chiqaruvchi: <a href="https://smartdev.uz" target="_blank" rel="noopener">SmartDev.uz</a></span>
+  </div>
+</footer>
+
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // Tab switching
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+    });
+  });
+
+  // Intersection observer for animations
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.property-card, .step, .testi-card').forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = `opacity 0.5s ease ${i * 0.08}s, transform 0.5s ease ${i * 0.08}s`;
+      observer.observe(el);
+    });
+  }
+</script>
+</body>
+</html>
