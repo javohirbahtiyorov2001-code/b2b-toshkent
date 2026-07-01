@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Master Barber — Premium Barbershop Toshkent</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0d0d0d;--dark:#151515;--dark2:#1e1e1e;--card:#191919;
+  --gold:#b8902a;--gold2:#d4aa50;--gold3:#7a5f1a;
+  --cream:#f0e6d3;--white:#fff;--gray:#6b6b6b;--gray2:#999;
+  --border:rgba(184,144,42,.22);
+  --tr:.3s cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;background:var(--dark);color:var(--white);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:72px;transition:background var(--tr)}
+nav.scrolled{background:rgba(13,13,13,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.nav-crest svg{width:40px;height:40px}
+.brand-name{font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--white);line-height:1}
+.brand-est{font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:400}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color var(--tr)}
+.nav-links a:hover{color:var(--gold)}
+.nav-btn{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:10px 26px;cursor:pointer;font-family:'Oswald',sans-serif;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;transition:all var(--tr)}
+.nav-btn:hover{background:var(--gold);color:var(--black)}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:680px;display:flex;align-items:center}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1920&q=85')center/cover no-repeat}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(13,13,13,.95)0%,rgba(13,13,13,.7)55%,rgba(13,13,13,.25)100%)}
+.hero-inner{position:relative;z-index:2;padding:0 56px;max-width:640px}
+.hero-est{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+.hero-est-line{width:40px;height:1px;background:var(--gold)}
+.hero-est span{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);font-weight:600}
+h1.hero-title{font-family:'Oswald',sans-serif;font-size:clamp(52px,7.5vw,96px);font-weight:700;line-height:.92;color:var(--white);text-transform:uppercase;margin-bottom:24px;letter-spacing:.02em}
+h1.hero-title em{font-style:normal;color:var(--gold)}
+.hero-desc{font-size:15px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.75;max-width:400px;margin-bottom:36px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px}
+.btn-gold{background:var(--gold);color:var(--black);border:none;padding:16px 36px;cursor:pointer;font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;transition:all var(--tr)}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px)}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.25);color:var(--white);padding:16px 36px;cursor:pointer;font-family:'Oswald',sans-serif;font-size:14px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;transition:all var(--tr)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.hero-stats{display:flex;gap:40px}
+.h-stat-num{font-family:'Oswald',sans-serif;font-size:36px;font-weight:700;color:var(--gold);line-height:1}
+.h-stat-lbl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:2px}
+.hero-divider{width:1px;background:rgba(255,255,255,.12)}
+
+/* SERVICES ICONS */
+.svc-strip{background:var(--dark2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0 56px;display:flex;align-items:stretch;overflow-x:auto}
+.svc-icon-item{flex:1;min-width:120px;padding:32px 16px;display:flex;flex-direction:column;align-items:center;gap:14px;border-left:1px solid var(--border);cursor:pointer;transition:background var(--tr)}
+.svc-icon-item:first-child{border-left:none}
+.svc-icon-item:hover,.svc-icon-item.active{background:rgba(184,144,42,.06)}
+.svc-icon-circle{width:56px;height:56px;border-radius:50%;background:rgba(184,144,42,.08);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all var(--tr)}
+.svc-icon-item:hover .svc-icon-circle,.svc-icon-item.active .svc-icon-circle{background:rgba(184,144,42,.18);border-color:var(--gold)}
+.svc-icon-circle svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.5}
+.svc-icon-name{font-family:'Oswald',sans-serif;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);text-align:center;transition:color var(--tr)}
+.svc-icon-item:hover .svc-icon-name,.svc-icon-item.active .svc-icon-name{color:var(--white)}
+
+/* SECTIONS */
+section{padding:96px 56px}
+.tag{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:12px}
+.tag::before{content:'';width:30px;height:1px;background:var(--gold)}
+h2.sec-title{font-family:'Oswald',sans-serif;font-size:clamp(32px,4vw,54px);font-weight:700;color:var(--white);line-height:1;margin-bottom:16px;text-transform:uppercase;letter-spacing:.02em}
+h2.sec-title .gold{color:var(--gold)}
+.sec-sub{font-size:14px;font-weight:300;color:var(--gray2);line-height:1.75;max-width:480px}
+
+/* ABOUT */
+.about{background:var(--black)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-imgs{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:relative}
+.about-img1{aspect-ratio:3/4;overflow:hidden}
+.about-img2{aspect-ratio:3/4;overflow:hidden;margin-top:32px}
+.about-imgs img{width:100%;height:100%;object-fit:cover;display:block}
+.about-badge{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);background:var(--gold);padding:16px 24px;text-align:center;white-space:nowrap}
+.about-badge-num{font-family:'Oswald',sans-serif;font-size:32px;font-weight:700;color:var(--black);line-height:1}
+.about-badge-lbl{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.6);font-weight:600}
+.about-right{padding:0 0 0 20px}
+.quote-block{margin:28px 0;padding:20px 24px;border-left:2px solid var(--gold);background:rgba(184,144,42,.04)}
+.quote-text{font-family:'Open Sans',sans-serif;font-size:15px;font-style:italic;color:var(--cream);line-height:1.7;margin-bottom:10px}
+.quote-author{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:600}
+
+/* SERVICES CARDS */
+.services{background:var(--dark)}
+.services-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px}
+.link-gold{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);text-decoration:none;font-weight:600;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--gold3);padding-bottom:2px;transition:gap var(--tr)}
+.link-gold:hover{gap:14px}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.svc-card{background:var(--card);padding:36px 28px;border:1px solid rgba(255,255,255,.04);transition:all var(--tr);position:relative;overflow:hidden}
+.svc-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform var(--tr)}
+.svc-card:hover{background:var(--dark2);border-color:var(--border)}
+.svc-card:hover::after{transform:scaleX(1)}
+.svc-icon-box{width:52px;height:52px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:20px;transition:all var(--tr)}
+.svc-card:hover .svc-icon-box{border-color:var(--gold);background:rgba(184,144,42,.1)}
+.svc-icon-box svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.5}
+.svc-name{font-family:'Oswald',sans-serif;font-size:18px;font-weight:600;color:var(--white);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.svc-desc{font-size:13px;color:var(--gray2);font-weight:300;line-height:1.65;margin-bottom:16px}
+.svc-price-tag{font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;color:var(--gold)}
+.svc-duration{font-size:10px;color:var(--gray);letter-spacing:.08em;text-transform:uppercase;margin-top:2px}
+
+/* MASTERS */
+.masters{background:var(--dark2)}
+.masters-header{text-align:center;margin-bottom:56px}
+.masters-header .tag{justify-content:center}
+.masters-header .tag::before{display:none}
+.masters-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.master-card{background:var(--card);overflow:hidden;border:1px solid rgba(255,255,255,.05);transition:all var(--tr)}
+.master-card:hover{border-color:var(--border);transform:translateY(-4px)}
+.master-img{aspect-ratio:3/4;overflow:hidden;position:relative}
+.master-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.master-card:hover .master-img img{transform:scale(1.05)}
+.master-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7)0%,transparent 50%);display:flex;align-items:flex-end;padding:20px;opacity:0;transition:opacity var(--tr)}
+.master-card:hover .master-overlay{opacity:1}
+.master-spec{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.master-info{padding:24px}
+.master-name{font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;color:var(--white);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.master-role{font-size:11px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:8px}
+.master-exp{font-size:13px;color:var(--gray2);font-weight:300}
+.master-stars{color:var(--gold);font-size:13px;letter-spacing:3px;margin-top:8px}
+
+/* GALLERY */
+.gallery{background:var(--black);padding:0}
+.gallery-wrap{display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:260px 260px}
+.g-cell{overflow:hidden;position:relative;cursor:pointer}
+.g-cell:nth-child(1){grid-column:span 2;grid-row:span 2}
+.g-cell:nth-child(5){grid-row:span 2}
+.g-cell img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .65s ease}
+.g-cell:hover img{transform:scale(1.07)}
+.g-cell::after{content:'';position:absolute;inset:0;background:rgba(184,144,42,0);transition:background var(--tr)}
+.g-cell:hover::after{background:rgba(184,144,42,.08)}
+
+/* TESTI */
+.testi{background:var(--dark)}
+.testi-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.t-card{background:var(--card);padding:32px 28px;border:1px solid rgba(255,255,255,.04);transition:border-color var(--tr)}
+.t-card:hover{border-color:var(--border)}
+.t-stars{color:var(--gold);font-size:13px;letter-spacing:4px;margin-bottom:16px}
+.t-quote{font-size:14px;font-weight:300;color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:20px;font-style:italic}
+.t-service{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:16px}
+.t-author{border-top:1px solid rgba(255,255,255,.06);padding-top:18px;display:flex;align-items:center;gap:12px}
+.t-avatar img{width:40px;height:40px;border-radius:50%;border:1px solid var(--border)}
+.t-nm{font-size:13px;font-weight:600;color:var(--white)}
+.t-rl{font-size:11px;color:var(--gray2);margin-top:2px}
+
+/* BOOKING */
+.booking{background:var(--dark2)}
+.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.book-img{position:relative}
+.book-img img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.book-img-badge{position:absolute;top:24px;right:-20px;background:var(--gold);padding:20px 24px;text-align:center}
+.bib-num{font-family:'Oswald',sans-serif;font-size:32px;font-weight:700;color:var(--black);line-height:1}
+.bib-lbl{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.55);font-weight:600;margin-top:2px}
+.book-form h2{font-family:'Oswald',sans-serif;font-size:32px;font-weight:700;color:var(--white);text-transform:uppercase;margin-bottom:6px}
+.book-form p{font-size:13px;color:var(--gray2);font-weight:300;margin-bottom:32px}
+.form-group{margin-bottom:16px}
+label{display:block;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:7px}
+input,select{width:100%;background:var(--dark);border:1px solid rgba(255,255,255,.1);color:var(--white);padding:14px 16px;font-family:'Open Sans',sans-serif;font-size:14px;font-weight:300;outline:none;transition:border-color var(--tr);-webkit-appearance:none}
+input::placeholder{color:var(--gray)}
+input:focus,select:focus{border-color:var(--gold)}
+select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:44px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-submit{width:100%;background:var(--gold);color:var(--black);border:none;padding:17px;cursor:pointer;font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-top:8px;transition:all var(--tr)}
+.form-submit:hover{background:var(--gold2)}
+
+/* CTA */
+.cta{position:relative;padding:100px 56px;text-align:center;overflow:hidden}
+.cta-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=1600&q=80')center/cover no-repeat}
+.cta-bg::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.8)}
+.cta-content{position:relative;z-index:2}
+.cta-pre{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
+.cta-title{font-family:'Oswald',sans-serif;font-size:clamp(36px,5.5vw,68px);font-weight:700;color:var(--white);text-transform:uppercase;line-height:.95;margin-bottom:14px}
+.cta-title .gold{color:var(--gold)}
+.cta-sub{font-size:14px;color:rgba(255,255,255,.45);font-weight:300;margin-bottom:36px}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+footer{background:#090909;padding:56px 56px 28px;border-top:1px solid rgba(255,255,255,.05)}
+.f-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:44px}
+.f-brand-name{font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--white)}
+.f-brand-sub{font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.f-desc{font-size:13px;color:var(--gray);line-height:1.7;font-weight:300;max-width:240px}
+.f-col h4{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:16px}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.f-col a{font-size:13px;color:rgba(255,255,255,.28);text-decoration:none;transition:color var(--tr);font-weight:300}
+.f-col a:hover{color:var(--gold2)}
+.f-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:22px;display:flex;justify-content:space-between;align-items:center}
+.f-copy{font-size:12px;color:rgba(255,255,255,.16)}
+.f-credit a{color:var(--gold);text-decoration:none;font-size:12px}
+
+@media(max-width:1024px){nav,section,.cta,.booking{padding-left:24px;padding-right:24px}.svc-strip{padding:0 24px}.about-grid,.book-grid{grid-template-columns:1fr;gap:48px}.svc-grid{grid-template-columns:1fr 1fr}.masters-grid{grid-template-columns:1fr 1fr}.testi-grid{grid-template-columns:1fr 1fr}.f-top{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.nav-links{display:none}.about-imgs{grid-template-columns:1fr}.about-img2{display:none}.svc-grid{grid-template-columns:1fr}.masters-grid{grid-template-columns:1fr}.testi-grid{grid-template-columns:1fr}.gallery-wrap{grid-template-columns:1fr 1fr;grid-template-rows:auto}.g-cell:nth-child(1){grid-column:span 2;aspect-ratio:16/7}.g-cell:nth-child(5){grid-row:span 1}.f-top{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a class="nav-brand" href="#">
+    <div class="nav-crest">
+      <svg viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="18" stroke="#b8902a" stroke-width="1.2" fill="none"/>
+        <path d="M14 12 C14 12 12 20 14 26 M26 12 C26 12 28 20 26 26" stroke="#b8902a" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M16 20 h8" stroke="#b8902a" stroke-width="1.3" stroke-linecap="round"/>
+        <path d="M12 28 L28 28" stroke="#b8902a" stroke-width="1.3" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div><div class="brand-name">Master Barber</div><div class="brand-est">Est. 2015 — Toshkent</div></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Xizmatlar</a></li>
+    <li><a href="#masters">Masterlar</a></li>
+    <li><a href="#gallery">Galereya</a></li>
+    <li><a href="#booking">Yozilish</a></li>
+  </ul>
+  <button class="nav-btn" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Online yozilish</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-est"><div class="hero-est-line"></div><span>Premium barbershop · Est. 2015</span></div>
+    <h1 class="hero-title">Soch — bu<br>sizning <em>imzoyingiz</em></h1>
+    <p class="hero-desc">Master Barber — Toshkentning eng premium barbershopi. Tajribali masterlar, yuqori sifatli mahsulotlar, unutilmas tajriba.</p>
+    <div class="hero-actions">
+      <button class="btn-gold" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Online yozilish</button>
+      <button class="btn-ghost" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Xizmatlar va narxlar</button>
+    </div>
+    <div class="hero-stats">
+      <div><div class="h-stat-num">8+</div><div class="h-stat-lbl">Yil tajriba</div></div>
+      <div class="hero-divider"></div>
+      <div><div class="h-stat-num">3K+</div><div class="h-stat-lbl">Mijozlar</div></div>
+      <div class="hero-divider"></div>
+      <div><div class="h-stat-num">5★</div><div class="h-stat-lbl">Reyting</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="svc-strip">
+  <div class="svc-icon-item active">
+    <div class="svc-icon-circle"><svg viewBox="0 0 24 24"><path d="M6 3h12l-1 9H7L6 3zM6 12l-2 9h16l-2-9"/></svg></div>
+    <span class="svc-icon-name">Soch kesish</span>
+  </div>
+  <div class="svc-icon-item">
+    <div class="svc-icon-circle"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 10h18M7 14h10M9 18h6"/></svg></div>
+    <span class="svc-icon-name">Soch yuvish</span>
+  </div>
+  <div class="svc-icon-item">
+    <div class="svc-icon-circle"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="4" rx="1"/><path d="M7 6v14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg></div>
+    <span class="svc-icon-name">Soqol kesish</span>
+  </div>
+  <div class="svc-icon-item">
+    <div class="svc-icon-circle"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12s1.5 3 4 3 4-3 4-3"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+    <span class="svc-icon-name">Massaj</span>
+  </div>
+  <div class="svc-icon-item">
+    <div class="svc-icon-circle"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></div>
+    <span class="svc-icon-name">Yuz parvarishі</span>
+  </div>
+  <div class="svc-icon-item">
+    <div class="svc-icon-circle"><svg viewBox="0 0 24 24"><path d="M7 21h10M12 21V3M3 7l9-4 9 4"/></svg></div>
+    <span class="svc-icon-name">Soch rangi</span>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-imgs">
+      <div class="about-img1"><img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=500&q=80" alt="Barbershop interior"></div>
+      <div class="about-img2"><img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=500&q=80" alt="Master ishlayapti"></div>
+      <div class="about-badge"><div class="about-badge-num">8+</div><div class="about-badge-lbl">Yil tajriba</div></div>
+    </div>
+    <div class="about-right">
+      <div class="tag">Biz haqimizda</div>
+      <h2 class="sec-title">Siz — bizning <span class="gold">ilhomimiz</span></h2>
+      <p class="sec-sub">Master Barber 2015-yildan beri Toshkentning eng taniqli barbershopi. Har bir mijoz — noyob. Har bir soch — san'at asari.</p>
+      <div class="quote-block">
+        <div class="quote-text">"Siz barbershopga faqat soch oldirishga kelasiz, lekin bizdan g'ururlanib chiqasiz."</div>
+        <div class="quote-author">— Bobur Aliyev, Bosh master</div>
+      </div>
+      <button class="btn-gold" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Hozir yozilish</button>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="services-header">
+    <div><div class="tag">Narx va xizmatlar</div><h2 class="sec-title">Bizning <span class="gold">xizmatlar</span></h2></div>
+    <a href="#booking" class="link-gold">Yozilish <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-card">
+      <div class="svc-icon-box"><svg viewBox="0 0 24 24"><path d="M6 3h12l-1 9H7L6 3z"/><path d="M6 12l-2 9h16l-2-9"/></svg></div>
+      <div class="svc-name">Clipper Haircut</div>
+      <div class="svc-desc">Klassik va zamonaviy soch turi. Mashinada aniq, professional kesish.</div>
+      <div class="svc-price-tag">80,000 so'm</div>
+      <div class="svc-duration">⏱ 45 daqiqa</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon-box"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="4" rx="1"/><path d="M7 6v14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6"/></svg></div>
+      <div class="svc-name">Beard Trim</div>
+      <div class="svc-desc">Soqol shakllantirish va kesish. Jilet bilan aniq kontur.</div>
+      <div class="svc-price-tag">60,000 so'm</div>
+      <div class="svc-duration">⏱ 30 daqiqa</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon-box"><svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg></div>
+      <div class="svc-name">Face Shaver</div>
+      <div class="svc-desc">Issiq sochiq va qaymog' bilan klassik soqol olish. SPA tajribasi.</div>
+      <div class="svc-price-tag">90,000 so'm</div>
+      <div class="svc-duration">⏱ 40 daqiqa</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12s1.5 3 4 3 4-3 4-3"/></svg></div>
+      <div class="svc-name">VIP Kompleks</div>
+      <div class="svc-desc">Soch kesish + soqol + yuz massaji + sochiq. To'liq VIP xizmat.</div>
+      <div class="svc-price-tag">180,000 so'm</div>
+      <div class="svc-duration">⏱ 90 daqiqa</div>
+    </div>
+  </div>
+</section>
+
+<section class="masters" id="masters">
+  <div class="masters-header"><div class="tag">Jamoamiz</div><h2 class="sec-title">Bizning <span class="gold">masterlar</span></h2></div>
+  <div class="masters-grid">
+    <div class="master-card">
+      <div class="master-img">
+        <img src="https://images.unsplash.com/photo-1622151834677-70f982c9adef?w=500&q=80" alt="Bosh master Bobur">
+        <div class="master-overlay"><span class="master-spec">Soch & Soqol Specialist</span></div>
+      </div>
+      <div class="master-info">
+        <div class="master-name">Bobur Aliyev</div>
+        <div class="master-role">Senior Master · Bosh barber</div>
+        <div class="master-exp">8 yil tajriba · Istanbul va Dubai akademiyasi</div>
+        <div class="master-stars">★★★★★</div>
+      </div>
+    </div>
+    <div class="master-card">
+      <div class="master-img">
+        <img src="https://images.unsplash.com/photo-1559599101-f09722fb4948?w=500&q=80" alt="Master Jahongir">
+        <div class="master-overlay"><span class="master-spec">Fade & Design Specialist</span></div>
+      </div>
+      <div class="master-info">
+        <div class="master-name">Jahongir Rашidov</div>
+        <div class="master-role">Master · Fade & Design</div>
+        <div class="master-exp">5 yil tajriba · Fade va dizayn mutaxassisi</div>
+        <div class="master-stars">★★★★★</div>
+      </div>
+    </div>
+    <div class="master-card">
+      <div class="master-img">
+        <img src="https://images.unsplash.com/photo-1621607512022-6aecc4fed814?w=500&q=80" alt="Master Sanjar">
+        <div class="master-overlay"><span class="master-spec">Classic Barber</span></div>
+      </div>
+      <div class="master-info">
+        <div class="master-name">Sanjar Xolmatov</div>
+        <div class="master-role">Barber · Klassik uslub</div>
+        <div class="master-exp">6 yil tajriba · Klassik va retro soch turlari</div>
+        <div class="master-stars">★★★★★</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gallery" id="gallery">
+  <div class="gallery-wrap">
+    <div class="g-cell"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&q=80" alt="Barbershop 1" loading="lazy"></div>
+    <div class="g-cell"><img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=500&q=80" alt="Barbershop 2" loading="lazy"></div>
+    <div class="g-cell"><img src="https://images.unsplash.com/photo-1621607512022-6aecc4fed814?w=500&q=80" alt="Barbershop 3" loading="lazy"></div>
+    <div class="g-cell"><img src="https://images.unsplash.com/photo-1520338286542-1b16e5b51f5d?w=500&q=80" alt="Barbershop 4" loading="lazy"></div>
+    <div class="g-cell"><img src="https://images.unsplash.com/photo-1593702288056-7cc27fc30968?w=500&q=80" alt="Barbershop 5" loading="lazy"></div>
+    <div class="g-cell"><img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=500&q=80" alt="Barbershop 6" loading="lazy"></div>
+    <div class="g-cell"><img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?w=500&q=80" alt="Barbershop 7" loading="lazy"></div>
+  </div>
+</div>
+
+<section class="testi">
+  <div class="testi-header"><div><div class="tag">Mijozlar fikri</div><h2 class="sec-title">Ular nima <span class="gold">deyishadi</span></h2></div></div>
+  <div class="testi-grid">
+    <div class="t-card"><div class="t-stars">★★★★★</div><div class="t-service">VIP Kompleks</div><p class="t-quote">"Toshkentdagi eng yaxshi barbershop! Bobur usta qo'li mo''jiza — soch kesganidan keyin o'zingni boshqa odam his qilasan."</p><div class="t-author"><div class="t-avatar"><img src="https://i.pravatar.cc/40?img=15" alt=""></div><div><div class="t-nm">Jasur Norqo'ziyev</div><div class="t-rl">Doimiy mijoz</div></div></div></div>
+    <div class="t-card"><div class="t-stars">★★★★★</div><div class="t-service">Beard Trim & Fade</div><p class="t-quote">"Soqol kesishni boshqa joyda ham qilib ko'rdim, lekin Master Barberdagi darajani hech kim qila olmaydi. Premium xizmat!"</p><div class="t-author"><div class="t-avatar"><img src="https://i.pravatar.cc/40?img=27" alt=""></div><div><div class="t-nm">Alisher Xasanov</div><div class="t-rl">Toshkent</div></div></div></div>
+    <div class="t-card"><div class="t-stars">★★★★★</div><div class="t-service">Clipper Haircut</div><p class="t-quote">"Muhit, musiqa, xushbo'y hidlar — hammasi mukammal. Har hafta kelaman, va har safar mamnun ketaman."</p><div class="t-author"><div class="t-avatar"><img src="https://i.pravatar.cc/40?img=39" alt=""></div><div><div class="t-nm">Kamron Tursunov</div><div class="t-rl">IT mutaxassisi</div></div></div></div>
+  </div>
+</section>
+
+<section class="booking" id="booking">
+  <div class="book-grid">
+    <div class="book-img">
+      <img src="https://images.unsplash.com/photo-1493256338651-d82f7acb2b38?w=600&q=80" alt="Barbershop interior" loading="lazy">
+      <div class="book-img-badge"><div class="bib-num">5★</div><div class="bib-lbl">Google reyting</div></div>
+    </div>
+    <div class="book-form">
+      <div class="tag">Online yozilish</div>
+      <h2>Hozir yoziling</h2>
+      <p>O'zingizga qulay vaqtni tanlang — 1 soatda tasdiqlash</p>
+      <form onsubmit="handleSubmit(event)">
+        <div class="form-row"><div class="form-group"><label>Ism *</label><input type="text" placeholder="Ismingiz" required></div><div class="form-group"><label>Telefon *</label><input type="tel" placeholder="+998 90 000 00 00" required></div></div>
+        <div class="form-group"><label>Master tanlash</label><select><option>Bobur Aliyev — Senior Master</option><option>Jahongir Rashidov — Fade & Design</option><option>Sanjar Xolmatov — Klassik barber</option></select></div>
+        <div class="form-group"><label>Xizmat</label><select><option>Clipper Haircut — 80,000</option><option>Beard Trim — 60,000</option><option>Face Shaver — 90,000</option><option>VIP Kompleks — 180,000</option></select></div>
+        <div class="form-row"><div class="form-group"><label>Sana</label><input type="date"></div><div class="form-group"><label>Vaqt</label><select><option>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option><option>18:00</option></select></div></div>
+        <button type="submit" class="form-submit">Yozilish →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="cta">
+  <div class="cta-bg"></div>
+  <div class="cta-content">
+    <div class="cta-pre">Master Barber — Toshkent</div>
+    <h2 class="cta-title">Sizni kutib <span class="gold">turibmiz</span></h2>
+    <p class="cta-sub">Yangi soch — yangi energiya. Bugun yoziling va o'zgarishni his qiling.</p>
+    <div class="cta-row">
+      <button class="btn-gold" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Hozir yozilish</button>
+      <a href="tel:+998901234567" class="btn-ghost" style="text-decoration:none;display:inline-flex;align-items:center">+998 90 123 45 67</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="f-top">
+    <div><div class="f-brand-name">Master Barber</div><div class="f-brand-sub">Premium Barbershop — Toshkent</div><p class="f-desc">2015-yildan buyon Toshkentning eng premium barbershopi. Professional masterlar, yuqori sifat.</p></div>
+    <div class="f-col"><h4>Xizmatlar</h4><ul><li><a href="#">Soch kesish</a></li><li><a href="#">Soqol kesish</a></li><li><a href="#">VIP Kompleks</a></li><li><a href="#">Yuz parvarishi</a></li></ul></div>
+    <div class="f-col"><h4>Kompaniya</h4><ul><li><a href="#">Masterlar</a></li><li><a href="#">Galereya</a></li><li><a href="#">Narxlar</a></li><li><a href="#">Aksiyalar</a></li></ul></div>
+    <div class="f-col"><h4>Aloqa</h4><ul><li><a href="tel:+998901234567">+998 90 123 45 67</a></li><li><a href="#">Toshkent, Yunusobod 10</a></li><li><a href="#">10:00–21:00, har kuni</a></li><li><a href="#">@masterbarber_uz</a></li></ul></div>
+  </div>
+  <div class="f-bottom"><span class="f-copy">© 2025 Master Barber. Barcha huquqlar himoyalangan.</span><span class="f-credit">Sayt: <a href="#">SmartDev.uz</a></span></div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>60),{passive:true});
+document.querySelectorAll('.svc-icon-item').forEach(i=>i.addEventListener('click',()=>{document.querySelectorAll('.svc-icon-item').forEach(x=>x.classList.remove('active'));i.classList.add('active')}));
+function handleSubmit(e){e.preventDefault();const b=e.target.querySelector('.form-submit');b.textContent='Yozilindi ✓';b.style.background='#22c55e';b.style.color='#fff';b.disabled=true}
+const today=new Date().toISOString().split('T')[0];const di=document.querySelector('input[type=date]');if(di)di.min=today;
+</script>
+</body>
+</html>

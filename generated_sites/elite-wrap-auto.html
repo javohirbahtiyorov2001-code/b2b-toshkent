@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elite Wrap — Premium Avtomobil Himoyasi Toshkent</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0a0a0a;--dark:#111;--dark2:#1a1a1a;--card:#161616;
+  --gold:#c9a84c;--gold2:#e2c47a;--gold3:#7a6420;
+  --white:#fff;--gray:#666;--gray2:#999;--border:rgba(201,168,76,.2);
+  --red:#c0392b;
+  --tr:.3s cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--dark);color:var(--white);overflow-x:hidden}
+
+/* BG TEXTURE */
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(201,168,76,.04) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(201,168,76,.03) 0%,transparent 50%);pointer-events:none;z-index:0}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:74px;transition:background var(--tr)}
+nav.scrolled{background:rgba(10,10,10,.94);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo-svg{width:36px;height:36px}
+.nav-brand-text{display:flex;flex-direction:column}
+.nav-brand-name{font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--white);line-height:1}
+.nav-brand-tag{font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;transition:color var(--tr)}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--black);border:none;padding:11px 28px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:all var(--tr)}
+.nav-cta:hover{background:var(--gold2);transform:translateY(-1px)}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:680px;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=1920&q=85')center/cover no-repeat}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(10,10,10,.92) 0%,rgba(10,10,10,.7)55%,rgba(10,10,10,.3)100%)}
+.hero-content{position:relative;z-index:2;padding:0 56px;max-width:680px}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(201,168,76,.1);border:1px solid var(--border);padding:8px 18px;margin-bottom:28px}
+.hero-badge span{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+h1.hero-title{font-family:'Rajdhani',sans-serif;font-size:clamp(48px,7vw,88px);font-weight:700;line-height:.95;color:var(--white);margin-bottom:8px;letter-spacing:.02em;text-transform:uppercase}
+h1.hero-title .gold{color:var(--gold)}
+.hero-sub{font-size:15px;font-weight:300;color:rgba(255,255,255,.55);line-height:1.7;max-width:420px;margin-bottom:32px}
+.hero-bullets{display:flex;gap:28px;margin-bottom:36px;flex-wrap:wrap}
+.hero-bullet{display:flex;align-items:center;gap:8px}
+.hero-bullet svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:2;flex-shrink:0}
+.hero-bullet span{font-size:12px;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.7);text-transform:uppercase}
+.btn-gold{background:var(--gold);color:var(--black);border:none;padding:16px 36px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:all var(--tr);display:inline-flex;align-items:center;gap:10px}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 12px 40px rgba(201,168,76,.3)}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,.25);color:var(--white);padding:16px 36px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;transition:all var(--tr)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+/* watermark text */
+.hero-wm{position:absolute;right:-20px;top:50%;transform:translateY(-50%) rotate(90deg);font-family:'Rajdhani',sans-serif;font-size:120px;font-weight:700;color:rgba(255,255,255,.03);letter-spacing:.1em;white-space:nowrap;pointer-events:none;z-index:1;text-transform:uppercase}
+
+/* STATS */
+.stats{background:var(--dark2);border-bottom:1px solid var(--border)}
+.stats-inner{display:grid;grid-template-columns:repeat(4,1fr);padding:0 56px}
+.stat-item{padding:36px 0 36px 40px;border-left:1px solid var(--border);display:flex;flex-direction:column}
+.stat-item:first-child{border-left:none;padding-left:0}
+.stat-num{font-family:'Rajdhani',sans-serif;font-size:52px;font-weight:700;color:var(--gold);line-height:1}
+.stat-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray2);margin-top:4px}
+
+/* SECTION COMMONS */
+section{position:relative;z-index:1;padding:96px 56px}
+.tag{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:12px}
+.tag::before{content:'';width:32px;height:1px;background:var(--gold)}
+h2.sec-title{font-family:'Rajdhani',sans-serif;font-size:clamp(32px,4vw,54px);font-weight:700;color:var(--white);line-height:1;margin-bottom:16px;text-transform:uppercase}
+h2.sec-title .gold{color:var(--gold)}
+.sec-sub{font-size:14px;font-weight:300;color:var(--gray2);line-height:1.75;max-width:500px}
+
+/* WHY */
+.why{background:var(--black)}
+.why-header{text-align:center;margin-bottom:64px}
+.why-header .tag{justify-content:center}
+.why-header .tag::before{display:none}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.why-card{position:relative;overflow:hidden}
+.why-card-lg{grid-row:span 2}
+.why-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease;min-height:260px}
+.why-card:hover img{transform:scale(1.05)}
+.why-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.9)0%,rgba(0,0,0,.2)60%);display:flex;flex-direction:column;justify-content:flex-end;padding:32px}
+.why-icon-wrap{width:52px;height:52px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.why-icon-wrap svg{width:24px;height:24px;stroke:var(--gold);fill:none;stroke-width:1.5}
+.why-card-title{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;color:var(--white);text-transform:uppercase;margin-bottom:8px}
+.why-card-desc{font-size:13px;color:rgba(255,255,255,.55);font-weight:300;line-height:1.6}
+
+/* SERVICES */
+.services{background:var(--dark)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:52px}
+.svc-card{background:var(--card);padding:40px 32px;border:1px solid rgba(255,255,255,.04);transition:all var(--tr);cursor:default;position:relative;overflow:hidden}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform var(--tr)}
+.svc-card:hover{background:var(--dark2);border-color:var(--border)}
+.svc-card:hover::before{transform:scaleX(1)}
+.svc-num{font-family:'Rajdhani',sans-serif;font-size:48px;font-weight:700;color:rgba(201,168,76,.12);line-height:1;margin-bottom:20px}
+.svc-icon{width:48px;height:48px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.svc-icon svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.5}
+.svc-name{font-family:'Rajdhani',sans-serif;font-size:20px;font-weight:700;color:var(--white);text-transform:uppercase;margin-bottom:10px}
+.svc-desc{font-size:13px;color:var(--gray2);font-weight:300;line-height:1.65;margin-bottom:20px}
+.svc-price{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;color:var(--gold)}
+.svc-price-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:4px}
+
+/* PROCESS */
+.process{background:var(--dark2)}
+.process-header{text-align:center;margin-bottom:64px}
+.process-header .tag{justify-content:center}
+.process-header .tag::before{display:none}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+.steps::before{content:'';position:absolute;top:32px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--gold3),var(--gold),var(--gold3),transparent)}
+.step{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 16px;position:relative;z-index:1}
+.step-num{width:64px;height:64px;border:1px solid var(--gold);background:var(--dark2);display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;color:var(--gold);margin-bottom:20px;position:relative}
+.step:first-child .step-num{background:var(--gold);color:var(--black)}
+.step-title{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;color:var(--white);text-transform:uppercase;margin-bottom:8px;letter-spacing:.06em}
+.step-desc{font-size:12px;color:var(--gray2);font-weight:300;line-height:1.6}
+
+/* GALLERY */
+.gallery{background:var(--black);padding:0}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:300px 300px}
+.g-item{overflow:hidden;position:relative}
+.g-item:nth-child(1){grid-column:span 2}
+.g-item:nth-child(4){grid-row:span 2}
+.g-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.g-item:hover img{transform:scale(1.07)}
+.g-item::after{content:'';position:absolute;inset:0;background:rgba(201,168,76,0);transition:background var(--tr)}
+.g-item:hover::after{background:rgba(201,168,76,.06)}
+
+/* TESTIMONIALS */
+.testi{background:var(--dark)}
+.testi-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.testi-card{background:var(--card);padding:36px 32px;border:1px solid rgba(255,255,255,.04);transition:border-color var(--tr)}
+.testi-card:hover{border-color:var(--border)}
+.tc-stars{color:var(--gold);font-size:14px;letter-spacing:4px;margin-bottom:20px}
+.tc-quote{font-size:15px;font-weight:300;color:rgba(255,255,255,.8);line-height:1.7;margin-bottom:24px;font-style:italic}
+.tc-car{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.tc-author{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;display:flex;align-items:center;gap:14px}
+.tc-avatar img{width:44px;height:44px;border-radius:50%;border:1px solid var(--border)}
+.tc-nm{font-size:14px;font-weight:600;color:var(--white)}
+.tc-rl{font-size:11px;color:var(--gray2);margin-top:2px}
+
+/* CTA FORM */
+.cta-form{background:var(--dark2)}
+.cf-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.cf-left .tag{margin-bottom:16px}
+.cf-desc{font-size:14px;color:var(--gray2);font-weight:300;line-height:1.7;margin-top:16px;margin-bottom:36px}
+.guarantee-badges{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.g-badge{background:var(--card);border:1px solid var(--border);padding:18px 20px;display:flex;align-items:center;gap:14px}
+.g-badge svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.5;flex-shrink:0}
+.g-badge-text{font-size:12px;font-weight:600;color:var(--white);line-height:1.4}
+.cf-right{}
+.form-title{font-family:'Rajdhani',sans-serif;font-size:28px;font-weight:700;color:var(--white);text-transform:uppercase;margin-bottom:8px}
+.form-sub{font-size:13px;color:var(--gray2);font-weight:300;margin-bottom:28px}
+.form-group{margin-bottom:16px}
+label{display:block;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:7px}
+input,select{width:100%;background:var(--dark);border:1px solid rgba(255,255,255,.1);color:var(--white);padding:14px 16px;font-family:'Inter',sans-serif;font-size:14px;font-weight:300;outline:none;transition:border-color var(--tr);-webkit-appearance:none}
+input::placeholder{color:var(--gray)}
+input:focus,select:focus{border-color:var(--gold)}
+select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:44px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-submit{width:100%;background:var(--gold);color:var(--black);border:none;padding:18px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-top:8px;transition:all var(--tr)}
+.form-submit:hover{background:var(--gold2)}
+
+/* CTA BANNER */
+.cta-banner{position:relative;padding:100px 56px;text-align:center;overflow:hidden}
+.cta-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1600&q=80')center/cover no-repeat}
+.cta-bg::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.8)}
+.cta-content{position:relative;z-index:2}
+.cta-sup{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:16px}
+.cta-title{font-family:'Rajdhani',sans-serif;font-size:clamp(36px,5.5vw,68px);font-weight:700;color:var(--white);text-transform:uppercase;line-height:.95;margin-bottom:14px}
+.cta-title .gold{color:var(--gold)}
+.cta-sub{font-size:14px;color:rgba(255,255,255,.5);font-weight:300;margin-bottom:36px;max-width:440px;margin-left:auto;margin-right:auto}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+footer{background:#050505;padding:56px 56px 28px;border-top:1px solid rgba(255,255,255,.05)}
+.f-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:44px}
+.f-brand-name{font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--white);margin-bottom:4px}
+.f-brand-tag{font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.f-desc{font-size:13px;color:var(--gray);font-weight:300;line-height:1.7;max-width:240px}
+.f-col h4{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:16px}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.f-col a{font-size:13px;color:rgba(255,255,255,.3);text-decoration:none;transition:color var(--tr);font-weight:300}
+.f-col a:hover{color:var(--gold2)}
+.f-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:24px;display:flex;justify-content:space-between;align-items:center}
+.f-copy{font-size:12px;color:rgba(255,255,255,.18)}
+.f-credit a{color:var(--gold);text-decoration:none;font-size:12px}
+
+/* RESPONSIVE */
+@media(max-width:1024px){nav,section,.cta-banner,.cta-form{padding-left:24px;padding-right:24px}.stats-inner{padding:0 24px}.cf-wrap{grid-template-columns:1fr;gap:48px}.services-grid{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr;gap:32px}.steps::before{display:none}.testi-grid{grid-template-columns:1fr 1fr}.f-top{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.nav-links{display:none}.stats-inner{grid-template-columns:1fr 1fr}.why-grid{grid-template-columns:1fr}.why-card-lg{grid-row:span 1}.services-grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.testi-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}.g-item:nth-child(1){grid-column:span 2;aspect-ratio:16/7}.g-item:nth-child(4){grid-row:span 1}.f-top{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation:none!important}}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a class="nav-brand" href="#">
+    <svg class="nav-logo-svg" viewBox="0 0 36 36" fill="none">
+      <path d="M18 4L32 10V20C32 27 25 32 18 34C11 32 4 27 4 20V10L18 4Z" stroke="#c9a84c" stroke-width="1.5" fill="rgba(201,168,76,.08)"/>
+      <path d="M12 18h12M18 12v12" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <div class="nav-brand-text"><span class="nav-brand-name">Elite Wrap</span><span class="nav-brand-tag">Premium Protection</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Xizmatlar</a></li>
+    <li><a href="#process">Jarayon</a></li>
+    <li><a href="#gallery">Ishlarimiz</a></li>
+    <li><a href="#contact">Aloqa</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Ko'rikga yozilish</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-wm">WRAPPING</div>
+  <div class="hero-content">
+    <div class="hero-badge"><div class="hero-badge-dot"></div><span>Toshkentning №1 wrap studiyasi</span></div>
+    <h1 class="hero-title">Premium<br>Avtomobil<br><span class="gold">Himoyasi</span></h1>
+    <p class="hero-sub">Poliuretan va vinyl plyonkalar bilan avtomobilingizni professional himoya qilamiz. 10 yil kafolat.</p>
+    <div class="hero-bullets">
+      <div class="hero-bullet"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>10 yil kafolat</span></div>
+      <div class="hero-bullet"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>1 kundan boshlab</span></div>
+      <div class="hero-bullet"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>3M, SunTek, Hexis</span></div>
+    </div>
+    <div class="hero-actions">
+      <button class="btn-gold" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Ko'rikga yozilish <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      <button class="btn-outline" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">Ishlarimizni ko'rish</button>
+    </div>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat-item"><div class="stat-num">850+</div><div class="stat-label">Bajarilgan ish</div></div>
+    <div class="stat-item"><div class="stat-num">10</div><div class="stat-label">Yil kafolat</div></div>
+    <div class="stat-item"><div class="stat-num">1 kun</div><div class="stat-label">Minimal muddат</div></div>
+    <div class="stat-item"><div class="stat-num">5★</div><div class="stat-label">Mijoz bahosi</div></div>
+  </div>
+</div>
+
+<section class="why" id="why">
+  <div class="why-header"><div class="tag">Nima uchun biz</div><h2 class="sec-title">Nima uchun <span class="gold">bizga ishonishadi</span></h2></div>
+  <div class="why-grid">
+    <div class="why-card why-card-lg">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80" alt="Master ishlayapti" loading="lazy">
+      <div class="why-overlay">
+        <div class="why-icon-wrap"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <div class="why-card-title">Sifatga sadoqat</div>
+        <div class="why-card-desc">Har bir ishga qalbimizni qo'yamiz. 100% mijoz qoniqishi — bizning maqsadimiz.</div>
+      </div>
+    </div>
+    <div class="why-card">
+      <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=500&q=80" alt="Premium avtomobil" loading="lazy">
+      <div class="why-overlay">
+        <div class="why-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="why-card-title">Ishonchlilik</div>
+        <div class="why-card-desc">Kengaytirilgan kafolat va qat'iy sifat nazorati.</div>
+      </div>
+    </div>
+    <div class="why-card">
+      <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=500&q=80" alt="Natija" loading="lazy">
+      <div class="why-overlay">
+        <div class="why-icon-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="why-card-title">Tezlik</div>
+        <div class="why-card-desc">PPF — 1-3 kun. Vinyl wrap — 1-2 kun. Ideal natija.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end">
+    <div><div class="tag">Bizning xizmatlar</div><h2 class="sec-title">Xizmat <span class="gold">turlari</span></h2></div>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card">
+      <div class="svc-num">01</div>
+      <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="svc-name">PPF — Himoya plyonkasi</div>
+      <div class="svc-desc">Poliuretan plyonka bilan avtomobilingiz bo'yog'ini tosh, qum va tirnashishlardan to'liq himoya qiling. Invisible shield.</div>
+      <div class="svc-price-label">Narxdan boshlab</div>
+      <div class="svc-price">2,500,000 so'm</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">02</div>
+      <div class="svc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg></div>
+      <div class="svc-name">Vinyl Wrap</div>
+      <div class="svc-desc">Avtomobilingiz rangini o'zgartiring. 200+ rang, matte, gloss, satin, chrome — cheksiz imkoniyatlar.</div>
+      <div class="svc-price-label">Narxdan boshlab</div>
+      <div class="svc-price">3,200,000 so'm</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">03</div>
+      <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <div class="svc-name">Keramik qoplama</div>
+      <div class="svc-desc">Nano-keramik himoya. Bo'yoqni ultrabinafsha nur, kimyoviy moddalar va ifloslantiruvchidan saqlaydi.</div>
+      <div class="svc-price-label">Narxdan boshlab</div>
+      <div class="svc-price">1,800,000 so'm</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">04</div>
+      <div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <div class="svc-name">Panjara va buyurtma</div>
+      <div class="svc-desc">Brend dizayni, reklama va aksent plyonkalar. Avtomobilingizni noyob qiling — faqat siz uchun.</div>
+      <div class="svc-price-label">Narxdan boshlab</div>
+      <div class="svc-price">950,000 so'm</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">05</div>
+      <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="svc-name">VIP detailing</div>
+      <div class="svc-desc">To'liq salon va kuzov tozalash. Profesional uskunalar va mahsulotlar bilan.</div>
+      <div class="svc-price-label">Narxdan boshlab</div>
+      <div class="svc-price">750,000 so'm</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">06</div>
+      <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+      <div class="svc-name">Bepul ko'rik</div>
+      <div class="svc-desc">Avtomobilingiz holatini baholaymiz va eng yaxshi himoya echimini taklif qilamiz. Bepul.</div>
+      <div class="svc-price-label">Narx</div>
+      <div class="svc-price" style="color:#22c55e">Bepul</div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="process-header"><div class="tag">Qanday ishlaymiz</div><h2 class="sec-title">Bizning <span class="gold">ish jarayonimiz</span></h2></div>
+  <div class="steps">
+    <div class="step"><div class="step-num">01</div><div class="step-title">Konsultatsiya</div><div class="step-desc">Avtomobilni ko'rik qilish va xizmat tanlash</div></div>
+    <div class="step"><div class="step-num">02</div><div class="step-title">Tayyorlov</div><div class="step-desc">Kuzovni chuqur tozalash va polировka</div></div>
+    <div class="step"><div class="step-num">03</div><div class="step-title">Montaj</div><div class="step-desc">Plyonkani aniq va professional qoplash</div></div>
+    <div class="step"><div class="step-num">04</div><div class="step-title">Tekshirish</div><div class="step-desc">Sifat nazorati va quritish</div></div>
+    <div class="step"><div class="step-num">05</div><div class="step-title">Topshirish</div><div class="step-desc">Avtomobilni namoyish qilish va kafolat berish</div></div>
+  </div>
+</section>
+
+<div class="gallery" id="gallery">
+  <div class="gallery-grid">
+    <div class="g-item"><img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80" alt="Wrap ishi 1" loading="lazy"></div>
+    <div class="g-item"><img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=500&q=80" alt="Wrap ishi 2" loading="lazy"></div>
+    <div class="g-item"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500&q=80" alt="Wrap ishi 3" loading="lazy"></div>
+    <div class="g-item"><img src="https://images.unsplash.com/photo-1622185135505-2d795003994a?w=500&q=80" alt="Wrap ishi 4" loading="lazy"></div>
+    <div class="g-item"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=500&q=80" alt="Wrap ishi 5" loading="lazy"></div>
+    <div class="g-item"><img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=500&q=80" alt="Wrap ishi 6" loading="lazy"></div>
+  </div>
+</div>
+
+<section class="testi">
+  <div class="testi-header"><div><div class="tag">Mijozlar fikri</div><h2 class="sec-title">Real <span class="gold">natijalar</span></h2></div></div>
+  <div class="testi-grid">
+    <div class="testi-card"><div class="tc-stars">★★★★★</div><div class="tc-car">BMW M5 — Full PPF</div><p class="tc-quote">"Sertgan masterlar! BMW M5'im uchun full PPF qildirishdi — natija ilohiy. Kafolati bor, ishi chiroyli."</p><div class="tc-author"><div class="tc-avatar"><img src="https://i.pravatar.cc/44?img=14" alt=""></div><div><div class="tc-nm">Sherzod Toshmatov</div><div class="tc-rl">BMW M5 egasi</div></div></div></div>
+    <div class="testi-card"><div class="tc-stars">★★★★★</div><div class="tc-car">Range Rover — Vinyl matte black</div><p class="tc-quote">"Range Rover'imni matte black qildirdim. Xuddi fabrikadan chiqqandek. Hammaning ko'zi tushibdi!"</p><div class="tc-author"><div class="tc-avatar"><img src="https://i.pravatar.cc/44?img=28" alt=""></div><div><div class="tc-nm">Umid Karimov</div><div class="tc-rl">Range Rover egasi</div></div></div></div>
+    <div class="testi-card"><div class="tc-stars">★★★★★</div><div class="tc-car">Porsche Cayenne — Keramik</div><p class="tc-quote">"Keramik qoplamadan juda mamnunman. Avtomobil doim yangiday ko'rinadi. Tavsiya qilaman!"</p><div class="tc-author"><div class="tc-avatar"><img src="https://i.pravatar.cc/44?img=41" alt=""></div><div><div class="tc-nm">Feruza Nazarova</div><div class="tc-rl">Porsche Cayenne egasi</div></div></div></div>
+  </div>
+</section>
+
+<section class="cta-form" id="contact">
+  <div class="cf-wrap">
+    <div class="cf-left">
+      <div class="tag">Bepul ko'rik</div>
+      <h2 class="sec-title">Avtomobilingizni <span class="gold">himoyalang</span></h2>
+      <p class="cf-desc">Bugun yoziling — bepul ko'rik va konsultatsiya oling. Birinchi 10 mijozga 15% chegirma.</p>
+      <div class="guarantee-badges">
+        <div class="g-badge"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><div class="g-badge-text">10 yil<br>kafolat</div></div>
+        <div class="g-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><div class="g-badge-text">1 kundan<br>boshlab</div></div>
+        <div class="g-badge"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><div class="g-badge-text">3M, SunTek<br>materiallar</div></div>
+        <div class="g-badge"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg><div class="g-badge-text">Sertifikatlangan<br>masterlar</div></div>
+      </div>
+    </div>
+    <div class="cf-right">
+      <div class="form-title">Ko'rikga yozilish</div>
+      <div class="form-sub">Forma to'ldiring — bugun bog'lanamiz</div>
+      <form onsubmit="handleSubmit(event)">
+        <div class="form-row"><div class="form-group"><label>Ism *</label><input type="text" placeholder="Ismingiz" required></div><div class="form-group"><label>Telefon *</label><input type="tel" placeholder="+998 90 000 00 00" required></div></div>
+        <div class="form-group"><label>Avtomobil markasi</label><input type="text" placeholder="BMW, Mercedes, Range Rover..."></div>
+        <div class="form-group"><label>Xizmat turi</label><select><option>PPF — Himoya plyonkasi</option><option>Vinyl Wrap</option><option>Keramik qoplama</option><option>Detailing</option><option>Bepul ko'rik</option></select></div>
+        <button type="submit" class="form-submit">Ko'rikga yozilish →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="cta-banner">
+  <div class="cta-bg"></div>
+  <div class="cta-content">
+    <div class="cta-sup">Maxsus taklif</div>
+    <h2 class="cta-title">Avtomobilingiz<br><span class="gold">yangi hayotga</span><br>kiradi</h2>
+    <p class="cta-sub">Birinchi 10 mijozga 15% chegirma. Hozir yoziling!</p>
+    <div class="cta-row">
+      <button class="btn-gold" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Ko'rikga yozilish</button>
+      <a href="tel:+998901234567" class="btn-outline" style="text-decoration:none;display:inline-flex;align-items:center">+998 90 123 45 67</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="f-top">
+    <div><div class="f-brand-name">Elite Wrap</div><div class="f-brand-tag">Premium Car Protection — Toshkent</div><p class="f-desc">Toshkentning №1 premium avtomobil himoyasi studiyasi. 3M, SunTek, Hexis materiallari. 10 yil kafolat.</p></div>
+    <div class="f-col"><h4>Xizmatlar</h4><ul><li><a href="#">PPF Plyonka</a></li><li><a href="#">Vinyl Wrap</a></li><li><a href="#">Keramik</a></li><li><a href="#">Detailing</a></li></ul></div>
+    <div class="f-col"><h4>Kompaniya</h4><ul><li><a href="#">Biz haqimizda</a></li><li><a href="#">Ishlarimiz</a></li><li><a href="#">Kafolat</a></li><li><a href="#">Blog</a></li></ul></div>
+    <div class="f-col"><h4>Aloqa</h4><ul><li><a href="tel:+998901234567">+998 90 123 45 67</a></li><li><a href="#">Toshkent, Chilonzor 15</a></li><li><a href="#">Du–Sha: 9:00–19:00</a></li><li><a href="#">@elitewrap_uz</a></li></ul></div>
+  </div>
+  <div class="f-bottom"><span class="f-copy">© 2025 Elite Wrap. Barcha huquqlar himoyalangan.</span><span class="f-credit">Sayt: <a href="#">SmartDev.uz</a></span></div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>60),{passive:true});
+function handleSubmit(e){e.preventDefault();const b=e.target.querySelector('.form-submit');b.textContent='Yuborildi ✓';b.style.background='#22c55e';b.style.color='#fff';b.disabled=true}
+</script>
+</body>
+</html>

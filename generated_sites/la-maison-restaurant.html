@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Maison — Fine Dining Toshkent</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#080808;--dark:#111;--dark2:#1a1a1a;--card:#161616;
+  --gold:#c9a030;--gold2:#e8c060;--gold3:#8a6d1a;
+  --cream:#f5ede0;--white:#fff;--gray:#777;--border:rgba(201,160,48,0.2);
+  --tr:.35s cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;background:var(--dark);color:var(--white);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:76px;transition:background var(--tr)}
+nav.scrolled{background:rgba(8,8,8,.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-brand{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--white);text-decoration:none}
+.nav-brand span{color:var(--gold)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;transition:color var(--tr)}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:10px 26px;cursor:pointer;font-family:'Lato',sans-serif;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;transition:all var(--tr)}
+.nav-cta:hover{background:var(--gold);color:var(--black)}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:650px;display:flex;align-items:flex-end}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=85')center/cover no-repeat}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.3) 0%,rgba(0,0,0,.1)30%,rgba(0,0,0,.7)70%,rgba(8,8,8,1)100%)}
+.hero-content{position:relative;z-index:2;padding:0 60px 80px;width:100%}
+.hero-pre{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:14px}
+.hero-pre::before{content:'';display:block;width:44px;height:1px;background:var(--gold)}
+h1.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,7vw,100px);font-weight:300;line-height:.95;color:var(--white);margin-bottom:28px;letter-spacing:-.01em}
+h1.hero-title em{font-style:italic;color:var(--cream)}
+h1.hero-title strong{font-weight:600;color:var(--gold)}
+.hero-bottom{display:flex;justify-content:space-between;align-items:flex-end}
+.hero-desc{font-size:14px;font-weight:300;color:rgba(255,255,255,.55);line-height:1.8;max-width:380px}
+.hero-actions{display:flex;gap:14px}
+.btn-gold{background:var(--gold);color:var(--black);border:none;padding:16px 36px;cursor:pointer;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;transition:all var(--tr)}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px)}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,.3);color:var(--white);padding:16px 36px;cursor:pointer;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;transition:all var(--tr)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+/* SECTIONS */
+section{padding:96px 60px}
+.tag{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:12px}
+.tag::before{content:'';display:block;width:30px;height:1px;background:var(--gold)}
+h2.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,56px);font-weight:400;color:var(--white);line-height:1.05;margin-bottom:16px}
+h2.sec-title em{font-style:italic;color:var(--cream)}
+.sec-sub{font-size:14px;font-weight:300;color:var(--gray);line-height:1.8;max-width:500px}
+
+/* INTRO */
+.intro{background:var(--dark)}
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.intro-img{position:relative}
+.intro-img img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.intro-badge{position:absolute;bottom:-20px;right:-20px;background:var(--dark2);border:1px solid var(--border);padding:22px 26px;min-width:160px}
+.intro-badge-num{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:400;color:var(--gold);line-height:1}
+.intro-badge-lbl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-top:4px}
+.intro-right{padding-left:20px}
+.intro-features{display:flex;flex-direction:column;gap:24px;margin:32px 0 40px}
+.intro-feat{display:flex;gap:18px;align-items:flex-start}
+.feat-icon{width:44px;height:44px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.feat-icon svg{width:20px;height:20px;stroke:var(--gold);fill:none;stroke-width:1.4}
+.feat-title{font-size:14px;font-weight:700;color:var(--white);margin-bottom:4px}
+.feat-desc{font-size:13px;color:var(--gray);font-weight:300;line-height:1.6}
+
+/* SIGNATURE */
+.signature{background:var(--black)}
+.sig-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px}
+.sig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.sig-card{position:relative;overflow:hidden;cursor:pointer}
+.sig-img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;transition:transform .7s cubic-bezier(.4,0,.2,1)}
+.sig-card:hover .sig-img{transform:scale(1.06)}
+.sig-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85)0%,rgba(0,0,0,0)55%)}
+.sig-info{position:absolute;bottom:0;left:0;right:0;padding:28px}
+.sig-cat{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.sig-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--white);margin-bottom:6px}
+.sig-price{font-size:13px;color:rgba(255,255,255,.5);font-weight:300}
+.sig-price span{color:var(--gold2);font-size:16px;font-weight:400;font-family:'Cormorant Garamond',serif}
+.link-gold{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);text-decoration:none;font-weight:700;border-bottom:1px solid var(--gold3);padding-bottom:2px;display:flex;align-items:center;gap:8px;transition:gap var(--tr)}
+.link-gold:hover{gap:14px}
+
+/* CHEF */
+.chef{background:var(--dark2)}
+.chef-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.chef-img img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.chef-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.5vw,28px);font-style:italic;color:var(--cream);line-height:1.5;margin:28px 0 24px;position:relative;padding-left:24px}
+.chef-quote::before{content:'';position:absolute;left:0;top:6px;bottom:6px;width:2px;background:var(--gold)}
+.chef-name{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.chef-role{font-size:12px;color:var(--gray);margin-top:4px}
+
+/* MENU SECTION */
+.menu-sec{background:var(--black)}
+.menu-tabs{display:flex;gap:4px;margin-bottom:52px;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:0}
+.menu-tab{background:none;border:none;padding:12px 28px;cursor:pointer;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.35);transition:all var(--tr);border-bottom:2px solid transparent;margin-bottom:-1px}
+.menu-tab.active{color:var(--gold);border-bottom-color:var(--gold)}
+.menu-tab:hover{color:var(--white)}
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.menu-item{padding:24px 0;border-bottom:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+.menu-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--white);margin-bottom:4px}
+.menu-desc{font-size:12px;color:var(--gray);font-weight:300;line-height:1.6;max-width:300px}
+.menu-price{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--gold);white-space:nowrap}
+
+/* ATMOSPHERE */
+.atmo{background:var(--dark);padding:0}
+.atmo-mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:280px 280px}
+.atmo-item{overflow:hidden;position:relative}
+.atmo-item:first-child{grid-column:span 2;grid-row:span 2}
+.atmo-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.atmo-item:hover img{transform:scale(1.06)}
+.atmo-caption{position:absolute;inset:0;background:rgba(0,0,0,0);transition:background var(--tr);display:flex;align-items:flex-end;padding:20px}
+.atmo-item:hover .atmo-caption{background:rgba(0,0,0,.3)}
+.atmo-text{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--white);opacity:0;transform:translateY(8px);transition:all var(--tr)}
+.atmo-item:hover .atmo-text{opacity:.9;transform:translateY(0)}
+
+/* TESTIMONIALS */
+.testi{background:var(--dark2)}
+.testi-header{text-align:center;margin-bottom:56px}
+.testi-header .tag{justify-content:center}
+.testi-header .tag::before{display:none}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testi-card{background:var(--card);padding:36px 32px;border:1px solid rgba(255,255,255,.05);transition:border-color var(--tr)}
+.testi-card:hover{border-color:var(--border)}
+.stars{color:var(--gold);font-size:14px;letter-spacing:4px;margin-bottom:20px}
+.testi-q{font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:var(--cream);line-height:1.7;margin-bottom:24px}
+.testi-author{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;display:flex;align-items:center;gap:14px}
+.testi-avatar img{width:44px;height:44px;border-radius:50%;border:1px solid var(--border)}
+.testi-nm{font-size:13px;font-weight:700;color:var(--white)}
+.testi-rl{font-size:11px;color:var(--gray);margin-top:2px}
+
+/* RESERVATION */
+.reservation{background:var(--black)}
+.res-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.res-img img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.res-form h2{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:400;color:var(--white);margin-bottom:8px}
+.res-form p{font-size:14px;color:var(--gray);font-weight:300;margin-bottom:36px}
+.form-group{margin-bottom:18px}
+label{display:block;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:8px}
+input,select{width:100%;background:var(--dark2);border:1px solid rgba(255,255,255,.1);color:var(--white);padding:14px 16px;font-family:'Lato',sans-serif;font-size:14px;font-weight:300;outline:none;transition:border-color var(--tr);-webkit-appearance:none}
+input::placeholder{color:var(--gray)}
+input:focus,select:focus{border-color:var(--gold)}
+select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23777' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:44px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-submit{width:100%;background:var(--gold);color:var(--black);border:none;padding:18px;cursor:pointer;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-top:8px;transition:all var(--tr)}
+.form-submit:hover{background:var(--gold2)}
+
+/* CTA */
+.cta{position:relative;padding:120px 60px;text-align:center;overflow:hidden}
+.cta-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1551218808-94e220e084d2?w=1600&q=80')center/cover no-repeat}
+.cta-bg::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.75)}
+.cta-content{position:relative;z-index:2}
+.cta-ornament{color:var(--gold);font-size:24px;letter-spacing:.3em;margin-bottom:20px;font-family:'Cormorant Garamond',serif}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,64px);font-weight:300;color:var(--white);line-height:1.05;margin-bottom:14px}
+.cta-title em{font-style:italic;color:var(--cream)}
+.cta-sub{font-size:15px;color:rgba(255,255,255,.55);font-weight:300;margin-bottom:40px;max-width:480px;margin-left:auto;margin-right:auto}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+footer{background:#050505;padding:60px 60px 32px;border-top:1px solid rgba(255,255,255,.05)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand-name{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--white);letter-spacing:.1em;margin-bottom:4px}
+.footer-brand-tag{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.footer-desc{font-size:13px;color:var(--gray);line-height:1.7;font-weight:300;max-width:240px}
+.footer-col h4{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:18px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col a{font-size:13px;color:rgba(255,255,255,.35);text-decoration:none;transition:color var(--tr);font-weight:300}
+.footer-col a:hover{color:var(--gold2)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.2)}
+.footer-credit a{color:var(--gold);text-decoration:none;font-size:12px}
+
+/* RESPONSIVE */
+@media(max-width:1024px){nav,section,.cta{padding-left:24px;padding-right:24px}.intro-grid,.chef-grid,.res-wrap{grid-template-columns:1fr;gap:40px}.sig-grid{grid-template-columns:1fr 1fr}.testi-grid{grid-template-columns:1fr 1fr}.footer-top{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.nav-links{display:none}.sig-grid{grid-template-columns:1fr}.menu-grid{grid-template-columns:1fr}.testi-grid{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr}.atmo-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto}.atmo-item:first-child{grid-column:span 2;aspect-ratio:16/7}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation:none!important}}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a class="nav-brand" href="#">La <span>Maison</span></a>
+  <ul class="nav-links">
+    <li><a href="#menu">Menyu</a></li>
+    <li><a href="#chef">Chef</a></li>
+    <li><a href="#atmosphere">Muhit</a></li>
+    <li><a href="#reservation">Rezervatsiya</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('reservation').scrollIntoView({behavior:'smooth'})">Stol band qiling</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-pre">Toshkent, 2012 yildan</p>
+    <h1 class="hero-title">Where <em>Taste</em><br>Meets <strong>Elegance</strong></h1>
+    <div class="hero-bottom">
+      <p class="hero-desc">Har bir taom — bir hikoya. Har bir kecha — unutilmas tajriba. La Maison fine dining dunyosiga xush kelibsiz.</p>
+      <div class="hero-actions">
+        <button class="btn-gold" onclick="document.getElementById('reservation').scrollIntoView({behavior:'smooth'})">Stol band qiling</button>
+        <button class="btn-outline" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">Menyuni ko'rish</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="intro" id="about">
+  <div class="intro-grid">
+    <div class="intro-img">
+      <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=700&q=80" alt="La Maison oshpaz" loading="lazy">
+      <div class="intro-badge"><div class="intro-badge-num">15+</div><div class="intro-badge-lbl">Yil tajriba</div></div>
+    </div>
+    <div class="intro-right">
+      <div class="tag">Bizning falsafa</div>
+      <h2 class="sec-title">Oziq-ovqat — bu <em>san'at</em></h2>
+      <p class="sec-sub">La Maison'da har bir taom — mahalliy va xalqaro ingredientlarning uyg'unligi. Bosh oshpazimiz 15 yillik tajribasini har bir likopcha bilan ulashadi.</p>
+      <div class="intro-features">
+        <div class="intro-feat"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg></div><div><div class="feat-title">Mahalliy ingredientlar</div><div class="feat-desc">Har kuni yangi, mahalliy fermerlardan olingan organik mahsulotlar</div></div></div>
+        <div class="intro-feat"><div class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><div><div class="feat-title">Rezervatsiya 24/7</div><div class="feat-desc">Onlayn stol band qilish — 30 daqiqada tasdiqlash</div></div></div>
+        <div class="intro-feat"><div class="feat-icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div><div><div class="feat-title">VIP xona</div><div class="feat-desc">Maxsus tadbirlar va korporativ kechalar uchun alohida VIP zal</div></div></div>
+      </div>
+      <button class="btn-gold">Biz haqimizda</button>
+    </div>
+  </div>
+</section>
+
+<section class="signature" id="signature">
+  <div class="sig-header">
+    <div><div class="tag">Signature taomlar</div><h2 class="sec-title"><em>Imzoli</em> taomlarimiz</h2></div>
+    <a href="#menu" class="link-gold">To'liq menyuni ko'rish <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+  <div class="sig-grid">
+    <div class="sig-card"><img class="sig-img" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" alt="Signature taom 1" loading="lazy"><div class="sig-overlay"></div><div class="sig-info"><div class="sig-cat">Asosiy taom</div><div class="sig-name">Truffle Risotto</div><div class="sig-price">Dan <span>85,000 so'm</span></div></div></div>
+    <div class="sig-card"><img class="sig-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Signature taom 2" loading="lazy"><div class="sig-overlay"></div><div class="sig-info"><div class="sig-cat">Chef's Special</div><div class="sig-name">Wagyu Tenderloin</div><div class="sig-price">Dan <span>145,000 so'm</span></div></div></div>
+    <div class="sig-card"><img class="sig-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80" alt="Signature taom 3" loading="lazy"><div class="sig-overlay"></div><div class="sig-info"><div class="sig-cat">Dessert</div><div class="sig-name">Chocolate Soufflé</div><div class="sig-price">Dan <span>45,000 so'm</span></div></div></div>
+  </div>
+</section>
+
+<section class="chef" id="chef">
+  <div class="chef-grid">
+    <div class="chef-img"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80" alt="Bosh oshpaz" loading="lazy"></div>
+    <div>
+      <div class="tag">Bosh oshpaz</div>
+      <h2 class="sec-title">Kamol <em>Rashidov</em></h2>
+      <p class="sec-sub">Paris Le Cordon Bleu va Milan akademiyasida tahsil olgan. 15 yillik xalqaro tajriba. Har bir taom — uning imzosi.</p>
+      <blockquote class="chef-quote">"Taom pishirish degani — mehmon qalbiga yo'l ochish. Har bir likopcha — mening sevgim."</blockquote>
+      <div class="chef-name">Kamol Rashidov</div>
+      <div class="chef-role">Executive Chef, La Maison</div>
+    </div>
+  </div>
+</section>
+
+<section class="menu-sec" id="menu">
+  <div style="text-align:center;margin-bottom:52px"><div class="tag" style="justify-content:center"><span style="display:none"></span>Bizning menyu</div><h2 class="sec-title" style="text-align:center">Tanlov <em>sizniki</em></h2></div>
+  <div class="menu-tabs">
+    <button class="menu-tab active">Salatlar</button>
+    <button class="menu-tab">Asosiy taomlar</button>
+    <button class="menu-tab">Dessertlar</button>
+    <button class="menu-tab">Ichimliklar</button>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-item"><div><div class="menu-name">Caesar Salad</div><div class="menu-desc">Romaine, parmezan, sous vide tuxum, anchous</div></div><div class="menu-price">38,000</div></div>
+    <div class="menu-item"><div><div class="menu-name">Burrata Caprese</div><div class="menu-desc">Yangi burrata, heirloom pomidor, basil pesto, balzamik</div></div><div class="menu-price">52,000</div></div>
+    <div class="menu-item"><div><div class="menu-name">Tuna Tartare</div><div class="menu-desc">Bluefin tuna, avokado, wasabi mayo, kunjut</div></div><div class="menu-price">68,000</div></div>
+    <div class="menu-item"><div><div class="menu-name">Greek Garden</div><div class="menu-desc">Feta, zaitun, bodring, qizil piyoz, zahtar</div></div><div class="menu-price">34,000</div></div>
+    <div class="menu-item"><div><div class="menu-name">Foie Gras Salad</div><div class="menu-desc">Pan seared foie gras, arugula, teriga, apelsin vinaigrette</div></div><div class="menu-price">95,000</div></div>
+    <div class="menu-item"><div><div class="menu-name">Lobster Bisque</div><div class="menu-desc">Krеm sho'rva, ko'sak qisqichbaqa, saffron</div></div><div class="menu-price">72,000</div></div>
+  </div>
+</section>
+
+<div class="atmo" id="atmosphere">
+  <div class="atmo-mosaic">
+    <div class="atmo-item"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&q=80" alt="La Maison ichki ko'rinish" loading="lazy"><div class="atmo-caption"><span class="atmo-text">Asosiy zal</span></div></div>
+    <div class="atmo-item"><img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=500&q=80" alt="Bar" loading="lazy"><div class="atmo-caption"><span class="atmo-text">Cocktail bar</span></div></div>
+    <div class="atmo-item"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&q=80" alt="Taom" loading="lazy"><div class="atmo-caption"><span class="atmo-text">Signature taomlar</span></div></div>
+    <div class="atmo-item"><img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=500&q=80" alt="VIP xona" loading="lazy"><div class="atmo-caption"><span class="atmo-text">VIP zal</span></div></div>
+    <div class="atmo-item"><img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=500&q=80" alt="Terrace" loading="lazy"><div class="atmo-caption"><span class="atmo-text">Ochiq terassa</span></div></div>
+  </div>
+</div>
+
+<section class="testi">
+  <div class="testi-header"><div class="tag">Mehmonlar fikri</div><h2 class="sec-title">Ular nima <em>deyishadi</em></h2></div>
+  <div class="testi-grid">
+    <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-q">"La Maison'da kechki ovqat — bu oddiy ovqatlanish emas. Bu san'at asarini tatib ko'rish. Har bir taom ajoyib!"</p><div class="testi-author"><div class="testi-avatar"><img src="https://i.pravatar.cc/44?img=11" alt=""></div><div><div class="testi-nm">Nilufar Hasanova</div><div class="testi-rl">Businesswoman, Toshkent</div></div></div></div>
+    <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-q">"Parijda ko'p restoranlarda bo'lganman, lekin La Maison darajasidagi sifat Markaziy Osiyoda kamdan-kam uchraydi."</p><div class="testi-author"><div class="testi-avatar"><img src="https://i.pravatar.cc/44?img=22" alt=""></div><div><div class="testi-nm">Antoine Dubois</div><div class="testi-rl">Diplomat, France</div></div></div></div>
+    <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-q">"To'yimiz uchun ideal joy! VIP zal, professional xizmat, va ilohiy taomlar. Mehmonlarimiz hali gapiradi."</p><div class="testi-author"><div class="testi-avatar"><img src="https://i.pravatar.cc/44?img=33" alt=""></div><div><div class="testi-nm">Jasur va Madina</div><div class="testi-rl">To'y mehmoni</div></div></div></div>
+  </div>
+</section>
+
+<section class="reservation" id="reservation">
+  <div class="res-wrap">
+    <div class="res-img"><img src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=700&q=80" alt="Stol bezatilishi" loading="lazy"></div>
+    <div class="res-form">
+      <div class="tag">Rezervatsiya</div>
+      <h2>Stol band qiling</h2>
+      <p>So'rovingizni qoldiring — 30 daqiqa ichida siz bilan bog'lanamiz</p>
+      <form onsubmit="handleSubmit(event)">
+        <div class="form-row"><div class="form-group"><label>Ism *</label><input type="text" placeholder="Ismingiz" required></div><div class="form-group"><label>Telefon *</label><input type="tel" placeholder="+998 90 000 00 00" required></div></div>
+        <div class="form-row"><div class="form-group"><label>Sana</label><input type="date"></div><div class="form-group"><label>Vaqt</label><select><option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option></select></div></div>
+        <div class="form-group"><label>Mehmonlar soni</label><select><option>2 kishi</option><option>3-4 kishi</option><option>5-6 kishi</option><option>VIP (7+)</option></select></div>
+        <button type="submit" class="form-submit">Stol band qilish →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="cta">
+  <div class="cta-bg"></div>
+  <div class="cta-content">
+    <div class="cta-ornament">— ✦ —</div>
+    <h2 class="cta-title">Kechangizni <em>unutilmas</em> qiling</h2>
+    <p class="cta-sub">Tug'ilgan kun, to'y, korporativ kecha — La Maison har qanday tadbir uchun tayyor.</p>
+    <div class="cta-row">
+      <button class="btn-gold" onclick="document.getElementById('reservation').scrollIntoView({behavior:'smooth'})">Hozir band qiling</button>
+      <a href="tel:+998901234567" class="btn-outline" style="display:inline-flex;align-items:center;text-decoration:none">+998 90 123 45 67</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div><div class="footer-brand-name">La Maison</div><div class="footer-brand-tag">Fine Dining — Toshkent</div><p class="footer-desc">Toshkentning eng nafis fine dining restorani. Mahalliy ingredientlar, xalqaro retseptlar, unutilmas muhit.</p></div>
+    <div class="footer-col"><h4>Menyu</h4><ul><li><a href="#">Salatlar</a></li><li><a href="#">Asosiy taomlar</a></li><li><a href="#">Dessertlar</a></li><li><a href="#">Vinlar</a></li></ul></div>
+    <div class="footer-col"><h4>Xizmatlar</h4><ul><li><a href="#">VIP zal</a></li><li><a href="#">Korporativ kecha</a></li><li><a href="#">To'y banket</a></li><li><a href="#">Catering</a></li></ul></div>
+    <div class="footer-col"><h4>Aloqa</h4><ul><li><a href="tel:+998901234567">+998 90 123 45 67</a></li><li><a href="#">Toshkent, Amir Temur 5</a></li><li><a href="#">19:00–23:00, har kuni</a></li><li><a href="#">@lamaison_tashkent</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span class="footer-copy">© 2025 La Maison. Barcha huquqlar himoyalangan.</span><span class="footer-credit">Sayt: <a href="#">SmartDev.uz</a></span></div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>60),{passive:true});
+document.querySelectorAll('.menu-tab').forEach(t=>t.addEventListener('click',()=>{document.querySelectorAll('.menu-tab').forEach(x=>x.classList.remove('active'));t.classList.add('active')}));
+function handleSubmit(e){e.preventDefault();const b=e.target.querySelector('.form-submit');b.textContent='Yuborildi ✓';b.style.background='#22c55e';b.style.color='#fff';b.disabled=true}
+const today=new Date().toISOString().split('T')[0];document.querySelector('input[type=date]').min=today;
+</script>
+</body>
+</html>
