@@ -717,7 +717,8 @@
     },
     "slug": "akfa-medline",
     "source": "akfamedline.com / goldenpages.uz",
-    "has_website": false
+    "has_website": true,
+    "website": "https://akfamedline.uz"
   },
   {
     "id": 132,
@@ -2355,7 +2356,8 @@
     },
     "slug": "shokh-dentist",
     "source": "2gis.uz",
-    "has_website": false
+    "has_website": true,
+    "website": "https://shokhdentist.uz"
   },
   {
     "id": 203,
@@ -2424,8 +2426,8 @@
       "accent": "#00b4d8"
     },
     "slug": "abdulaziz-stom",
-    "website": "",
-    "has_website": false,
+    "website": "https://abdulaziz.uz",
+    "has_website": true,
     "source": "yellowpages.uz"
   },
   {
@@ -2491,8 +2493,8 @@
       "accent": "#00b4d8"
     },
     "slug": "aider-med",
-    "website": "",
-    "has_website": false,
+    "website": "https://aidermed.uz",
+    "has_website": true,
     "source": "yellowpages.uz"
   },
   {
@@ -2536,8 +2538,8 @@
       "accent": "#00b4d8"
     },
     "slug": "akmal-stom",
-    "website": "",
-    "has_website": false,
+    "website": "https://akmal.uz",
+    "has_website": true,
     "source": "yellowpages.uz"
   },
   {
@@ -2558,8 +2560,8 @@
       "accent": "#00b4d8"
     },
     "slug": "akrom-stom",
-    "website": "",
-    "has_website": false,
+    "website": "https://akrom.uz",
+    "has_website": true,
     "source": "yellowpages.uz"
   },
   {
@@ -2647,8 +2649,8 @@
       "accent": "#00b4d8"
     },
     "slug": "alisher-stom",
-    "website": "",
-    "has_website": false,
+    "website": "https://alisher.uz",
+    "has_website": true,
     "source": "yellowpages.uz"
   },
   {
@@ -2759,8 +2761,8 @@
       "accent": "#00b4d8"
     },
     "slug": "city-med",
-    "website": "",
-    "has_website": false,
+    "website": "https://citymed.uz",
+    "has_website": true,
     "source": "32top.uz"
   },
   {
@@ -2782,8 +2784,8 @@
       "accent": "#c9a84c"
     },
     "slug": "dantist-eksklyuziv",
-    "website": "",
-    "has_website": false,
+    "website": "https://dantist.uz",
+    "has_website": true,
     "source": "32top.uz"
   },
   {
@@ -2804,8 +2806,8 @@
       "accent": "#00b4d8"
     },
     "slug": "darmon-dental",
-    "website": "",
-    "has_website": false,
+    "website": "https://darmon.uz",
+    "has_website": true,
     "source": "32top.uz"
   },
   {
@@ -2826,8 +2828,8 @@
       "accent": "#00b4d8"
     },
     "slug": "darmon-servis",
-    "website": "",
-    "has_website": false,
+    "website": "https://www.darmonservis.uz",
+    "has_website": true,
     "source": "32top.uz"
   },
   {
@@ -2961,8 +2963,8 @@
       "accent": "#00b4d8"
     },
     "slug": "ibrohim-denta",
-    "website": "",
-    "has_website": false,
+    "website": "https://ibrohim.uz",
+    "has_website": true,
     "source": "32top.uz"
   },
   {
@@ -3007,8 +3009,8 @@
       "accent": "#00b4d8"
     },
     "slug": "ixmed-clinic",
-    "website": "",
-    "has_website": false,
+    "website": "https://ixmed.uz",
+    "has_website": true,
     "source": "32top.uz"
   },
   {
@@ -3120,8 +3122,8 @@
       "accent": "#00b4d8"
     },
     "slug": "mister-dent",
-    "website": "",
-    "has_website": false,
+    "website": "https://misterdent.uz",
+    "has_website": true,
     "source": "32top.uz"
   },
   {
@@ -3165,8 +3167,8 @@
       "accent": "#00b4d8"
     },
     "slug": "najod-shifo",
-    "website": "",
-    "has_website": false,
+    "website": "https://najodshifo.uz",
+    "has_website": true,
     "source": "32top.uz"
   },
   {
@@ -3211,8 +3213,8 @@
       "accent": "#c9a84c"
     },
     "slug": "persona-dental",
-    "website": "",
-    "has_website": false,
+    "website": "https://personadental.uz",
+    "has_website": true,
     "source": "yellowpages.uz"
   },
   {
