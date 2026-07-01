@@ -19,7 +19,8 @@
       "accent": "#00b4d8"
     },
     "slug": "dream-dental",
-    "source": "2gis.uz / clinics.uz"
+    "source": "2gis.uz / clinics.uz",
+    "has_website": false
   },
   {
     "id": 102,
@@ -41,7 +42,8 @@
       "accent": "#4cc9f0"
     },
     "slug": "korean-dental-clinic",
-    "source": "near-place.com"
+    "source": "near-place.com",
+    "has_website": false
   },
   {
     "id": 103,
@@ -63,7 +65,9 @@
       "accent": "#fca311"
     },
     "slug": "denta-service",
-    "source": "32top.uz / yellowpages.uz"
+    "source": "32top.uz / yellowpages.uz",
+    "website": "https://dentaservice.uz",
+    "has_website": true
   },
   {
     "id": 104,
@@ -85,7 +89,9 @@
       "accent": "#e63946"
     },
     "slug": "estimed-stomatologiya",
-    "source": "estimed.uz"
+    "source": "estimed.uz",
+    "website": "https://estimed.uz",
+    "has_website": true
   },
   {
     "id": 105,
@@ -107,7 +113,9 @@
       "accent": "#e94560"
     },
     "slug": "pearl-dental",
-    "source": "instagram @pearldental_"
+    "source": "instagram @pearldental_",
+    "website": "https://pearldental.uz",
+    "has_website": true
   },
   {
     "id": 106,
@@ -129,7 +137,8 @@
       "accent": "#c77dff"
     },
     "slug": "dream-smile-dental",
-    "source": "2gis.uz / med24.uz"
+    "source": "2gis.uz / med24.uz",
+    "has_website": false
   },
   {
     "id": 107,
@@ -151,7 +160,8 @@
       "accent": "#90e0ef"
     },
     "slug": "denta-lights",
-    "source": "32top.uz"
+    "source": "32top.uz",
+    "has_website": false
   },
   {
     "id": 108,
@@ -173,7 +183,9 @@
       "accent": "#415a77"
     },
     "slug": "vitamed-stomatologiya",
-    "source": "32top.uz"
+    "source": "32top.uz",
+    "website": "https://vitamed.uz",
+    "has_website": true
   },
   {
     "id": 109,
@@ -195,7 +207,9 @@
       "accent": "#9b5de5"
     },
     "slug": "smalto-dente",
-    "source": "32top.uz"
+    "source": "32top.uz",
+    "website": "https://smalto.uz",
+    "has_website": true
   },
   {
     "id": 110,
@@ -217,7 +231,8 @@
       "accent": "#caf0f8"
     },
     "slug": "32-profilaktik",
-    "source": "32top.uz"
+    "source": "32top.uz",
+    "has_website": false
   },
   {
     "id": 111,
@@ -239,7 +254,9 @@
       "accent": "#e040fb"
     },
     "slug": "megapolis-denta-service",
-    "source": "sprav.uz"
+    "source": "sprav.uz",
+    "website": "",
+    "has_website": false
   },
   {
     "id": 112,
@@ -261,7 +278,8 @@
       "accent": "#ffd60a"
     },
     "slug": "begizoda-dental",
-    "source": "yellowpages.uz"
+    "source": "yellowpages.uz",
+    "has_website": false
   },
   {
     "id": 113,
@@ -283,7 +301,8 @@
       "accent": "#e94560"
     },
     "slug": "dental-optima",
-    "source": "yellowpages.uz"
+    "source": "yellowpages.uz",
+    "has_website": false
   },
   {
     "id": 114,
@@ -305,7 +324,8 @@
       "accent": "#212529"
     },
     "slug": "white-dental-clinic",
-    "source": "yellowpages.uz"
+    "source": "yellowpages.uz",
+    "has_website": false
   },
   {
     "id": 115,
@@ -327,7 +347,8 @@
       "accent": "#e5383b"
     },
     "slug": "dr-ergashov-dental",
-    "source": "instagram"
+    "source": "instagram",
+    "has_website": false
   },
   {
     "id": 116,
@@ -349,7 +370,8 @@
       "accent": "#52b788"
     },
     "slug": "dental-kingdom",
-    "source": "instagram @dentalskingdom"
+    "source": "instagram @dentalskingdom",
+    "has_website": false
   },
   {
     "id": 117,
@@ -371,7 +393,8 @@
       "accent": "#3a86ff"
     },
     "slug": "youdent-dental",
-    "source": "32top.uz"
+    "source": "32top.uz",
+    "has_website": false
   },
   {
     "id": 118,
@@ -393,7 +416,9 @@
       "accent": "#48cae4"
     },
     "slug": "dentcare-uz",
-    "source": "instagram @dentcare.uz"
+    "source": "instagram @dentcare.uz",
+    "website": "https://dentcareuz.uz",
+    "has_website": true
   },
   {
     "id": 119,
@@ -415,7 +440,8 @@
       "accent": "#1282a2"
     },
     "slug": "korean-implant-center",
-    "source": "instagram"
+    "source": "instagram",
+    "has_website": false
   },
   {
     "id": 120,
@@ -437,7 +463,8 @@
       "accent": "#ff4d6d"
     },
     "slug": "dilyara-dental",
-    "source": "near-place.com"
+    "source": "near-place.com",
+    "has_website": false
   },
   {
     "id": 121,
@@ -459,7 +486,8 @@
       "accent": "#e63946"
     },
     "slug": "denta-klass",
-    "source": "32top.uz"
+    "source": "32top.uz",
+    "has_website": false
   },
   {
     "id": 122,
@@ -481,7 +509,8 @@
       "accent": "#d00000"
     },
     "slug": "dent-master",
-    "source": "32top.uz"
+    "source": "32top.uz",
+    "has_website": false
   },
   {
     "id": 123,
@@ -503,7 +532,8 @@
       "accent": "#fd5e53"
     },
     "slug": "apolloniya-medical",
-    "source": "32top.uz"
+    "source": "32top.uz",
+    "has_website": false
   },
   {
     "id": 124,
@@ -525,7 +555,8 @@
       "accent": "#c9184a"
     },
     "slug": "sadaf-stomatologiya",
-    "source": "med24.uz"
+    "source": "med24.uz",
+    "has_website": false
   },
   {
     "id": 125,
@@ -547,7 +578,8 @@
       "accent": "#0077b6"
     },
     "slug": "kristal-dental",
-    "source": "yandex maps"
+    "source": "yandex maps",
+    "has_website": false
   },
   {
     "id": 126,
@@ -569,7 +601,8 @@
       "accent": "#d4a017"
     },
     "slug": "premium-estetic-stomatologiya",
-    "source": "yandex maps"
+    "source": "yandex maps",
+    "has_website": false
   },
   {
     "id": 127,
@@ -591,7 +624,8 @@
       "accent": "#48cae4"
     },
     "slug": "denta-yunusobod",
-    "source": "yellowpages.uz"
+    "source": "yellowpages.uz",
+    "has_website": false
   },
   {
     "id": 128,
@@ -613,7 +647,8 @@
       "accent": "#95d5b2"
     },
     "slug": "uchtepa-bolalar-stomatologiya",
-    "source": "yellowpages.uz"
+    "source": "yellowpages.uz",
+    "has_website": false
   },
   {
     "id": 129,
@@ -635,7 +670,8 @@
       "accent": "#90e0ef"
     },
     "slug": "respublika-stoma",
-    "source": "32top.uz"
+    "source": "32top.uz",
+    "has_website": false
   },
   {
     "id": 130,
@@ -657,7 +693,8 @@
       "accent": "#ffd60a"
     },
     "slug": "tdsi-dental-institute",
-    "source": "tsdi.uz"
+    "source": "tsdi.uz",
+    "has_website": false
   },
   {
     "id": 131,
@@ -679,7 +716,8 @@
       "accent": "#faf0ca"
     },
     "slug": "akfa-medline",
-    "source": "akfamedline.com / goldenpages.uz"
+    "source": "akfamedline.com / goldenpages.uz",
+    "has_website": false
   },
   {
     "id": 132,
@@ -701,7 +739,8 @@
       "accent": "#2ec4b6"
     },
     "slug": "shifo-nur-klinikasi",
-    "source": "clinics.uz / yellowpages.uz"
+    "source": "clinics.uz / yellowpages.uz",
+    "has_website": false
   },
   {
     "id": 133,
@@ -723,7 +762,8 @@
       "accent": "#fca311"
     },
     "slug": "mds-servis",
-    "source": "med24.uz"
+    "source": "med24.uz",
+    "has_website": false
   },
   {
     "id": 134,
@@ -745,7 +785,8 @@
       "accent": "#4cc9f0"
     },
     "slug": "shox-international-hospital",
-    "source": "med24.uz"
+    "source": "med24.uz",
+    "has_website": false
   },
   {
     "id": 135,
@@ -767,7 +808,8 @@
       "accent": "#e94560"
     },
     "slug": "medimax-klinikasi",
-    "source": "med24.uz"
+    "source": "med24.uz",
+    "has_website": false
   },
   {
     "id": 136,
@@ -789,7 +831,8 @@
       "accent": "#74c69d"
     },
     "slug": "profmedservice",
-    "source": "med24.uz"
+    "source": "med24.uz",
+    "has_website": false
   },
   {
     "id": 137,
@@ -811,7 +854,8 @@
       "accent": "#2a9d8f"
     },
     "slug": "allergo-logic",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 138,
@@ -833,7 +877,8 @@
       "accent": "#f7b731"
     },
     "slug": "cardio-star-plus",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 139,
@@ -855,7 +900,9 @@
       "accent": "#7b2d8b"
     },
     "slug": "estimed-klinikasi",
-    "source": "estimed.uz"
+    "source": "estimed.uz",
+    "website": "https://estimed.uz",
+    "has_website": true
   },
   {
     "id": 140,
@@ -877,7 +924,8 @@
       "accent": "#48cae4"
     },
     "slug": "shifo-nur-koz",
-    "source": "clinics.uz / med24.uz"
+    "source": "clinics.uz / med24.uz",
+    "has_website": false
   },
   {
     "id": 141,
@@ -899,7 +947,8 @@
       "accent": "#f7b731"
     },
     "slug": "tezkor-tibbiy-klinikasi",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 142,
@@ -921,7 +970,8 @@
       "accent": "#1282a2"
     },
     "slug": "yunusobod-tibbiyot",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 143,
@@ -943,7 +993,8 @@
       "accent": "#90ee90"
     },
     "slug": "almazar-tibbiyot",
-    "source": "medelement.com"
+    "source": "medelement.com",
+    "has_website": false
   },
   {
     "id": 144,
@@ -965,7 +1016,8 @@
       "accent": "#a8dadc"
     },
     "slug": "mirzo-ulugbek-tibbiyot",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 145,
@@ -987,7 +1039,8 @@
       "accent": "#a7c957"
     },
     "slug": "chilonzor-tibbiyot",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 146,
@@ -1009,7 +1062,8 @@
       "accent": "#faf0ca"
     },
     "slug": "yunusobod-medical-center",
-    "source": "goldenpages.uz / top.uz"
+    "source": "goldenpages.uz / top.uz",
+    "has_website": false
   },
   {
     "id": 147,
@@ -1031,7 +1085,8 @@
       "accent": "#74c69d"
     },
     "slug": "vatan-tibbiyot-markazi",
-    "source": "vatantibbiyot.uz / yellowpages.uz"
+    "source": "vatantibbiyot.uz / yellowpages.uz",
+    "has_website": false
   },
   {
     "id": 148,
@@ -1053,7 +1108,8 @@
       "accent": "#fca311"
     },
     "slug": "doktor-servis-klinikasi",
-    "source": "doktor-servis.uz / yellowpages.uz"
+    "source": "doktor-servis.uz / yellowpages.uz",
+    "has_website": false
   },
   {
     "id": 149,
@@ -1075,7 +1131,8 @@
       "accent": "#f7b731"
     },
     "slug": "central-kardio-servis",
-    "source": "2gis.uz / goldenpages.uz"
+    "source": "2gis.uz / goldenpages.uz",
+    "has_website": false
   },
   {
     "id": 150,
@@ -1097,7 +1154,8 @@
       "accent": "#ff9f0a"
     },
     "slug": "magic-dental-implant",
-    "source": "yandex maps / goldenpages.uz"
+    "source": "yandex maps / goldenpages.uz",
+    "has_website": false
   },
   {
     "id": 151,
@@ -1119,7 +1177,8 @@
       "accent": "#533483"
     },
     "slug": "denta-stomatologiya-kiyot",
-    "source": "instagram @denta_stomatologiya"
+    "source": "instagram @denta_stomatologiya",
+    "has_website": false
   },
   {
     "id": 152,
@@ -1141,7 +1200,8 @@
       "accent": "#ff9f0a"
     },
     "slug": "dental-art-uz",
-    "source": "instagram @dental_art_uz"
+    "source": "instagram @dental_art_uz",
+    "has_website": false
   },
   {
     "id": 153,
@@ -1163,7 +1223,8 @@
       "accent": "#90e0ef"
     },
     "slug": "denta-lights-klinikasi",
-    "source": "instagram / goldenpages.uz"
+    "source": "instagram / goldenpages.uz",
+    "has_website": false
   },
   {
     "id": 154,
@@ -1185,7 +1246,9 @@
       "accent": "#ffd93d"
     },
     "slug": "smaltokids-bolalar",
-    "source": "instagram @smaltokids.uz"
+    "source": "instagram @smaltokids.uz",
+    "website": "https://smalto.uz",
+    "has_website": true
   },
   {
     "id": 155,
@@ -1207,7 +1270,8 @@
       "accent": "#3a86ff"
     },
     "slug": "dentera-clinics",
-    "source": "instagram @dentera.clinics"
+    "source": "instagram @dentera.clinics",
+    "has_website": false
   },
   {
     "id": 156,
@@ -1229,7 +1293,8 @@
       "accent": "#2a9d8f"
     },
     "slug": "osiyo-tibbiyot-markazi",
-    "source": "goldenpages.uz"
+    "source": "goldenpages.uz",
+    "has_website": false
   },
   {
     "id": 157,
@@ -1251,7 +1316,8 @@
       "accent": "#e94560"
     },
     "slug": "medlink-klinikasi",
-    "source": "medlink.uz"
+    "source": "medlink.uz",
+    "has_website": false
   },
   {
     "id": 158,
@@ -1273,7 +1339,9 @@
       "accent": "#d8f3dc"
     },
     "slug": "smalto-bolalar",
-    "source": "32top.uz"
+    "source": "32top.uz",
+    "website": "https://smalto.uz",
+    "has_website": true
   },
   {
     "id": 159,
@@ -1295,7 +1363,8 @@
       "accent": "#c77dff"
     },
     "slug": "klinika-yunusobod",
-    "source": "top.uz"
+    "source": "top.uz",
+    "has_website": false
   },
   {
     "id": 160,
@@ -1317,7 +1386,8 @@
       "accent": "#90ee90"
     },
     "slug": "apteka-hamkor-klinikasi",
-    "source": "apteka.uz"
+    "source": "apteka.uz",
+    "has_website": false
   },
   {
     "id": 161,
@@ -1339,7 +1409,8 @@
       "accent": "#caf0f8"
     },
     "slug": "medgid-stomatologiya-1",
-    "source": "medgid.uz"
+    "source": "medgid.uz",
+    "has_website": false
   },
   {
     "id": 162,
@@ -1361,7 +1432,8 @@
       "accent": "#ff6b35"
     },
     "slug": "afisha-dental",
-    "source": "afisha.uz"
+    "source": "afisha.uz",
+    "has_website": false
   },
   {
     "id": 163,
@@ -1383,7 +1455,8 @@
       "accent": "#a8dadc"
     },
     "slug": "kliniki-uz",
-    "source": "kliniki.uz"
+    "source": "kliniki.uz",
+    "has_website": false
   },
   {
     "id": 164,
@@ -1405,7 +1478,8 @@
       "accent": "#e63946"
     },
     "slug": "denta-service-uchtepa",
-    "source": "32top.uz / clinics.uz"
+    "source": "32top.uz / clinics.uz",
+    "has_website": false
   },
   {
     "id": 165,
@@ -1427,7 +1501,8 @@
       "accent": "#94d2bd"
     },
     "slug": "denta-olmazor",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 166,
@@ -1449,7 +1524,8 @@
       "accent": "#d4a017"
     },
     "slug": "goldenpages-stomatologiya",
-    "source": "yellowpages.uz"
+    "source": "yellowpages.uz",
+    "has_website": false
   },
   {
     "id": 167,
@@ -1471,7 +1547,8 @@
       "accent": "#e84393"
     },
     "slug": "sergeli-tibbiyot",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 168,
@@ -1493,7 +1570,8 @@
       "accent": "#00a5cf"
     },
     "slug": "yangihayot-tibbiyot",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 169,
@@ -1515,7 +1593,8 @@
       "accent": "#f48c06"
     },
     "slug": "bektemir-tibbiyot",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 170,
@@ -1537,7 +1616,8 @@
       "accent": "#95d5b2"
     },
     "slug": "zangiota-tibbiyot",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 171,
@@ -1559,7 +1639,8 @@
       "accent": "#90e0ef"
     },
     "slug": "medlink-stomatologiya",
-    "source": "medlink.uz"
+    "source": "medlink.uz",
+    "has_website": false
   },
   {
     "id": 172,
@@ -1581,7 +1662,8 @@
       "accent": "#ff8906"
     },
     "slug": "klinika-uz-dental",
-    "source": "klinika.uz"
+    "source": "klinika.uz",
+    "has_website": false
   },
   {
     "id": 173,
@@ -1603,7 +1685,8 @@
       "accent": "#ff758f"
     },
     "slug": "asiyo-stomatologiya",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 174,
@@ -1625,7 +1708,8 @@
       "accent": "#d8f3dc"
     },
     "slug": "yangi-hayot-stoma",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 175,
@@ -1647,7 +1731,8 @@
       "accent": "#4cc9f0"
     },
     "slug": "endo-systems",
-    "source": "endo.uz"
+    "source": "endo.uz",
+    "has_website": false
   },
   {
     "id": 176,
@@ -1669,7 +1754,8 @@
       "accent": "#faf0ca"
     },
     "slug": "akfamedline-stomatologiya",
-    "source": "akfamedline.com"
+    "source": "akfamedline.com",
+    "has_website": false
   },
   {
     "id": 177,
@@ -1691,7 +1777,8 @@
       "accent": "#16213e"
     },
     "slug": "shayxontohur-tibbiyot",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 178,
@@ -1713,7 +1800,8 @@
       "accent": "#fca311"
     },
     "slug": "yakkasaroy-tibbiyot",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 179,
@@ -1735,7 +1823,8 @@
       "accent": "#2a9d8f"
     },
     "slug": "uchtepa-tibbiyot",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 180,
@@ -1757,7 +1846,8 @@
       "accent": "#fefee3"
     },
     "slug": "mirabad-tibbiyot",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 181,
@@ -1779,7 +1869,8 @@
       "accent": "#0096c7"
     },
     "slug": "diagnostika-markazi",
-    "source": "med24.uz"
+    "source": "med24.uz",
+    "has_website": false
   },
   {
     "id": 182,
@@ -1801,7 +1892,8 @@
       "accent": "#004e89"
     },
     "slug": "stasionar-klinikasi",
-    "source": "kliniki.uz"
+    "source": "kliniki.uz",
+    "has_website": false
   },
   {
     "id": 183,
@@ -1823,7 +1915,8 @@
       "accent": "#9b5de5"
     },
     "slug": "toshkent-city-tibbiyot",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 184,
@@ -1845,7 +1938,8 @@
       "accent": "#f5f3f4"
     },
     "slug": "asr-farm-stomatologiya",
-    "source": "32top.uz"
+    "source": "32top.uz",
+    "has_website": false
   },
   {
     "id": 185,
@@ -1867,7 +1961,8 @@
       "accent": "#ff4800"
     },
     "slug": "samarqand-darvoza-stoma",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 186,
@@ -1889,7 +1984,8 @@
       "accent": "#ff9e00"
     },
     "slug": "olmosovoy-stomatologiya",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 187,
@@ -1911,7 +2007,8 @@
       "accent": "#ffd60a"
     },
     "slug": "labzak-stomatologiya",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 188,
@@ -1933,7 +2030,8 @@
       "accent": "#48cae4"
     },
     "slug": "istiqlol-stomatologiya",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 189,
@@ -1955,7 +2053,8 @@
       "accent": "#d4a017"
     },
     "slug": "buyuk-ipak-stomatologiya",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 190,
@@ -1977,7 +2076,8 @@
       "accent": "#caf0f8"
     },
     "slug": "biruniy-stomatologiya",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 191,
@@ -1999,7 +2099,8 @@
       "accent": "#74c69d"
     },
     "slug": "hamza-stomatologiya",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 192,
@@ -2021,7 +2122,8 @@
       "accent": "#e94560"
     },
     "slug": "amir-temur-stomatologiya",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 193,
@@ -2043,7 +2145,8 @@
       "accent": "#fca311"
     },
     "slug": "fidokor-stomatologiya",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 194,
@@ -2065,7 +2168,8 @@
       "accent": "#e94560"
     },
     "slug": "navoiy-stomatologiya",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 195,
@@ -2087,7 +2191,8 @@
       "accent": "#c77dff"
     },
     "slug": "rustaveli-stomatologiya",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 196,
@@ -2109,7 +2214,8 @@
       "accent": "#48cae4"
     },
     "slug": "mustakillik-stomatologiya",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 197,
@@ -2131,7 +2237,8 @@
       "accent": "#d00000"
     },
     "slug": "bobur-stomatologiya",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 198,
@@ -2153,7 +2260,8 @@
       "accent": "#778da9"
     },
     "slug": "xususiy-klinikasi",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 199,
@@ -2175,7 +2283,8 @@
       "accent": "#007ea7"
     },
     "slug": "optima-med-klinikasi",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 200,
@@ -2197,7 +2306,8 @@
       "accent": "#cba6f7"
     },
     "slug": "mega-med-24",
-    "source": "clinics.uz"
+    "source": "clinics.uz",
+    "has_website": false
   },
   {
     "id": 201,
@@ -2220,7 +2330,8 @@
       "accent": "#c9a84c"
     },
     "slug": "hollywood-smile",
-    "source": "2gis.uz"
+    "source": "2gis.uz",
+    "has_website": false
   },
   {
     "id": 202,
@@ -2243,7 +2354,8 @@
       "accent": "#0b9e88"
     },
     "slug": "shokh-dentist",
-    "source": "2gis.uz"
+    "source": "2gis.uz",
+    "has_website": false
   },
   {
     "id": 203,
@@ -2266,7 +2378,8 @@
       "accent": "#e8a020"
     },
     "slug": "usmanov-dental",
-    "source": "2gis.uz"
+    "source": "2gis.uz",
+    "has_website": false
   },
   {
     "id": 204,
@@ -2289,7 +2402,8 @@
       "accent": "#e85d3a"
     },
     "slug": "sergo-dental",
-    "source": "2gis.uz"
+    "source": "2gis.uz",
+    "has_website": false
   },
   {
     "id": 205,
@@ -2803,8 +2917,8 @@
       "accent": "#00b4d8"
     },
     "slug": "dentcare",
-    "website": "",
-    "has_website": false,
+    "website": "https://dentcareuz.uz",
+    "has_website": true,
     "source": "yellowpages.uz"
   },
   {
@@ -3074,8 +3188,8 @@
       "accent": "#d4af37"
     },
     "slug": "pearl-dental",
-    "website": "",
-    "has_website": false,
+    "website": "https://pearldental.uz",
+    "has_website": true,
     "source": "32top.uz"
   },
   {
@@ -3421,5 +3535,28 @@
     "website": "https://vitamed.uz",
     "has_website": true,
     "source": "yellowpages.uz"
+  },
+  {
+    "id": 255,
+    "name": "Sadof Dental",
+    "niche": "Dentistry",
+    "phone": "",
+    "wa_number": "",
+    "address": "Toshkent",
+    "district": "",
+    "instagram": "",
+    "services": [
+      "Davolash",
+      "Implant",
+      "Estetik"
+    ],
+    "colors": {
+      "primary": "#0a1628",
+      "accent": "#c9a84c"
+    },
+    "slug": "sadof-dental",
+    "website": "https://sadofdental.uz",
+    "has_website": true,
+    "source": "user-provided"
   }
 ]
